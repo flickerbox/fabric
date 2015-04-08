@@ -1,0 +1,39 @@
+//------------------------------------------------------------------------------
+// Padding Styles
+//------------------------------------------------------------------------------
+@mixin padding-style-1a {
+	@include resp(padding-top,1.5,1);
+	@include resp(padding-bottom,1.5,1);
+	@include resp(padding-left,1.5,1);
+	@include resp(padding-right,1.5,1);
+}
+@mixin padding-style-2a {
+	@include resp(padding-top,2,0.75);
+	@include resp(padding-bottom,2,0.75);
+}
+@mixin padding-style-2b {
+	@include resp(padding-top,2,1);
+	@include resp(padding-bottom,2,1);
+	@include resp(padding-left,2,1);
+	@include resp(padding-right,2,1);
+}
+@mixin padding-style-3a {
+	@include resp(padding-top,3.25,1.25);
+	@include resp(padding-bottom,3.25,1.25);
+}
+@mixin padding-style-4a {
+	@include resp(padding-top,4,1.5);
+	@include resp(padding-bottom,4,1.5);
+}
+@mixin padding-style-4b {
+	@include resp(padding-top,4,1);
+	@include resp(padding-bottom,4,1);
+	@include resp(padding-left,2,1);
+	@include resp(padding-right,2,1);
+}
+@mixin padding-style-5a {
+	@include resp(padding-top,5,2.5);
+	@include resp(padding-bottom,5,2.5);
+	@include resp(padding-left,6,1.5);
+	@include resp(padding-right,6,1.5);
+}

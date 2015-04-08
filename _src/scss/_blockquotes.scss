@@ -1,0 +1,77 @@
+blockquote {
+	background: white;
+	border: 1px solid #cccccc;
+	border-bottom: 3px solid #cccccc;
+	padding: 5%;
+	text-align: center;
+	margin: 0;
+	p {
+		color: $blue;
+		font-style: italic;
+		font-size: 1.5em;
+		@include responsive(font-size, 1.75, 1.2);
+		line-height: 1.3;
+	}
+	cite {
+		@include proxima-nova-bold();
+		@include responsive(font-size, 1.3, 1.0);
+		font-style: normal;
+		color: #333333;
+	}
+}
+.Quote-slider_item {
+	display: flex;
+}
+.Quote-slider_img,
+.Quote-slider_cpy {
+	width: 50%;
+}
+.Quote-slider_img img {
+	display: block;
+}
+.Quote-slider_cpy {
+	display: flex;
+	align-items: center;
+}
+.Quote-slider_blockquote {
+	background: transparent;
+	border: none;
+	text-align: left;
+	padding: 0 7.5% 0 4em;
+	// @include responsive(font-size, 1.75, 1.2,  $unit:em);
+	.Quote-slider_p {
+		// @include responsive(font-size, 1.75, 0.8);
+		color: white;
+	}
+}
+.Quote-slider_cite {
+	display: block;
+	color: white;
+}
+@media only screen and (max-width: $bp-medium-large) {
+	.Quote-slider_blockquote {
+		padding-top: 5%;
+	}
+}
+@media only screen and (max-width: $bp-medium) {
+	.Quote-slider_item {
+		display: static;
+		position: relative;
+	}
+	.Quote-slider_img,
+	.Quote-slider_cpy {
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.Quote-slider_img:before {
+		background-color: rgba(black,0.6);
+	}
+	.Quote-slider_cpy {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 1;
+	}
+}

@@ -1,0 +1,36 @@
+body {
+	margin: 0;
+	padding: 0;
+	> * {
+		overflow: hidden;
+	}
+}
+* {
+	&,&:before,&:after {
+		box-sizing: border-box;
+		background-repeat: no-repeat;
+	}
+	:focus {
+		outline: none;
+	}
+}
+.clearfix {
+	&:before,
+	&:after {
+		content: "";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}
+.article {
+	display: block;
+}
+img {
+	max-width: 100%;
+	height: auto;
+}
+table {
+    border-collapse: collapse;
+}

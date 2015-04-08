@@ -1,0 +1,55 @@
+.bg-white { background-color: white; }
+.bg-yellow-attendees {
+	background-image: url(/media/bg-yellow-attendees.jpg);
+	background-size: cover;
+}
+.bg-aria-blue { background-image: url(/media/bg-aria-blue.jpg) }
+.bg-aria-blue--pool { background-image: url(/media/bg-aria-blue--pool.jpg) }
+.bg-off-white { background-color: #f4f4f4 }
+.bg-dark-gray { background-color: #262626 }
+.bg-orange { background-color: $orange }
+.bg-oktane-orange { background-image: url(/media/bg-oktane-orange.jpg) }
+.bg-todd {
+	background-image: url(/media/bg-todd.jpg);
+	filter: brightness(65%);
+	background-size: cover;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: -1;
+	background-position: center center;
+	@media only screen and (max-width: $bp-medium) {
+		filter: brightness(50%);
+	}
+}
+.bg-todd_wrpr {
+	position: relative;
+	padding-bottom: 30%;
+}
+.bg-blue { background-color: $blue }
+.bg-dark-blue { background-color: darken($blue, 10%) }
+.bgs-c { background-size: cover }
+.bg-right-half {
+	background-size: 50% 100%;
+	background-position: 100% 50%;
+}
+
+.bg-transparent-gray-overlay {
+	position: relative;
+	z-index: 0;
+	&:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+		background-color: rgba(black,0.3);
+	}
+	&.z-positive:before {
+		z-index: 1;
+	}
+}

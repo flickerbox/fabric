@@ -1,0 +1,187 @@
+.site-container {
+	width: 100% - $site-padding * 2;
+	max-width: $site-width;
+	margin-left: auto;
+	margin-right: auto;
+}
+.site-container--wide {
+	width: 100% - $site-padding * 2;
+	max-width: $site-width-max;
+	margin-left: auto;
+	margin-right: auto;
+}
+.site-container--wide--no-padding {
+	@extend .site-container--wide;
+	width: 100%;
+}
+
+.span-padding--left { margin-left: $span-padding; }
+.span-padding--right { margin-right: $span-padding; }
+
+%spanprep {
+	display: block;
+	float: left;
+	margin-right: $span-padding;
+	&:last-child {
+		margin-right: 0;
+	}
+	&.half-padding {
+		margin-right: ($span-padding / 2);
+	}
+	&.span-right {
+		float: right;
+		margin-right: 0;
+		margin-left: $span-padding;
+		&:last-child {
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+}
+[class^="span"] {
+	@extend %spanprep;
+}
+@mixin span-mixin($span-number, $total-spans, $type:width, $this-span-padding: $span-padding) {
+	#{$type}: ( ( 100% - ( ($total-spans - 1) * $this-span-padding ) ) ) *  ( $span-number / $total-spans ) + ( $this-span-padding * ($span-number - 1) );
+}
+@mixin pad-left ($span-number, $total-spans, $this-span-padding: $span-padding) {
+	margin-left: ( ( 100% - ( ($total-spans - 1) * $this-span-padding ) ) ) *  ( $span-number / $total-spans ) + ( $this-span-padding * ($span-number - 1) );
+}
+@mixin pad-right ($span-number, $total-spans, $this-span-padding: $span-padding) {
+	margin-right: ( ( 100% - ( ($total-spans - 1) * $this-span-padding ) ) ) *  ( $span-number / $total-spans ) + ( $this-span-padding * ($span-number - 1) );
+}
+.span-1-2 { @include span-mixin(1,2); }
+.span-1-3 { @include span-mixin(1,3); }
+.span-2-3 { @include span-mixin(2,3); }
+.span-1-4 { @include span-mixin(1,4); }
+.span-3-4 { @include span-mixin(3,4); }
+.span-1-5 { @include span-mixin(1,5); }
+.span-2-5 { @include span-mixin(2,5); }
+.span-3-5 { @include span-mixin(3,5); }
+.span-4-5 { @include span-mixin(4,5); }
+.span-1-6 { @include span-mixin(1,6); }
+.span-5-6 { @include span-mixin(5,6); }
+.span-1-7 { @include span-mixin(1,7); }
+.span-1-8 { @include span-mixin(1,8); }
+.span-1-12 { @include span-mixin(1,12); }
+.span-5-12 { @include span-mixin(5,12); }
+.span-7-12 { @include span-mixin(7,12); }
+
+.prepend-1-6 { @include pad-left(1,6); }
+.prepend-1-12 { @include pad-left(1,12); }
+.append-1-6 { @include pad-right(1,6); }
+.append-1-12 { @include pad-right(1,12); }
+
+.span-1-2--inner {
+	@include span-mixin(1,2,width,($span-padding * 2));
+	margin-right: ($span-padding * 2);
+}
+.span-1-2--pure {
+	width: 50%;
+	margin-right: 0;
+}
+.span-1-3--pure {
+	width: 33.33%;
+	margin-right: 0;
+}
+.span-2-3--pure {
+	width: 66.66%;
+	margin-right: 0;
+}
+
+[class^="span"] {
+	&:last-child {
+		margin-right: 0;
+	}
+}
+@media only screen and (max-width : $bp-large) {
+	.large-span-1-2 { @include span-mixin(1,2); }
+	.large-span-5-12 { @include span-mixin(5,12) };
+}
+@media only screen and (max-width : $bp-medium) {
+	.medium-span-full {
+		width: 100%;
+		margin: 0;
+	}
+	.medium-span-1-2 { @include span-mixin(1,2); }
+	.medium-span-1-3 { @include span-mixin(1,3); }
+	.medium-span-1-3 { @include span-mixin(1,3); }
+	.medium-span-1-4 { @include span-mixin(1,4); }
+}
+@media only screen and (max-width: $bp-medium-small) {
+	.medium-small-span-full {
+		width: 100%;
+		margin: 0;
+		float: none;
+	}
+
+}
+.show-medium { display: none; }
+.hide-medium { display: block; }
+.hide-medium-inline { display: inline; }
+.hide-large-inline { display: inline; }
+.show-small { display: none; }
+.hide-small { display: block; }
+	@media only screen and (max-width : $bp-large) {
+	.show-large { display: block !important; }
+	.hide-large { display: none !important; }
+	.hide-large-inline { display: none !important; }
+}
+@media only screen and (max-width : $bp-medium) {
+	.show-medium { display: block !important; }
+	.hide-medium { display: none !important; }
+	.hide-medium-inline { display: none !important; }
+	.medium-width--100p { width: 100%; }
+}
+@media only screen and (max-width : $bp-small) {
+	[class^="span"],
+	.small-span-full {
+		width: 100%;
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.small-span-1-2 {
+		width: ( ( 100% - ( 1 * $span-padding ) ) ) *  ( 1 / 2 ) + ( $span-padding * 0 );
+	}
+	.small-span-1-3 {
+		width: ( ( 100% - ( 2 * $span-padding ) ) ) *  ( 1 / 3 ) + ( $span-padding * 0 );
+	}
+	.small-span-1-4 {
+		width: ( ( 100% - ( 3 * $span-padding ) ) ) *  ( 1 / 4 ) + ( $span-padding * 0 );
+	}
+	.show-small { display: block !important; }
+	.hide-small { display: none !important; }
+	.small-width--100p { width: 100%; }
+}
+
+@media only screen and (max-width : $bp-small) {
+	.trust-copy { text-align: center; }
+}
+.site-section {
+	@include responsive(padding-top, 4, 2);
+	@include responsive(padding-bottom, 4, 2);
+}
+
+//---------------------------------------------------------
+// Flexbox stuff
+//---------------------------------------------------------
+.display-flex-5050 {
+	display: flex;
+	> * {
+		flex: 1;
+	}
+}
+.flex--reverse {
+
+}
+.flexbox-override {
+	html.flexbox & {
+		display: flex;
+		flex-wrap: wrap;
+		.article {
+			display: flex;
+		}
+	}
+}
+
+

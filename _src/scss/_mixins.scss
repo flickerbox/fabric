@@ -1,0 +1,12 @@
+@mixin responsive($property, $start, $finish, $unit:em) {
+	#{$property}: #{$start}#{$unit};
+	$breaks: length($breakpoints);
+	$diff: $start - $finish;
+	$eachdiff: $diff / $breaks;
+	@each $breakpoint in $breakpoints {
+		@media only screen and (max-width: #{$breakpoint}) {
+			$start: $start - $eachdiff;
+			#{$property}: #{$start}#{$unit};
+		}
+	}
+}

@@ -1,0 +1,43 @@
+.Table {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+	@include proxima-nova-medium();
+	@include responsive(font-size, 1.5, 0.9);
+	a {
+		text-transform: uppercase;
+	}
+}
+.Table_row {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid rgba(white,0.25);
+	border-top: 1px solid rgba(white,0.25);
+	&:first-child { border-top-width: 2px; }
+	&:last-child { border-bottom-width: 2px; }
+	&--highlight { background: rgba(white,0.25); }
+	&--crossout .Table_col {
+		&, strong {
+			color: #999;
+			text-decoration: line-through;
+		}
+	}
+}
+.Table_col {
+	// flex-flow: column nowrap;
+	flex-grow: 1;
+	flex-basis: 0;
+	padding: 0.5em;
+	&:first-child {
+		@include proxima-nova-light();
+		flex-grow: 4;
+	}
+	&:last-child {
+		flex-grow: 2;
+	}
+}
+
+@media only screen and (max-width: $bp-medium) {
+
+}

@@ -1,0 +1,119 @@
+.site-header-wrpr {
+	position: absolute;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+.site-header {
+	// @include responsive(height, 100, 80, px);
+	margin-top: 20px;
+	height: 80px;
+	// background: red;
+	position: relative;
+	// transition: 0.15s height;
+}
+.logo-wrpr {
+	position: absolute;
+	top: 10px;
+	svg {
+		@include responsive(width, 218, 109, px);
+	}
+}
+.main-nav {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	height: 80px;
+}
+.main-nav_item {
+	@include proxima-nova-medium;
+	@include responsive(font-size, 1.25, 0.85);
+	@include responsive(padding-left, 1, 0.5);
+	@include responsive(padding-right, 1, 0.5);
+	color: white;
+	text-decoration: none;
+	&:last-child {
+		padding-right: 0;
+	}
+}
+.main-nav_item--register {
+	padding: 0;
+	width: 0;
+	@include responsive(height, 50, 30, px);
+	@include responsive(line-height, 50, 30, px);
+	text-align: center;
+	transition: .25s width ease;
+	overflow: hidden;
+	white-space: nowrap;
+}
+#OKTANE > *,
+.main-nav_item,
+.js-fixed-nav {
+	transition: 0.15s;
+}
+$this-delay: 0.02s;
+// #O { transition-delay: $this-delay * 0 }
+// #K { transition-delay: $this-delay * 1 }
+// #T { transition-delay: $this-delay * 2 }
+// #A { transition-delay: $this-delay * 3 }
+// #N { transition-delay: $this-delay * 4 }
+// #E { transition-delay: $this-delay * 5 }
+
+.js-fixed-nav {
+	background: transparent;
+	transition: 0.3s;
+}
+.js-fixed-nav--scrolling {
+	position: fixed;
+	background: white;
+	box-shadow: 0 2px 5px rgba(black,0.35);
+	.site-header {
+		margin-top: 0;
+		// height: 56px;
+	}
+	.main-nav_item {
+		color: $blue;
+	}
+	#OKTANE > * {
+		fill: black;
+	}
+}
+.main-nav.active {
+	.main-nav_item--register {
+		@include responsive(width, 180, 100, px);
+		// width: 180px;
+	}
+}
+@media only screen and (max-width: $bp-medium) {
+	.logo-wrpr {
+		top: 0
+	}
+	.main-nav {
+		height: 40px;
+		position: relative;
+		top: 38px;
+	}
+	.main-nav_item--register {
+		position: absolute;
+		top: -30px;
+		right: 0;
+	}
+
+}
+@media only screen and (max-width: $bp-medium-small) {
+	// .logo {
+	// 	bottom: auto;
+	// 	top: 10px;
+	// }
+}
+@media only screen and (max-width: $bp-small) {
+	.main-nav {
+		bottom: 20px;
+	}
+	.main-nav {
+		width: 100%;
+		text-align: center;
+		white-space: nowrap;
+	}
+}
