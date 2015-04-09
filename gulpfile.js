@@ -23,21 +23,21 @@ var onError = function(err) {
 // Scripts Task
 // Uglifies
 gulp.task('scripts', function() {
-	gulp.src('src/js/*.js')
+	gulp.src('_src/scripts/*.js')
 		.pipe(plumber({errorHandler: onError}))
 		.pipe(uglify())
-		.pipe(gulp.dest('js'))
+		.pipe(gulp.dest('_js'))
 		.pipe(livereload()); // run livereload on js changes
 });
 
 // Styles Task
 gulp.task('styles', function() {
 	return sass (
-		'src/scss/', {
+		'_src/styles/', {
 			style:'compressed', // this is so each created css is on its own line for sourcemapping
 			// style:'compact', // this is so each created css is on its own line for sourcemapping
 			// sourcemap: true, // this line must be here in order for...
-			// sourcemapPath: 'src/scss' // ...this line to be read
+			// sourcemapPath: '_src/scss' // ...this line to be read
 			// however, it gives a deprecated error. It's really only used for
 			// web developer tools to know where the original files are
 		}
@@ -52,7 +52,7 @@ gulp.task('styles', function() {
 	.pipe(autoprefixer())
 	.pipe(concat('master.css'))
 	.pipe(sourcemaps.write('.'))
-	.pipe(gulp.dest('css'))
+	.pipe(gulp.dest('_css'))
 	.pipe(livereload()) // run livereload on sass changes
 });
 
@@ -68,8 +68,8 @@ gulp.task('watch', function () {
 	// this writes the error message to the screen:
 	var server = livereload();
 
-	gulp.watch('src/js/**/*.js', ['scripts']);
-	gulp.watch('src/scss/**/*.scss', ['styles']);
+	gulp.watch('_src/scripts/**/*.js', ['scripts']);
+	gulp.watch('_src/styles/**/*.scss', ['styles']);
 
 	// Watch any files in current dir, reload on change
 	gulp.watch('[**/*.html,**/*.php]', function(event) {

@@ -1,0 +1,124 @@
+//---------------------------------------------------------
+// Typography
+//---------------------------------------------------------
+@mixin font-base--light {
+	font-family: YOURFONTGOESHERE;
+	font-weight: 300;
+	font-style: normal;
+}
+@mixin font-base--normal {
+	font-family: YOURFONTGOESHERE;
+	font-weight: 400;
+	font-style: normal;
+}
+@mixin font-base--italic {
+	font-family: YOURFONTGOESHERE;
+	font-weight: 400;
+	font-style: italic;
+}
+@mixin font-base--bold {
+	font-family: YOURFONTGOESHERE;
+	font-weight: 700;
+	font-style: normal;
+}
+
+html {
+	font-size: $default-font-size; // this is the base font of the site (and only place px should be used for fonts).
+	font-family: YOURFONTGOESHERE;
+	color: $color;
+}
+
+//------------------------------------------------------------------------------
+// Type Style Reset
+//------------------------------------------------------------------------------
+@mixin font-style--reset {
+	text-transform: none;
+	line-height: 1.3;
+	margin-bottom: 1em;
+}
+
+//------------------------------------------------------------------------------
+// font-style--1  Like an H1
+//------------------------------------------------------------------------------
+@mixin font-style--1-0 {
+	@include font-style--reset;
+	@include font-base--light;
+	@include responsive(font-size,3.25,2.0);
+	margin-bottom: 0;
+}
+.font-style--1-0 { @include font-style--1-0; }
+
+//------------------------------------------------------------------------------
+// font-style--2  Like a base font
+//------------------------------------------------------------------------------
+@mixin font-style--2-0 {
+	@include font-style--reset;
+	@include font-base--normal;
+	@include responsive(font-size,2.1,1.4);
+	margin-bottom: 0.5em;
+}
+.font-style--2-0 { @include font-style--2-0; }
+
+@mixin font-style--2-1 {
+	@include font-style--reset;
+	@include font-base--normal;
+	@include responsive(font-size,1.1,0.85);
+}
+.font-style--2-1 { @include font-style--2-1; }
+
+//------------------------------------------------------------------------------
+// font-style--3  Like a KICKER
+//------------------------------------------------------------------------------
+@mixin font-style--3-0 {
+	@include font-style--reset;
+	@include font-base--bold;
+	text-transform: uppercase;
+	@include responsive(font-size,1.3125,1.05);
+}
+.font-style--3-0 { @include font-style--3-0; }
+
+//------------------------------------------------------------------------------
+// font-style--4  Thick and bold and really close together
+//------------------------------------------------------------------------------
+@mixin font-style--4-0 {
+	@include font-style--reset;
+	@include font-base--bold;
+	text-transform: uppercase;
+	@include responsive(font-size,1.3125,1.05);
+}
+.font-style--4-0 { @include font-style--4-0; }
+
+
+//---------------------------------------------------------
+// Typography
+//---------------------------------------------------------
+h1 { @extend .font-style--1-0; }
+h2 { @extend .font-style--2-0; }
+
+p,
+main li {
+	@extend .font-style--2-1;
+	color: $color;
+}
+
+p + h2 {
+	margin-top: 1.25em;
+}
+
+hr {
+	border: none;
+	height: 1px;
+	background-color: $color;
+}
+
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+strong {
+	font-weight: normal;
+}
+h1 + .subhead {
+	margin-bottom: 3em;
+}

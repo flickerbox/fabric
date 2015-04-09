@@ -1,3 +1,6 @@
+//---------------------------------------------------------
+// Mixins
+//---------------------------------------------------------
 @mixin responsive($property, $start, $finish, $unit:em) {
 	#{$property}: #{$start}#{$unit};
 	$breaks: length($breakpoints);

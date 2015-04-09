@@ -1,0 +1,26 @@
+//---------------------------------------------------------
+// Header
+//---------------------------------------------------------
+.site-header__wrpr {
+	position: absolute;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+.site-header {
+	margin-top: 20px;
+	height: 80px;
+	position: relative;
+}
+.logo__wrpr {
+	position: absolute;
+}
+.main-nav {
+
+}
+.main-nav__item {
+	&:last-child {
+		padding-right: 0;
+	}
+}

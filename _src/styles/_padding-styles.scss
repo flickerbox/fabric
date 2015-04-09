@@ -1,0 +1,45 @@
+//------------------------------------------------------------------------------
+// Padding Styles
+//------------------------------------------------------------------------------
+@mixin padding-style--1-0 {
+	@include responsive(padding-top,1.5,1);
+	@include responsive(padding-bottom,1.5,1);
+	@include responsive(padding-left,1.5,1);
+	@include responsive(padding-right,1.5,1);
+}
+@mixin padding-style--2-0 {
+	@include responsive(padding-top,2,0.75);
+	@include responsive(padding-bottom,2,0.75);
+}
+@mixin padding-style--2-1 {
+	@include responsive(padding-top,2,1);
+	@include responsive(padding-bottom,2,1);
+	@include responsive(padding-left,2,1);
+	@include responsive(padding-right,2,1);
+}
+@mixin padding-style--2-2 {
+	@include responsive(padding-top,2.5,1);
+	@include responsive(padding-bottom,2.5,1);
+	@include responsive(padding-left,3,1);
+	@include responsive(padding-right,3,1);
+}
+@mixin padding-style--3-0 {
+	@include responsive(padding-top,3.25,1.25);
+	@include responsive(padding-bottom,3.25,1.25);
+}
+@mixin padding-style--4-0 {
+	@include responsive(padding-top,4,1.5);
+	@include responsive(padding-bottom,4,1.5);
+}
+@mixin padding-style--4-1 {
+	@include responsive(padding-top,4,1);
+	@include responsive(padding-bottom,4,1);
+	@include responsive(padding-left,2,1);
+	@include responsive(padding-right,2,1);
+}
+@mixin padding-style--5-0 {
+	@include responsive(padding-top,5,2.5);
+	@include responsive(padding-bottom,5,2.5);
+	@include responsive(padding-left,6,1.5);
+	@include responsive(padding-right,6,1.5);
+}

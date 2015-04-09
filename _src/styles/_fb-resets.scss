@@ -1,3 +1,6 @@
+//---------------------------------------------------------
+// Flickerbox Resets
+//---------------------------------------------------------
 body {
 	margin: 0;
 	padding: 0;
@@ -14,16 +17,6 @@ body {
 		outline: none;
 	}
 }
-.clearfix {
-	&:before,
-	&:after {
-		content: "";
-		display: table;
-	}
-	&:after {
-		clear: both;
-	}
-}
 .article {
 	display: block;
 }
@@ -33,4 +26,13 @@ img {
 }
 table {
     border-collapse: collapse;
+}
+h1,h2,h3,h4,h5,h6,p,ul,ol,li {
+	font-weight: normal;
+	margin: 0 0 1em;
+}
+ul, li { // reset
+	margin: 0;
+	padding: 0;
+	// list-style: none;
 }
