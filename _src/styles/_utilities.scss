@@ -1,59 +1,23 @@
 //---------------------------------------------------------
 // Utilities
 //---------------------------------------------------------
-.u-bgs-c { background-size: cover }
-
-.u-triangle-before {
-	position: relative;
-	&:before {
-		content: "";
-		position: absolute;
-		left: 1em;
-		border-left: 0.6em solid #ed5b2f;
-		border-top: 0.45em solid transparent;
-		border-bottom: 0.45em solid transparent;
-		transition: transform 0.2s;
-	}
-	&.active:before {
-		transform: rotate(90deg);
-	}
-}
-
-.u-play-overlay {
-	display: block;
-	position: relative;
-	&:after {
-
-	}
-}
-
-.u-angle-quote-after {
-	&:after {
-		content: "›";
-		padding-left: 0.3em;
-	}
-}
 
 //---------------------------------------------------------
 // Color
 //---------------------------------------------------------
 // color white
-.u-c-w * {
-	color: white;
-}
+.u-c-w * { color: white }
+.u-c-d * { color: $color }
 
 //------------------------------------------------------------------------------
 // Cursor
 //------------------------------------------------------------------------------
-.u-cursor--pointer { cursor: pointer }
-.u-cursor--default { cursor: default }
+.u-cursor-pointer { cursor: pointer }
+.u-cursor-default { cursor: default }
 
 //------------------------------------------------------------------------------
 // Text Align
 //------------------------------------------------------------------------------
-.u-text-align--center { text-align: center }
-.u-text-align--left   { text-align: left }
-.u-text-align--right  { text-align: right }
 .u-ta-c { text-align: center }
 .u-ta-l { text-align: left }
 .u-ta-r { text-align: right }
@@ -61,9 +25,7 @@
 //------------------------------------------------------------------------------
 // Floats
 //------------------------------------------------------------------------------
-.u-float--right { float: right }
 .u-f-r { float: right }
-.u-float--left  { float: left }
 .u-f-l  { float: left }
 
 //------------------------------------------------------------------------------
@@ -131,20 +93,13 @@
 //---------------------------------------------------------
 // Background
 //---------------------------------------------------------
+.u-bgs-c { background-size: cover }
 .u-bg-white { background-color: white }
 
 //---------------------------------------------------------
 // Whitespace
 //---------------------------------------------------------
 .u-ws-nw { white-space: nowrap }
-
-//------------------------------------------------------------------------------
-// Display
-//------------------------------------------------------------------------------
-.u-display-block { display: block }
-.u-d-b { display: block }
-.u-display-none { display: none }
-.u-d-n { display: none }
 
 //------------------------------------------------------------------------------
 // Width
@@ -161,11 +116,6 @@
 //------------------------------------------------------------------------------
 .u-overflow-hidden { overflow: hidden; }
 .u-overflow-visible { overflow: visible; }
-
-//------------------------------------------------------------------------------
-// Hide
-//------------------------------------------------------------------------------
-.u-hide { display: none }
 
 //------------------------------------------------------------------------------
 // Positioning
@@ -190,6 +140,8 @@
 //---------------------------------------------------------
 // Show & Hide
 //---------------------------------------------------------
+.u-show { display: block }
+.u-hide { display: none }
 @media only screen and ( max-width: $bp-large ) {
 	@at-root (without: media) {
 		.u-show-large { display: none; }
