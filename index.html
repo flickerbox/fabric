@@ -46,7 +46,7 @@
 	<!-- Google Analytics // END -->
 
 	<header class="site-header__wrpr">
-		<div class="site-header site-container--wide">
+		<div class="site-header site-container">
 			<div class="logo__wrpr">
 				{{LOGO}}
 			</div>
@@ -54,11 +54,18 @@
 				<a class="main-nav__item" href="#{{NAV_1}}">{{NAV_1}}</a>
 				<a class="main-nav__item" href="#{{NAV_2}}">{{NAV_2}}</a>
 				<a class="main-nav__item" href="#{{NAV_3}}">{{NAV_3}}</a>
+				<a class="main-nav__item" href="#{{NAV_4}}">{{NAV_4}}</a>
+				<a class="main-nav__item" href="#{{NAV_5}}">{{NAV_5}}</a>
 			</nav>
 		</div>
 	</header>
+	<section class="valprop">
+		<div class="site-container u-ta-c">
+			{{VALPROP}}
+		</div>
+	</section>
 	<main>
-		<section class="site-section valprop">
+		<section class="site-section">
 			<div class="site-container">
 				{{MAIN_CONTENT}}
 			</div>
@@ -66,10 +73,15 @@
 	</main>
 	<footer class="site-section site-footer">
 		<div class="site-container">
-			{{FOOTER_CONTENT}}
+			<div class="span-1-2">
+				{{FOOTER_LEFT}}
+			</div>
+			<div class="span-1-2 u-ta-r">
+				{{FOOTER_RIGHT}}
+			</div>
 		</div>
 	</footer>
 
-	<script src="_/js/master.js"></script>
+	<script src="/_js/master.js"></script>
 </body>
 </html>

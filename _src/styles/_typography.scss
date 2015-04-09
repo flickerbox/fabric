@@ -23,13 +23,13 @@
 }
 
 html {
+	@include font-base--normal;
 	font-size: $default-font-size; // this is the base font of the site (and only place px should be used for fonts).
-	font-family: YOURFONTGOESHERE;
 	color: $color;
 }
 
 //------------------------------------------------------------------------------
-// Type Style Reset
+// Font Style Reset
 //------------------------------------------------------------------------------
 @mixin font-style--reset {
 	text-transform: none;

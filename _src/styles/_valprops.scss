@@ -1,6 +1,5 @@
 .valprop {
-	padding-top: 8em;
-	padding-bottom: 8em;
+	@include padding-style--6-0;
 	background-size: cover;
 	background-position: center bottom;
 }
