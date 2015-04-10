@@ -3,6 +3,9 @@ Fabric is a very opinionated, yet very basic framework Flickerbox, Inc. websites
 
 Fabric uses BEM SCSS for its SCSS file. Because of this, HTML and SCSS will be VERY FLAT. Even a single nesting of elements is discouraged.
 
+### FB Reset ###
+This is Flickerbox's reset. It's small but very opionionated. It completely abolishes list-items bullets (if you need a list, add the bullets yourself).
+
 ### Typography ###
 The only place typography can be changed is in the _typography.scss file. This ensures that typography will consistent and one-offs will be kept to a minimum. It also allows the font-sizes to automatically resize - making writing responsive code much faster.
 

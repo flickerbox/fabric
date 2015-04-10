@@ -128,6 +128,9 @@ li {
 	@extend .font-style-2-1;
 	color: $color;
 }
+li {
+	margin-bottom: 0;
+}
 
 p + h2 {
 	margin-top: 1.25em;
@@ -150,14 +153,6 @@ strong {
 h1 + .subhead {
 	margin-bottom: 3em;
 }
-
-
-
-
-
-
-
-
 
 
 .subhead {
