@@ -50,19 +50,24 @@ gulp.task('styles', function() {
 	return sass (
 		srcDir + '/' + cssSource + '/', {
 			sourcemap: true,
-			noCache: true
+			noCache: true,
+			style: 'compressed'
 		}
 	)
 	.on('error', onError)
 	.pipe(concat('master.css'))
 	.pipe(autoprefixer())
-	.pipe(sourcemaps.write('/',{ 
-		includeContent: false, sourceRoot: '_src/styles' 
+	.pipe(sourcemaps.write('../' + cssDestination +'/',{ 
+		sourceRoot: '_src/styles',
+		includeContent: false 
 	}))
 	.pipe(gulp.dest(cssDestination));
 });
 
-// this function handles image optimization
+/*
+**  Image compression is off by default but is included. You can access by running `gulp images` 
+**  or add it to the `default` gulp task at the bottom.
+*/
 gulp.task('images', function() {
   return gulp.src(imageSource+'/**/*.{png,jpg,jpeg}')
   	.pipe(jpegoptim({
@@ -70,7 +75,8 @@ gulp.task('images', function() {
   	})())
   	.pipe(pngquant({
   		quality: 	'65-80',
-  		speed: 		4})())
+  		speed: 		4
+  		})())
     .pipe(gulp.dest(imageDestination));
 });
 
@@ -78,10 +84,7 @@ gulp.task('watch', function () {
 	
 	gulp.watch(srcDir + '/' + jsSource + '/**/*.js', ['scripts']);
 	gulp.watch(srcDir + '/' + cssSource + '/*.scss', ['styles']);
-	//gulp.watch(imageSource + '*.jpg', ['images']);
 	livereload.listen();
-	// run livereload only the changed file. this is most important for livereload of css
-	// if you're having problems, make sure you have the chrome extension and that it's turned on
 	gulp.watch(['**/*.html','**/*.php', cssDestination + '/master.css' ], function(event) {
 		livereload.changed(event.path); 
 	});
@@ -89,4 +92,4 @@ gulp.task('watch', function () {
 });
 
 
-gulp.task('default', ['scripts', 'styles', 'watch', 'images']);
+gulp.task('default', ['scripts', 'styles', 'watch']);
