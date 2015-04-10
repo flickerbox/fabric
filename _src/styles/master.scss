@@ -1,25 +1,48 @@
 /*# sourceMappingURL=master.css.map */
 
 @import
-	"_variables",
-	"_mixins",
-	"_owl-carousel",
-	"_magnific-popup",
-	"_fb-resets",
-	"_js-helpers",
-	"_typography",
-	"_padding-styles",
-	"_layout",
-	"_backgrounds",
-	"_blockquotes",
-	"_buttons",
-	"_footer",
-	"_header",
-	"_lists",
-	"_sliders",
-	"_tables",
-	"_valprops",
-	"_common",
-	"_utilities";
-	// "_wordpress-overrides",
-	// "_drupal-overrides";
+	"variables",
+	"mixins",
+	"fb-reset",
+
+	// javascript helper css
+	"owl-carousel",
+	"magnific-popup",
+	"js-helpers",
+
+	// global styles
+	"padding-styles",
+	"typography",
+	"layout",
+
+	// these are the more modular partials
+	"backgrounds",
+	"blockquotes",
+	"buttons",
+	"lists",
+	"boxes",
+	"sliders",
+	"tables",
+
+	// global page styles:
+	"header",
+	"footer",
+	"valprops",
+
+	// the rest of the stuff that doesn't fit obviously anywhere else;
+	"common",
+
+	// small 1-2 line utility classes
+	"utilities";
+
+	// specific to either wordpress or drupal:
+	// "wordpress-overrides",
+	// "drupal-overrides";
+
+
+
+
+
+
+
+

@@ -49,6 +49,15 @@ gulp.task('scripts', function() {
 gulp.task('styles', function() {
 	return sass (
 		srcDir + '/' + cssSource + '/', {
+
+			// old stuff but keeping in here for reference for now
+			// style:'compressed', // this is so each created css is on its own line for sourcemapping
+			// style:'compact', // this is so each created css is on its own line for sourcemapping
+			// sourcemap: true, // this line must be here in order for...
+			// sourcemapPath: 'src/scss' // ...this line to be read
+			// however, it gives a deprecated error. It's really only used for
+			// web developer tools to know where the original files are
+
 			sourcemap: true,
 			noCache: true,
 			style: 'compressed'
@@ -81,12 +90,12 @@ gulp.task('images', function() {
 });
 
 gulp.task('watch', function () {
-	
+
 	gulp.watch(srcDir + '/' + jsSource + '/**/*.js', ['scripts']);
 	gulp.watch(srcDir + '/' + cssSource + '/*.scss', ['styles']);
 	livereload.listen();
 	gulp.watch(['**/*.html','**/*.php', cssDestination + '/master.css' ], function(event) {
-		livereload.changed(event.path); 
+		livereload.changed(event.path);
 	});
 
 });
