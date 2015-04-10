@@ -56,9 +56,7 @@ gulp.task('styles', function() {
 	.on('error', onError)
 	.pipe(concat('master.css'))
 	.pipe(autoprefixer())
-	.pipe(sourcemaps.write('/',{ 
-		includeContent: false, sourceRoot: '_src/styles' 
-	}))
+	.pipe(sourcemaps.write())
 	.pipe(gulp.dest(cssDestination));
 });
 
