@@ -59,7 +59,7 @@ gulp.task('styles', function() {
 			// web developer tools to know where the original files are
 
 			sourcemap: true,
-			noCache: true,
+			noCache: false, 	// default = false. saves ~10% runtime but stores in a .sass-cache folder.
 			style: 'compressed'
 		}
 	)
@@ -67,16 +67,15 @@ gulp.task('styles', function() {
 	.pipe(concat('master.css'))
 	.pipe(autoprefixer())
 	.pipe(sourcemaps.write('../' + cssDestination +'/',{ 
-		sourceRoot: '_src/styles',
-		includeContent: false 
+		sourceRoot: srcDir + '/' + cssSource,  // 
+		includeContent: false 		// default is true, which includes the entire css in the sourcemap
 	}))
 	.pipe(gulp.dest(cssDestination));
 });
 
-/*
-**  Image compression is off by default but is included. You can access by running `gulp images` 
-**  or add it to the `default` gulp task at the bottom.
-*/
+// Image compression is off by default but is included. You can access by running `gulp images` 
+// or add it to the `default` gulp task at the bottom.
+
 gulp.task('images', function() {
   return gulp.src(imageSource+'/**/*.{png,jpg,jpeg}')
   	.pipe(jpegoptim({
