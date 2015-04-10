@@ -1,9 +1,10 @@
-//
 // very important to put /*# sourceMappingURL=master.css.map */ as the first line of the master.scss
 //
 // If you want live reload to work, you must install the livereload extension for chrome
 // https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei
 //
+'use strict';
+
 var gulp = 			require('gulp'),
 	uglify = 		require('gulp-uglify'),
 	sass = 			require('gulp-ruby-sass'),
@@ -14,7 +15,8 @@ var gulp = 			require('gulp'),
 	sourcemaps = 	require('gulp-sourcemaps'),
 	livereload = 	require('gulp-livereload'),
 	imagemin = 		require('gulp-imagemin'),
-	jpegoptim = 		require('imagemin-jpegoptim');
+	jpegoptim = 	require('imagemin-jpegoptim'),
+	pngquant = 		require('imagemin-pngquant');
 
 var srcDir = 			'_src',
 	jsSource = 			'scripts',
@@ -47,31 +49,35 @@ gulp.task('scripts', function() {
 gulp.task('styles', function() {
 	return sass (
 		srcDir + '/' + cssSource + '/', {
-			style:'compressed', // this is so each created css is on its own line for sourcemapping
+
+			// old stuff but keeping in here for reference for now
+			// style:'compressed', // this is so each created css is on its own line for sourcemapping
 			// style:'compact', // this is so each created css is on its own line for sourcemapping
 			// sourcemap: true, // this line must be here in order for...
 			// sourcemapPath: 'src/scss' // ...this line to be read
 			// however, it gives a deprecated error. It's really only used for
 			// web developer tools to know where the original files are
+
+			sourcemap: true,
+			noCache: true
 		}
 	)
 	.on('error', onError)
-	// .pipe(autoprefixer({
-	// 	// browsers: ['last 2 versions', 'ie 9'],
-	// 	cascade: false
-	// }))
-	// .pipe(gulp.dest(cssDestination))
-	.pipe(sourcemaps.init())
-	.pipe(autoprefixer())
 	.pipe(concat('master.css'))
-	.pipe(sourcemaps.write('.'))
-	.pipe(gulp.dest(cssDestination)); // run livereload on sass changes
+	.pipe(autoprefixer())
+	.pipe(sourcemaps.write())
+	.pipe(gulp.dest(cssDestination));
 });
 
 // this function handles image optimization
 gulp.task('images', function() {
-  return gulp.src(imageSource + '/**/*')
-    .pipe(jpegoptim({max: 70}))
+  return gulp.src(imageSource+'/**/*.{png,jpg,jpeg}')
+  	.pipe(jpegoptim({
+  		max: 70
+  	})())
+  	.pipe(pngquant({
+  		quality: 	'65-80',
+  		speed: 		4})())
     .pipe(gulp.dest(imageDestination));
 });
 
@@ -79,11 +85,14 @@ gulp.task('watch', function () {
 
 	gulp.watch(srcDir + '/' + jsSource + '/**/*.js', ['scripts']);
 	gulp.watch(srcDir + '/' + cssSource + '/*.scss', ['styles']);
-	gulp.watch(imageSource + '*.jpg', ['images']);
+	//gulp.watch(imageSource + '*.jpg', ['images']);
 	livereload.listen();
-	gulp.watch(['**/*.html','**/*.php','**/*.css'], function(event) {
+	// run livereload only the changed file. this is most important for livereload of css
+	// if you're having problems, make sure you have the chrome extension and that it's turned on
+	gulp.watch(['**/*.html','**/*.php', cssDestination + '/master.css' ], function(event) {
 		livereload.changed(event.path);
 	});
+
 });
 
 
