@@ -58,21 +58,26 @@
 
 	<header class="site-header__wrpr">
 		<div class="site-header site-container">
-			<div class="logo__wrpr">
-				{{LOGO}}
-			</div>
-			<nav class="main-nav" >
-				<a class="main-nav__item" href="#{{NAV_1}}">{{NAV_1}}</a>
-				<a class="main-nav__item" href="#{{NAV_2}}">{{NAV_2}}</a>
-				<a class="main-nav__item" href="#{{NAV_3}}">{{NAV_3}}</a>
-				<a class="main-nav__item" href="#{{NAV_4}}">{{NAV_4}}</a>
-				<a class="main-nav__item" href="#{{NAV_5}}">{{NAV_5}}</a>
+			<a class="logo__wrpr" href="/">
+				<?php include $_SERVER['DOCUMENT_ROOT'] . "/_media/logo--fabric.svg" ?>
+			</a>
+			<nav class="primary-nav" >
+				<a class="primary-nav__item" href="#">{{NAV_1}}</a>
+				<a class="primary-nav__item" href="#">{{NAV_2}}</a>
+				<a class="primary-nav__item" href="#">{{NAV_3}}</a>
+				<a class="primary-nav__item" href="#">{{NAV_4}}</a>
+				<a class="primary-nav__item" href="#">{{NAV_5}}</a>
+			</nav>
+			<nav class="secondary-nav">
+				<a class="secondary-nav__item" href="#">{{NAV_1}}</a>
+				<a class="secondary-nav__item" href="#">{{NAV_2}}</a>
 			</nav>
 		</div>
 	</header>
 	<section class="valprop">
 		<div class="site-container u-ta-c">
-			{{VALPROP}}
+			<h1>{{VALPROP}}</h1>
+			<div class="subhead">{{SUBHEAD}}</div>
 		</div>
 	</section>
 	<main>

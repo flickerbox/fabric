@@ -8,20 +8,35 @@
 	position: relative;
 }
 .logo__wrpr {
+	display: block;
 	position: absolute;
 	bottom: 0;
+	top: 0;
 	left: 0;
+	height: 60px;
+	width: 60px;
+	margin: auto;
 }
-.logo {
-	display: block;
-}
-.main-nav {
+.primary-nav {
 	position: absolute;
 	bottom: 0;
 	right: 0;
 }
-.main-nav__item {
+.primary-nav__item {
+	display: block;
+	float: left;
 	&:last-child {
-		padding-right: 100;
+		padding-right: 0;
+	}
+}
+.secondary-nav {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.secondary-nav__item {
+	padding: 1em;
+	&:last-child {
+		padding-right: 0;
 	}
 }

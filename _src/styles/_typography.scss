@@ -57,14 +57,20 @@ html {
 	@include responsive(font-size,2.1,1.4);
 	margin-bottom: 0.5em;
 }
-.font-style-2-0 { @include font-style-2-0; }
-
 @mixin font-style-2-1 {
 	@include font-style-reset;
 	@include font-base-normal;
-	@include responsive(font-size,1.1,0.85);
+	@include responsive(font-size,1.3,1.05);
 }
+@mixin font-style-2-2 {
+	@include font-style-reset;
+	@include font-base-normal;
+	@include responsive(font-size,1.2,1);
+}
+
+.font-style-2-0 { @include font-style-2-0; }
 .font-style-2-1 { @include font-style-2-1; }
+.font-style-2-2 { @include font-style-2-2; }
 
 //------------------------------------------------------------------------------
 // font-style-3  Like a KICKER
@@ -75,7 +81,28 @@ html {
 	text-transform: uppercase;
 	@include responsive(font-size,1.3125,1.05);
 }
+@mixin font-style-3-1 {
+	@include font-style-reset;
+	@include font-base-bold;
+	text-transform: uppercase;
+	@include responsive(font-size,0.9375,0.75);
+}
+@mixin font-style-3-2 {
+	@include font-style-reset;
+	@include font-base-bold;
+	text-transform: uppercase;
+	@include responsive(font-size,0.8125,0.75);
+}
+@mixin font-style-3-3 {
+	@include font-style-reset;
+	@include font-base-bold;
+	text-transform: uppercase;
+	@include responsive(font-size,0.8125,0.65);
+}
 .font-style-3-0 { @include font-style-3-0; }
+.font-style-3-1 { @include font-style-3-1; }
+.font-style-3-2 { @include font-style-3-2; }
+.font-style-3-3 { @include font-style-3-2; }
 
 //------------------------------------------------------------------------------
 // font-style-4  Thick and bold and really close together
@@ -95,6 +122,7 @@ html {
 h1 { @extend .font-style-1-0; }
 h2 { @extend .font-style-2-0; }
 
+.p,
 p,
 li {
 	@extend .font-style-2-1;
@@ -117,8 +145,70 @@ a {
 	color: inherit;
 }
 strong {
-	font-weight: normal;
+	// font-weight: normal;
 }
 h1 + .subhead {
 	margin-bottom: 3em;
+}
+
+
+
+
+
+
+
+
+
+
+.subhead {
+	@extend .font-style-2-2;
+	margin: 0.3em 0 1.1em;
+}
+.intro {
+	@extend .font-style-2-2;
+}
+
+time,
+.kicker,
+.trailing-link {
+	@extend .font-style-3-2;
+}
+time {
+	display: block;
+	color: $color;
+}
+time,
+.kicker {
+	margin-bottom: 0.5em;
+}
+
+//------------------------------------------------------------------------------
+// Links
+//------------------------------------------------------------------------------
+.site-link{
+	text-decoration: none;
+	color: $link-color;
+}
+a { @extend .site-link; }
+
+//------------------------------------------------------------------------------
+// LINK-PARENT LINK-CHILD
+//------------------------------------------------------------------------------
+.link-parent {
+	display: block;
+	.link-child > p,
+	.link-child > .p,
+	.link-child {
+		@extend .site-link;
+	}
+	&:active,
+	&:hover {
+		&,
+		* {
+			text-decoration: none;
+		}
+		.link-child {
+			text-decoration: underline;
+		}
+	}
 }
