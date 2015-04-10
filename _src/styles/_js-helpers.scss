@@ -1,6 +1,23 @@
 //---------------------------------------------------------
 // JS Helpers
 //---------------------------------------------------------
-.js-slide-toggle {
-	cursor: pointer;
+.js-slide-toggle { cursor: pointer }
+.js-fouc-fix { display: none }
+
+.js-container-overflow__container {
+	position: relative;
+}
+.js-container-overflow--left,
+.js-container-overflow--right {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+}
+.js-container-overflow--right {
+	right: 0;
+	left: 100%;
+}
+.js-container-overflow--left {
+	left: 0;
+	right: 100%;
 }

@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>{{TITLE}}</title>
+	<title>{{PAGE_TITLE}}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 	<link rel="stylesheet" type="text/css" href="/_css/master.css" media="screen">
 	<script src="/_js/header.js"></script>
+
+	<!-- if TYPEKIT:
 	<script src="//use.typekit.net/{{TYPEKIT_ID}}.js"></script>
 	<script>
 		try { Typekit.load({
@@ -21,17 +23,26 @@
 			});
 		} catch(e) {}
 	</script>
-	<link rel="shortcut icon"                    href="/_media/favicons/favicon.ico">
-	<link rel="apple-touch-icon"                 href="/_media/favicons/apple-touch-iphone.png">
-	<link rel="apple-touch-icon" sizes="57x57"   href="/_media/favicons/apple-touch-icon-57x57.png">
+	-->
+	<!-- created at http://iconogen.com/ -->
+	<link rel="shortcut icon" href="/_media/favicons/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" sizes="57x57" href="/_media/favicons/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/_media/favicons/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/_media/favicons/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/_media/favicons/apple-touch-icon-76x76.png">
 	<link rel="apple-touch-icon" sizes="114x114" href="/_media/favicons/apple-touch-icon-114x114.png">
-	<link rel="apple-touch-icon" sizes="72x72"   href="/_media/favicons/apple-touch-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="/_media/favicons/apple-touch-icon-144x144.png">
-	<link rel="apple-touch-icon" sizes="60x60"   href="/_media/favicons/apple-touch-icon-60x60.png">
 	<link rel="apple-touch-icon" sizes="120x120" href="/_media/favicons/apple-touch-icon-120x120.png">
-	<link rel="apple-touch-icon" sizes="76x76"   href="/_media/favicons/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/_media/favicons/apple-touch-icon-144x144.png">
 	<link rel="apple-touch-icon" sizes="152x152" href="/_media/favicons/apple-touch-icon-152x152.png">
 	<link rel="apple-touch-icon" sizes="180x180" href="/_media/favicons/apple-touch-icon-180x180.png">
+	<link rel="icon" type="image/png" href="/_media/favicons/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="/_media/favicons/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/_media/favicons/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="/_media/favicons/android-chrome-192x192.png" sizes="192x192">
+	<meta name="msapplication-square70x70logo" content="/_media/favicons/smalltile.png">
+	<meta name="msapplication-square150x150logo" content="/_media/favicons/mediumtile.png">
+	<meta name="msapplication-wide310x150logo" content="/_media/favicons/widetile.png">
+	<meta name="msapplication-square310x310logo" content="/_media/favicons/largetile.png">
 </head>
 <body>
 	<!-- Google Analytics // START -->
@@ -46,7 +57,7 @@
 	<!-- Google Analytics // END -->
 
 	<header class="site-header__wrpr">
-		<div class="site-header site-container--wide">
+		<div class="site-header site-container">
 			<div class="logo__wrpr">
 				{{LOGO}}
 			</div>
@@ -54,11 +65,18 @@
 				<a class="main-nav__item" href="#{{NAV_1}}">{{NAV_1}}</a>
 				<a class="main-nav__item" href="#{{NAV_2}}">{{NAV_2}}</a>
 				<a class="main-nav__item" href="#{{NAV_3}}">{{NAV_3}}</a>
+				<a class="main-nav__item" href="#{{NAV_4}}">{{NAV_4}}</a>
+				<a class="main-nav__item" href="#{{NAV_5}}">{{NAV_5}}</a>
 			</nav>
 		</div>
 	</header>
+	<section class="valprop">
+		<div class="site-container u-ta-c">
+			{{VALPROP}}
+		</div>
+	</section>
 	<main>
-		<section class="site-section valprop">
+		<section class="site-section">
 			<div class="site-container">
 				{{MAIN_CONTENT}}
 			</div>
@@ -66,10 +84,15 @@
 	</main>
 	<footer class="site-section site-footer">
 		<div class="site-container">
-			{{FOOTER_CONTENT}}
+			<div class="span-1-2">
+				{{FOOTER_LEFT}}
+			</div>
+			<div class="span-1-2 u-ta-r">
+				{{FOOTER_RIGHT}}
+			</div>
 		</div>
 	</footer>
 
-	<script src="_/js/master.js"></script>
+	<script src="/_js/master.js"></script>
 </body>
 </html>
