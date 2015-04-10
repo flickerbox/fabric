@@ -1,3 +1,11 @@
 //---------------------------------------------------------
 // Footer
 //---------------------------------------------------------
+.site-footer__right {
+	text-align: right;
+}
+@media only screen and (max-width: $bp-small) {
+	.site-footer__right {
+		text-align: left;
+	}
+}

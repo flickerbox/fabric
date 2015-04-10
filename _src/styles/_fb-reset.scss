@@ -32,8 +32,9 @@ h1,h2,h3,h4,h5,h6,p,ul,ol,li {
 	font-weight: normal;
 	margin: 0 0 1em;
 }
-ul, li { // reset
+ul,
+li { // reset
 	margin: 0;
 	padding: 0;
-	// list-style: none;
+	list-style: none;
 }

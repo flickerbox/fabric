@@ -61,7 +61,7 @@
 			<a class="logo__wrpr" href="/">
 				<?php include $_SERVER['DOCUMENT_ROOT'] . "/_media/logo--fabric.svg" ?>
 			</a>
-			<nav class="primary-nav" >
+			<nav class="primary-nav">
 				<a class="primary-nav__item" href="#">{{NAV_1}}</a>
 				<a class="primary-nav__item" href="#">{{NAV_2}}</a>
 				<a class="primary-nav__item" href="#">{{NAV_3}}</a>
@@ -83,17 +83,23 @@
 	<main>
 		<section class="site-section">
 			<div class="site-container">
-				{{MAIN_CONTENT}}
+				<p>{{MAIN_CONTENT}}</p>
+				<ul>
+					<li>List Item 1</li>
+					<li>List Item 2</li>
+					<li>List Item 3</li>
+					<li>List Item 4</li>
+				</ul>
 			</div>
 		</section>
 	</main>
 	<footer class="site-section site-footer">
 		<div class="site-container">
-			<div class="span-1-2">
-				{{FOOTER_LEFT}}
+			<div class="span-1-2 site-footer__left">
+				<p>{{FOOTER_LEFT}}</p>
 			</div>
-			<div class="span-1-2 u-ta-r">
-				{{FOOTER_RIGHT}}
+			<div class="span-1-2 site-footer__right">
+				<p>{{FOOTER_RIGHT}}</p>
 			</div>
 		</div>
 	</footer>
