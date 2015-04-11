@@ -60,6 +60,6 @@ For a super fast site start, use Fetch with Sublime to download and install Fabr
 
 To download the latest Fabric to your current project, use "Fetch: Package" and tell fetch what directory to install it. Leave it empty for the root of your project.
 
-[Fetch Manage](http://i.imgur.com/4qJeQXC.png)
+![Fetch Manage](http://i.imgur.com/4qJeQXC.png)
 
-[Package Link](http://i.imgur.com/aiOFZEw.png)
+![Package Link](http://i.imgur.com/aiOFZEw.png)
