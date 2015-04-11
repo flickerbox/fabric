@@ -2,20 +2,25 @@
 
 @import
 	"variables",
-	"mixins",
-	"fb-reset",
+
+	// Base stuff for Fabric
+	"fabric/mixins",
+	"fabric/fb-reset",
 
 	// javascript helper css
+	// NOTE: This should be moved into Flickerbox Scraps
 	"owl-carousel",
 	"magnific-popup",
 	"js-helpers",
 
 	// global styles
-	"padding-styles",
-	"typography",
-	"layout",
+	"fabric/padding-styles",
+	"fabric/layout",
 
-	// these are the more modular partials
+	// typography
+	"typography",
+
+	// modular partials
 	"backgrounds",
 	"blockquotes",
 	"buttons",
@@ -33,11 +38,11 @@
 	"common",
 
 	// small 1-2 line utility classes
-	"utilities";
+	"fabric/utilities";
 
 	// specific to either wordpress or drupal:
-	// "wordpress-overrides",
-	// "drupal-overrides";
+	// "fabric/wordpress-overrides",
+	// "fabric/drupal-overrides";
 
 
 

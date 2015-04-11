@@ -189,20 +189,20 @@ a { @extend .site-link; }
 //------------------------------------------------------------------------------
 // LINK-PARENT LINK-CHILD
 //------------------------------------------------------------------------------
-.link-parent {
+.link__child > p,
+.link__child > .p,
+.link__child {
+	@extend .site-link;
+}
+.link__parent {
 	display: block;
-	.link-child > p,
-	.link-child > .p,
-	.link-child {
-		@extend .site-link;
-	}
 	&:active,
 	&:hover {
 		&,
 		* {
 			text-decoration: none;
 		}
-		.link-child {
+		.link__child {
 			text-decoration: underline;
 		}
 	}
