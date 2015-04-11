@@ -2,6 +2,7 @@
 // Header
 //---------------------------------------------------------
 .site-header__wrpr {
+	overflow: visible;
 }
 .site-header {
 	height: $header-height;
@@ -17,18 +18,41 @@
 	width: 60px;
 	margin: auto;
 }
+
+//---------------------------------------------------------
+// Primary Nav
+//---------------------------------------------------------
 .primary-nav {
 	position: absolute;
 	bottom: 0;
 	right: 0;
 }
+
+.primary-nav__link,
 .primary-nav__item {
 	display: block;
+}
+.primary-nav__item--1st {
+	position: relative;
 	float: left;
 	&:last-child {
 		padding-right: 0;
 	}
 }
+.primary-nav__list--2nd {
+	position: absolute;
+	left: 0;
+	top: -1000em;
+}
+.primary-nav__item--1st:hover {
+	.primary-nav__list--2nd {
+		top: 100%;
+	}
+}
+
+//---------------------------------------------------------
+// Secondary Nav
+//---------------------------------------------------------
 .secondary-nav {
 	position: absolute;
 	right: 0;
