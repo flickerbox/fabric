@@ -47,10 +47,10 @@ gulp.task('scripts', function() {
 });
 
 // Styles Task
-gulp.task('styles', function(event) {
+gulp.task('styles', function() {
 	return sass( srcDir + '/' + cssSource + '/', {
 		sourcemap: true,
-		noCache: false, 	// default = false. saves ~10% runtime but stores in a .sass-cache folder.
+		noCache: false,   // default = false. saves ~10% runtime but stores in a .sass-cache folder.
 		style: 'compressed'
 	})
 	.on('error', onError)
@@ -59,8 +59,7 @@ gulp.task('styles', function(event) {
 		sourceRoot: srcDir + '/' + cssSource,  //
 		includeContent: false 		// default is true, which includes the entire css in the sourcemap
 	}))
-	.pipe(gulp.dest(cssDestination))
-	.pipe(livereload()); // run livereload on css changes
+	.pipe(gulp.dest(cssDestination));
 });
 
 // Image compression is off by default but is included. You can access by running `gulp images`
@@ -81,7 +80,7 @@ gulp.task('watch', function() {
 	livereload.listen(); // start the livereload server
 	gulp.watch(srcDir + '/' + jsSource + '/**/*.js', ['scripts']);
 	gulp.watch(srcDir + '/' + cssSource + '/**/*.scss', ['styles']);
-	gulp.watch(['**/*.{html,php,inc}'], function(event) {
+	gulp.watch(['**/*.{html,php,inc,css}'], function(event) {
 		livereload.changed(event.path); // run livereload on the file
 	});
 
