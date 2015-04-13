@@ -15,17 +15,17 @@ var gulp =             require('gulp'),
 	notify =           require('gulp-notify'),
 	sourcemaps =       require('gulp-sourcemaps'),
 	livereload =       require('gulp-livereload'),
-	imagemin =         require('gulp-imagemin'),
-	jpegoptim =        require('imagemin-jpegoptim'),
-	pngquant =         require('imagemin-pngquant');
+	concat = 		   require('gulp-concat');
 
 var srcDir =           '_src',
 	jsSource =         'scripts',
 	jsDestination =    '_js',
 	cssSource =        'styles',
 	cssDestination =   '_css',
-	imageSource =      'media',
-	imageDestination = '_media';
+	jsLibraries = 	   srcDir + '/' + jsSource +'/scraps/'; // source of Scraps folder
+
+// there are the folder names of the libararies we want to include
+var libraries = ['pacnav','test'];
 
 // this is the error shown using plumber and notify:
 var onError = function(err) {
@@ -46,6 +46,19 @@ gulp.task('scripts', function() {
 		.pipe(livereload()); // run livereload on js changes
 });
 
+gulp.task('libs', function(){
+
+	for(var i in libraries){
+		libraries[i] = jsLibraries + libraries[i] + '/*.js';
+	}
+
+	gulp.src(libraries)
+		.pipe(plumber({errorHandler: onError }))
+		.pipe(concat('libs.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest(jsDestination));
+});
+
 // Styles Task
 gulp.task('styles', function() {
 	return sass( srcDir + '/' + cssSource + '/', {
@@ -62,28 +75,14 @@ gulp.task('styles', function() {
 	.pipe(gulp.dest(cssDestination));
 });
 
-// Image compression is off by default but is included. You can access by running `gulp images`
-// or add it to the `default` gulp task at the bottom.
-gulp.task('images', function() {
-	return gulp.src( srcDir + '/' + imageSource + '/**/*.{png,jpg,jpeg}' )
-	.pipe(jpegoptim( {
-		max: 70
-	})())
-	.pipe(pngquant( {
-		quality: '65-80',
-		speed: 4
-	})())
-	.pipe(gulp.dest(imageDestination));
-});
-
 gulp.task('watch', function() {
-	livereload.listen(); // start the livereload server
-	gulp.watch(srcDir + '/' + jsSource + '/**/*.js', ['scripts']);
-	gulp.watch(srcDir + '/' + cssSource + '/**/*.scss', ['styles']);
-	gulp.watch(['**/*.{html,php,inc,css}'], function(event) {
-		livereload.changed(event.path); // run livereload on the file
-	});
+ 	gulp.watch(srcDir + '/' + jsSource + '/**/*.js', ['scripts']);
+ 	gulp.watch(srcDir + '/' + cssSource + '/**/*.scss', ['styles']);
+ 	livereload.listen(); // start the livereload server
+ 	gulp.watch(['**/*.html','**/*.php', '**/*.inc', cssDestination + '/master.css' ], function(event) {
+ 		livereload.changed(event.path); // run livereload on the file
+ 	});
+// 
+ });
 
-});
-
-gulp.task('default', ['scripts', 'styles', 'watch']);
+gulp.task('default', [ 'libs', 'scripts', 'styles', 'watch' ]);
