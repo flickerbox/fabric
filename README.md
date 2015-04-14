@@ -39,15 +39,16 @@ Make sure you have the Chrome plugin installed and enabled, which you can find h
 `https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei`
 
 #### Processing images
-To process images, run `gulp images` when you're ready as it will not process them by default
+To process images automatically, we've removed image optimization in the gulpfile and instead choose to use a git pre-commit hook.
 
-Since processing images with gulp:
-+ takes a long time
-+ gulp.watch doesn't watch for new or deleted files
-+ there's a gulp-watch package to add aforementioned functionality but we want to keep Fabric to the bare minimum
-+ you can still process images when you want to by running `gulp images`
+To install, you can use npm to manually install `npm install -g imageoptim-cli` or just run `npm install` for the gulpfile which includes this package by default. Yeah, we made it easy for you.
 
-Since no two projects are the same, this gulpfile moves all the directory variables out of the code to make it easier to set up your own project
+To use this, add the following cold to `your_project/.git/hooks/pre-commit` which runs imageoptim-CLI each time you commit new and changed files into your project. Any files which aren't images will be ignored
+
+```shell
+images=$(git diff --exit-code --cached --name-only --diff-filter=ACM -- '*.png' '*.jpg')
+$(exit $?) || echo $images | imageoptim && git add $images
+```
 
 #### Sublime & Fetch
 For a super fast site start, use Fetch with Sublime to download and install Fabric in one shot.
