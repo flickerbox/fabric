@@ -39,11 +39,11 @@ Make sure you have the Chrome plugin installed and enabled, which you can find h
 `https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei`
 
 #### Processing images
-To process images automatically, we've removed image optimization in the gulpfile and instead choose to use a git pre-commit hook.
+To process images automatically, we've removed image optimization in the gulpfile and instead offer the user two options: Use a git pre-commit hook or optimize images individually with a third party application.
 
-To install, you can use npm to manually install `npm install -g imageoptim-cli` or just run `npm install` for the gulpfile which includes this package by default. Yeah, we made it easy for you.
+To use the pre-commit hook, you can use npm to manually install `npm install -g imageoptim-cli` or just run `npm install` for the gulpfile which includes this package by default.
 
-To use this, add the following cold to `your_project/.git/hooks/pre-commit` which runs imageoptim-CLI each time you commit new and changed files into your project. Any files which aren't images will be ignored
+To use this, add the following cold to `your_project/.git/hooks/pre-commit` which runs imageoptim-CLI each time you commit new and changed files into your project. Any files which aren't images will be ignored.
 
 ```shell
 images=$(git diff --exit-code --cached --name-only --diff-filter=ACM -- '*.png' '*.jpg')
