@@ -9,7 +9,7 @@ Fabric uses BEM SCSS for its SCSS. Because of this, HTML and SCSS will be VERY F
 This is Flickerbox's reset. It's small but opionionated. It completely abolishes list-item bullets (if you need a bulleted list, add the bullets yourself).
 
 ### Typography ###
-The only place typography can be changed is in the _typography.scss file. This ensures that typography will consistent and one-offs font styles will be kept to a minimum. Doing so allows the font-sizes to resize in all breakpoints with ease - which also makes composing responsive CSS much faster.
+The only place typography can be changed is in the _typography.scss file. This ensures that typography will be consistent and one-offs font styles will be kept to a minimum. Doing so allows the font-sizes to resize in all breakpoints with ease - which also makes composing responsive CSS much faster.
 
 If you choose to @extend a font-style, only do so from a root-level class. Never @extend from a nested class.
 
@@ -26,7 +26,7 @@ Utilities are in the _utilities.scss partial. The syntax is as follows:
 * Negative values written as "neg" (ex, -0.25% -> neg0_25p)
 
 ## Gulp ##
-
+Run `npm install` in the gulpfile directory to install all dependencies.
 ### gulpfile.js ###
 When using SASS, this gulpfile will do all of the following:
 + autoprefix
@@ -34,12 +34,14 @@ When using SASS, this gulpfile will do all of the following:
 + livereload
 + sourcemap
 
+For javascript, place js files in `_src/scripts` in separate folders. i.e. anything you want compiled into `master.js` should be placed in the `_src/scripts/master/` folder. The compiled js will take the name of the folder from which it came. Anything in `_src/scripts/header/` will minify and concat into `header.js`.
+
 #### LiveReload note
 Make sure you have the Chrome plugin installed and enabled, which you can find here
 `https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei`
 
 #### Processing images
-To process images automatically, we've removed image optimization in the gulpfile and instead offer the user two options: Use a git pre-commit hook or optimize images individually with a third party application.
+You have a few options. Use a git pre-commit hook or optimize images individually with a third party application.
 
 To use the pre-commit hook, you can use npm to manually install `npm install -g imageoptim-cli` or just run `npm install` for the gulpfile which includes this package by default.
 
