@@ -15,17 +15,15 @@ var gulp =             require('gulp'),
 	notify =           require('gulp-notify'),
 	sourcemaps =       require('gulp-sourcemaps'),
 	livereload =       require('gulp-livereload'),
-	concat = 		   require('gulp-concat');
+	concat = 		   require('gulp-concat'),
+	path = 			   require('path'),
+	folders = 		   require('gulp-folders');
 
 var srcDir =           '_src',
 	jsSource =         'scripts',
 	jsDestination =    '_js',
 	cssSource =        'styles',
-	cssDestination =   '_css',
-	jsLibraries = 	   srcDir + '/' + jsSource +'/scraps/'; // source of Scraps folder
-
-// there are the folder names of the libararies we want to include
-var libraries = ['pacnav','test'];
+	cssDestination =   '_css';
 
 // this is the error shown using plumber and notify:
 var onError = function(err) {
@@ -38,26 +36,14 @@ var onError = function(err) {
 };
 
 // Uglifies / minifies JS
-gulp.task('scripts', function() {
-	gulp.src( srcDir + '/' + jsSource + '/*.js' )
+gulp.task('scripts', folders(srcDir + "/" + jsSource, function(folder) {
+	return gulp.src( path.join( srcDir + "/" + jsSource, folder, '*.js' ))
+		.pipe(concat(folder + ".js"))
 		.pipe(plumber({errorHandler: onError}))
 		.pipe(uglify())
 		.pipe(gulp.dest(jsDestination))
 		.pipe(livereload()); // run livereload on js changes
-});
-
-gulp.task('libs', function(){
-
-	for(var i in libraries){
-		libraries[i] = jsLibraries + libraries[i] + '/*.js';
-	}
-
-	gulp.src(libraries)
-		.pipe(plumber({errorHandler: onError }))
-		.pipe(concat('libs.js'))
-		.pipe(uglify())
-		.pipe(gulp.dest(jsDestination));
-});
+}));
 
 // Styles Task
 gulp.task('styles', function() {
@@ -85,4 +71,4 @@ gulp.task('watch', function() {
 // 
  });
 
-gulp.task('default', [ 'libs', 'scripts', 'styles', 'watch' ]);
+gulp.task('default', [ 'scripts', 'styles', 'watch' ]);
