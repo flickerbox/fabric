@@ -7,23 +7,23 @@
 //
 'use strict';
 
-var gulp =             require('gulp'),
-	uglify =           require('gulp-uglify'),
-	sass =             require('gulp-ruby-sass'),
-	autoprefixer =     require('gulp-autoprefixer'),
-	plumber =          require('gulp-plumber'),
-	notify =           require('gulp-notify'),
-	sourcemaps =       require('gulp-sourcemaps'),
-	livereload =       require('gulp-livereload'),
-	concat = 		   require('gulp-concat'),
-	path = 			   require('path'),
-	folders = 		   require('gulp-folders');
+var gulp             = require('gulp'),
+	uglify           = require('gulp-uglify'),
+	sass             = require('gulp-ruby-sass'),
+	autoprefixer     = require('gulp-autoprefixer'),
+	plumber          = require('gulp-plumber'),
+	notify           = require('gulp-notify'),
+	sourcemaps       = require('gulp-sourcemaps'),
+	livereload       = require('gulp-livereload'),
+	concat           = require('gulp-concat'),
+	path             = require('path'),
+	folders          = require('gulp-folders');
 
-var srcDir =           '_src',
-	jsSource =         'scripts',
-	jsDestination =    '_js',
-	cssSource =        'styles',
-	cssDestination =   '_css';
+var srcDir           = '_src',
+	jsSource         = 'scripts',
+	jsDestination    = '_js',
+	cssSource        = 'styles',
+	cssDestination   = '_css';
 
 // this is the error shown using plumber and notify:
 var onError = function(err) {
@@ -68,7 +68,7 @@ gulp.task('watch', function() {
  	gulp.watch(['**/*.html','**/*.php', '**/*.inc', cssDestination + '/master.css' ], function(event) {
  		livereload.changed(event.path); // run livereload on the file
  	});
-// 
+//
  });
 
 gulp.task('default', [ 'scripts', 'styles', 'watch' ]);
