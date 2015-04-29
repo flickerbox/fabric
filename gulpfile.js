@@ -38,9 +38,11 @@ var onError = function(err) {
 // Uglifies / minifies JS
 gulp.task('scripts', folders(srcDir + "/" + jsSource, function(folder) {
 	return gulp.src( path.join( srcDir + "/" + jsSource, folder, '*.js' ))
+		.pipe(sourcemaps.init())
 		.pipe(concat(folder + ".js"))
 		.pipe(plumber({errorHandler: onError}))
 		.pipe(uglify())
+		.pipe(sourcemaps.write(jsDestination+'/maps'))
 		.pipe(gulp.dest(jsDestination))
 		.pipe(livereload()); // run livereload on js changes
 }));
