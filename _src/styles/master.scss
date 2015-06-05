@@ -1,24 +1,38 @@
 @import
+	//---------------------------------------------------------
+	// Variables:
+	//---------------------------------------------------------
 	"variables",
 
+	//---------------------------------------------------------
 	// Base stuff for Fabric
+	//---------------------------------------------------------
 	"fabric/mixins",
 	"fabric/fb-reset",
 
-	// javascript helper css
-	// NOTE: This should be moved into Flickerbox Scraps
+	//---------------------------------------------------------
+	// Javascript helper css;
+	// These shouldn't be edited directly
+	//---------------------------------------------------------
 	"owl-carousel",
 	"magnific-popup",
 	"js-helpers",
 
-	// global styles
-	"fabric/padding-styles",
+	//---------------------------------------------------------
+	// global helpers
+	//---------------------------------------------------------
 	"fabric/layout",
+	"fabric/modules",
 
-	// typography
+	//---------------------------------------------------------
+	// Global settings
+	//---------------------------------------------------------
+	"global-settings",
 	"typography",
 
+	//---------------------------------------------------------
 	// modular partials
+	//---------------------------------------------------------
 	"backgrounds",
 	"blockquotes",
 	"buttons",
@@ -26,19 +40,36 @@
 	"boxes",
 	"sliders",
 	"tables",
+	"animations",
+	"carousels",
+	"custom",
 
-	// global page styles:
+	//---------------------------------------------------------
+	// global section styles:
+	//---------------------------------------------------------
 	"header",
 	"footer",
 	"valprops",
 
-	// the rest of the stuff that doesn't fit obviously anywhere else;
-	"common",
+	//---------------------------------------------------------
+	// Custom styles that can be used anywhere
+	//---------------------------------------------------------
+	"custom",
 
-	// small 1-2 line utility classes
+	//---------------------------------------------------------
+	// Page styles
+	//---------------------------------------------------------
+	"page--blog",
+	"page--contact",
+
+	//---------------------------------------------------------
+	// Utilities that can override the other styles
+	//---------------------------------------------------------
 	"fabric/utilities";
 
+	//---------------------------------------------------------
 	// specific to either wordpress or drupal:
+	//---------------------------------------------------------
 	// "fabric/wordpress-overrides",
 	// "fabric/drupal-overrides";
 
