@@ -245,3 +245,12 @@ div.password-confirm {
 		color: #333333 !important;
 	}
 }
+
+.krumo-root .krumo-node {
+	li {
+		line-height: 1.2 !important;
+	}
+	li:before {
+		content: none;
+	}
+}
