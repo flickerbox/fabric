@@ -1,6 +1,11 @@
 //---------------------------------------------------------
 // Mixins
 //---------------------------------------------------------
+
+
+//---------------------------------------------------------
+// Responsive
+//---------------------------------------------------------
 @mixin responsive($property, $start, $finish, $unit:em) {
 	#{$property}: #{$start}#{$unit};
 	$breaks: length($breakpoints);
@@ -10,6 +15,71 @@
 		@media only screen and (max-width: #{$breakpoint}) {
 			$start: $start - $eachdiff;
 			#{$property}: #{$start}#{$unit};
+		}
+	}
+}
+//---------------------------------------------------------
+// Triangle
+//---------------------------------------------------------
+@mixin triangle ($color,$pointing,$side1,$side2,$side3) {
+	width: 0;
+	height: 0;
+	@if $pointing == up {
+		border-top: none;
+		border-right: $side1 solid transparent;
+		border-bottom: $side2 solid $color;
+		border-left: $side3 solid transparent;
+	}
+	@if $pointing == right {
+
+		border-top: $side1 solid transparent;
+		border-right: none;
+		border-left: $side2 solid $color;
+		border-bottom: $side3 solid transparent;
+	}
+	@if $pointing == left {
+		border-top: $side1 solid transparent;
+		border-right: $side2 solid $color;
+		border-left: none;
+		border-bottom: $side3 solid transparent;
+	}
+	@if $pointing == down {
+		border-top: $side1 solid $color;
+		border-right: $side2 solid transparent;
+		border-left: $side3 solid transparent;
+		border-bottom: none;
+	}
+}
+
+//---------------------------------------------------------
+// Create Percentage Point
+//---------------------------------------------------------
+@mixin create-percentage-point ($x, $y, $total-width, $total-height, $direction-x: left, $direction-y: top) {
+	@if $direction-y == top {
+		top: ( $y / $total-height ) * 100%;
+	} @else {
+		bottom: ( ( $total-height - $y ) / $total-height ) * 100%;
+	}
+	@if $direction-x == left {
+		left: ( $x / $total-width ) * 100%;
+	} @else {
+		right: ( ( $total-width - $x ) / $total-width ) * 100%;
+	}
+}
+
+//---------------------------------------------------------
+// Create Percentage Size
+//---------------------------------------------------------
+@mixin create-percentage-size($length, $total-width, $total-height, $type:vertical, $stroke:0 ) {
+	@if $type == vertical {
+		@if $stroke > 0 {
+			width: $stroke * 1px;
+		}
+		height: $length / $total-height * 100%;
+	} @else {
+		width: $length / $total-width * 100%;
+		@if $stroke > 0 {
+			height: $stroke * 1px;
 		}
 	}
 }
