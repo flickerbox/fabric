@@ -5,6 +5,8 @@
 // If you want live reload to work, you must install the livereload extension for chrome
 // https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei
 //
+// Run this to install:
+// sudo npm install --save-dev gulp gulp-uglify gulp-ruby-sass gulp-autoprefixer gulp-plumber gulp-notify gulp-sourcemaps gulp-livereload gulp-concat path gulp-folders
 'use strict';
 
 var gulp             = require('gulp'),
@@ -43,8 +45,7 @@ gulp.task('scripts', folders(srcDir + "/" + jsSource, function(folder) {
 		.pipe(plumber({errorHandler: onError}))
 		.pipe(uglify())
 		.pipe(sourcemaps.write(jsDestination+'/maps'))
-		.pipe(gulp.dest(jsDestination))
-		.pipe(livereload()); // run livereload on js changes
+		.pipe(gulp.dest(jsDestination));
 }));
 
 // Styles Task
@@ -64,13 +65,12 @@ gulp.task('styles', function() {
 });
 
 gulp.task('watch', function() {
- 	gulp.watch(srcDir + '/' + jsSource + '/**/*.js', ['scripts']);
- 	gulp.watch(srcDir + '/' + cssSource + '/**/*.scss', ['styles']);
- 	livereload.listen(); // start the livereload server
- 	gulp.watch(['**/*.html','**/*.php', '**/*.inc', cssDestination + '/master.css' ], function(event) {
- 		livereload.changed(event.path); // run livereload on the file
- 	});
-//
+	gulp.watch(srcDir + '/' + jsSource + '/**/*.js', ['scripts']);
+	gulp.watch(srcDir + '/' + cssSource + '/**/*.scss', ['styles']);
+	livereload.listen(); // start the livereload server
+	gulp.watch(['**/*.html','**/*.php', '**/*.inc', cssDestination + '/master.css', jsDestination + '/*.js' ], function(event) {
+		livereload.changed(event.path); // run livereload on the file
+	});
  });
 
 gulp.task('default', [ 'scripts', 'styles', 'watch' ]);

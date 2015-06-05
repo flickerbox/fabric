@@ -8,6 +8,6 @@
 			</div>
 		</div>
 	</footer>
-	<script src="/_js/master.js"></script>
+	<script src="/_js/main.js"></script>
 </body>
 </html>
