@@ -2,6 +2,41 @@
 // Mixins
 //---------------------------------------------------------
 
+//---------------------------------------------------------
+// Responsive Font
+//
+// Responsive Font takes a base-font in ems and converts it to a vw font size.
+// When the font-size can be fluid, it's fluid by using the vw font-size.
+// When it's larger than the breakpoint, it's the base font
+// When it's smaller than the min-font-size, it switches to ems as well.
+//---------------------------------------------------------
+@mixin responsive-font($base-font-size, $min-font-size:0, $base-width:1000, $default-font-size:16) {
+	// first figure out if there is a min font. If not, make it half the base-font-size, but at least 1em
+	@if $min-font-size == 0 {
+		$min-font-size: $base-font-size / 2;
+		@if $min-font-size < 1 {
+			$min-font-size: 1;
+		}
+	}
+	// get the base font-size in vw:
+	$base-font-size--vw: ( ( $base-font-size * $default-font-size ) / $base-width ) * 100;
+
+	// from the base font-size in vw, we can calculate where the min-font-size breakpoint will occur:
+	$font-breakpoint: ( $min-font-size * $default-font-size ) / ($base-font-size--vw / 100 );
+
+	// now we set the responsive font:
+	font-size: $base-font-size--vw * 1vw;
+
+	// on viewports *above* the base-width, we use the base-font-size em value:
+	@media only screen and (min-width: (($base-width + 1) * 1px) ) {
+		font-size: $base-font-size * 1em;
+	}
+
+	// we use the min-font-size em value at the calculated breakpoint where the min-font-size equals the vw font-size:
+	@media only screen and (max-width: ($font-breakpoint * 1px) ) {
+		font-size: $min-font-size * 1em;
+	}
+}
 
 //---------------------------------------------------------
 // Responsive

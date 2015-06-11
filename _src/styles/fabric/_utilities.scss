@@ -1,13 +1,37 @@
 //---------------------------------------------------------
-// Utilities
-// Utilities are (usually) one-line utilities to help things along without adding a lot of cruft
+//	Utilities
+//	Utilities are (usually) one-line utilities to help things along without adding a lot of cruft
+//
+//	Basic terminology:
+//	.u-PROPERTY-VALUE-
+//
+//	Utilities have the following sections separated by a dash (-):
+//		1) Utilities start with ".u-"
+//		2) 2nd section is the CSS property(s)
+//			* Properties are usually abbreviated to one or 2 letters (ie, margin=m, margin-bottom=mb)
+//			* Multiple properties (with equal values) for obvious pairs are combined into a single abbreviation (ie, margin-top & margin-bottom = mtb)
+//		3) 3rd section is the property's value
+//			* Class names with decimals: Replace the decimal with an underscore. (ex. 0.25 -> 0_25)
+//			* All class names with numbers are default to ems
+//			* Class names with "px" end in "px"
+//			* Class names with "percentages" end in "p"
+//			* Negative values written as "neg" (ex, -0.25% -> neg0_25p)
+//			* Values of "none" are abbreviated with "n"
+//		4) Optional: 4th section is the property's responsive value
+//		5) Optional: Additional property-value pairs can be separated by underscores (_)
+//
+//		6) Optional: A single underscore (_) at the end applies to all of its ancestors
+//		6b) Optional: A double underscore (__) at the end applies to itself AND all of its ancestors
+//		7) Optional: "--bpxl"
+//		7) Optional: "--i" at the very end corresponds to "!important"
+//
 //---------------------------------------------------------
 
 //---------------------------------------------------------
-// Color
+// Color .u-c
 //---------------------------------------------------------
 // color white
-.u-c-w * { color: white }
+.u-c-w { &,* { color: white } }
 
 //------------------------------------------------------------------------------
 // Cursor
@@ -35,55 +59,58 @@
 //------------------------------------------------------------------------------
 // Margins
 //------------------------------------------------------------------------------
-.u-m-0       { margin: 0 }
-.u-m-a       { margin: auto }
-.u-m-a--imp  { margin: auto !important; }
-.u-m-lra     { margin-left: auto; margin-right: auto; }
+.u-m-0        { margin: 0 }
+.u-m-a        { margin: auto }
+.u-m-a--i     { margin: auto !important; }
+.u-mlr-a      { margin-left: auto; margin-right: auto; }
 
-.u-mb-0      { margin-bottom: 0 }
-.u-mb-0_125  { margin-bottom: 0.125em }
-.u-mb-0_25   { margin-bottom: 0.25em }
-.u-mb-0_5    { margin-bottom: 0.5em }
-.u-mb-0_75   { margin-bottom: 0.75em }
-.u-mb-1      { margin-bottom: 1em }
-.u-mb-1_5    { margin-bottom: 1.5em }
-.u-mb-2      { margin-bottom: 2em }
-.u-mb-3      { margin-bottom: 3em }
-.u-mb-4      { margin-bottom: 4em }
-.u-mb-6      { margin-bottom: 6em }
-.u-mb-8      { margin-bottom: 8em }
-.u-mb-half 	 { margin-bottom: 0.5em }
-.u-mb-neg12  { margin-bottom: -12em }
-.u-mb-neg0_5 { margin-bottom: -0.5em }
-.u-mb-neg5   { margin-bottom: -5em }
+.u-mb-0       { margin-bottom: 0 }
+.u-mb-0_125   { margin-bottom: 0.125em }
+.u-mb-0_25    { margin-bottom: 0.25em }
+.u-mb-0_5     { margin-bottom: 0.5em }
+.u-mb-0_75    { margin-bottom: 0.75em }
+.u-mb-1       { margin-bottom: 1em }
+.u-mb-1_5     { margin-bottom: 1.5em }
+.u-mb-2       { margin-bottom: 2em }
+.u-mb-3       { margin-bottom: 3em }
+.u-mb-4       { margin-bottom: 4em }
+.u-mb-6       { margin-bottom: 6em }
+.u-mb-8       { margin-bottom: 8em }
+.u-mb-neg12   { margin-bottom: -12em }
+.u-mb-neg0_5  { margin-bottom: -0.5em }
+.u-mb-neg5    { margin-bottom: -5em }
 
-.u-mt-0      { margin-top: 0 }
-.u-mt-0_5    { margin-top: 0.5em }
-.u-mt-1      { margin-top: 1em }
-.u-mt-1_5    { margin-top: 1.5em }
-.u-mt-2      { margin-top: 2em }
-.u-mt-3      { margin-top: 3em }
-.u-mt-4      { margin-top: 4em }
-.u-mt-6  	 { margin-top: 6em }
-.u-mt-8      { margin-top: 8em }
-.u-mt-10     { margin-top: 10em }
-.u-mt-12     { margin-top: 12em }
-.u-mt-neg1 	 { margin-top: -1em }
-.u-mt-neg2   { margin-top: -2em }
-.u-mt-neg4   { margin-top: -4em }
-.u-mt-neg5   { margin-top: -5em }
-.u-mt-neg8   { margin-top: -8em }
-.u-mt-neg10  { margin-top: -10em}
-.u-mt-neg15  { margin-top: -15em }
-.u-mt-neg16  { margin-top: -16em }
-.u-mr-0      { margin-right: 0 !important; } // !important because its specificity is so low
-.u-ml-0      { margin-left: 0 !important; }  // !important because its specificity is so low
+.u-mt-0       { margin-top: 0 }
+.u-mt-0_5     { margin-top: 0.5em }
+.u-mt-1       { margin-top: 1em }
+.u-mt-1_5     { margin-top: 1.5em }
+.u-mt-2       { margin-top: 2em }
+.u-mt-3       { margin-top: 3em }
+.u-mt-4       { margin-top: 4em }
+.u-mt-6  	  { margin-top: 6em }
+.u-mt-8       { margin-top: 8em }
+.u-mt-10      { margin-top: 10em }
+.u-mt-12      { margin-top: 12em }
+.u-mt-neg1 	  { margin-top: -1em }
+.u-mt-neg2    { margin-top: -2em }
+.u-mt-neg4    { margin-top: -4em }
+.u-mt-neg5    { margin-top: -5em }
+.u-mt-neg8    { margin-top: -8em }
+.u-mt-neg10   { margin-top: -10em}
+.u-mt-neg15   { margin-top: -15em }
+.u-mt-neg16   { margin-top: -16em }
+.u-mr-0       { margin-right: 0 }
+.u-ml-0       { margin-left: 0 }
+.u-mr-0--i    { margin-right: 0 !important; } // !important because its specificity is so low
+.u-ml-0--i    { margin-left: 0 !important; }  // !important because its specificity is so low
+.u-mlr-0      { margin-left: 0; margin-right: 0 }
+.u-mlr-0--i   { margin-left: 0 !important; margin-right: 0 !important }
 
-.u-mtb-1     { margin-top: 1em; margin-bottom: 1em; }
-.u-ml-4p 	 { margin-left: 4% }
-.u-ml-neg2   { margin-left: -2em }
-.u-ml-neg5 	 { margin-left: -5em }
-.u-mr-2p 	 { margin-right: 2% }
+.u-mtb-1      { margin-top: 1em; margin-bottom: 1em; }
+.u-ml-4p 	  { margin-left: 4% }
+.u-ml-neg2    { margin-left: -2em }
+.u-ml-neg5 	  { margin-left: -5em }
+.u-mr-2p 	  { margin-right: 2% }
 
 //---------------------------------------------------------
 // Responsive Margins
@@ -107,7 +134,7 @@
 //------------------------------------------------------------------------------
 // Borders
 //------------------------------------------------------------------------------
-.u-b-0    { border: none }
+.u-b-n    { border: none }
 .u-bb-1px { border-bottom: 1px solid #cccccc }
 .u-bl-1px { border-left: 1px solid #cccccc }
 .u-bt-1px { border-top: 1px solid #cccccc }
@@ -117,7 +144,7 @@
 // Padding
 //------------------------------------------------------------------------------
 .u-p-0 	     { padding: 0 }
-.u-plr-0-imp { padding-left: 0 !important; padding-right: 0 !important }
+.u-plr-0--i  { padding-left: 0 !important; padding-right: 0 !important }
 .u-p-1 	     { padding: 1em }
 
 .u-pt-0      { padding-top: 0 }
@@ -151,8 +178,8 @@
 //---------------------------------------------------------
 // Background
 //---------------------------------------------------------
-.u-bgs-c    { background-size: cover; }
-.u-bg--white { background-color: white; }
+.u-bgs-c     { background-size: cover; }
+.u-bgc-white { background-color: white; }
 
 //---------------------------------------------------------
 // Whitespace
@@ -185,46 +212,41 @@
 //------------------------------------------------------------------------------
 // Overflow
 //------------------------------------------------------------------------------
-.u-overflow-hidden  { overflow: hidden; }
-.u-overflow-visible { overflow: visible; }
-.u-o-h              { overflow: hidden; }
-.u-o-v              { overflow: visible; }
+.u-o-h   { overflow: hidden }
+.u-o-v   { overflow: visible }
 
 //------------------------------------------------------------------------------
 // Positioning
 //------------------------------------------------------------------------------
-.u-pos-r { position: relative; }
-.u-p-r   { position: relative }
-
-.u-pos-a { position: absolute }
-.u-p-a   { position: absolute }
-
-.u-pos-s { position: static }
-.u-p-s   { position: static }
-
-.u-pr-z1 { position: relative; z-index: 1 }
+.u-pos-r  { position: relative }
+.u-pos-a  { position: absolute }
+.u-pos-s  { position: static }
+.u-z-1    { z-index: 1 }
+.u-z-neg1 { z-index: -1 }
 
 //------------------------------------------------------------------------------
 // Text Transform
 //------------------------------------------------------------------------------
-.u-tt-none      { text-transform: none; }
-.u-tt-uppercase { text-transform: uppercase; }
+.u-tt-n         { text-transform: none }
+.u-tt-uppercase { text-transform: uppercase }
 
 //---------------------------------------------------------
 // Display
 //---------------------------------------------------------
-.u-d-b  { display: block }
-.u-d-ib { display: inline-block }
-.u-va-m { display: inline-block; vertical-align: middle }
-.u-d-tc { display: table-cell }
-.u-d-t 	{ display: table }
-.u-va-b { vertical-align: bottom }
+.u-d-b       { display: block }
+.u-d-n       { display: none }
+.u-d-ib      { display: inline-block }
+.u-d-ib_va-m { display: inline-block; vertical-align: middle }
+.u-d-tc      { display: table-cell }
+.u-d-t 	     { display: table }
+.u-va-b      { vertical-align: bottom }
 
 //---------------------------------------------------------
 // Show & Hide
 //---------------------------------------------------------
-.u-show { display: block }
-.u-hide { display: none }
+.u-d-b    { display: block }
+.u-d-n    { display: none }
+.u-d-n--i { display: none !important }
 
 //---------------------------------------------------------
 // Responsive Stuffs
@@ -395,10 +417,4 @@
 //---------------------------------------------------------
 // Lists
 //---------------------------------------------------------
-
-.u-l-s-none {
-	li {
-		list-style-type: none;
-	}
-}
-
+.u-ls-n { &, li {list-style: none }}
