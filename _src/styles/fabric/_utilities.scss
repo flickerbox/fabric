@@ -45,9 +45,6 @@
 .u-ta-c { text-align: center }
 .u-ta-l { text-align: left }
 .u-ta-r { text-align: right }
-@media screen and (max-width:$bp-small) {
-
-}
 
 //------------------------------------------------------------------------------
 // Floats
@@ -115,14 +112,14 @@
 //---------------------------------------------------------
 // Responsive Margins
 //---------------------------------------------------------
-.u-mb-8-4         { @include responsive(margin-bottom, 8, 4); }
-.u-mb-7-3_5       { @include responsive(margin-bottom, 7, 3.5); }
-.u-mb-6-3         { @include responsive(margin-bottom, 6, 3); }
-.u-mb-5-2_5       { @include responsive(margin-bottom, 5, 2.5); }
-.u-mb-4-2         { @include responsive(margin-bottom, 4, 2); }
-.u-mb-3-1_5       { @include responsive(margin-bottom, 3, 1.5); }
-.u-mb-2-1         { @include responsive(margin-bottom, 2, 1); }
-.u-mt-neg7-neg3_5 { @include responsive(margin-top, -7, -3.5); }
+.u-mb-8-4         { @include responsive(margin-bottom,8); }
+.u-mb-7-3_5       { @include responsive(margin-bottom,7); }
+.u-mb-6-3         { @include responsive(margin-bottom,6); }
+.u-mb-5-2_5       { @include responsive(margin-bottom,5); }
+.u-mb-4-2         { @include responsive(margin-bottom,4); }
+.u-mb-3-1_5       { @include responsive(margin-bottom,3); }
+.u-mb-2-1         { @include responsive(margin-bottom,2); }
+.u-mt-neg7-neg3_5 { @include responsive(margin-top,-7); }
 
 .u-kill-last-margin {
 	> .p:last-child,

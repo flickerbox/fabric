@@ -1,47 +1,89 @@
 //---------------------------------------------------------
-// Mixins
+// Mixins & Functions
 //---------------------------------------------------------
 
 //---------------------------------------------------------
-// Responsive Font
-//
-// Responsive Font takes a base-font in ems and converts it to a vw font size.
-// When the font-size can be fluid, it's fluid by using the vw font-size.
-// When it's larger than the breakpoint, it's the base font
-// When it's smaller than the min-font-size, it switches to ems as well.
+// Parse Num: removes any units from the variable
 //---------------------------------------------------------
-@mixin responsive-font($base-font-size, $min-font-size:0, $base-width:1000, $default-font-size:16) {
-	// first figure out if there is a min font. If not, make it half the base-font-size, but at least 1em
-	@if $min-font-size == 0 {
-		$min-font-size: $base-font-size / 2;
-		@if $min-font-size < 1 {
-			$min-font-size: 1;
-		}
-	}
-	// get the base font-size in vw:
-	$base-font-size--vw: ( ( $base-font-size * $default-font-size ) / $base-width ) * 100;
-
-	// from the base font-size in vw, we can calculate where the min-font-size breakpoint will occur:
-	$font-breakpoint: ( $min-font-size * $default-font-size ) / ($base-font-size--vw / 100 );
-
-	// now we set the responsive font:
-	font-size: $base-font-size--vw * 1vw;
-
-	// on viewports *above* the base-width, we use the base-font-size em value:
-	@media only screen and (min-width: (($base-width + 1) * 1px) ) {
-		font-size: $base-font-size * 1em;
-	}
-
-	// we use the min-font-size em value at the calculated breakpoint where the min-font-size equals the vw font-size:
-	@media only screen and (max-width: ($font-breakpoint * 1px) ) {
-		font-size: $min-font-size * 1em;
-	}
+@function parse-num($value) {
+	@return $value / ($value * 0 + 1);
+}
+//---------------------------------------------------------
+// Parse Unit: Returns unit from the variable (just a copy of the "unit()" SASS fucntion)
+//---------------------------------------------------------
+@function parse-unit($value) {
+	@return unit($value);
 }
 
 //---------------------------------------------------------
 // Responsive
+//
+// Responsive takes a base value in rems(default) or px.
+// When the value can be fluid, it is stated in vw units.
+// When the viewport is larger than the default-base-width, the property is the base.
+// When the responsive value equals the $min value, the $min value is used at a calculated breakpoint.
 //---------------------------------------------------------
-@mixin responsive($property, $start, $finish, $unit:em) {
+@mixin responsive($property, $base, $min:0) {
+	$default-base-width: 1000px !default;
+	$default-em-size: 16px !default;
+
+	// strip the units out
+	$default-em-size: parse-num($default-em-size);
+	$default-base-width: parse-num($default-base-width);
+
+	// strip the min because its unit is meaningless compared to the $base:
+	$min: parse-num($min);
+
+	// make sure the given values are only px or ems or rems:
+	@if (unitless($base)) {
+		// all is good
+	} @else if unit($base) == "rem" {
+		// just strip the rem out of there as well
+		$base: parse-num($base);
+	} @else if unit($base) == "px" {
+		// switch the values to ems:
+		$base: parse-num($base);
+		$base: $base / $default-em-size;
+		$min: $min / $default-em-size;
+	} @else {
+		 @error "$base value unit must be either NULL, rem, or px";
+	}
+
+
+	// first figure out if there is a min value. If not, make it half the base, but at least 1em
+	@if $min == 0 {
+		$min: $base / 2;
+		@if ($property == font-size) {
+			@if $min < 1 {
+				$min: 1;
+			}
+		}
+	}
+	// convert the base to vw:
+	$base--vw: ( ( $base * $default-em-size ) / $default-base-width ) * 100;
+
+	// from the base--vw, we can figure out where the min breakpoint will occur:
+	$min-breakpoint: ( $min * $default-em-size ) / ($base--vw / 100 );
+
+	// now we set the responsive value:
+	#{$property}: $base * 1em; // default if < IE9
+	#{$property}: $base--vw * 1vw;
+
+	// on viewports *above* the default-base-width, we "hardcode" the original em value:
+	@media only screen and (min-width: (($default-base-width + 1) * 1px) ) {
+		#{$property}: $base * 1rem;
+	}
+
+	// at the calculated min-breakpoint, we use the min em value:
+	@media only screen and (max-width: ($min-breakpoint * 1px) ) {
+		#{$property}: $min * 1rem;
+	}
+}
+
+//---------------------------------------------------------
+// Responsive OLD
+//---------------------------------------------------------
+@mixin responsive-old($property, $start, $finish, $unit:em) {
 	#{$property}: #{$start}#{$unit};
 	$breaks: length($breakpoints);
 	$diff: $start - $finish;
@@ -118,3 +160,4 @@
 		}
 	}
 }
+
