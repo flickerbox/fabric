@@ -3,7 +3,7 @@
 //
 // Accepts a space delimited list of units, just like margin or padding and
 // applies the same list to the element with unitless units multiplied by 
-// the default line height
+// the default line height and font size
 //
 // e.g. 1 auto -> 1.5em auto
 //---------------------------------------------------------
@@ -12,9 +12,9 @@
 	
 	@each $margin in $margins {
 		@if $margin == "auto" {
-			$result: append($result, "auto");
+			$result: append($result, auto);
 		} @else if unitless($margin) {
-			$result: append($result, $margin * $line-height);
+			$result: append($result, $margin * remove-unit($line-height) * $font-size);
 		} @else {
 			$result: append($result, $margin);
 		}
