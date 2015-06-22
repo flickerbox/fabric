@@ -96,3 +96,17 @@
 		#{$property}: $min * 1rem;
 	}
 }
+
+
+
+@mixin transition($speed: "normal", $property: all) {
+	$seconds: 0.4s;
+	
+	@if $speed == "slow" {
+		$seconds: 0.6s;
+	} @else if $speed == "fast" {
+		$seconds: 0.2s;
+	}
+	
+	transition: $seconds $property;
+}

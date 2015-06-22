@@ -51,6 +51,7 @@ hr {
 }
 
 a {
+	@include transition();
 	color: $accent-color;
 	text-decoration: underline;
 	
