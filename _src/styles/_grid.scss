@@ -31,6 +31,32 @@
 	}
 }
 
+@include media("<large", ">=medium") {
+	@for $i from 1 through $grid-width {
+		.col-large-#{$i}-#{$grid-width} {
+			width: 100% * ($i / $grid-width);
+		}
+	}
+}
+
+@include media("<medium", ">=small") {
+	@for $i from 1 through $grid-width {
+		.col-medium-#{$i}-#{$grid-width} {
+			width: 100% * ($i / $grid-width);
+		}
+	}
+}
+
+@include media("<small") {
+	@for $i from 1 through $grid-width {
+		.col-small-#{$i}-#{$grid-width} {
+			width: 100% * ($i / $grid-width);
+		}
+	}
+}
+
+
+
 
 //---------------------------------------------------------
 // Clearfix
@@ -43,234 +69,5 @@
 		content: "";
 		display: table;
 		margin-bottom: -($gutter-width * 1/2);
-	}
-}
-
-
-
-
-
-
-//---------------------------------------------------------
-// Site Container
-//---------------------------------------------------------
-.site-container {
-	width: 100% - $site-padding * 2;
-	max-width: $site-width;
-	margin-left: auto;
-	margin-right: auto;
-}
-.site-container--wide {
-	width: 100% - $site-padding * 2;
-	max-width: $site-width-max;
-	margin-left: auto;
-	margin-right: auto;
-}
-.site-container--wide--no-padding {
-	@extend .site-container--wide;
-	width: 100%;
-}
-
-//---------------------------------------------------------
-// Site Sections
-//---------------------------------------------------------
-.site-section {
-	@include responsive(padding-top,4,1.5);
-	@include responsive(padding-bottom,4,1.5);
-}
-.site-section--6 {
-	@include responsive(padding-top,6,2);
-	@include responsive(padding-bottom,6,2);
-}
-.site-section--8 {
-	@include responsive(padding-top,8,2.5);
-	@include responsive(padding-bottom,8,2.5);
-}
-.inner-section {
-	@include responsive(padding-top,2.75,1);
-	@include responsive(padding-bottom,2.75,1);
-	@include responsive(padding-left,3,1);
-	@include responsive(padding-right,3,1);
-}
-
-
-//---------------------------------------------------------
-// SPANS
-//---------------------------------------------------------
-
-//---------------------------------------------------------
-// Span Mixins
-//---------------------------------------------------------
-@mixin span-mixin ($span-number, $total-spans, $type:width, $this-span-padding:$span-padding) {
-	#{$type}: ( ( 100% - ( ($total-spans - 1) * $this-span-padding ) ) ) *  ( $span-number / $total-spans ) + ( $this-span-padding * ($span-number - 1) );
-}
-@mixin pad-left ($span-number, $total-spans, $this-span-padding: $span-padding) {
-	margin-left: ( ( 100% - ( ($total-spans - 1) * $this-span-padding ) ) ) *  ( $span-number / $total-spans ) + ( $this-span-padding * ($span-number - 1) );
-}
-@mixin pad-right ($span-number, $total-spans, $this-span-padding: $span-padding) {
-	margin-right: ( ( 100% - ( ($total-spans - 1) * $this-span-padding ) ) ) *  ( $span-number / $total-spans ) + ( $this-span-padding * ($span-number - 1) );
-}
-
-
-//---------------------------------------------------------
-// Span Prep
-//---------------------------------------------------------
-.span-padding--left { margin-left: $span-padding; }
-.span-padding--right { margin-right: $span-padding; }
-
-%spanprep {
-	display: block;
-	float: left;
-	margin-right: $span-padding;
-	&:last-child {
-		margin-right: 0;
-	}
-	&.span--half-padding {
-		margin-right: ($span-padding / 2);
-	}
-	&.span--right {
-		float: right;
-		margin-right: 0;
-		margin-left: $span-padding;
-		&:last-child {
-			margin-left: 0; // have to put in again to override specificity
-			margin-right: 0;
-		}
-	}
-}
-[class^="span"] {
-	@extend %spanprep;
-}
-//---------------------------------------------------------
-// The Spans - Goes from 2-6 cols, 1/7 col, 1/8 col and 12 columns
-//---------------------------------------------------------
-.span-1-2  { @extend %spanprep; @include span-mixin(1,2);  }
-.span-1-3  { @extend %spanprep; @include span-mixin(1,3);  }
-.span-2-3  { @extend %spanprep; @include span-mixin(2,3);  }
-.span-1-4  { @extend %spanprep; @include span-mixin(1,4);  }
-.span-3-4  { @extend %spanprep; @include span-mixin(3,4);  }
-.span-1-5  { @extend %spanprep; @include span-mixin(1,5);  }
-.span-2-5  { @extend %spanprep; @include span-mixin(2,5);  }
-.span-3-5  { @extend %spanprep; @include span-mixin(3,5);  }
-.span-4-5  { @extend %spanprep; @include span-mixin(4,5);  }
-.span-1-6  { @extend %spanprep; @include span-mixin(1,6);  }
-.span-5-6  { @extend %spanprep; @include span-mixin(5,6);  }
-.span-1-8  { @extend %spanprep; @include span-mixin(1,8);  }
-.span-1-12 { @extend %spanprep; @include span-mixin(1,12); }
-.span-5-12 { @extend %spanprep; @include span-mixin(5,12); }
-.span-7-12 { @extend %spanprep; @include span-mixin(7,12); }
-
-// Prepends and appends (not used very often. can add more when needed)
-.prepend-1-6  { @include pad-left(1,6); }
-.prepend-1-12 { @include pad-left(1,12); }
-.append-1-6   { @include pad-right(1,6); }
-.append-1-12  { @include pad-right(1,12); }
-
-//---------------------------------------------------------
-// Special spans:
-//---------------------------------------------------------
-// inner 1/2 span with double the margins to match their outer spans:
-.span-1-2--inner {
-	@extend %spanprep;
-	@include span-mixin(1,2,width,($span-padding * 2));
-	margin-right: ($span-padding * 2);
-}
-// Span Pure (removes the margins from the spans and makes the width "pure")
-.span--pure {
-	margin-right: 0;
-	&.span-1-2 { width: 50% }
-	&.span-1-3 { width: 33.33% }
-	&.span-2-3 { width: 66.66% }
-	&.span-1-4 { width: 25% }
-	&.span-3-4 { width: 75% }
-	&.span-1-5 { width: 20% }
-}
-
-//---------------------------------------------------------
-// Finish off the spans
-//---------------------------------------------------------
-[class^="span"]:last-child {
-	margin-right: 0;
-}
-
-//---------------------------------------------------------
-// Span Breakpoints (more can be added where needed)
-//---------------------------------------------------------
-@media only screen and ( max-width: $bp-large ) {
-	.large-span-full {
-		width: 100%;
-		margin-left: 0;
-		margin-right: 0;
-	}
-	.large-span-1-2 { @include span-mixin(1,2); }
-	.large-span-1-3 { @include span-mixin(1,3); }
-	.large-span-1-3 { @include span-mixin(1,3); }
-	.large-span-1-4 { @include span-mixin(1,4); }
-	.large-span-2-3 { @include span-mixin(2,3); }
-	.large-span-5-12 { @include span-mixin(5,12) };
-}
-
-@media only screen and ( max-width: $bp-medium-large ) {
-	.medium-large-span-2-3  { @include span-mixin(2,3); }
-	.medium-large-span-5-12 { @include span-mixin(5,12); }
-}
-@media only screen and ( max-width: $bp-medium ) {
-	.medium-span-full {
-		width: 100%;
-		margin-left: 0;
-		margin-right: 0;
-	}
-	.medium-span-1-2 { @include span-mixin(1,2); }
-	.medium-span-1-3 { @include span-mixin(1,3); }
-	.medium-span-1-3 { @include span-mixin(1,3); }
-	.medium-span-1-4 { @include span-mixin(1,4); }
-	.span--pure {
-		&.medium-span-1-2 { width: 50% }
-	}
-}
-
-@media only screen and ( max-width: $bp-medium-small ) {
-	.medium-small-span-full {
-		width: 100%;
-		margin: 0;
-		float: none;
-	}
-	.medium-small-span-1-2 { @include span-mixin(1,2); }
-	.medium-small-span-1-3 { @include span-mixin(1,3); }
-	.medium-small-span-1-4 { @include span-mixin(1,4); }
-	.medium-small-span-3-4 { @include span-mixin(3,4); }
-}
-
-@media only screen and ( max-width: $bp-small ) {
-	[class^="span"],
-	.span--pure.small-span-full,
-	.small-span-full {
-		width: 100%;
-		margin-left: 0;
-		margin-right: 0;
-	}
-	.small-span-1-2 { @include span-mixin(1,2); margin-right: $span-padding; }
-	.small-span-1-3 { @include span-mixin(1,3); margin-right: $span-padding; }
-	.small-span-1-4 { @include span-mixin(1,4); margin-right: $span-padding; }
-	.small-span-3-4 { @include span-mixin(3,4); margin-right: $span-padding; }
-}
-
-
-//---------------------------------------------------------
-// Flexbox
-//---------------------------------------------------------
-.display-flex-5050 {
-	display: flex;
-	> * {
-		flex: 1;
-	}
-}
-.flexbox-override {
-	html.flexbox & {
-		display: flex;
-		flex-wrap: wrap;
-		.article {
-			display: flex;
-		}
 	}
 }

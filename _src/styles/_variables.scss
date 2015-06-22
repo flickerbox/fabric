@@ -12,21 +12,13 @@ $line-height: 1.5em;
 
 
 //---------------------------------------------------------
-// Breakpoints
-//---------------------------------------------------------
-$bp-xl: 1100px;
-$bp-large: 1024px;        // ~ tablet
-$bp-medium-large: 900px;  // ~ in-between tablet and full-tablet
-$bp-medium: 767px;        // ~ highest possible phone
-$bp-medium-small: 620px;  // ~ in-between phone and tablet
-$bp-small: 480px;         // ~ phone
-
-$breakpoints: 1100px, 1024px, 900px, 767px, 620px, 480px;
-
-
-//---------------------------------------------------------
 // Layout
 //---------------------------------------------------------
+$breakpoints: (small: 480px,
+				medium: 768px,
+				large: 1024px,
+				x-large: 1200px);
+				
 $site-width: 1100px;
 $grid-width: 12;
 $gutter-width: 30px;
