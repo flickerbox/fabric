@@ -1,6 +1,36 @@
 //---------------------------------------------------------
-// Mixins & Functions
+// White Space
+//
+// Accepts a space delimited list of units, just like margin or padding and
+// applies the same list to the element with unitless units multiplied by 
+// the default line height
+//
+// e.g. 1 auto -> 1.5em auto
 //---------------------------------------------------------
+@mixin white-space($margins: $line-height auto) {
+	$result: ();
+	
+	@each $margin in $margins {
+		@if $margin == "auto" {
+			$result: append($result, "auto");
+		} @else if unitless($margin) {
+			$result: append($result, remove-unit($margin) * $line-height);
+		} @else {
+			$result: append($result, $margin);
+		}
+	}
+	
+	margin: $result;
+	
+	&:first-child {
+		margin-top: 0;
+	}
+	
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
 
 //---------------------------------------------------------
 // Parse Num: removes any units from the variable
@@ -8,12 +38,19 @@
 @function parse-num($value) {
 	@return $value / ($value * 0 + 1);
 }
+
+@function remove-unit($value) {
+	@return $value / ($value * 0 + 1);
+}
+
+
 //---------------------------------------------------------
 // Parse Unit: Returns unit from the variable (just a copy of the "unit()" SASS fucntion)
 //---------------------------------------------------------
 @function parse-unit($value) {
 	@return unit($value);
 }
+
 
 //---------------------------------------------------------
 // Responsive

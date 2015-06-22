@@ -1,7 +1,15 @@
 //---------------------------------------------------------
 // Variables
 //---------------------------------------------------------
-$default-font-size: 16px; // the only place to use font pixels
+
+
+//---------------------------------------------------------
+// Breakpoints
+//---------------------------------------------------------
+$default-font-size: 16px;
+$font-size: 16px;
+$line-height: 1.5em;
+
 
 //---------------------------------------------------------
 // Breakpoints
@@ -15,19 +23,25 @@ $bp-small: 480px;         // ~ phone
 
 $breakpoints: 1100px, 1024px, 900px, 767px, 620px, 480px;
 
+
 //---------------------------------------------------------
 // Layout
 //---------------------------------------------------------
-$site-width: 1150px;
-$site-width-max: 1300px;
+$site-width: 1100px;
+$grid-width: 12;
+$gutter-width: 30px;
 
-$site-padding: 3%;
-$span-padding: 2.5%;
+$site-width-max: 1300px; // deprecate?
+
+$site-padding: 3%; // deprecate?
+$span-padding: 2.5%; // deprecate?
+
 
 //---------------------------------------------------------
 // Header
 //---------------------------------------------------------
-$header-height: 100px;
+$header-height: 100px; // non-standard per website, should not part of framework?
+
 
 //---------------------------------------------------------
 // Colors
