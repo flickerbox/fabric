@@ -14,7 +14,7 @@
 		@if $margin == "auto" {
 			$result: append($result, "auto");
 		} @else if unitless($margin) {
-			$result: append($result, remove-unit($margin) * $line-height);
+			$result: append($result, $margin * $line-height);
 		} @else {
 			$result: append($result, $margin);
 		}

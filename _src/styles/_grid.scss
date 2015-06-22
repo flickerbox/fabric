@@ -13,8 +13,8 @@
 // Grid
 //---------------------------------------------------------
 .row {
-	white-space(2 (-$gutter-width * .5));
-	clearfix();
+	@include white-space(2 (-$gutter-width * .5));
+	@extend .clearfix;
 }
 
 [class*=col-] {
