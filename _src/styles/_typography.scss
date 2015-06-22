@@ -1,198 +1,46 @@
-//---------------------------------------------------------
-// Typography
-//---------------------------------------------------------
-@mixin font-base-light {
-	font-family: YOURFONTGOESHERE;
-	font-weight: 300;
-	font-style: normal;
-}
-@mixin font-base-normal {
-	font-family: YOURFONTGOESHERE;
-	font-weight: 400;
-	font-style: normal;
-}
-@mixin font-base-italic {
-	font-family: YOURFONTGOESHERE;
-	font-weight: 400;
-	font-style: italic;
-}
-@mixin font-base-bold {
-	font-family: YOURFONTGOESHERE;
-	font-weight: 700;
-	font-style: normal;
-}
-
 html {
-	@include font-base-normal;
-	font-size: $default-font-size; // this is the base font of the site (and only place px should be used for fonts).
-	color: $color;
+	font-size: $font-size;
+	line-height: $line-height;
+	color: $font-color;
 }
 
-//------------------------------------------------------------------------------
-// Font Style Reset
-//------------------------------------------------------------------------------
-@mixin font-style-reset {
-	text-transform: none;
-	line-height: 1.3;
-	margin-bottom: 1em;
+h1, h2, h3, h4, h5, h6 {
+	@include white-space(2 auto 1);
 }
 
-//------------------------------------------------------------------------------
-// font-style-1  Like an H1
-//------------------------------------------------------------------------------
-@mixin font-style-1-0 {
-	@include font-style-reset;
-	@include font-base-light;
-	@include responsive(font-size,3.25,2.0);
-	margin-bottom: 0;
-}
-.font-style-1-0 { @include font-style-1-0; }
-
-//------------------------------------------------------------------------------
-// font-style-2  Like a base font
-//------------------------------------------------------------------------------
-@mixin font-style-2-0 {
-	@include font-style-reset;
-	@include font-base-normal;
-	@include responsive(font-size,2.1,1.4);
-	margin-bottom: 0.5em;
-}
-@mixin font-style-2-1 {
-	@include font-style-reset;
-	@include font-base-normal;
-	@include responsive(font-size,1.3,1.05);
-}
-@mixin font-style-2-2 {
-	@include font-style-reset;
-	@include font-base-normal;
-	@include responsive(font-size,1.2,1);
+h1, .h1 {
+	font-size: 2.2em;
 }
 
-.font-style-2-0 { @include font-style-2-0; }
-.font-style-2-1 { @include font-style-2-1; }
-.font-style-2-2 { @include font-style-2-2; }
-
-//------------------------------------------------------------------------------
-// font-style-3  Like a KICKER
-//------------------------------------------------------------------------------
-@mixin font-style-3-0 {
-	@include font-style-reset;
-	@include font-base-bold;
-	text-transform: uppercase;
-	@include responsive(font-size,1.3125,1.05);
-}
-@mixin font-style-3-1 {
-	@include font-style-reset;
-	@include font-base-bold;
-	text-transform: uppercase;
-	@include responsive(font-size,0.9375,0.75);
-}
-@mixin font-style-3-2 {
-	@include font-style-reset;
-	@include font-base-bold;
-	text-transform: uppercase;
-	@include responsive(font-size,0.8125,0.75);
-}
-@mixin font-style-3-3 {
-	@include font-style-reset;
-	@include font-base-bold;
-	text-transform: uppercase;
-	@include responsive(font-size,0.8125,0.65);
-}
-.font-style-3-0 { @include font-style-3-0; }
-.font-style-3-1 { @include font-style-3-1; }
-.font-style-3-2 { @include font-style-3-2; }
-.font-style-3-3 { @include font-style-3-2; }
-
-//------------------------------------------------------------------------------
-// font-style-4  Thick and bold and really close together
-//------------------------------------------------------------------------------
-@mixin font-style-4-0 {
-	@include font-style-reset;
-	@include font-base-bold;
-	text-transform: uppercase;
-	@include responsive(font-size,1.3125,1.05);
-}
-.font-style-4-0 { @include font-style-4-0; }
-
-
-//---------------------------------------------------------
-// Typography
-//---------------------------------------------------------
-h1 { @extend .font-style-1-0; }
-h2 { @extend .font-style-2-0; }
-
-.p,
-p {
-	@extend .font-style-2-1;
-	color: $color;
+h2, .h2 {
+	font-size: 2.0em;
 }
 
-p + h2 {
-	margin-top: 1.25em;
+h3, .h3 {
+	font-size: 1.8em;
+}
+
+h4, .h4 {
+	font-size: 1.6em;
+}
+
+h5, .h5 {
+	font-size: 1.4em;
+}
+
+h6, .h6 {
+	font-size: 1.2em;
+}
+
+p, ul, ol, blockquote, hr, table {
+	@include white-space(1 auto);
 }
 
 a {
-	text-decoration: none;
-	color: inherit;
-}
-strong {
-	// font-weight: normal;
-}
-h1 + .subhead {
-	margin-bottom: 3em;
-}
-
-
-.subhead {
-	@extend .font-style-2-2;
-	margin: 0.3em 0 1.1em;
-}
-.intro {
-	@extend .font-style-2-2;
-}
-
-time,
-.kicker,
-.trailing-link {
-	@extend .font-style-3-2;
-}
-time {
-	display: block;
-	color: $color;
-}
-time,
-.kicker {
-	margin-bottom: 0.5em;
-}
-
-//------------------------------------------------------------------------------
-// Links
-//------------------------------------------------------------------------------
-.site-link{
-	text-decoration: none;
-	color: $link-color;
-}
-a { @extend .site-link; }
-
-//------------------------------------------------------------------------------
-// LINK-PARENT LINK-CHILD
-//------------------------------------------------------------------------------
-.link__child > p,
-.link__child > .p,
-.link__child {
-	@extend .site-link;
-}
-.link__parent {
-	display: block;
-	&:active,
-	&:hover {
-		&,
-		* {
-			text-decoration: none;
-		}
-		.link__child {
-			text-decoration: underline;
-		}
+	color: $accent-color;
+	text-decoration: underline;
+	
+	&:active, &:focus, &:hover {
+		color: lighten($accent-color, 20%);
 	}
 }
