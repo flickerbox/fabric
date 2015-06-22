@@ -1,0 +1,18 @@
+//---------------------------------------------------------
+// Parse Num: removes any units from the variable
+//---------------------------------------------------------
+@function parse-num($value) {
+	@return $value / ($value * 0 + 1);
+}
+
+@function remove-unit($value) {
+	@return $value / ($value * 0 + 1);
+}
+
+
+//---------------------------------------------------------
+// Parse Unit: Returns unit from the variable (just a copy of the "unit()" SASS fucntion)
+//---------------------------------------------------------
+@function parse-unit($value) {
+	@return unit($value);
+}
