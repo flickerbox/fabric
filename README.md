@@ -1,18 +1,14 @@
-# fabric
-Fabric is an opinionated, yet very basic framework for Flickerbox, Inc. Fabric tries to add no styling as all of our sites have custom styles.
+# Fabric #
 
-## SCSS/Sass/CSS ##
+Fabric is only a base set of css styles. It's going to stay out of the way as much as possible.
 
-### FB Reset ###
-This is Flickerbox's reset. It's small but opionionated. It completely abolishes list-item bullets (if you need a bulleted list, add the bullets yourself).
+### Usage ###
 
-### Typography ###
-The only place typography can be changed is in the _typography.scss file. This ensures that typography will be consistent and one-offs font styles will be kept to a minimum. Doing so allows the font-sizes to resize in all breakpoints with ease - which also makes composing responsive CSS much faster.
+Drag the dist/fabric folder into you sass folder. Include.
 
-If you choose to @extend a font-style, only do so from a root-level class. Never @extend from a nested class.
+----
+old stuff down here
 
-### Padding Styles ###
-Padding Styles are created in _padding-styles.scss. Similar to typography, padding styles are built to be responsive from the start. You are encouraged to use padding styles onto your blocks to further speed up responsive code writing.
 
 ### Utilities ###
 Utilities are in the _utilities.scss partial. The syntax is as follows:

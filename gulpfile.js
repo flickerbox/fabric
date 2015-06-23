@@ -13,10 +13,11 @@ var gulp             = require("gulp"),
 	rename           = require("gulp-rename");
 	
 
-var cssSource        = "source/sass",
-	jsSource         = "source/javascript",
-	cssDestination   = "css",
-	jsDestination    = "js";
+var _source			= "source",
+	_build			= "build",
+	_dist			= "dist",
+	_css			= "css",
+	_js				= "js";
 	
 
 // Error messaging
@@ -35,7 +36,16 @@ var onError = function(err) {
 // Uglifies / minifies JS
 gulp.task("scripts", function() {
 	
-	return gulp.src(jsSource + "/**/*.js")
+	gulp.src(_source+"/"+_js+"/**/*.js")
+		.pipe(sourcemaps.init())
+		.pipe(plumber({errorHandler: onError}))
+		.pipe(sourcemaps.write("./", {
+			sourceRoot: _source+"/"+_js,
+			includeContent: false
+		}))
+		.pipe(gulp.dest(_build+"/"+_js));
+	
+	gulp.src(_source+"/"+_js+"/**/*.js")
 		.pipe(rename({
             suffix: ".min"
         }))
@@ -43,10 +53,10 @@ gulp.task("scripts", function() {
 		.pipe(plumber({errorHandler: onError}))
 		.pipe(uglify())
 		.pipe(sourcemaps.write("./", {
-			sourceRoot: jsSource,
+			sourceRoot: _source+"/"+_js,
 			includeContent: false
 		}))
-		.pipe(gulp.dest(jsDestination));
+		.pipe(gulp.dest(_dist+"/"+_js));
 		
 });
 
@@ -54,7 +64,7 @@ gulp.task("scripts", function() {
 // Styles Task
 gulp.task("styles", function() {
 	
-	return sass(cssSource, {
+	sass(_source+"/"+_css, {
 			compass: true,
 			sourcemap: true,
 			noCache: false,
@@ -63,10 +73,14 @@ gulp.task("styles", function() {
 		.on("error", onError)
 		.pipe(autoprefixer())
 		.pipe(sourcemaps.write("./", {
-			sourceRoot: cssSource,
+			sourceRoot: _source+"/"+_css,
 			includeContent: false
 		}))
-		.pipe(gulp.dest(cssDestination));
+		.pipe(gulp.dest(_build+"/"+_css));
+	
+	gulp.src(_source+"/"+_css+"/**/*.scss")
+		.pipe(plumber({errorHandler: onError}))
+		.pipe(gulp.dest(_dist+"/fabric"));
 	
 });
 
@@ -74,8 +88,8 @@ gulp.task("styles", function() {
 // Watches for changes
 gulp.task("watch", function() {
 	
- 	gulp.watch(jsSource + "/**/*.js", ["scripts"]);
- 	gulp.watch(cssSource + "/**/*.scss", ["styles"]);
+ 	gulp.watch(_source+"/"+_js+"/**/*.js", ["scripts"]);
+ 	gulp.watch(_source+"/"+_css+"/**/*.scss", ["styles"]);
  	
 });
 
