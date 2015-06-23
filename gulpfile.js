@@ -1,16 +1,17 @@
 "use strict";
 
 
-var gulp             = require("gulp"),
-	uglify           = require("gulp-uglify"),
-	sass             = require("gulp-ruby-sass"),
-	autoprefixer     = require("gulp-autoprefixer"),
-	plumber          = require("gulp-plumber"),
-	notify           = require("gulp-notify"),
-	sourcemaps       = require("gulp-sourcemaps"),
-	path             = require("path"),
-	folders          = require("gulp-folders"),
-	rename           = require("gulp-rename");
+var gulp			= require("gulp"),
+	uglify			= require("gulp-uglify"),
+	sass			= require("gulp-ruby-sass"),
+	autoprefixer	= require("gulp-autoprefixer"),
+	plumber			= require("gulp-plumber"),
+	notify			= require("gulp-notify"),
+	sourcemaps		= require("gulp-sourcemaps"),
+	path			= require("path"),
+	folders			= require("gulp-folders"),
+	rename			= require("gulp-rename"),
+	zip				= require("gulp-zip");
 	
 
 var _source			= "source",
@@ -90,6 +91,10 @@ gulp.task("watch", function() {
 	
  	gulp.watch(_source+"/"+_js+"/**/*.js", ["scripts"]);
  	gulp.watch(_source+"/"+_css+"/**/*.scss", ["styles"]);
+ 	
+ 	gulp.src(_dist+"/fabric")
+        .pipe(zip("fabric.zip"))
+        .pipe(gulp.dest("./"));
  	
 });
 
