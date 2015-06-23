@@ -14,7 +14,7 @@
 		@if $margin == "auto" {
 			$result: append($result, auto);
 		} @else if unitless($margin) {
-			$result: append($result, $margin * remove-unit($line-height) * $font-size);
+			$result: append($result, white-space-to-px($margin));
 		} @else {
 			$result: append($result, $margin);
 		}

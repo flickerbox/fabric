@@ -15,12 +15,17 @@
 .row {
 	@include white-space(2 (-$gutter-width * .5));
 	@extend .clearfix;
+	margin-bottom: white-space-to-px(2) - $gutter-width;
+	
+	+ .row {
+		margin-top: -$gutter-width;
+	}
 }
 
 [class*=col-] {
 	box-sizing: border-box;
 	float: left;
-	padding: 0 ($gutter-width * .5) ($gutter-width * .5);
+	padding: 0 ($gutter-width * .5) $gutter-width;
 	position: relative;
 	width: 100%;
 }

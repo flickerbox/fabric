@@ -16,3 +16,8 @@
 @function parse-unit($value) {
 	@return unit($value);
 }
+
+
+@function white-space-to-px($line) {
+	@return $line * remove-unit($line-height) * $font-size;
+}

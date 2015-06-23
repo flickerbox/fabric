@@ -5,6 +5,19 @@
 	<title>Fabric</title>
 	<link rel="stylesheet" type="text/css" href="/_css/master.css" />
 	
+	<style type="text/css">
+	body {
+		margin: 60px 0;
+	}
+	
+	.columns-preview [class*=col-]:before {
+		background: #eee;
+		content: "";
+		display: block;
+		height: 100px;
+	}
+	</style>
+	
 </head>
 
 <body>
@@ -26,18 +39,14 @@
 		<h5>Heading 5</h5>
 		<h6>Heading 6</h6>
 		
-		<small><a href="#wrapper">[top]</a></small>
 		<hr />
-		
 		
 		<h1 id="paragraph">Paragraph</h1>
 		
-		<img style="width:250px;height:125px;float:right" src="images/css_gods_language.png" alt="CSS | God's Language" />
 		<p>Lorem ipsum dolor sit amet, <a href="#" title="test link">test link</a> adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p>
 		
 		<p>Lorem ipsum dolor sit amet, <em>emphasis</em> consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p>
 		
-		<small><a href="#wrapper">[top]</a></small>
 		<hr />
 		
 		<h1 id="list_types">List Types</h1>
@@ -62,8 +71,61 @@
 			<li>List Item 3</li>
 		</ul>
 		
-		<small><a href="#wrapper">[top]</a></small>
 		<hr />
+		
+		<h1>Columns</h1>
+		
+		<div class="row columns-preview">
+			
+			<div class="col-6-12"></div>
+			<div class="col-6-12"></div>
+			
+		</div>
+		
+		<div class="row columns-preview">
+			
+			<div class="col-4-12"></div>
+			<div class="col-4-12"></div>
+			<div class="col-4-12"></div>
+			
+		</div>
+		
+		<div class="row columns-preview">
+			
+			<div class="col-3-12"></div>
+			<div class="col-3-12"></div>
+			<div class="col-3-12"></div>
+			<div class="col-3-12"></div>
+			
+		</div>
+		
+		<div class="row columns-preview">
+			
+			<div class="col-2-12"></div>
+			<div class="col-2-12"></div>
+			<div class="col-2-12"></div>
+			<div class="col-2-12"></div>
+			<div class="col-2-12"></div>
+			<div class="col-2-12"></div>
+			
+		</div>
+		
+		<div class="row columns-preview">
+			
+			<div class="col-1-12"></div>
+			<div class="col-1-12"></div>
+			<div class="col-1-12"></div>
+			<div class="col-1-12"></div>
+			<div class="col-1-12"></div>
+			<div class="col-1-12"></div>
+			<div class="col-1-12"></div>
+			<div class="col-1-12"></div>
+			<div class="col-1-12"></div>
+			<div class="col-1-12"></div>
+			<div class="col-1-12"></div>
+			<div class="col-1-12"></div>
+			
+		</div>
 		
 		<h1 id="form_elements">Fieldsets, Legends, and Form Elements</h1>
 		
@@ -126,8 +188,6 @@
 			</form>
 			
 		</fieldset>
-		
-		<small><a href="#wrapper">[top]</a></small>
 		<hr />
 		
 		<h1 id="tables">Tables</h1>
@@ -147,8 +207,6 @@
 			</tr>
 		
 		</table>
-		
-		<small><a href="#wrapper">[top]</a></small>
 		<hr />
 		
 		<h1 id="misc">Misc Stuff - abbr, acronym, pre, code, sub, sup, etc.</h1>
@@ -160,8 +218,6 @@
 		<blockquote>
 			"This stylesheet is going to help so freaking much." <br />-Blockquote
 		</blockquote>
-		
-		<small><a href="#wrapper">[top]</a></small>
 	
 	</div>
 	
