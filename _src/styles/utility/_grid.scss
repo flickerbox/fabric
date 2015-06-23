@@ -31,31 +31,71 @@
 }
 
 @for $i from 1 through $grid-width {
-	.col-#{$i}-#{$grid-width} {
+	.col-#{$i} {
 		width: 100% * ($i / $grid-width);
 	}
 }
 
-@include media("<large", ">=medium") {
+@for $i from 1 through ($grid-width - 1) {
+	.col-push-#{$i} {
+		margin-left: 100% * ($i / $grid-width);
+	}
+	
+	.col-pull-#{$i} {
+		margin-right: 100% * ($i / $grid-width);
+	}
+}
+
+@include media("<large") {
 	@for $i from 1 through $grid-width {
-		.col-large-#{$i}-#{$grid-width} {
+		.col-lg-#{$i} {
 			width: 100% * ($i / $grid-width);
+		}
+	}
+	
+	@for $i from 1 through ($grid-width - 1) {
+		.col-lg-push-#{$i} {
+			margin-left: 100% * ($i / $grid-width);
+		}
+		
+		.col-lg-pull-#{$i} {
+			margin-right: 100% * ($i / $grid-width);
 		}
 	}
 }
 
-@include media("<medium", ">=small") {
+@include media("<medium") {
 	@for $i from 1 through $grid-width {
-		.col-medium-#{$i}-#{$grid-width} {
+		.col-md-#{$i} {
 			width: 100% * ($i / $grid-width);
+		}
+	}
+	
+	@for $i from 1 through ($grid-width - 1) {
+		.col-md-push-#{$i} {
+			margin-left: 100% * ($i / $grid-width);
+		}
+		
+		.col-md-pull-#{$i} {
+			margin-right: 100% * ($i / $grid-width);
 		}
 	}
 }
 
 @include media("<small") {
 	@for $i from 1 through $grid-width {
-		.col-small-#{$i}-#{$grid-width} {
+		.col-sm-#{$i} {
 			width: 100% * ($i / $grid-width);
+		}
+	}
+	
+	@for $i from 1 through ($grid-width - 1) {
+		.col-sm-push-#{$i} {
+			margin-left: 100% * ($i / $grid-width);
+		}
+		
+		.col-sm-pull-#{$i} {
+			margin-right: 100% * ($i / $grid-width);
 		}
 	}
 }
