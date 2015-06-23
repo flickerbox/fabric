@@ -8,10 +8,10 @@ $line-height: 1.5em;
 //---------------------------------------------------------
 // Layout
 //---------------------------------------------------------
-$breakpoints: (small: 480px,
-				medium: 768px,
-				large: 1024px,
-				x-large: 1200px);
+$breakpoints: (x-small: 480px,
+				small: 768px,
+				medium: 1024px,
+				large: 1200px);
 				
 $site-width: 1100px;
 $grid-width: 12;

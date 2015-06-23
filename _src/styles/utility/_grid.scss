@@ -15,6 +15,10 @@
 .row {
 	@include white-space(2 (-$gutter-width * .5));
 	@extend .clearfix;
+	align-content: flex-start;
+	align-items: flex-start;
+	display: flex;
+	flex-wrap: wrap;
 	margin-bottom: white-space-to-px(2) - $gutter-width;
 	
 	+ .row {
@@ -24,25 +28,20 @@
 
 [class*=col-] {
 	box-sizing: border-box;
-	float: left;
+	flex-grow: 1;
 	padding: 0 ($gutter-width * .5) $gutter-width;
 	position: relative;
-	width: 100%;
 }
 
 @for $i from 1 through $grid-width {
 	.col-#{$i} {
 		width: 100% * ($i / $grid-width);
 	}
-}
-
-@for $i from 1 through ($grid-width - 1) {
-	.col-push-#{$i} {
-		margin-left: 100% * ($i / $grid-width);
-	}
 	
-	.col-pull-#{$i} {
-		margin-right: 100% * ($i / $grid-width);
+	@if $i < $grid-width {
+		.col-offset-#{$i} {
+			margin-left: 100% * ($i / $grid-width);
+		}
 	}
 }
 
@@ -51,15 +50,11 @@
 		.col-lg-#{$i} {
 			width: 100% * ($i / $grid-width);
 		}
-	}
-	
-	@for $i from 1 through ($grid-width - 1) {
-		.col-lg-push-#{$i} {
-			margin-left: 100% * ($i / $grid-width);
-		}
 		
-		.col-lg-pull-#{$i} {
-			margin-right: 100% * ($i / $grid-width);
+		@if $i < $grid-width {
+			.col-lg-offset-#{$i} {
+				margin-left: 100% * ($i / $grid-width);
+			}
 		}
 	}
 }
@@ -69,15 +64,11 @@
 		.col-md-#{$i} {
 			width: 100% * ($i / $grid-width);
 		}
-	}
-	
-	@for $i from 1 through ($grid-width - 1) {
-		.col-md-push-#{$i} {
-			margin-left: 100% * ($i / $grid-width);
-		}
 		
-		.col-md-pull-#{$i} {
-			margin-right: 100% * ($i / $grid-width);
+		@if $i < $grid-width {
+			.col-md-offset-#{$i} {
+				margin-left: 100% * ($i / $grid-width);
+			}
 		}
 	}
 }
@@ -87,16 +78,41 @@
 		.col-sm-#{$i} {
 			width: 100% * ($i / $grid-width);
 		}
+		
+		@if $i < $grid-width {
+			.col-sm-offset-#{$i} {
+				margin-left: 100% * ($i / $grid-width);
+			}
+		}
 	}
-	
-	@for $i from 1 through ($grid-width - 1) {
-		.col-sm-push-#{$i} {
-			margin-left: 100% * ($i / $grid-width);
+}
+
+@include media("<x-small") {
+	@for $i from 1 through $grid-width {
+		.col-xs-#{$i} {
+			width: 100% * ($i / $grid-width);
 		}
 		
-		.col-sm-pull-#{$i} {
-			margin-right: 100% * ($i / $grid-width);
+		@if $i < $grid-width {
+			.col-xs-offset-#{$i} {
+				margin-left: 100% * ($i / $grid-width);
+			}
 		}
+	}
+}
+
+
+//---------------------------------------------------------
+// IE9 Grid
+//---------------------------------------------------------
+.no-flex {
+	.row {
+		display: block;
+	}
+	
+	[class*=col-] {
+		float: left;
+		width: 100%;
 	}
 }
 
