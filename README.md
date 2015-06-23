@@ -4,7 +4,24 @@ Fabric is only a base set of css styles. It's going to stay out of the way as mu
 
 ### Usage ###
 
-Drag the dist/fabric folder into you sass folder. Include.
+Drag the dist/fabric folder into you sass folder. Then import. And if you'd like to override any variables, just define them first. E.g.:
+
+	$font-size: 16px;
+	$line-height: 1.5em;
+	
+	$breakpoints: (x-small: 480px,
+					small: 768px,
+					medium: 1024px,
+					large: 1200px);
+					
+	$site-width: 1100px;
+	$grid-width: 12;
+	$gutter-width: 30px;
+	
+	$font-color: #000000;
+	$accent-color: orange;
+
+	@import "fabric/fabric";
 
 ----
 old stuff down here

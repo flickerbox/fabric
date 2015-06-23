@@ -1,8 +1,8 @@
 //---------------------------------------------------------
 // Typography
 //---------------------------------------------------------
-$font-size: 16px;
-$line-height: 1.5em;
+$font-size: 16px !default;
+$line-height: 1.5em !default;
 
 
 //---------------------------------------------------------
@@ -11,15 +11,15 @@ $line-height: 1.5em;
 $breakpoints: (x-small: 480px,
 				small: 768px,
 				medium: 1024px,
-				large: 1200px);
+				large: 1200px) !default;
 				
-$site-width: 1100px;
-$grid-width: 12;
-$gutter-width: 30px;
+$site-width: 1100px !default;
+$grid-width: 12 !default;
+$gutter-width: 30px !default;
 
 
 //---------------------------------------------------------
 // Colors
 //---------------------------------------------------------
-$font-color: #000000;
-$accent-color: orange;
+$font-color: #000000 !default;
+$accent-color: orange !default;
