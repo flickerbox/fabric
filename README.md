@@ -1,8 +1,6 @@
 # fabric
 Fabric is an opinionated, yet very basic framework for Flickerbox, Inc. Fabric tries to add no styling as all of our sites have custom styles.
 
-Fabric uses BEM SCSS for its SCSS. Because of this, HTML and SCSS will be VERY FLAT. Even a single nesting of elements is discouraged.
-
 ## SCSS/Sass/CSS ##
 
 ### FB Reset ###

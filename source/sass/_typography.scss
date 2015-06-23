@@ -46,7 +46,7 @@ p, ul, ol, blockquote, table {
 	@include white-space(1 auto);
 }
 
-hr {
+hr, form {
 	@include white-space(2 auto);
 }
 

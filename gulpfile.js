@@ -1,76 +1,84 @@
-//---------------------------------------------------------
-// Flickerbox's Gulpfile
-//---------------------------------------------------------
-//
-// If you want live reload to work, you must install the livereload extension for chrome
-// https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei
-//
-// Run this to install:
-// sudo npm install --save-dev gulp gulp-uglify gulp-ruby-sass gulp-autoprefixer gulp-plumber gulp-notify gulp-sourcemaps gulp-livereload gulp-concat path gulp-folders
-'use strict';
+"use strict";
 
-var gulp             = require('gulp'),
-	uglify           = require('gulp-uglify'),
-	sass             = require('gulp-ruby-sass'),
-	autoprefixer     = require('gulp-autoprefixer'),
-	plumber          = require('gulp-plumber'),
-	notify           = require('gulp-notify'),
-	sourcemaps       = require('gulp-sourcemaps'),
-	livereload       = require('gulp-livereload'),
-	concat           = require('gulp-concat'),
-	path             = require('path'),
-	folders          = require('gulp-folders');
 
-var srcDir           = '_src',
-	jsSource         = 'scripts',
-	jsDestination    = '_js',
-	cssSource        = 'styles',
-	cssDestination   = '_css';
+var gulp             = require("gulp"),
+	uglify           = require("gulp-uglify"),
+	sass             = require("gulp-ruby-sass"),
+	autoprefixer     = require("gulp-autoprefixer"),
+	plumber          = require("gulp-plumber"),
+	notify           = require("gulp-notify"),
+	sourcemaps       = require("gulp-sourcemaps"),
+	path             = require("path"),
+	folders          = require("gulp-folders"),
+	rename           = require("gulp-rename");
+	
 
-// this is the error shown using plumber and notify:
+var cssSource        = "source/sass",
+	jsSource         = "source/javascript",
+	cssDestination   = "css",
+	jsDestination    = "js";
+	
+
+// Error messaging
 var onError = function(err) {
+	
 	notify.onError({
 		title:    "Gulp Error",
 		message:  "<%= error.message %>",
 	})(err);
 
-	this.emit('end');
+	this.emit("end");
+	
 };
 
+
 // Uglifies / minifies JS
-gulp.task('scripts', folders(srcDir + "/" + jsSource, function(folder) {
-	return gulp.src( path.join( srcDir + "/" + jsSource, folder, '*.js' ))
+gulp.task("scripts", function() {
+	
+	return gulp.src(jsSource + "/**/*.js")
+		.pipe(rename({
+            suffix: ".min"
+        }))
 		.pipe(sourcemaps.init())
-		.pipe(concat(folder + ".js"))
 		.pipe(plumber({errorHandler: onError}))
 		.pipe(uglify())
-		.pipe(sourcemaps.write(jsDestination+'/maps'))
+		.pipe(sourcemaps.write("./", {
+			sourceRoot: jsSource,
+			includeContent: false
+		}))
 		.pipe(gulp.dest(jsDestination));
-}));
-
-// Styles Task
-gulp.task('styles', function() {
-	return sass( srcDir + '/' + cssSource + '/', {
-		sourcemap: true,
-		noCache: false,   // default = false. saves ~10% runtime but stores in a .sass-cache folder.
-		style: 'compressed'
-	})
-	.on('error', onError)
-	.pipe(autoprefixer())
-	.pipe(sourcemaps.write('./', {
-		sourceRoot: srcDir + '/' + cssSource,  //
-		includeContent: false 		// default is true, which includes the entire css in the sourcemap
-	}))
-	.pipe(gulp.dest(cssDestination));
+		
 });
 
-gulp.task('watch', function() {
-	gulp.watch(srcDir + '/' + jsSource + '/**/*.js', ['scripts']);
-	gulp.watch(srcDir + '/' + cssSource + '/**/*.scss', ['styles']);
-	livereload.listen(); // start the livereload server
-	gulp.watch(['**/*.html','**/*.php', '**/*.inc', cssDestination + '/master.css', jsDestination + '/*.js' ], function(event) {
-		livereload.changed(event.path); // run livereload on the file
-	});
- });
 
-gulp.task('default', [ 'scripts', 'styles', 'watch' ]);
+// Styles Task
+gulp.task("styles", function() {
+	
+	return sass(cssSource, {
+			compass: true,
+			sourcemap: true,
+			noCache: false,
+			style: "compressed"
+		})
+		.on("error", onError)
+		.pipe(autoprefixer())
+		.pipe(sourcemaps.write("./", {
+			sourceRoot: cssSource,
+			includeContent: false
+		}))
+		.pipe(gulp.dest(cssDestination));
+	
+});
+
+
+// Watches for changes
+gulp.task("watch", function() {
+	
+ 	gulp.watch(jsSource + "/**/*.js", ["scripts"]);
+ 	gulp.watch(cssSource + "/**/*.scss", ["styles"]);
+ 	
+});
+
+
+// Initialization
+gulp.task("default", ["scripts", "styles", "watch"]);
