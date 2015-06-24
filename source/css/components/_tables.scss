@@ -1,0 +1,11 @@
+table {
+	width: 100%;
+}
+
+th {
+	text-align: left;
+}
+
+th, td {
+	padding: white-space-to-px(.25) ($gutter-width * .5);
+}

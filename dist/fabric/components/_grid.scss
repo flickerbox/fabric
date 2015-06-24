@@ -14,7 +14,6 @@
 //---------------------------------------------------------
 .row {
 	@include white-space(2 (-$gutter-width * .5));
-	@extend .clearfix;
 	align-content: flex-start;
 	align-items: flex-start;
 	display: flex;
@@ -108,6 +107,7 @@
 .no-flex {
 	.row {
 		display: block;
+		@extend .clearfix;
 	}
 	
 	[class*=col-] {

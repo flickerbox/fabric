@@ -1,14 +1,15 @@
 @import
 	
-	"variables",
+	"base/variables",
+	"base/functions",
+	"base/mixins",
+	"base/normalize",
+	"base/include-media",
+	"base/typography",
 	
-	"utility/functions",
-	"utility/mixins",
-	"utility/normalize",
-	"utility/include-media",
-	"utility/grid",
+	"components/buttons",
+	"components/forms",
+	"components/grid",
+	"components/tables"
 	
-	"typography",
-	"tables",
-	"forms",
-	"buttons";
+;
