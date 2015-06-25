@@ -92,7 +92,7 @@ gulp.task("watch", function() {
  	gulp.watch(_source+"/"+_js+"/**/*.js", ["scripts"]);
  	gulp.watch(_source+"/"+_css+"/**/*.scss", ["styles"]);
  	
- 	gulp.src(_dist+"/fabric")
+ 	gulp.src(_dist+"/fabric/**")
         .pipe(zip("fabric.zip"))
         .pipe(gulp.dest("./"));
  	
