@@ -57,3 +57,7 @@ a {
 		color: $link-hover-color;
 	}
 }
+
+article + article {
+	margin-top: white-space-to-px(2);
+}
