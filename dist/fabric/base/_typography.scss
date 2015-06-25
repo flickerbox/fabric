@@ -1,7 +1,5 @@
 html {
-	font-size: $font-size;
-	line-height: $line-height;
-	color: $font-color;
+	@include font-reset();
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -52,10 +50,10 @@ hr, form {
 
 a {
 	@include transition();
-	color: $accent-color;
+	color: $link-color;
 	text-decoration: underline;
 	
 	&:active, &:focus, &:hover {
-		color: lighten($accent-color, 20%);
+		color: $link-hover-color;
 	}
 }

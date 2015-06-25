@@ -22,4 +22,16 @@ $gutter-width: 30px !default;
 // Colors
 //---------------------------------------------------------
 $font-color: #000000 !default;
+
 $accent-color: #f16521 !default;
+
+$link-color: $accent-color !default;
+$link-hover-color: lighten($accent-color, 20%) !default;
+
+$button-color: $accent-color !default;
+$button-hover-color: lighten($accent-color, 20%) !default;
+
+$button-label-color: #fff !default;
+$button-label-hover-color: #fff !default;
+
+$form-focus-color: $accent-color;

@@ -1,3 +1,9 @@
+@mixin font-reset() {
+	font-size: $font-size;
+	line-height: $line-height;
+	color: $font-color;
+}
+
 //---------------------------------------------------------
 // White Space
 //
