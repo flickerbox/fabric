@@ -21,7 +21,7 @@
 	margin-bottom: white-space-to-px(2) - $gutter-width;
 	
 	+ .row {
-		margin-top: -$gutter-width;
+		margin-top: $gutter-width - white-space-to-px(2);
 	}
 }
 

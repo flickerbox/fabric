@@ -87,6 +87,7 @@ form {
 	}
 	
 	.button-group {
+		margin-top: $gutter-width - white-space-to-px(2);
 		text-align: right;
 	}
 	
