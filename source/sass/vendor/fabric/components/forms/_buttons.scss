@@ -1,0 +1,44 @@
+//-----------------------------------------------------------------------
+// Placeholder
+//-----------------------------------------------------------------------
+%u-button {
+	@include padding('x-small small');
+	@include transition('normal background', 'normal border', 'normal color', 'normal opacity');
+	background: getColor('accentColor');
+	border: 0;
+	color: getColor('white');
+	display: inline-block;
+	font-family: $fontFamily;
+	text-align: center;
+	
+	&:focus {
+		outline: none;
+	}
+	
+	&:active, 
+	&:hover {
+		background: lighten(getColor('accentColor'), 10%);
+		color: getColor('white');
+		text-decoration: none;
+	}
+	
+	&[disabled] {
+		cursor: default;
+		opacity: 0.5;
+		
+		&:hover {
+			background: getColor('accentColor');
+		}
+	}
+}
+
+
+
+//-----------------------------------------------------------------------
+// Classes
+//-----------------------------------------------------------------------
+.u-button, 
+[class^=u-button--], 
+[class*= u-button--] {
+	@extend %u-button;
+}

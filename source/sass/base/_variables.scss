@@ -1,0 +1,83 @@
+//-----------------------------------------------------------------------
+// Typography
+//-----------------------------------------------------------------------
+
+$fontFamily:				Helvetica, Arial, sans-serif;
+$fontFamily--sansSerif:		Helvetica, Arial, sans-serif;
+$fontFamily--serif:			serif;
+$lineHeight:				1.5;
+
+$fontSize:					(
+							'base':				16px,
+							'h6':				16px,
+							'h5':				20px,
+							'h4':				24px,
+							'h3':				32px,
+							'h2':				40px,
+							'h1':				48px
+							);
+
+
+
+//-----------------------------------------------------------------------
+// Layout
+//-----------------------------------------------------------------------
+
+$siteWidth:					1080px;
+$gridWidth:					12;
+
+$lineBreak:					20px;
+$gutterWidth:				20px;
+							 
+$breakpoints:				(
+							'xxSmall':			320px,
+							'xSmall':			480px,
+							'small':			768px,
+							'medium':			1024px,
+							'large':			1200px,
+							'xLarge':			1400px,
+							'xxLarge':			1600px
+							);
+						 
+$spacing:					(
+							'xxSmall':			10px,
+							'xSmall':			20px,
+							'small':			30px,
+							'medium':			45px,
+							'large':			60px,
+							'xLarge':			75px,
+							'xxLarge':			90px
+							);
+
+
+
+//-----------------------------------------------------------------------
+// Transitions
+//-----------------------------------------------------------------------
+
+$transitionSpeed:			(
+							'xSlow':			0.8s,
+							'slow':				0.6s,
+							'normal':			0.4s,
+							'fast':				0.2s,
+							'xFast':			0.1s
+							);
+
+
+
+//-----------------------------------------------------------------------
+// Colors
+//-----------------------------------------------------------------------
+
+$colors:					(
+							'accentColor':		#fe5000,
+							'fontColor':		#232323,
+							
+							'black':			#000,
+							'darkerGray':		#232323,
+							'darkGray':			#4a4a4a,
+							'gray':				#9b9b9b,
+							'lightGray':		#dedede,
+							'lighterGray':		#fcfcfc,
+							'white':			#fff
+							);

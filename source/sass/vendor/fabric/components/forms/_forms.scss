@@ -1,0 +1,37 @@
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=search],
+input[type=number],
+input[type=url],
+input[type=tel],
+input[type=datetime],
+input[type=date],
+input[type=month],
+input[type=week],
+textarea {
+	@include padding(xSmall small);
+	@include transition();
+	
+	border: 1px solid getColor('lightGray');
+	font-size: 1rem;
+	line-height: $lineHeight;
+	
+	&::placeholder {
+		color: getColor('gray');
+	}
+	
+	&:focus {
+		border-color: getColor('darkGray');
+		outline: none;
+	}
+	
+	&:hover {
+		border-color: getColor('gray');
+	}
+	
+	&:focus::placeholder,
+	&:hover::placeholder {
+		color: getColor('darkGray');
+	}
+}

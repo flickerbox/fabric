@@ -1,0 +1,201 @@
+//---------------------------------------------------------
+// Removes any unit from the variable
+//---------------------------------------------------------
+
+@function removeUnit($_value) {
+	
+	@return $_value / ($_value * 0 + 1);
+	
+}
+
+
+
+//---------------------------------------------------------
+// Add unit to variable
+//---------------------------------------------------------
+
+@function addUnit($_value, $_unit) {
+	
+	@return unquote(removeUnit($_value) + $_unit);
+	
+}
+
+
+
+//---------------------------------------------------------------
+// Converts a pixel value into a root em based value
+//---------------------------------------------------------------
+
+@function pxToRem($_value) {
+	
+	@return (removeUnit($_value) / removeUnit(map-get($fontSize, 'base'))) * 1rem;
+	
+}
+
+
+
+//---------------------------------------------------------------
+// Shorthand to get font size
+//---------------------------------------------------------------
+
+@function getFontSize($_value) {
+	
+	@if str-slice($_value, 1, 1) == '-' and index(map-keys($fontSize), str-slice($_value, 2)) {
+			
+		@return map-get($fontSize, str-slice($_value, 2)) * -1;
+	
+	} @else {
+		
+		@return map-get($fontSize, $_value);
+		
+	}
+	
+}
+
+
+
+//---------------------------------------------------------------
+// Shorthand to get color
+//---------------------------------------------------------------
+
+@function getColor($_value) {
+	
+	@return map-get($colors, $_value);
+	
+}
+
+
+
+//---------------------------------------------------------------
+// Shorthand to get transition speed
+//---------------------------------------------------------------
+
+@function getTransitionSpeed($_value) {
+	
+	@if str-slice($_value, 1, 1) == '-' and index(map-keys($transitionSpeed), str-slice($_value, 2)) {
+			
+		@return map-get($transitionSpeed, str-slice($_value, 2)) * -1;
+	
+	} @else {
+		
+		@return map-get($transitionSpeed, $_value);
+		
+	}
+	
+}
+
+
+
+//---------------------------------------------------------------
+// Shorthand to get spacing unit
+//---------------------------------------------------------------
+
+@function getSpacing($_value) {
+	
+	@if str-slice($_value, 1, 1) == '-' and index(map-keys($spacing), str-slice($_value, 2)) {
+			
+		@return map-get($spacing, str-slice($_value, 2)) * -1;
+	
+	} @else {
+		
+		@return map-get($spacing, $_value);
+		
+	}
+	
+}
+
+
+
+//---------------------------------------------------------------
+// Explode a string, cause we can
+//---------------------------------------------------------------
+@function explode($string, $dem) {
+	
+	$list: ();
+	$sum: str-length($string);
+	
+	@for $i from 1 through $sum {
+		$str: str-index($string, $dem);
+	
+		@if str-length($string) >= 1 and $str == null {
+			$list: append($list, $string);
+			$string: '';
+		}
+		
+		@if type-of($str) == number {
+			$each: str-slice($string, 0, ($str - 1));
+			$list: append($list, $each);
+			$string: str-slice($string, ($str + 1), $sum);
+		}
+	}
+	
+	@return $list;
+    
+}
+
+
+
+//---------------------------------------------------------------
+// Length
+//---------------------------------------------------------------
+
+@function unitLength($number, $unit) {
+	$strings: 'px' 'cm' 'mm' '%' 'ch' 'pica' 'in' 'em' 'rem' 'pt' 'pc' 'ex' 'vw' 'vh' 'vmin' 'vmax';
+	$units: 1px  1cm  1mm  1%  1ch  1pica  1in  1em  1rem  1pt  1pc  1ex  1vw  1vh  1vmin  1vmax;
+	$index: index($strings, $unit);
+	
+	@if not $index {
+		@warn 'Unknown unit `#{$unit}`.';
+		@return false;
+	}
+	
+	@return $number * nth($units, $index);
+}
+
+
+
+//---------------------------------------------------------------
+// Number
+//---------------------------------------------------------------
+
+@function number($string) {
+	// Matrices
+	$strings: '0' '1' '2' '3' '4' '5' '6' '7' '8' '9';
+	$numbers:  0   1   2   3   4   5   6   7   8   9;
+	
+	// Result
+	$result: 0;
+	$divider: 0;
+	$minus: false;
+	
+	// Looping through all characters
+	@for $i from 1 through str-length($string) {
+		$character: str-slice($string, $i, $i);
+		$index: index($strings, $character);
+		
+		@if $character == '-' {
+			$minus: true;
+		} @else if $character == '.' {
+			$divider: 1;
+		} @else {
+			@if not $index {
+				$result: if($minus, $result * -1, $result);
+				@return unitLength($result, str-slice($string, $i));
+			}
+			
+			$number: nth($numbers, $index);
+			
+			@if $divider == 0 {
+				$result: $result * 10;
+			} @else {
+				// Move the decimal dot to the left
+				$divider: $divider * 10;
+				$number: $number / $divider;
+			}
+		
+			$result: $result + $number;
+		}
+	}
+	
+	@return if($minus, $result * -1, $result);
+}

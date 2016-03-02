@@ -1,0 +1,36 @@
+//-----------------------------------------------------------------------
+// Placeholders
+//-----------------------------------------------------------------------
+%clearfix {
+	zoom: 1;
+
+	&:after {
+		clear: both;
+		content: '';
+		display: table;
+	}
+}
+
+
+
+//-----------------------------------------------------------------------
+// Classes
+//-----------------------------------------------------------------------
+.clearfix {
+	@extend %clearfix;
+}
+
+.wrap {
+	@extend %clearfix;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: $siteWidth;
+	padding: 0 ($gutterWidth * 0.5);
+	position: relative;
+}
+
+// scss-lint:disable ImportantRule
+.preload * {
+	transition: none !important;
+}
+// scss-lint:enable ImportantRule

@@ -1,103 +1,93 @@
-"use strict";
+'use strict';
 
 
-var gulp			= require("gulp"),
-	uglify			= require("gulp-uglify"),
-	sass			= require("gulp-ruby-sass"),
-	autoprefixer	= require("gulp-autoprefixer"),
-	plumber			= require("gulp-plumber"),
-	notify			= require("gulp-notify"),
-	sourcemaps		= require("gulp-sourcemaps"),
-	path			= require("path"),
-	folders			= require("gulp-folders"),
-	rename			= require("gulp-rename"),
-	zip				= require("gulp-zip");
+var gulp			= require('gulp'),
+	plugins			= require('gulp-load-plugins')()
+;
 	
 
-var _source			= "source",
-	_build			= "build",
-	_dist			= "dist",
-	_css			= "css",
-	_js				= "js";
-	
-
-// Error messaging
+// Error Messaging
 var onError = function(err) {
 	
-	notify.onError({
-		title:    "Gulp Error",
-		message:  "<%= error.message %>",
+	plugins.notify.onError({
+		title:    'Gulp Error',
+		message:  '<%= error.message %>',
 	})(err);
 
-	this.emit("end");
+	this.emit('end');
 	
 };
 
 
-// Uglifies / minifies JS
-gulp.task("scripts", function() {
-	
-	gulp.src(_source+"/"+_js+"/**/*.js")
-		.pipe(sourcemaps.init())
-		.pipe(plumber({errorHandler: onError}))
-		.pipe(sourcemaps.write("./", {
-			sourceRoot: _source+"/"+_js,
-			includeContent: false
-		}))
-		.pipe(gulp.dest(_build+"/"+_js));
-	
-	gulp.src(_source+"/"+_js+"/**/*.js")
-		.pipe(rename({
-            suffix: ".min"
-        }))
-		.pipe(sourcemaps.init())
-		.pipe(plumber({errorHandler: onError}))
-		.pipe(uglify())
-		.pipe(sourcemaps.write("./", {
-			sourceRoot: _source+"/"+_js,
-			includeContent: false
-		}))
-		.pipe(gulp.dest(_dist+"/"+_js));
-		
+// Lint SCSS
+gulp.task('lint:styles', function() {
+
+	gulp.src([
+		'./source/sass/base/**/*.scss',
+		'./source/sass/components/**/*.scss',
+		'./source/sass/pages/**/*.scss',
+		'./source/sass/master.scss'
+	]).pipe(plugins.scssLint({
+		config: 'lint.yml'
+	}));
+
 });
 
 
-// Styles Task
-gulp.task("styles", function() {
-	
-	sass(_source+"/"+_css, {
-			compass: true,
-			sourcemap: true,
-			noCache: false,
-			style: "compressed"
-		})
-		.on("error", onError)
-		.pipe(autoprefixer())
-		.pipe(sourcemaps.write("./", {
-			sourceRoot: _source+"/"+_css,
-			includeContent: false
+// Compile Scripts
+gulp.task('compile:scripts', function() {
+
+	gulp.src('./source/js/**/*.js')
+		.pipe(plugins.plumber({errorHandler: onError}))
+		.pipe(plugins.uglify())
+		.pipe(plugins.concat('master.js'))
+		.pipe(gulp.dest('./js'));
+
+});
+
+
+// Compile Styles
+gulp.task('compile:styles', function() {
+
+	gulp.src('./source/sass/master.scss')
+		.pipe(plugins.cssGlobbing({
+			extensions: ['.scss']
 		}))
-		.pipe(gulp.dest(_build+"/"+_css));
+		.pipe(plugins.sourcemaps.init())
+		.pipe(plugins.sass({
+			outputStyle: 'compressed'
+		}))
+		.on('error', onError)
+		.pipe(plugins.autoprefixer())
+		.pipe(plugins.sourcemaps.write('./', {
+			sourceRoot: './sass',
+			includeContent: true
+		}))
+		.pipe(gulp.dest('./css'));
 	
-	gulp.src(_source+"/"+_css+"/**/*.scss")
-		.pipe(plumber({errorHandler: onError}))
-		.pipe(gulp.dest(_dist+"/fabric"));
+});
+
+
+gulp.task('npm:update', function() {
+	
+	var update = plugins.update();
+	
+	gulp.watch('./package.json').on('change', function(file) {
+		
+		update.write(file);
+		
+	});
 	
 });
 
 
 // Watches for changes
-gulp.task("watch", function() {
+gulp.task('watch', function() {
 	
- 	gulp.watch(_source+"/"+_js+"/**/*.js", ["scripts"]);
- 	gulp.watch(_source+"/"+_css+"/**/*.scss", ["styles"]);
- 	
- 	gulp.src(_dist+"/fabric/**")
-        .pipe(zip("fabric.zip"))
-        .pipe(gulp.dest("./"));
+ 	gulp.watch('./sass/**/*.scss', ['lint:styles', 'compile:styles']);
  	
 });
 
 
 // Initialization
-gulp.task("default", ["scripts", "styles", "watch"]);
+gulp.task('default', ['npm:update', 'lint:styles', 'compile:scripts', 'compile:styles', 'watch']);

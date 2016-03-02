@@ -1,0 +1,122 @@
+//-----------------------------------------------------------------------
+// Placeholders
+//-----------------------------------------------------------------------
+%u-heading {
+	@include margin(($lineBreak * 3) 0 ($lineBreak * 1));
+	font-weight: inherit;
+
+	@include media('<medium') {
+		@include margin(($lineBreak * 3) 0 $lineBreak);
+	}
+	
+	@include media('<small') {
+		br {
+			display: none;
+		}
+	}
+	
+	a, 
+	a:active, 
+	a:hover {
+		color: inherit;
+	}
+}
+
+
+
+//-----------------------------------------------------------------------
+// Classes
+//-----------------------------------------------------------------------
+html {
+	color: getColor('fontColor');
+	font-family: $fontFamily;
+	font-size: getFontSize('base');
+	font-weight: 400;
+	line-height: removeUnit($lineHeight);
+}
+
+h1,
+h2, 
+h3, 
+h4, 
+h5, 
+h6,
+.h1,
+.h2, 
+.h3, 
+.h4, 
+.h5, 
+.h6 {
+	@extend %u-heading;
+}
+
+h1 {
+	@include fontSize('h1');
+}
+
+h2 {
+	@include fontSize('h2');
+}
+
+h3 {
+	@include fontSize('h3');
+}
+
+h4 {
+	@include fontSize('h4');
+}
+
+h5 {
+	@include fontSize('h5');
+}
+
+h6 {
+	@include fontSize('h6');
+}
+
+p,
+ul,
+ol,
+blockquote, 
+table, 
+address,
+hr, 
+form {
+	@include margin(($lineBreak, 0));
+}
+
+a {
+	@include transition('normal color');
+	color: getColor('accentColor');
+	text-decoration: none;
+
+	&:active, 
+	&:hover {
+		color: lighten(getColor('accentColor'), 10%);
+		text-decoration: underline;
+	}
+}
+
+article {
+	@include margin('large 0');
+}
+
+strong {
+	font-weight: bold;
+}
+
+pre {
+	white-space: pre-wrap;
+}
+
+code {
+	white-space: pre;
+}
+
+blockquote {
+	@include padding('0 0 0 medium');
+}
+
+img {
+	max-width: 100%;
+}
