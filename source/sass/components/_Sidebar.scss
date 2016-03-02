@@ -1,0 +1,20 @@
+.Sidebar {
+	background: getColor('darkGray');
+	bottom: 0;
+	left: 0;
+	padding-top: 40px + getSpacing('large') * 2;
+	position: fixed;
+	top: 0;
+	width: 240px;
+	z-index: 50;
+	
+	&:before {
+		@extend %Logomark;
+		border-color: getColor('white');
+		content: '';
+		left: 50%;
+		position: absolute;
+		top: getSpacing('large');
+		transform: translate(-50%, 0);
+	}
+}

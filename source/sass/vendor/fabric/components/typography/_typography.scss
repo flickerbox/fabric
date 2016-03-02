@@ -82,11 +82,11 @@ table,
 address,
 hr, 
 form {
-	@include margin(($lineBreak, 0));
+	@include margin($lineBreak 0);
 }
 
 a {
-	@include transition('normal color');
+	@include transition(normal color);
 	color: getColor('accentColor');
 	text-decoration: none;
 
@@ -114,7 +114,7 @@ code {
 }
 
 blockquote {
-	@include padding('0 0 0 medium');
+	@include padding(0 0 0 medium);
 }
 
 img {

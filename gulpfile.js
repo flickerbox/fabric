@@ -23,12 +23,12 @@ var onError = function(err) {
 gulp.task('lint:styles', function() {
 
 	gulp.src([
-		'./source/sass/base/**/*.scss',
-		'./source/sass/components/**/*.scss',
-		'./source/sass/pages/**/*.scss',
-		'./source/sass/master.scss'
+		'source/sass/base/**/*.scss',
+		'source/sass/components/**/*.scss',
+		'source/sass/pages/**/*.scss',
+		'source/sass/master.scss'
 	]).pipe(plugins.scssLint({
-		config: './lint.yml'
+		config: 'lint.yml'
 	}));
 
 });
@@ -37,11 +37,11 @@ gulp.task('lint:styles', function() {
 // Compile Scripts
 gulp.task('compile:scripts', function() {
 
-	gulp.src('./source/js/**/*.js')
+	gulp.src('source/js/**/*.js')
 		.pipe(plugins.plumber({errorHandler: onError}))
 		.pipe(plugins.uglify())
 		.pipe(plugins.concat('master.js'))
-		.pipe(gulp.dest('./js'));
+		.pipe(gulp.dest('js'));
 
 });
 
@@ -49,7 +49,7 @@ gulp.task('compile:scripts', function() {
 // Compile Styles
 gulp.task('compile:styles', function() {
 
-	gulp.src('./source/sass/master.scss')
+	gulp.src('source/sass/master.scss')
 		.pipe(plugins.cssGlobbing({
 			extensions: ['.scss']
 		}))
@@ -60,10 +60,10 @@ gulp.task('compile:styles', function() {
 		.on('error', onError)
 		.pipe(plugins.autoprefixer())
 		.pipe(plugins.sourcemaps.write('./', {
-			sourceRoot: './source/sass',
+			sourceRoot: 'source/sass',
 			includeContent: true
 		}))
-		.pipe(gulp.dest('./css'));
+		.pipe(gulp.dest('css'));
 	
 });
 
@@ -74,15 +74,15 @@ gulp.task('npm:update', function() {
 	var update = plugins.update();
 	
 	update.write({
-		path: './package.json'
+		path: 'package.json'
 	});
 	
-	gulp.watch('./package.json').on('change', function(file) {
+	gulp.watch('package.json').on('change', function(file) {
 		
 		if (file.type =='changed') {
 					
 			update.write({
-				path: './package.json'
+				path: 'package.json'
 			});
 			
 		}
@@ -95,7 +95,7 @@ gulp.task('npm:update', function() {
 // Watches for changes
 gulp.task('watch', function() {
 	
- 	gulp.watch('./source/sass/**/*.scss', ['lint:styles', 'compile:styles']);
+	gulp.watch('source/sass/**/*.scss', ['lint:styles', 'compile:styles']);
  	
 });
 

@@ -2,8 +2,8 @@
 // Placeholder
 //-----------------------------------------------------------------------
 %u-button {
-	@include padding('x-small small');
-	@include transition('normal background', 'normal border', 'normal color', 'normal opacity');
+	@include padding(xSmall small);
+	@include transition(normal background, normal border, normal color, normal opacity);
 	background: getColor('accentColor');
 	border: 0;
 	color: getColor('white');
