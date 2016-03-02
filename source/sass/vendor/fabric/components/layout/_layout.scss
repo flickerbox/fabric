@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------
 // Placeholders
 //-----------------------------------------------------------------------
-%clearfix {
+%u-clearfix {
 	zoom: 1;
 
 	&:after {
@@ -16,11 +16,11 @@
 //-----------------------------------------------------------------------
 // Classes
 //-----------------------------------------------------------------------
-.clearfix {
+.u-clearfix {
 	@extend %clearfix;
 }
 
-.wrap {
+.u-wrap {
 	@extend %clearfix;
 	margin-left: auto;
 	margin-right: auto;
@@ -30,7 +30,7 @@
 }
 
 // scss-lint:disable ImportantRule
-.preload * {
+.u-preload * {
 	transition: none !important;
 }
 // scss-lint:enable ImportantRule

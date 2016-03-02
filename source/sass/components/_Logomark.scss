@@ -1,0 +1,10 @@
+%Logomark {
+	$_color: getColor('accentColor');
+	$_size: 40px;
+	
+	border: ($_size / 4) solid $_color;
+	display: block;
+	height: $_size;
+	width: $_size;
+	position: relative;
+}

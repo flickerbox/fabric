@@ -3,248 +3,241 @@
 <head>
 	
 	<title>Fabric</title>
-	<link rel="stylesheet" type="text/css" href="build/css/fabric.css" />
+	<link rel="stylesheet" type="text/css" href="/fonts/neue-haas-grotesk/neue-haas-grotesk.css">
+	<link rel="stylesheet" type="text/css" href="/css/master.css">
 	
-	<style type="text/css">
-	body {
-		margin: 60px 0;
-	}
-	
-	.columns-preview [class*=col-]:before {
-		background: #eee;
-		content: "";
-		display: block;
-		height: 100px;
-	}
-	</style>
-	
-	<script src="build/js/modernizr.js"></script>
+	<script src="https://use.typekit.net/moy5rey.js"></script>
 	
 </head>
 
 <body>
 	
-	<div class="wrap">
+	<div class="Page">
+		<div class="u-wrap">
+		
+			<h1>CSS Basic Elements</h1>
+		
+			<p>The purpose of this HTML is to help determine what default settings are with CSS and to make sure that all possible HTML Elements are included in this HTML so as to not miss any possible Elements when designing a site.</p>
+			
+			<hr />
+			
+			<h1 id="headings">Headings</h1>
+			
+			<h1>Heading 1</h1>
+			<h2>Heading 2</h2>
+			<h3>Heading 3</h3>
+			<h4>Heading 4</h4>
+			<h5>Heading 5</h5>
+			<h6>Heading 6</h6>
+			
+			<hr />
+			
+			<h1 id="paragraph">Paragraph</h1>
+			
+			<p>Lorem ipsum dolor sit amet, <a href="#" title="test link">test link</a> adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p>
+			
+			<p>Lorem ipsum dolor sit amet, <em>emphasis</em> consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p>
+			
+			<hr />
+			
+			<h1 id="list_types">List Types</h1>
+			
+			<h3>Ordered List</h3>
+			<ol>
+				<li>List Item 1</li>
+				<li>List Item 2</li>
+				<li>List Item 3</li>
+			</ol>
+			
+			<h3>Unordered List</h3>
+			<ul>
+				<li>List Item 1</li>
+				<li>List Item 2</li>
+				<li>List Item 3</li>
+			</ul>
+			
+			<hr />
+			
+			<h1>Columns</h1>
+			
+			<div class="row columns-preview">
+				
+				<div class="col-6 col-md-12"></div>
+				<div class="col-6 col-md-12"></div>
+				
+				<div class="col-4 col-md-12"></div>
+				<div class="col-4 col-md-12"></div>
+				<div class="col-4 col-md-12"></div>
+				
+				<div class="col-3 col-md-6 col-sm-12"></div>
+				<div class="col-3 col-md-6 col-sm-12"></div>
+				<div class="col-3 col-md-6 col-sm-12"></div>
+				<div class="col-3 col-md-6 col-sm-12"></div>
+				
+				<div class="col-2 col-md-4 col-sm-6"></div>
+				<div class="col-2 col-md-4 col-sm-6"></div>
+				<div class="col-2 col-md-4 col-sm-6"></div>
+				<div class="col-2 col-md-4 col-sm-6"></div>
+				<div class="col-2 col-md-4 col-sm-6"></div>
+				<div class="col-2 col-md-4 col-sm-6"></div>
+				
+				<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
+				<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
+				<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
+				<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
+				<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
+				<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
+				<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
+				<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
+				<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
+				<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
+				<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
+				<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
+				
+			</div>
+			
+			<h1 id="form_elements">Fieldsets, Legends, and Form Elements</h1>
 	
-		<h1>CSS Basic Elements</h1>
-	
-		<p>The purpose of this HTML is to help determine what default settings are with CSS and to make sure that all possible HTML Elements are included in this HTML so as to not miss any possible Elements when designing a site.</p>
-		
-		<hr />
-		
-		<h1 id="headings">Headings</h1>
-		
-		<h1>Heading 1</h1>
-		<h2>Heading 2</h2>
-		<h3>Heading 3</h3>
-		<h4>Heading 4</h4>
-		<h5>Heading 5</h5>
-		<h6>Heading 6</h6>
-		
-		<hr />
-		
-		<h1 id="paragraph">Paragraph</h1>
-		
-		<p>Lorem ipsum dolor sit amet, <a href="#" title="test link">test link</a> adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p>
-		
-		<p>Lorem ipsum dolor sit amet, <em>emphasis</em> consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p>
-		
-		<hr />
-		
-		<h1 id="list_types">List Types</h1>
-		
-		<h3>Ordered List</h3>
-		<ol>
-			<li>List Item 1</li>
-			<li>List Item 2</li>
-			<li>List Item 3</li>
-		</ol>
-		
-		<h3>Unordered List</h3>
-		<ul>
-			<li>List Item 1</li>
-			<li>List Item 2</li>
-			<li>List Item 3</li>
-		</ul>
-		
-		<hr />
-		
-		<h1>Columns</h1>
-		
-		<div class="row columns-preview">
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.</p>
 			
-			<div class="col-6 col-md-12"></div>
-			<div class="col-6 col-md-12"></div>
+			<form>
+				<h2>Form Element</h2>
+				
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui.</p>
+				
+				<div class="field-group">
+					<div class="label">
+						<label>Text Field:</label>
+					</div>
+					<div class="field">
+						<input type="text" />
+					</div>
+				</div>
+				
+				<div class="field-group">
+					<div class="label">
+						<label>Text Area:</label>
+					</div>
+					<div class="field">
+						<textarea></textarea>
+					</div>
+				</div>
+				
+				<div class="field-group">
+					<div class="label">
+						<label>Select Element:</label>
+					</div>
+					<div class="field">
+						<select name="select_element">
+							<optgroup label="Option Group 1">
+								<option value="1">Option 1</option>
+								<option value="2">Option 2</option>
+								<option value="3">Option 3</option>
+							</optgroup>
+							<optgroup label="Option Group 2">
+								<option value="1">Option 1</option>
+								<option value="2">Option 2</option>
+								<option value="3">Option 3</option>
+							</optgroup>
+						</select>
+					</div>
+				</div>
+				
+				<div class="field-group">
+					<div class="label">
+						<label>Radio Buttons:</label>
+					</div>
+					<div class="field">
+						<input type="radio" name="radio_button" value="radio_1" /> Radio 1<br/>
+						<input type="radio" name="radio_button" value="radio_2" /> Radio 2<br/>
+						<input type="radio" name="radio_button" value="radio_3" /> Radio 3<br/>
+					</div>
+				</div>
+				
+				<div class="field-group">
+					<div class="label">
+						<label>Checkboxes:</label>
+					</div>
+					<div class="field">
+						<input type="checkbox" name="checkbox" value="radio_1" /> Radio 1<br/>
+						<input type="checkbox" name="checkbox" value="radio_2" /> Radio 2<br/>
+						<input type="checkbox" name="checkbox" value="radio_3" /> Radio 3<br/>
+					</div>
+				</div>
+				
+				<div class="field-group">
+					<div class="label">
+						<label>Password:</label>
+					</div>
+					<div class="field">
+						<input type="password" />
+					</div>
+				</div>
+				
+				<div class="field-group">
+					<div class="label">
+						<label>File Input:</label>
+					</div>
+					<div class="field">
+						<input type="file" />
+					</div>
+				</div>
+				
+				<div class="button-group">
+					<input class="button" type="reset" value="Clear" />
+					<input class="button" type="submit" value="Submit" />
+				</div>
+				
+			</form>
+				
+			<hr />
 			
-			<div class="col-4 col-md-12"></div>
-			<div class="col-4 col-md-12"></div>
-			<div class="col-4 col-md-12"></div>
+			<h1 id="tables">Tables</h1>
 			
-			<div class="col-3 col-md-6 col-sm-12"></div>
-			<div class="col-3 col-md-6 col-sm-12"></div>
-			<div class="col-3 col-md-6 col-sm-12"></div>
-			<div class="col-3 col-md-6 col-sm-12"></div>
+			<table>
+				<thead>
+					<tr>
+						<th>Table Header 1</th>
+						<th>Table Header 2</th>
+						<th>Table Header 3</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<tr>
+						<td>Division 1</td>
+						<td>Division 2</td>
+						<td>Division 3</td>
+					</tr>
+					<tr>
+						<td>Division 1</td>
+						<td>Division 2</td>
+						<td>Division 3</td>
+					</tr>
+					<tr>
+						<td>Division 1</td>
+						<td>Division 2</td>
+						<td>Division 3</td>
+					</tr>
+				</tbody>
+			</table>
+			<hr />
 			
-			<div class="col-2 col-md-4 col-sm-6"></div>
-			<div class="col-2 col-md-4 col-sm-6"></div>
-			<div class="col-2 col-md-4 col-sm-6"></div>
-			<div class="col-2 col-md-4 col-sm-6"></div>
-			<div class="col-2 col-md-4 col-sm-6"></div>
-			<div class="col-2 col-md-4 col-sm-6"></div>
+			<h1 id="misc">Misc Stuff - abbr, acronym, pre, code, sub, sup, etc.</h1>
 			
-			<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
-			<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
-			<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
-			<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
-			<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
-			<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
-			<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
-			<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
-			<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
-			<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
-			<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
-			<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
+			<p>Lorem <sup>superscript</sup> dolor <sub>subscript</sub> amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. <cite>cite</cite>. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. <acronym title="National Basketball Association">NBA</acronym> Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p>
 			
+			<pre><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. <acronym title="National Basketball Association">NBA</acronym> Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p></pre>
+			
+			<blockquote>
+				"This stylesheet is going to help so freaking much." <br />-Blockquote
+			</blockquote>
+		
 		</div>
-		
-		<h1 id="form_elements">Fieldsets, Legends, and Form Elements</h1>
-
-		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.</p>
-		
-		<form>
-			<h2>Form Element</h2>
-			
-			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui.</p>
-			
-			<div class="field-group">
-				<div class="label">
-					<label>Text Field:</label>
-				</div>
-				<div class="field">
-					<input type="text" />
-				</div>
-			</div>
-			
-			<div class="field-group">
-				<div class="label">
-					<label>Text Area:</label>
-				</div>
-				<div class="field">
-					<textarea></textarea>
-				</div>
-			</div>
-			
-			<div class="field-group">
-				<div class="label">
-					<label>Select Element:</label>
-				</div>
-				<div class="field">
-					<select name="select_element">
-						<optgroup label="Option Group 1">
-							<option value="1">Option 1</option>
-							<option value="2">Option 2</option>
-							<option value="3">Option 3</option>
-						</optgroup>
-						<optgroup label="Option Group 2">
-							<option value="1">Option 1</option>
-							<option value="2">Option 2</option>
-							<option value="3">Option 3</option>
-						</optgroup>
-					</select>
-				</div>
-			</div>
-			
-			<div class="field-group">
-				<div class="label">
-					<label>Radio Buttons:</label>
-				</div>
-				<div class="field">
-					<input type="radio" name="radio_button" value="radio_1" /> Radio 1<br/>
-					<input type="radio" name="radio_button" value="radio_2" /> Radio 2<br/>
-					<input type="radio" name="radio_button" value="radio_3" /> Radio 3<br/>
-				</div>
-			</div>
-			
-			<div class="field-group">
-				<div class="label">
-					<label>Checkboxes:</label>
-				</div>
-				<div class="field">
-					<input type="checkbox" name="checkbox" value="radio_1" /> Radio 1<br/>
-					<input type="checkbox" name="checkbox" value="radio_2" /> Radio 2<br/>
-					<input type="checkbox" name="checkbox" value="radio_3" /> Radio 3<br/>
-				</div>
-			</div>
-			
-			<div class="field-group">
-				<div class="label">
-					<label>Password:</label>
-				</div>
-				<div class="field">
-					<input type="password" />
-				</div>
-			</div>
-			
-			<div class="field-group">
-				<div class="label">
-					<label>File Input:</label>
-				</div>
-				<div class="field">
-					<input type="file" />
-				</div>
-			</div>
-			
-			<div class="button-group">
-				<input class="button" type="reset" value="Clear" />
-				<input class="button" type="submit" value="Submit" />
-			</div>
-			
-		</form>
-			
-		<hr />
-		
-		<h1 id="tables">Tables</h1>
-		
-		<table>
-			<thead>
-				<tr>
-					<th>Table Header 1</th>
-					<th>Table Header 2</th>
-					<th>Table Header 3</th>
-				</tr>
-			</thead>
-			
-			<tbody>
-				<tr>
-					<td>Division 1</td>
-					<td>Division 2</td>
-					<td>Division 3</td>
-				</tr>
-				<tr>
-					<td>Division 1</td>
-					<td>Division 2</td>
-					<td>Division 3</td>
-				</tr>
-				<tr>
-					<td>Division 1</td>
-					<td>Division 2</td>
-					<td>Division 3</td>
-				</tr>
-			</tbody>
-		</table>
-		<hr />
-		
-		<h1 id="misc">Misc Stuff - abbr, acronym, pre, code, sub, sup, etc.</h1>
-		
-		<p>Lorem <sup>superscript</sup> dolor <sub>subscript</sub> amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. <cite>cite</cite>. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. <acronym title="National Basketball Association">NBA</acronym> Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p>
-		
-		<pre><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. <acronym title="National Basketball Association">NBA</acronym> Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p></pre>
-		
-		<blockquote>
-			"This stylesheet is going to help so freaking much." <br />-Blockquote
-		</blockquote>
-	
 	</div>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="/js/master.js"></script>
 	
 </body>
 </html>

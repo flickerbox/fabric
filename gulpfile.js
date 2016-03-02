@@ -28,7 +28,7 @@ gulp.task('lint:styles', function() {
 		'./source/sass/pages/**/*.scss',
 		'./source/sass/master.scss'
 	]).pipe(plugins.scssLint({
-		config: 'lint.yml'
+		config: './lint.yml'
 	}));
 
 });
@@ -60,7 +60,7 @@ gulp.task('compile:styles', function() {
 		.on('error', onError)
 		.pipe(plugins.autoprefixer())
 		.pipe(plugins.sourcemaps.write('./', {
-			sourceRoot: './sass',
+			sourceRoot: './source/sass',
 			includeContent: true
 		}))
 		.pipe(gulp.dest('./css'));
@@ -68,13 +68,24 @@ gulp.task('compile:styles', function() {
 });
 
 
+// Watch package file for updates
 gulp.task('npm:update', function() {
 	
 	var update = plugins.update();
 	
+	update.write({
+		path: './package.json'
+	});
+	
 	gulp.watch('./package.json').on('change', function(file) {
 		
-		update.write(file);
+		if (file.type =='changed') {
+					
+			update.write({
+				path: './package.json'
+			});
+			
+		}
 		
 	});
 	
@@ -84,7 +95,7 @@ gulp.task('npm:update', function() {
 // Watches for changes
 gulp.task('watch', function() {
 	
- 	gulp.watch('./sass/**/*.scss', ['lint:styles', 'compile:styles']);
+ 	gulp.watch('./source/sass/**/*.scss', ['lint:styles', 'compile:styles']);
  	
 });
 
