@@ -94,10 +94,26 @@ gulp.task('npm:update', function() {
 });
 
 
+// Setup livereload
+gulp.task('livereload:start', function() {
+	
+	// If there is an instance of livereload already running, kill the process
+	plugins.shell([
+		'LRPID=`lsof -n -i4TCP:35729 | grep LISTEN | awk \'{print $2}\'`',
+		'if [ $LRPID ]' +
+		'    then' +
+		'    kill -9 $LRPID' +
+		'fi'
+	]);
+	
+	// Start up the new process
+	plugins.livereload.listen();
+	
+});
+
+
 // Watches for changes
 gulp.task('watch', function() {
-	
-	plugins.livereload.listen();
 	
 	gulp.watch('source/sass/**/*.scss', ['lint:styles', 'compile:styles']).on('change', plugins.livereload.changed);
 	gulp.watch('source/js/**/*.js', ['compile:scripts']).on('change', plugins.livereload.changed);
@@ -107,7 +123,7 @@ gulp.task('watch', function() {
 
 
 // Initialization
-gulp.task('default', ['npm:update', 'lint:styles', 'compile:scripts', 'compile:styles', 'watch']);
+gulp.task('default', ['npm:update', 'livereload:start', 'lint:styles', 'compile:scripts', 'compile:styles', 'watch']);
 
 
 // clean up if an error goes unhandled.
