@@ -1,12 +1,13 @@
 .Sidebar-menu {
-	list-style: none;
-	margin: 0;
-	padding: 0;
+	&, 
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
 	
 	ul {
 		@include margin(xx-small 0 0 xx-small);
-		list-style: none;
-		padding: 0;
 	}
 	
 	> li {
@@ -25,8 +26,9 @@
 	}
 	
 	a {
-		@extend %animated-underline;
+		@extend %animatedUnderline;
 		@include color('white');
+		display: inline-block;
 		font-size: 13px;
 	}
 }

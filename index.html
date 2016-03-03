@@ -33,7 +33,7 @@
 					<li><a href="#">Selectors &amp; Naming</a></li>
 					<li><a href="#">Colors</a></li>
 					<li><a href="#">Numbers</a></li>
-					<li><a href="#">SASS</a></li>
+					<li><a href="#">Sassy Things</a></li>
 					<li><a href="#">Miscellaneous</a></li>
 				</ul>
 			</li>
@@ -45,6 +45,7 @@
 					<li><a href="#">Margin &amp; Padding</a></li>
 					<li><a href="#">Typography &amp; Colors</a></li>
 					<li><a href="#">Forms &amp; Buttons</a></li>
+					<li><a href="#">Animations</a></li>
 					<li><a href="#">Transitions</a></li>
 				</ul>
 			</li>
@@ -83,7 +84,7 @@
 				
 				<h2 class="h3">Installation</h1>
 				
-				<p>For a new site install, <a class="animated-underline" href="#">download here</a>, unzip, and move the files into your main directory <em>(probably the theme's folder for Drupal or Wordpress.)</em>
+				<p>For a new site install, <a href="#">download here</a>, unzip, and move the files into your main directory <em>(probably the theme's folder for Drupal or Wordpress.)</em>
 				
 				
 				<h2 class="h3">Gulp</h1>
@@ -144,9 +145,9 @@
 				
 				<h1 class="Entry-title">Style Guide</h1>
 				
-				<p>We use a very rough style guide based partially on personal preference but emphasizing readability. The style guide is enforced by SCSS-LINT. The settings for linting are in <code>~/lint.yml</code>.</p>
+				<p>We use a fairly strict style guide, based partially on personal preference while emphasizing readability. The style guide is enforced by SCSS-LINT in Gulp. The settings for linting are in <code>~/lint.yml</code>.</p>
 				
-				<p>The style guide is loosely adopted from <a target="_blank" class="animated-underline" href="http://davidtheclark.com/scss-lint-styleguide/">http://davidtheclark.com/scss-lint-styleguide/</a>.</p>
+				<p>The style guide is loosely adopted from <a target="_blank" href="http://davidtheclark.com/scss-lint-styleguide/">http://davidtheclark.com/scss-lint-styleguide/</a>.</p>
 					
 				
 				<h2 class="h3">Whitespace &amp; Punctuation</h2>
@@ -177,7 +178,7 @@
 					<li><strong>Never use ID selectors.</strong> Find another way. There's probably a better one.</li>
 					
 					<li>
-						<p><strong>Do not qualify type selectors.</strong> Better yet, don’t use them at all, if possible: just use classes.</p>
+						<p><strong>Do not qualify type selectors.</strong> Better yet, don't use them at all, if possible: just use classes.</p>
 						<pre><code>// bad
 a[href='horse'] { ... }
 
@@ -191,7 +192,7 @@ a[href='horse'] { ... }
 					<li><strong>Provide lowercase, hyphen-delimited names for Sass variables and directives.</strong> That way they fit in with standard CSS keywords and property names.</li>
 					
 					<li>
-						<p><strong>Do not chain more than three simple selectors.</strong> In almost every case, one simple selector is best (that is, no chaining, flat specificity, world peace). Some situations call for two. But let’s just draw the line at three. Find another way.</p>
+						<p><strong>Do not chain more than three simple selectors.</strong> In almost every case, one simple selector is best (that is, no chaining, flat specificity, world peace). Some situations call for two. But let's just draw the line at three. Find another way.</p>
 						
 						<pre><code>// good
 .horse { ... }
@@ -224,7 +225,7 @@ ul li a span { ... }</code></pre>
 					<li><strong>Include a single space between selectors and the curly braces that begin declaration blocks.</strong></li>
 					
 					<li>
-						<p><strong>Name components consistently.</strong> Examples below, but generally, follow <a target="_blank" class="animated-underline" href="https://github.com/suitcss/suit/blob/master/doc/README.md">SUIT CSS naming conventions</a>.</p>
+						<p><strong>Name components consistently.</strong> Examples below, but generally, follow <a target="_blank" href="https://github.com/suitcss/suit/blob/master/doc/README.md">SUIT CSS naming conventions</a>.</p>
 						
 						<pre><code>.u-utilityClass {}
 .is-stateClass {}
@@ -234,12 +235,133 @@ ul li a span { ... }</code></pre>
 .ComponentName-descendentName {}
 .ComponentName--modifierName {}
 .ComponentName-descendentName--modifierName {}</code></pre>
+					</li>
+				
+				</ul>
+				
+				
+				<h2 class="h3">Colors</h2>
+				
+				<ul class="List">
+					
+					<li><strong>Do not use color keywords</strong> &mdash; such as <code>green</code> instead of <code>#008000</code>. Color keywords are for children, aging parents, and pranks.</li>
+					
+					<li><strong>Use the shortest possible hex value.</strong> <code>#fff</code> instead of <code>#ffffff</code>.</li>
+					
+					<li><strong>Use lowercase letters inside hex values.</strong> <code>#fff</code> instead of <code>#FFF</code>. Unnecessary capital letters are obnoxious to the sensitive soul. And, again, why use <code>shift</code> when you don't have to? Last reason: lowercase letters are, I think, a little bit easier to distinguish from numbers. I'm not making that up.</li>
+					
+				</ul>
+				
+				
+				<h2 class="h3">Numbers</h2>
+				
+				<ul class="List">
+					
+					<li><strong>Do not include unnecessary trailing zeros after a decimal point.</strong> 2em instead of 2.0em.</li>
+					
+					<li><strong>Do include an unnecessary leading zero before decimal values less than 1.</strong> 0.5em instead of .5em. Don't you think it improves readability? I do.</li>
+				
+				</ul>
+				
+				
+				<h2 class="h3">Sassy Things</h2>
+				
+				<ul class="List">
+					
+					<li><strong><code>@extend</code> placeholders only.</strong> This practice will help prevent some common <code>@extend</code>-related mistakes and misunderstandings.</li>
+					
+					<li><strong>Include one space before any <code>!</code> and no spaces after it,</strong> with <code>!important</code> and <code>!default</code> declarations. That's just how it's done.</li>
+					
+					<li>
+						<p><strong>Put <code>@else</code> on the same line as the curly brace it follows.</strong></p>
+						
+						<pre><code>// bad
+@if {
+  // ...
+}
+@else {
+  // ...
+}
+
+// good
+@if {
+  // ...
+} @else {
+  // ...
+}</code></pre>
+					</li>
+					
+					<li><strong>Do not include leading underscores or filename extensions in the basenames of SCSS files that you <code>@import</code>.</strong> <code>@import 'horse/donkey'</code> instead of <code>@import 'horse/_donkey.scss'</code>.</li>
+				
+				</ul>
+				
+				
+				<h2 class="h3">Miscellaneous</h2>
+				
+				<ul class="List">
+					
+					<li><strong>Include a line break between each declaration.</strong> Keep declarations isolated: that way you can monitor and discipline them more easily.</li>
+					
+					<li><strong>Include quotation marks around URLs.</strong> SCSS-Lint documentation <a target="_blank" href="https://github.com/causes/scss-lint/blob/master/lib/scss_lint/linter/README.md#urlquotes">explains why</a>.</li>
+					
+					<li><strong>Use shorthand properties when you can.</strong>
+					
+					<li><strong>Do not include units on zero values.</strong> It could be zero of anything: we don't have to know.</li>
+					
+					<li><strong>Use <code>border: 0</code> instead of <code>border: none</code>.</strong> Cuz.</li>
+
+					<li>
+						<p><strong>Do not nest selectors more than 3 levels deep.</strong> Zero levels of nesting is best, of course. One level is often handy, and arguably helps organize some common code (especially pseudo-classes and pseudo-elements). Two or three raises eyebrows and specificity. More invites (induces?) disaster.</p>
+						
+						<pre><code>// best
+.horse {
+  font-size: 10em;
+
+  // handy
+  &:hover {
+    font-size: 20em;
+
+    // eyebrow-raising
+    & > .donkey {
+    color: #eee;
+
+      // disaster-inviting(-inducing?)
+      & + .mule {
+        margin: 100em;
+
+        // disaster-in-progress
+        ul li a span {
+          color: $death;
+        }
+      }
+    }
+  }</code></pre>
+					</li>
+					
+					<li><strong>Do not type vendor prefixes.</strong> Autoprefixer is setup in the <code>gulpfile.js</code>.</li>
+					
+					<li><strong>Order declarations alphabetically and in a logical manner.</strong> (A) <code>@extend</code> directives first; then (B) <code>@include</code> directives without inner @content; then (C) vanilla CSS declarations, with their properties and values; then (D) <code>@include</code> directives with inner @content; then (E) nested statements (rule sets and at-rules).</li>
+					
 			
 			</section>
 			
 			<section class="Page-section Text">
 				
 				<h1 class="Entry-title">Fabric Components</h1>
+				
+				<h2 class="h3">Responsive Breakpoints</h2>
+				
+				<h2 class="h3">Layout &amp; The Grid</h2>
+				
+				<h2 class="h3">Margin &amp; Padding</h2>
+				
+				<h2 class="h3">Typography &amp; Colors</h2>
+				
+				<h2 class="h3">Forms &amp; Buttons</h2>
+				
+				<h2 class="h3">Animations</h2>
+				
+				<h2 class="h3">Transitions</h2>
 				
 			</section>
 			

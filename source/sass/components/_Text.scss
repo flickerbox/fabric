@@ -2,4 +2,8 @@
 	@include color('dark-gray');
 	@include font-size(21);
 	font-family: $font-family--serif;
+	
+	a:not([class]) {
+		@extend %animatedUnderline;
+	}
 }
