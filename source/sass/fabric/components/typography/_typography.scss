@@ -2,11 +2,11 @@
 // Placeholders
 //-----------------------------------------------------------------------
 %u-heading {
-	@include margin(($lineBreak * 3) 0 ($lineBreak * 1));
+	@include margin(($line-break * 3) 0 ($line-break * 1));
 	font-weight: inherit;
 
 	@include media('<medium') {
-		@include margin(($lineBreak * 3) 0 $lineBreak);
+		@include margin(($line-break * 3) 0 $line-break);
 	}
 	
 	@include media('<small') {
@@ -28,11 +28,11 @@
 // Classes
 //-----------------------------------------------------------------------
 html {
-	color: getColor('fontColor');
-	font-family: $fontFamily;
-	font-size: getFontSize('base');
+	color: get-color('font-color');
+	font-family: $font-family;
+	font-size: get-font-size('base');
 	font-weight: 400;
-	line-height: removeUnit($lineHeight);
+	line-height: remove-unit($line-height);
 }
 
 h1,
@@ -51,27 +51,27 @@ h6,
 }
 
 h1 {
-	@include fontSize('h1');
+	@include font-size('h1');
 }
 
 h2 {
-	@include fontSize('h2');
+	@include font-size('h2');
 }
 
 h3 {
-	@include fontSize('h3');
+	@include font-size('h3');
 }
 
 h4 {
-	@include fontSize('h4');
+	@include font-size('h4');
 }
 
 h5 {
-	@include fontSize('h5');
+	@include font-size('h5');
 }
 
 h6 {
-	@include fontSize('h6');
+	@include font-size('h6');
 }
 
 p,
@@ -82,17 +82,17 @@ table,
 address,
 hr, 
 form {
-	@include margin($lineBreak 0);
+	@include margin($line-break 0);
 }
 
 a {
 	@include transition(normal color);
-	color: getColor('accentColor');
+	color: get-color('accent-color');
 	text-decoration: none;
 
 	&:active, 
 	&:hover {
-		color: lighten(getColor('accentColor'), 10%);
+		color: lighten(get-color('accent-color'), 10%);
 		text-decoration: underline;
 	}
 }

@@ -2,12 +2,12 @@
 // Typography
 //-----------------------------------------------------------------------
 
-$fontFamily:				Helvetica, Arial, sans-serif;
-$fontFamily--sansSerif:		'Neue Haas Grotesk', Helvetica, Arial, sans-serif;
-$fontFamily--serif:			'garamond-premier-pro', serif;
-$lineHeight:				1.6;
+$font-family:				Helvetica, Arial, sans-serif;
+$font-family--sansSerif:	'Neue Haas Grotesk', Helvetica, Arial, sans-serif;
+$font-family--serif:		'garamond-premier-pro', serif;
+$line-height:				1.6;
 
-$fontSize:					(
+$font-size:					(
 							'base':				18px,
 							'h6':				18px,
 							'h5':				22px,
@@ -23,30 +23,30 @@ $fontSize:					(
 // Layout
 //-----------------------------------------------------------------------
 
-$siteWidth:					1080px;
-$gridWidth:					12;
+$site-width:				1080px;
+$grid-width:				12;
 
-$lineBreak:					20px;
-$gutterWidth:				20px;
+$line-break:				20px;
+$gutter-width:				20px;
 							 
 $breakpoints:				(
-							'xxSmall':			320px,
-							'xSmall':			480px,
+							'xx-small':			320px,
+							'x-small':			480px,
 							'small':			768px,
 							'medium':			1024px,
 							'large':			1200px,
-							'xLarge':			1400px,
-							'xxLarge':			1600px
+							'x-large':			1400px,
+							'xx-large':			1600px
 							);
 						 
 $spacing:					(
-							'xxSmall':			10px,
-							'xSmall':			20px,
+							'xx-small':			10px,
+							'x-small':			20px,
 							'small':			30px,
 							'medium':			45px,
 							'large':			60px,
-							'xLarge':			75px,
-							'xxLarge':			90px
+							'x-large':			75px,
+							'xx-large':			90px
 							);
 
 
@@ -55,12 +55,12 @@ $spacing:					(
 // Transitions
 //-----------------------------------------------------------------------
 
-$transitionSpeed:			(
-							'xSlow':			0.8s,
+$transition-speed:			(
+							'x-slow':			0.8s,
 							'slow':				0.6s,
 							'normal':			0.4s,
 							'fast':				0.2s,
-							'xFast':			0.1s
+							'x-fast':			0.1s
 							);
 
 
@@ -70,14 +70,14 @@ $transitionSpeed:			(
 //-----------------------------------------------------------------------
 
 $colors:					(
-							'accentColor':		#fe5000,
-							'fontColor':		#232323,
+							'accent-color':		#fe5000,
+							'font-color':		#232323,
 							
 							'black':			#000,
-							'darkerGray':		#232323,
-							'darkGray':			#4a4a4a,
+							'darker-gray':		#232323,
+							'dark-gray':		#4a4a4a,
 							'gray':				#9b9b9b,
-							'lightGray':		#dedede,
-							'lighterGray':		#fcfcfc,
+							'light-gray':		#dedede,
+							'lighter-gray':		#fcfcfc,
 							'white':			#fff
 							);

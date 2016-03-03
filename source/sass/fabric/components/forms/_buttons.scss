@@ -2,13 +2,13 @@
 // Placeholder
 //-----------------------------------------------------------------------
 %u-button {
-	@include padding(xSmall small);
+	@include padding(x-small small);
 	@include transition(normal background, normal border, normal color, normal opacity);
-	background: getColor('accentColor');
+	background: get-color('accent-color');
 	border: 0;
-	color: getColor('white');
+	color: get-color('white');
 	display: inline-block;
-	font-family: $fontFamily;
+	font-family: $font-family;
 	text-align: center;
 	
 	&:focus {
@@ -17,8 +17,8 @@
 	
 	&:active, 
 	&:hover {
-		background: lighten(getColor('accentColor'), 10%);
-		color: getColor('white');
+		background: lighten(get-color('accent-color'), 10%);
+		color: get-color('white');
 		text-decoration: none;
 	}
 	
@@ -27,7 +27,7 @@
 		opacity: 0.5;
 		
 		&:hover {
-			background: getColor('accentColor');
+			background: get-color('accent-color');
 		}
 	}
 }

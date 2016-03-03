@@ -1,11 +1,11 @@
 .Sidebar {
 	@include padding(large small);
-	background: getColor('darkGray');
+	background: get-color('dark-gray');
 	bottom: 0;
 	font-size: 14px;
 	left: 0;
 	line-height: 1.1em;
-	padding-top: 40px + getSpacing('large') * 2;
+	padding-top: 40px + get-spacing(large) * 2;
 	position: fixed;
 	top: 0;
 	width: 250px;
@@ -13,11 +13,11 @@
 	
 	&:before {
 		@extend %Logomark;
-		border-color: getColor('white');
+		border-color: get-color('white');
 		content: '';
 		left: 50%;
 		position: absolute;
-		top: getSpacing('large');
+		top: get-spacing(large);
 		transform: translate(-50%, 0);
 	}
 	
@@ -27,21 +27,21 @@
 		padding: 0;
 		
 		ul {
-			@include margin(xxSmall 0 0 xxSmall);
+			@include margin(xx-small 0 0 xx-small);
 		}
 	}
 	
 	> ul > li {
-		@include padding(xxSmall 0);
-		border-top: 1px solid rgba(getColor('white'), 0.1);
+		@include padding(xx-small 0);
+		border-top: 1px solid rgba(get-color('white'), 0.1);
 	}
 	
 	li li {
-		@include margin(xxSmall 0);
+		@include margin(xx-small 0);
 	}
 	
 	a {
 		@extend %animated-underline;
-		color: getColor('white');
+		color: get-color('white');
 	}
 }

@@ -2,7 +2,7 @@
 // Removes any unit from the variable
 //---------------------------------------------------------
 
-@function removeUnit($_value) {
+@function remove-unit($_value) {
 	
 	@return $_value / ($_value * 0 + 1);
 	
@@ -14,9 +14,9 @@
 // Add unit to variable
 //---------------------------------------------------------
 
-@function addUnit($_value, $_unit) {
+@function add-unit($_value, $_unit) {
 	
-	@return unquote(removeUnit($_value) + $_unit);
+	@return unquote(remove-unit($_value) + $_unit);
 	
 }
 
@@ -26,9 +26,9 @@
 // Converts a pixel value into a root em based value
 //---------------------------------------------------------------
 
-@function pxToRem($_value) {
+@function px-to-rem($_value) {
 	
-	@return (removeUnit($_value) / removeUnit(map-get($fontSize, 'base'))) * 1rem;
+	@return (remove-unit($_value) / remove-unit(map-get($font-size, 'base'))) * 1rem;
 	
 }
 
@@ -38,15 +38,15 @@
 // Shorthand to get font size
 //---------------------------------------------------------------
 
-@function getFontSize($_value) {
+@function get-font-size($_value) {
 	
-	@if str-slice($_value, 1, 1) == '-' and index(map-keys($fontSize), str-slice($_value, 2)) {
+	@if str-slice($_value, 1, 1) == '-' and index(map-keys($font-size), str-slice($_value, 2)) {
 			
-		@return map-get($fontSize, str-slice($_value, 2)) * -1;
+		@return map-get($font-size, str-slice($_value, 2)) * -1;
 	
 	} @else {
 		
-		@return map-get($fontSize, $_value);
+		@return map-get($font-size, $_value);
 		
 	}
 	
@@ -58,7 +58,7 @@
 // Shorthand to get color
 //---------------------------------------------------------------
 
-@function getColor($_value) {
+@function get-color($_value) {
 	
 	@return map-get($colors, $_value);
 	
@@ -70,15 +70,15 @@
 // Shorthand to get transition speed
 //---------------------------------------------------------------
 
-@function getTransitionSpeed($_value) {
+@function get-transition-speed($_value) {
 	
-	@if str-slice($_value, 1, 1) == '-' and index(map-keys($transitionSpeed), str-slice($_value, 2)) {
+	@if str-slice($_value, 1, 1) == '-' and index(map-keys($transition-speed), str-slice($_value, 2)) {
 			
-		@return map-get($transitionSpeed, str-slice($_value, 2)) * -1;
+		@return map-get($transition-speed, str-slice($_value, 2)) * -1;
 	
 	} @else {
 		
-		@return map-get($transitionSpeed, $_value);
+		@return map-get($transition-speed, $_value);
 		
 	}
 	
@@ -90,7 +90,7 @@
 // Shorthand to get spacing unit
 //---------------------------------------------------------------
 
-@function getSpacing($_value) {
+@function get-spacing($_value) {
 	
 	@if str-slice($_value, 1, 1) == '-' and index(map-keys($spacing), str-slice($_value, 2)) {
 			
@@ -139,7 +139,7 @@
 // Length
 //---------------------------------------------------------------
 
-@function unitLength($number, $unit) {
+@function unit-length($number, $unit) {
 	$strings: 'px' 'cm' 'mm' '%' 'ch' 'pica' 'in' 'em' 'rem' 'pt' 'pc' 'ex' 'vw' 'vh' 'vmin' 'vmax';
 	$units: 1px  1cm  1mm  1%  1ch  1pica  1in  1em  1rem  1pt  1pc  1ex  1vw  1vh  1vmin  1vmax;
 	$index: index($strings, $unit);
@@ -180,7 +180,7 @@
 		} @else {
 			@if not $index {
 				$result: if($minus, $result * -1, $result);
-				@return unitLength($result, str-slice($string, $i));
+				@return unit-length($result, str-slice($string, $i));
 			}
 			
 			$number: nth($numbers, $index);

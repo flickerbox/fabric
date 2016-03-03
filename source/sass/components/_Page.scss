@@ -1,3 +1,4 @@
 .Page {
-	@include padding(large medium large (250 + getSpacing('medium')));
+	padding-left: 250 + get-spacing(medium);
+	padding-right: get-spacing(medium);
 }

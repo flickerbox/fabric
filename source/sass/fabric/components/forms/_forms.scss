@@ -10,28 +10,28 @@ input[type=date],
 input[type=month],
 input[type=week],
 textarea {
-	@include padding(xSmall small);
+	@include padding(x-small small);
 	@include transition();
 	
-	border: 1px solid getColor('lightGray');
+	border: 1px solid get-color('light-gray');
 	font-size: 1rem;
-	line-height: $lineHeight;
+	line-height: $line-height;
 	
 	&::placeholder {
-		color: getColor('gray');
+		color: get-color('gray');
 	}
 	
 	&:focus {
-		border-color: getColor('darkGray');
+		border-color: get-color('dark-gray');
 		outline: none;
 	}
 	
 	&:hover {
-		border-color: getColor('gray');
+		border-color: get-color('gray');
 	}
 	
 	&:focus::placeholder,
 	&:hover::placeholder {
-		color: getColor('darkGray');
+		color: get-color('dark-gray');
 	}
 }

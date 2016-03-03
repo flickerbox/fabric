@@ -2,28 +2,28 @@
 // Sets font size relative to root em
 //---------------------------------------------------------------
 
-@mixin fontSize($_size) {
+@mixin font-size($_size) {
 	
-	@if type-of($_size) == string and index(map-keys($fontSize), $_size) {
+	@if type-of($_size) == string and index(map-keys($font-size), $_size) {
 		
-		@if type-of(map-get($fontSize, $_size)) == 'map' {
+		@if type-of(map-get($font-size, $_size)) == 'map' {
 			
-			$_stack: map-get($fontSize, $_size);
+			$_stack: map-get($font-size, $_size);
 			$first: true;
 
-			@each $key in listReverse(map-keys($_stack)) {
+			@each $key in list-reverse(map-keys($_stack)) {
 				@if index(map-keys($breakpoints), $key) {
 					
 					@if $first {
 						
-						font-size: pxToRem(map-get($_stack, $key));
+						font-size: px-to-rem(map-get($_stack, $key));
 						$first: false;
 						
 					} @else {
 						
 						@include media('<'+$key) {
 							
-							font-size: pxToRem(map-get($_stack, $key));
+							font-size: px-to-rem(map-get($_stack, $key));
 							
 						}
 						
@@ -34,13 +34,13 @@
 			
 		} @else {
 			
-			font-size: pxToRem(map-get($fontSize, $_size));
+			font-size: px-to-rem(map-get($font-size, $_size));
 			
 		}
 		
 	} @else {
 		
-		font-size: pxToRem($_size);
+		font-size: px-to-rem($_size);
 		
 	}
 	
@@ -51,23 +51,23 @@
 //---------------------------------------------------------------
 // Set the gutter width independently of the default
 //---------------------------------------------------------------
-@mixin gutterWidth($_gutterWidth) {
+@mixin gutter-width($_gutter-width) {
 	
-	margin-bottom: ($lineBreak * 2) - $_gutter-width;
-	margin-left: $_gutterWidth / -2;
-	margin-right: $_gutterWidth / -2;
+	margin-bottom: ($line-break * 2) - $_gutter-width;
+	margin-left: $_gutter-width / -2;
+	margin-right: $_gutter-width / -2;
 							
 	&:last-child {
-		margin-bottom: $_gutterWidth * -1;
+		margin-bottom: $_gutter-width * -1;
 	}
 	
 	+ .row {
-		margin-bottom: $_gutter-width - ($lineBreak * 2);
+		margin-bottom: $_gutter-width - ($line-break * 2);
 	}
 				
 	[class*=col-],
 	.col {
-		padding: 0 ($_gutterWidth / 2) ($_gutterWidth);
+		padding: 0 ($_gutter-width / 2) ($_gutter-width);
 	}
 	
 }
@@ -78,7 +78,7 @@
 // Sets margins relative to root em
 //---------------------------------------------------------------
 
-@mixin margin($_margins: $_lineHeight auto) {
+@mixin margin($_margins: $lineHeight auto) {
 	
 	$_result: ();
 
@@ -122,7 +122,7 @@
 // Sets margins relative to root em
 //---------------------------------------------------------------
 
-@mixin padding($_paddings: $_lineHeight auto) {
+@mixin padding($_paddings: $lineHeight auto) {
 	
 	$_result: ();
 
@@ -172,15 +172,15 @@
 			$_property: explode($_property, ' ');
 		}
 		
-		@each $_subProperty in $_property {
+		@each $_sub-property in $_property {
 		
-			@if type-of($_subProperty) == string and index(map-keys($transitionSpeed), $_subProperty) {
+			@if type-of($_sub-property) == string and index(map-keys($transition-speed), $_sub-property) {
 				
-				$_subResult: append($_subResult, map-get($transitionSpeed, $_subProperty));
+				$_subResult: append($_subResult, map-get($transition-speed, $_sub-property));
 				
 			} @else {
 				
-				$_subResult: append($_subResult, unquote($_subProperty));
+				$_subResult: append($_subResult, unquote($_sub-property));
 				
 			}
 		
@@ -199,7 +199,7 @@
 // Reverse the order of a list
 //---------------------------------------------------------------
 
-@function listReverse($_list) {
+@function list-reverse($_list) {
 	
 	$_result: null;
 	
@@ -232,7 +232,7 @@
 // Reverse the order of a map
 //---------------------------------------------------------------
 
-@function mapReverse($_map) {
+@function map-reverse($_map) {
 	
 	$_result: null;
 

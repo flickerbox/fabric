@@ -1,5 +1,5 @@
 %Logomark {
-	$_color: getColor('accentColor');
+	$_color: get-color('accent-color');
 	$_size: 36px;
 	
 	border: ($_size / 4) solid $_color;

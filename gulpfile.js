@@ -41,7 +41,8 @@ gulp.task('compile:scripts', function() {
 		.pipe(plugins.plumber({errorHandler: onError}))
 		.pipe(plugins.uglify())
 		.pipe(plugins.concat('master.js'))
-		.pipe(gulp.dest('js'));
+		.pipe(gulp.dest('js'))
+		.pipe(plugins.livereload());
 
 });
 
@@ -63,7 +64,8 @@ gulp.task('compile:styles', function() {
 			sourceRoot: 'source/sass',
 			includeContent: true
 		}))
-		.pipe(gulp.dest('css'));
+		.pipe(gulp.dest('css'))
+		.pipe(plugins.livereload());
 	
 });
 
@@ -92,32 +94,23 @@ gulp.task('npm:update', function() {
 });
 
 
-// Live Reload (requires chrome plugin: https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en)
-gulp.task('livereload', function() {
-	
-	plugins.livereload.listen(); // start the livereload server
-
-	gulp.watch([
-		'source/sass/**/*.scss',
-		'source/js/**/*.js',
-		'**/*.html',
-		'**/*.php'
-	], function(event) {
-
-		plugins.livereload.changed(event.path); // run livereload on the file
-
-	});
-	
-});
-
-
 // Watches for changes
 gulp.task('watch', function() {
 	
-	gulp.watch('source/sass/**/*.scss', ['lint:styles', 'compile:styles']);
+	plugins.livereload.listen();
+	
+	gulp.watch('source/sass/**/*.scss', ['lint:styles', 'compile:styles']).on('change', plugins.livereload.changed);
+	gulp.watch('source/js/**/*.js', ['compile:scripts']).on('change', plugins.livereload.changed);
+	gulp.watch(['**/*.html', '**/*.php']).on('change', plugins.livereload.changed);
  	
 });
 
 
 // Initialization
-gulp.task('default', ['npm:update', 'lint:styles', 'compile:scripts', 'compile:styles', 'watch', 'livereload']);
+gulp.task('default', ['npm:update', 'lint:styles', 'compile:scripts', 'compile:styles', 'watch']);
+
+
+// clean up if an error goes unhandled.
+process.on('exit', function() {
+    if (node) node.kill();
+})

@@ -2,12 +2,12 @@
 // Typography
 //-----------------------------------------------------------------------
 
-$fontFamily:				Helvetica, Arial, sans-serif		!default;
-$fontFamily--sansSerif:		Helvetica, Arial, sans-serif		!default;
-$fontFamily--serif:			serif								!default;
-$lineHeight:				1.5									!default;
+$font-family:				Helvetica, Arial, sans-serif		!default;
+$font-family--sansSerif:	Helvetica, Arial, sans-serif		!default;
+$font-family--serif:		serif								!default;
+$line-height:				1.5									!default;
 
-$fontSize:					(
+$font-size:					(
 							'base':				16px,
 							'h6':				16px,
 							'h5':				20px,
@@ -23,11 +23,11 @@ $fontSize:					(
 // Layout
 //-----------------------------------------------------------------------
 
-$siteWidth:					1080px								!default;
-$gridWidth:					12									!default;
+$site-width:				1080px								!default;
+$grid-width:				12									!default;
 
-$lineBreak:					20px								!default;
-$gutterWidth:				20px								!default;
+$line-break:				20px								!default;
+$gutter-width:				20px								!default;
 							 
 $breakpoints:				(
 							'xx-small':			320px,
@@ -55,7 +55,7 @@ $spacing:					(
 // Transitions
 //-----------------------------------------------------------------------
 
-$transitionSpeed:			(
+$transition-speed:			(
 							'x-slow':			0.8s,
 							'slow':				0.6s,
 							'normal':			0.4s,
