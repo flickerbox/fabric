@@ -1,4 +1,6 @@
 .Page-section {
+	@include padding(0 0 xx-large);
+	
 	+ .Page-section {
 		&:before {
 			@extend %u-hr;
