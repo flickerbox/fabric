@@ -6,6 +6,7 @@ var gulp			= require('gulp'),
 ;
 	
 
+
 // Error Messaging
 var onError = function(err) {
 	
@@ -17,6 +18,7 @@ var onError = function(err) {
 	this.emit('end');
 	
 };
+
 
 
 // Lint SCSS
@@ -34,6 +36,7 @@ gulp.task('lint:styles', function() {
 });
 
 
+
 // Compile Scripts
 gulp.task('compile:scripts', function() {
 
@@ -45,6 +48,7 @@ gulp.task('compile:scripts', function() {
 		.pipe(plugins.livereload());
 
 });
+
 
 
 // Compile Styles
@@ -68,6 +72,7 @@ gulp.task('compile:styles', function() {
 		.pipe(plugins.livereload());
 	
 });
+
 
 
 // Watch package file for updates
@@ -94,6 +99,7 @@ gulp.task('npm:update', function() {
 });
 
 
+
 // Setup livereload
 gulp.task('livereload:start', function() {
 	
@@ -112,6 +118,7 @@ gulp.task('livereload:start', function() {
 });
 
 
+
 // Watches for changes
 gulp.task('watch', function() {
 	
@@ -122,8 +129,10 @@ gulp.task('watch', function() {
 });
 
 
+
 // Initialization
 gulp.task('default', ['npm:update', 'livereload:start', 'lint:styles', 'compile:scripts', 'compile:styles', 'watch']);
+
 
 
 // clean up if an error goes unhandled.
