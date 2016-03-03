@@ -18,7 +18,7 @@ textarea {
 	line-height: $line-height;
 	
 	&::placeholder {
-		color: get-color('gray');
+		@include color('gray');
 	}
 	
 	&:focus {
@@ -32,6 +32,6 @@ textarea {
 	
 	&:focus::placeholder,
 	&:hover::placeholder {
-		color: get-color('dark-gray');
+		@include color('dark-gray');
 	}
 }

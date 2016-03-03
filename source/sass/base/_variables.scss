@@ -3,18 +3,38 @@
 //-----------------------------------------------------------------------
 
 $font-family:				Helvetica, Arial, sans-serif;
-$font-family--sansSerif:	'Neue Haas Grotesk', Helvetica, Arial, sans-serif;
+$font-family--monospace:	monospace;
+$font-family--sans-serif:	'Neue Haas Grotesk', Helvetica, Arial, sans-serif;
 $font-family--serif:		'garamond-premier-pro', serif;
-$line-height:				1.6;
+$line-height:				1.5;
 
 $font-size:					(
-							'base':				18px,
-							'h6':				18px,
-							'h5':				22px,
-							'h4':				26px,
-							'h3':				30px,
-							'h2':				34px,
-							'h1':				38px
+							'base':				17px,
+							'h6':				17px,
+							'h5':				21px,
+							'h4':				25px,
+							'h3':				29px,
+							'h2':				33px,
+							'h1':				37px
+							);
+
+
+
+//-----------------------------------------------------------------------
+// Colors
+//-----------------------------------------------------------------------
+
+$colors:					(
+							'default':			#232323,
+							'accent-color':		#fe5000,
+							
+							'black':			#000,
+							'darker-gray':		#232323,
+							'dark-gray':		#4a4a4a,
+							'gray':				#9b9b9b,
+							'light-gray':		#dedede,
+							'lighter-gray':		#fcfcfc,
+							'white':			#fff
 							);
 
 
@@ -61,23 +81,4 @@ $transition-speed:			(
 							'normal':			0.4s,
 							'fast':				0.2s,
 							'x-fast':			0.1s
-							);
-
-
-
-//-----------------------------------------------------------------------
-// Colors
-//-----------------------------------------------------------------------
-
-$colors:					(
-							'accent-color':		#fe5000,
-							'font-color':		#232323,
-							
-							'black':			#000,
-							'darker-gray':		#232323,
-							'dark-gray':		#4a4a4a,
-							'gray':				#9b9b9b,
-							'light-gray':		#dedede,
-							'lighter-gray':		#fcfcfc,
-							'white':			#fff
 							);

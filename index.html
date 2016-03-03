@@ -13,7 +13,7 @@
 <body>
 	
 	<div class="Sidebar">
-		<ul>
+		<ul class="Sidebar-menu">
 			<li>
 				<a href="#">Overview</a>
 			</li>
@@ -22,7 +22,8 @@
 				<ul>
 					<li><a href="#">Gulp</a></li>
 					<li><a href="#">Live Reload</a></li>
-					<li><a href="#">SASS Organization</a></li>
+					<li><a href="#">Javascript</a>
+					<li><a href="#">SASS</a></li>
 				</ul>
 			</li>
 			<li>
@@ -37,7 +38,7 @@
 				</ul>
 			</li>
 			<li>
-				<a href="#">SASS Components</a>
+				<a href="#">Fabric Components</a>
 				<ul>
 					<li><a href="#">Responsive Breakpoints</a></li>
 					<li><a href="#">Layout &amp; The Grid</a></li>
@@ -53,229 +54,195 @@
 	<div class="Page">
 		<div class="wrap">
 			
-			<section class="Page-section">
+			<section class="Page-section Text">
 				
 				<h1 class="Entry-title">Overview</h1>
 				
+				<p>Fabric is the base SASS framework for new <em>(and several existing)</em> client sites. This is an evolving framework and set of rules meant to provide a thorough starting point and general tools to eliminate some redundancies in building new sites.</p>
+				
+				<p>This document is an overview of the methodologies and framework's features.</p>
+				
 			</section>
-		
-			<h1 class="Entry-title">CSS Basic Elements</h1>
-		
-			<p>The purpose of this HTML is to help determine what default settings are with CSS and to make sure that all possible HTML Elements are included in this HTML so as to not miss any possible Elements when designing a site.</p>
 			
-			<hr />
-			
-			<h1 id="headings">Headings</h1>
-			
-			<h1>Heading 1</h1>
-			<h2>Heading 2</h2>
-			<h3>Heading 3</h3>
-			<h4>Heading 4</h4>
-			<h5>Heading 5</h5>
-			<h6>Heading 6</h6>
-			
-			<hr />
-			
-			<h1 id="paragraph">Paragraph</h1>
-			
-			<p>Lorem ipsum dolor sit amet, <a href="#" title="test link">test link</a> adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p>
-			
-			<p>Lorem ipsum dolor sit amet, <em>emphasis</em> consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p>
-			
-			<hr />
-			
-			<h1 id="list_types">List Types</h1>
-			
-			<h3>Ordered List</h3>
-			<ol>
-				<li>List Item 1</li>
-				<li>List Item 2</li>
-				<li>List Item 3</li>
-			</ol>
-			
-			<h3>Unordered List</h3>
-			<ul>
-				<li>List Item 1</li>
-				<li>List Item 2</li>
-				<li>List Item 3</li>
-			</ul>
-			
-			<hr />
-			
-			<h1>Columns</h1>
-			
-			<div class="row columns-preview">
+			<section class="Page-section Text">
 				
-				<div class="col-6 col-md-12"></div>
-				<div class="col-6 col-md-12"></div>
+				<h1 class="Entry-title">Dev Environment</h1>
 				
-				<div class="col-4 col-md-12"></div>
-				<div class="col-4 col-md-12"></div>
-				<div class="col-4 col-md-12"></div>
+				<p>Our standard dev environment consists of the following front end stack:</p>
 				
-				<div class="col-3 col-md-6 col-sm-12"></div>
-				<div class="col-3 col-md-6 col-sm-12"></div>
-				<div class="col-3 col-md-6 col-sm-12"></div>
-				<div class="col-3 col-md-6 col-sm-12"></div>
+				<ul class="FeatureList">
+					<li>CSS Normalize <code>~/source/sass/fabric/layout/normalize.scss</code></li>
+					<li>SCSS <code>~/source/sass/</code></li>
+					<li>Fabric <code>~/source/sass/fabric/</code></li>
+					<li>jQuery <span>(<a target="_blank" href="//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js">//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js</a>)</span></li>
+					<li>NPM <code>$ npm install</code></li>
+					<li>Gulp <code>$ gulp</code></li>
+					<li>LiveReload <span>(<a target="_blank" href="https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en">Download Chrome Extension</a>)</span></li>
+				</ul>
 				
-				<div class="col-2 col-md-4 col-sm-6"></div>
-				<div class="col-2 col-md-4 col-sm-6"></div>
-				<div class="col-2 col-md-4 col-sm-6"></div>
-				<div class="col-2 col-md-4 col-sm-6"></div>
-				<div class="col-2 col-md-4 col-sm-6"></div>
-				<div class="col-2 col-md-4 col-sm-6"></div>
 				
-				<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
-				<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
-				<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
-				<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
-				<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
-				<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
-				<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
-				<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
-				<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
-				<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
-				<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
-				<div class="col-1 col-lg-2 col-md-3 col-sm-4"></div>
+				<h2 class="h3">Installation</h1>
 				
-			</div>
+				<p>For a new site install, <a class="animated-underline" href="#">download here</a>, unzip, and move the files into your main directory <em>(probably the theme's folder for Drupal or Wordpress.)</em>
+				
+				
+				<h2 class="h3">Gulp</h1>
+				
+				<p>The standard gulpfile we use is configured to do the following:</p>
+				
+				<ol class="FeatureList">
+					<li>Check for NPM updates</li>
+					<li>Start LiveReload</li>
+					<li>Lint SCSS</li>
+					<li>Compile javascript and SCSS</li>
+					<li>Watch for changes</li>
+				</ol>
+				
+				<p>Each site we build probably has a slight variation on this file, but it's written to require minimal changes between iterations.</p>
+				
+				
+				<h2 class="h3">LiveReload</h1>
+				
+				<p>The default LiveReload setup in Gulp does not account for an existing LiveReload process on <code>:35729</code>. If while running Gulp, the process dies or is killed, LiveReload will be left running. To account for this, on startup, the gulp task <code>livereload:cleanup</code> checks if a LiveReload process is currently running, and if so, kills it before starting LiveReload.</p>
+				
+				<p><a class="button--withArrow" target="_blank" href="https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en">Download Chrome Extension</a>
+				
+				
+				<h2 class="h3">Javascript</h2>
+				
+				<p>Drupal includes jQuery by default as does our parent Wordpress theme, <em>canvas</em>. Therefore, jQuery is not included as part of Fabric.</p>
+				
+				<p>All files under <code>~/source/js/</code> are compiled into a single file, <code>~/js/master.js</code>, that can then be included on the site.</p>
+					
+				
+				<h2 class="h3">SASS</h1>
+				
+				<p>The SASS folders are structured, and loaded, in a rough order of priority. The highlighted files and folders below are where new code should be placed. Fabric base and component files should be left untouched - rather, they're something to extend upon.</p>
+				
+				<pre><code>// normalize &amp; variables
+~/fabric/base/**/*.scss
+<span class="highlight">~/base/variables.scss</span>
+
+// fabric components
+~/fabric/components/**/*.scss
+
+// basic elements
+<span class="highlight">~/base/helpers.scss</span>
+<span class="highlight">~/base/typography.scss</span>
+<span class="highlight">~/base/forms.scss</span>
+<span class="highlight">~/base/buttons.scss</span>
+<span class="highlight">~/base/layout.scss</span>
+
+// components
+<span class="highlight">~/components/**/*.scss</span></code></pre>
+
+				<p>SASS is compiled down into a single file, <code>~/css/master.css</code>, that can then be included on the site.</p>
+
+			</section>
 			
-			<h1 id="form_elements">Fieldsets, Legends, and Form Elements</h1>
-	
-			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus.</p>
+			<section class="Page-section Text">
+				
+				<h1 class="Entry-title">Style Guide</h1>
+				
+				<p>We use a very rough style guide based partially on personal preference but emphasizing readability. The style guide is enforced by SCSS-LINT. The settings for linting are in <code>~/lint.yml</code>.</p>
+				
+				<p>The style guide is loosely adopted from <a target="_blank" class="animated-underline" href="http://davidtheclark.com/scss-lint-styleguide/">http://davidtheclark.com/scss-lint-styleguide/</a>.</p>
+					
+				
+				<h2 class="h3">Whitespace &amp; Punctuation</h2>
+				
+				<ul class="List">
+					
+					<li><strong>Indent using tabs.</strong></li>
+					
+					<li><strong>End each file with an empty newline.</strong> After all, you're not an animal, are you?</li>
+					
+					<li><strong>Include an empty line between all statements</strong> i.e. rule sets, at-rules, and Sass directives. Even the nested ones. Spaces help people, and people are important. (Variable definitions are like properties and don't need to be spaced.)</li>
+					
+					<li><strong>Include spaces after commas and colons, not before.</strong> As in written English.</li>
+					
+					<li><strong>Do not include spaces between parentheses and parenthesized.</strong> As in written English.</li>
+					
+					<li><strong>Use single quotation marks.</strong> That way you don't have to push shift, everyone's least favorite key.
+					
+					<li><strong>End every declaration with a semicolon, with no whitespace in front of it.</strong> (Did you even think about putting a space in front of it? What is wrong with you?)</li>
+					
+				</ul>
+				
+				
+				<h2 class="h3">Selectors &amp; Naming</h2>
+				
+				<ul class="List">
+					
+					<li><strong>Never use ID selectors.</strong> Find another way. There's probably a better one.</li>
+					
+					<li>
+						<p><strong>Do not qualify type selectors.</strong> Better yet, don’t use them at all, if possible: just use classes.</p>
+						<pre><code>// bad
+a[href='horse'] { ... }
+
+// maybe fine
+[href='horse'] { ... }
+
+// good
+.horse { ... }</code></pre>
+					</li>
+					
+					<li><strong>Provide lowercase, hyphen-delimited names for Sass variables and directives.</strong> That way they fit in with standard CSS keywords and property names.</li>
+					
+					<li>
+						<p><strong>Do not chain more than three simple selectors.</strong> In almost every case, one simple selector is best (that is, no chaining, flat specificity, world peace). Some situations call for two. But let’s just draw the line at three. Find another way.</p>
+						
+						<pre><code>// good
+.horse { ... }
+
+// often useful
+.horse + .horse { ... }
+
+// suspicious
+.horse > .donkey { ... }
+
+// uh ...
+.horse > .donkey + .mule { ... }
+
+// call the police
+ul li a span { ... }</code></pre>
+					</li>
+					
+					<li>
+						<p><strong>Include a line break between each selector in a group.</strong></p>
+						
+						<pre><code>// bad
+.horse, .donkey, .mule { ... }
+
+// good
+.horse,
+.donkey,
+.mule { ... }</code></pre>
+					</li>
+					
+					<li><strong>Include a single space between selectors and the curly braces that begin declaration blocks.</strong></li>
+					
+					<li>
+						<p><strong>Name components consistently.</strong> Examples below, but generally, follow <a target="_blank" class="animated-underline" href="https://github.com/suitcss/suit/blob/master/doc/README.md">SUIT CSS naming conventions</a>.</p>
+						
+						<pre><code>.u-utilityClass {}
+.is-stateClass {}
+.has-stateClass {}
+
+.ComponentName {}
+.ComponentName-descendentName {}
+.ComponentName--modifierName {}
+.ComponentName-descendentName--modifierName {}</code></pre>
 			
-			<form>
-				<h2>Form Element</h2>
-				
-				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui.</p>
-				
-				<div class="field-group">
-					<div class="label">
-						<label>Text Field:</label>
-					</div>
-					<div class="field">
-						<input type="text" />
-					</div>
-				</div>
-				
-				<div class="field-group">
-					<div class="label">
-						<label>Text Area:</label>
-					</div>
-					<div class="field">
-						<textarea></textarea>
-					</div>
-				</div>
-				
-				<div class="field-group">
-					<div class="label">
-						<label>Select Element:</label>
-					</div>
-					<div class="field">
-						<select name="select_element">
-							<optgroup label="Option Group 1">
-								<option value="1">Option 1</option>
-								<option value="2">Option 2</option>
-								<option value="3">Option 3</option>
-							</optgroup>
-							<optgroup label="Option Group 2">
-								<option value="1">Option 1</option>
-								<option value="2">Option 2</option>
-								<option value="3">Option 3</option>
-							</optgroup>
-						</select>
-					</div>
-				</div>
-				
-				<div class="field-group">
-					<div class="label">
-						<label>Radio Buttons:</label>
-					</div>
-					<div class="field">
-						<input type="radio" name="radio_button" value="radio_1" /> Radio 1<br/>
-						<input type="radio" name="radio_button" value="radio_2" /> Radio 2<br/>
-						<input type="radio" name="radio_button" value="radio_3" /> Radio 3<br/>
-					</div>
-				</div>
-				
-				<div class="field-group">
-					<div class="label">
-						<label>Checkboxes:</label>
-					</div>
-					<div class="field">
-						<input type="checkbox" name="checkbox" value="radio_1" /> Radio 1<br/>
-						<input type="checkbox" name="checkbox" value="radio_2" /> Radio 2<br/>
-						<input type="checkbox" name="checkbox" value="radio_3" /> Radio 3<br/>
-					</div>
-				</div>
-				
-				<div class="field-group">
-					<div class="label">
-						<label>Password:</label>
-					</div>
-					<div class="field">
-						<input type="password" />
-					</div>
-				</div>
-				
-				<div class="field-group">
-					<div class="label">
-						<label>File Input:</label>
-					</div>
-					<div class="field">
-						<input type="file" />
-					</div>
-				</div>
-				
-				<div class="button-group">
-					<input class="button" type="reset" value="Clear" />
-					<input class="button" type="submit" value="Submit" />
-				</div>
-				
-			</form>
-				
-			<hr />
+			</section>
 			
-			<h1 id="tables">Tables</h1>
-			
-			<table>
-				<thead>
-					<tr>
-						<th>Table Header 1</th>
-						<th>Table Header 2</th>
-						<th>Table Header 3</th>
-					</tr>
-				</thead>
+			<section class="Page-section Text">
 				
-				<tbody>
-					<tr>
-						<td>Division 1</td>
-						<td>Division 2</td>
-						<td>Division 3</td>
-					</tr>
-					<tr>
-						<td>Division 1</td>
-						<td>Division 2</td>
-						<td>Division 3</td>
-					</tr>
-					<tr>
-						<td>Division 1</td>
-						<td>Division 2</td>
-						<td>Division 3</td>
-					</tr>
-				</tbody>
-			</table>
-			<hr />
+				<h1 class="Entry-title">Fabric Components</h1>
+				
+			</section>
 			
-			<h1 id="misc">Misc Stuff - abbr, acronym, pre, code, sub, sup, etc.</h1>
-			
-			<p>Lorem <sup>superscript</sup> dolor <sub>subscript</sub> amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. <cite>cite</cite>. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. <acronym title="National Basketball Association">NBA</acronym> Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p>
-			
-			<pre><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam dignissim convallis est. Quisque aliquam. Donec faucibus. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo, eu volutpat enim diam eget metus. Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. <acronym title="National Basketball Association">NBA</acronym> Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p></pre>
-			
-			<blockquote>
-				"This stylesheet is going to help so freaking much." <br />-Blockquote
-			</blockquote>
 		
 		</div>
 	</div>

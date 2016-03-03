@@ -2,11 +2,11 @@
 // Placeholders
 //-----------------------------------------------------------------------
 %u-heading {
-	@include margin(($line-break * 3) 0 ($line-break * 1));
+	@include margin(($line-break * 3) 0 $line-break);
 	font-weight: inherit;
 
 	@include media('<medium') {
-		@include margin(($line-break * 3) 0 $line-break);
+		@include margin(($line-break * 2) 0 $line-break);
 	}
 	
 	@include media('<small') {
@@ -28,7 +28,7 @@
 // Classes
 //-----------------------------------------------------------------------
 html {
-	color: get-color('font-color');
+	@include color('default');
 	font-family: $font-family;
 	font-size: get-font-size('base');
 	font-weight: 400;
@@ -36,41 +36,38 @@ html {
 }
 
 h1,
-h2, 
-h3, 
-h4, 
-h5, 
-h6,
-.h1,
-.h2, 
-.h3, 
-.h4, 
-.h5, 
-.h6 {
+.h1 {
 	@extend %u-heading;
-}
-
-h1 {
 	@include font-size('h1');
 }
 
-h2 {
+h2,
+.h2 {
+	@extend %u-heading;
 	@include font-size('h2');
 }
 
-h3 {
+h3,
+.h3 {
+	@extend %u-heading;
 	@include font-size('h3');
 }
 
-h4 {
+h4,
+.h4 {
+	@extend %u-heading;
 	@include font-size('h4');
 }
 
-h5 {
+h5,
+.h5 {
+	@extend %u-heading;
 	@include font-size('h5');
 }
 
-h6 {
+h6,
+.h6 {
+	@extend %u-heading;
 	@include font-size('h6');
 }
 
@@ -80,14 +77,19 @@ ol,
 blockquote, 
 table, 
 address,
-hr, 
-form {
+form,
+pre {
 	@include margin($line-break 0);
 }
 
+ol,
+ul {
+	padding-left: 1.5em;
+}
+
 a {
+	@include color('accent-color');
 	@include transition(normal color);
-	color: get-color('accent-color');
 	text-decoration: none;
 
 	&:active, 
@@ -106,10 +108,12 @@ strong {
 }
 
 pre {
+	display: block;
 	white-space: pre-wrap;
 }
 
 code {
+	display: inline-block;
 	white-space: pre;
 }
 

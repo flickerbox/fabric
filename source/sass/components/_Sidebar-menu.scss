@@ -1,0 +1,32 @@
+.Sidebar-menu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	
+	ul {
+		@include margin(xx-small 0 0 xx-small);
+		list-style: none;
+		padding: 0;
+	}
+	
+	> li {
+		@include padding(xx-small 0);
+		border-top: 1px solid rgba(get-color('white'), 0.1);
+		
+		> a {
+			font-family: $font-family--sans-serif;
+			font-size: 15px;
+			font-weight: 600;
+		}
+	}
+	
+	li li {
+		@include margin(xx-small 0);
+	}
+	
+	a {
+		@extend %animated-underline;
+		@include color('white');
+		font-size: 13px;
+	}
+}

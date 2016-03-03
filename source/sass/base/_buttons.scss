@@ -1,0 +1,33 @@
+.button, 
+[class^='button--'], 
+[class*=' button--'] {
+	@include font-size(15);
+	font-family: $font-family--sans-serif;
+	font-weight: bold;
+}
+
+.button--withArrow {
+	padding-right: calc(#{get-spacing(small)} + 0.5rem);
+	position: relative;
+	
+	&:after {
+		@include transition(transform normal);
+		content: '\203A';
+		display: block;
+		font-family: $font-family;
+		font-size: 1.5em;
+		font-weight: 200;
+		line-height: 1em;
+		position: absolute;
+		right: get-spacing(small);
+		top: calc(50% - 1px);
+		transform: translate(50%, -50%);
+	}
+	
+	&:active, 
+	&:hover {
+		&:after {
+			transform: translate(100%, -50%);
+		}
+	}
+}

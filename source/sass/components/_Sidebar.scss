@@ -2,10 +2,9 @@
 	@include padding(large small);
 	background: get-color('dark-gray');
 	bottom: 0;
-	font-size: 14px;
 	left: 0;
-	line-height: 1.1em;
-	padding-top: 40px + get-spacing(large) * 2;
+	line-height: 17px;
+	padding-top: 40px + get-spacing(xx-large) + get-spacing(large);
 	position: fixed;
 	top: 0;
 	width: 250px;
@@ -17,31 +16,7 @@
 		content: '';
 		left: 50%;
 		position: absolute;
-		top: get-spacing(large);
+		top: get-spacing(xx-large);
 		transform: translate(-50%, 0);
-	}
-	
-	ul {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		
-		ul {
-			@include margin(xx-small 0 0 xx-small);
-		}
-	}
-	
-	> ul > li {
-		@include padding(xx-small 0);
-		border-top: 1px solid rgba(get-color('white'), 0.1);
-	}
-	
-	li li {
-		@include margin(xx-small 0);
-	}
-	
-	a {
-		@extend %animated-underline;
-		color: get-color('white');
 	}
 }

@@ -3,7 +3,66 @@ h2,
 h3,
 h4,
 h5,
-h6 {
-	font-family: $font-family--sansSerif;
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+	font-family: $font-family--sans-serif;
 	line-height: 1.1em;
+}
+
+h1,
+.h1 {
+	@include color('default');
+}
+
+h2,
+h3,
+h4,
+h5,
+h6,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+	@include color('dark-gray');
+}
+
+ol,
+ul {
+	padding-left: 1.5rem;
+}
+
+pre,
+code {
+	@extend %code;
+}
+
+pre {
+	padding: 1em 0.5em;
+	
+	strong {
+		font-family: $font-family--sans-serif;
+	}
+	
+	code {
+		background: none;
+		border: 0;
+	}
+}
+
+code {
+	padding: 0.05em 0.5em;
+}
+
+.animated-underline {
+	@extend %animated-underline;
+}
+
+.highlight {
+	@include color('accent-color');
 }

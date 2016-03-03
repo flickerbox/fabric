@@ -50,15 +50,15 @@
 //-----------------------------------------------------------------------
 // Classes
 //-----------------------------------------------------------------------
-.ghostAlign > :only-child {
+.u-ghostAlign > :only-child {
 	display: inline-block;
 	height: auto;
 	position: static;
 	vertical-align: middle;
 }
 
-[class^=responsiveRatio--], 
-[class*= responsiveRatio--] {
+[class^='responsiveRatio--'], 
+[class*=' responsiveRatio--'] {
 	@extend %responsiveRatio;
 }
 

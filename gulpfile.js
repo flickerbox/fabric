@@ -123,8 +123,8 @@ gulp.task('livereload:start', function() {
 // Watches for changes
 gulp.task('watch', function() {
 	
-	gulp.watch('source/sass/**/*.scss', ['lint:styles', 'compile:styles']).on('change', plugins.livereload.changed);
-	gulp.watch('source/js/**/*.js', ['compile:scripts']).on('change', plugins.livereload.changed);
+	gulp.watch('source/sass/**/*.scss', ['lint:styles', 'compile:styles']);
+	gulp.watch('source/js/**/*.js', ['compile:scripts']);
 	gulp.watch(['**/*.html', '**/*.php']).on('change', plugins.livereload.changed);
  	
 });

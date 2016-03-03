@@ -2,7 +2,7 @@
 // Animated Underline
 //-----------------------------------------------------------------------
 %animated-underline {
-	padding-bottom: calc(1px + 0.1em);
+	padding-bottom: calc(1px + 0.1rem);
 	position: relative;
 	
 	&:after {
@@ -28,4 +28,17 @@
 			transform: scaleX(1);
 		}
 	}
+}
+
+
+//-----------------------------------------------------------------------
+// Code Block
+//-----------------------------------------------------------------------
+%code {
+	@include color('dark-gray');
+	@include font-size(14);
+	background: get-color('lighter-gray');
+	border: 1px solid get-color('light-gray');
+	border-radius: 3px;
+	font-family: monospace;
 }

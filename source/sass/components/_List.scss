@@ -1,0 +1,97 @@
+//-----------------------------------------------------------------------
+// Placeholder
+//-----------------------------------------------------------------------
+%List {
+	list-style: none;
+	
+	li {
+		position: relative;
+	}
+	
+	li:before {
+		content: '\00bb';
+		display: inline-block;
+		left: -0.75rem;
+		position: absolute;
+		top: 0;
+		transform: translate(-50%, 0);
+	}
+}
+
+%FeatureList {
+	@extend %List;
+	@include color('dark-gray');
+	@include font-size(18);
+	font-family: $font-family--sans-serif;
+	
+	li:before {
+		content: '\2219';
+	}
+	
+	span,
+	code {
+		margin-left: 0.5em;
+	}
+	
+	span {
+		@include color('gray');
+		@include font-size(14);
+	}
+	
+	code {
+		@include font-size(12);
+	}
+	
+	a {
+		@extend %animated-underline;
+		margin: 0 0.1em;
+		
+		&:after {
+			bottom: -1px;
+		}
+		
+		&:active, 
+		&:hover {
+			@include color('accent-color');
+		}
+	}
+}
+
+
+//-----------------------------------------------------------------------
+// Selectors
+//-----------------------------------------------------------------------
+.List,
+[class^='List--'],
+[class*=' List--'] {
+	@extend %List;
+	
+	li + li {
+		margin-top: $line-break;
+	}
+	
+	li > * {
+		@include margin(($line-break * 0.25) 0);
+	}
+}
+
+.FeatureList,
+[class^='FeatureList--'],
+[class*=' FeatureList--'] {
+	@extend %FeatureList;
+}
+
+.FeatureList--ordered {
+	counter-reset: FeatureList--ordered;
+	font-family: $font-family;
+	
+	li:before {
+		content: counter(FeatureList--ordered);
+		counter-increment: FeatureList--ordered;
+	}
+}
+
+
+.FeatureList--small {
+	@include font-size(16);
+}

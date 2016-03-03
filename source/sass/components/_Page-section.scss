@@ -1,3 +1,12 @@
 .Page-section {
-	@include padding(large 0 0);
+	+ .Page-section {
+		&:before {
+			@extend %u-hr;
+			content: '';
+		}
+	}
+	
+	.Entry-title:only-child {
+		margin-top: get-spacing(large);
+	}
 }
