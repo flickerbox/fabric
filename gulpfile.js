@@ -92,6 +92,25 @@ gulp.task('npm:update', function() {
 });
 
 
+// Live Reload (requires chrome plugin: https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en)
+gulp.task('livereload', function() {
+	
+	plugins.livereload.listen(); // start the livereload server
+
+	gulp.watch([
+		'source/sass/**/*.scss',
+		'source/js/**/*.js',
+		'**/*.html',
+		'**/*.php'
+	], function(event) {
+
+		plugins.livereload.changed(event.path); // run livereload on the file
+
+	});
+	
+});
+
+
 // Watches for changes
 gulp.task('watch', function() {
 	
@@ -101,4 +120,4 @@ gulp.task('watch', function() {
 
 
 // Initialization
-gulp.task('default', ['npm:update', 'lint:styles', 'compile:scripts', 'compile:styles', 'watch']);
+gulp.task('default', ['npm:update', 'lint:styles', 'compile:scripts', 'compile:styles', 'watch', 'livereload']);
