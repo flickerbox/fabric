@@ -51,7 +51,7 @@
 		
 			setTimeout(function() {
 				window.location.hash = $(this).attr('href');
-			}, 400);
+			}.bind(this), 400);
 		}
 		
 	};
@@ -87,8 +87,6 @@
 			}
 			
 			var thisDistanceToTop = Math.abs((($(this).offset().top - windowOffset) / documentHeight) - (scrollTop / documentHeight));
-			
-			//console.log(thisDistanceToTop);
 			
 			if ($closestToTop && thisDistanceToTop > distanceToTop) {
 				return;
