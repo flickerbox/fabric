@@ -1,6 +1,6 @@
 .Text {
 	@include color('dark-gray');
-	@include font-size(21);
+	@include font-size(19);
 	font-family: $font-family--serif;
 	word-break: break-word;
 	
