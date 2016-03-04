@@ -49,10 +49,8 @@
 	
 	a {
 		@extend %animated-Underline;
-		@include color('white');
-		@include transition(opacity normal);
+		@include color('gray');
 		display: inline-block;
-		opacity: 0.5;
 		padding-right: get-spacing(small);
 		
 		&:after {
@@ -60,7 +58,7 @@
 		}
 		
 		&:active, &:hover {
-			opacity: 1;
+			@include color('white');
 		}
 	}
 	
@@ -71,7 +69,7 @@
 		}
 		
 		a {
-			opacity: 1;
+			@include color('white');
 		}
 	}
 }
