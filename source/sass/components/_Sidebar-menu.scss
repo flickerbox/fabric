@@ -50,16 +50,28 @@
 	a {
 		@extend %animated-Underline;
 		@include color('white');
+		@include transition(opacity normal);
 		display: inline-block;
+		opacity: 0.5;
 		padding-right: get-spacing(small);
 		
 		&:after {
 			right: get-spacing(small);
 		}
+		
+		&:active, &:hover {
+			opacity: 1;
+		}
 	}
 	
-	.is-active:before {
-		opacity: 1;
-		transform: translate(0, -50%);
+	.is-active {
+		&:before {
+			opacity: 1;
+			transform: translate(0, -50%);
+		}
+		
+		a {
+			opacity: 1;
+		}
 	}
 }
