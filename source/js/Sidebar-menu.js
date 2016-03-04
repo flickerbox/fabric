@@ -1,39 +1,126 @@
 (function($) {
 	
 	var
-		$menu		= $('#Sidebar-menu'),
-		$menuItems	= $('a', $menu)
+		$menu			= $('#Sidebar-menu'),
+		$menuItems		= $('a', $menu),
+		$menuTargets	= null,
+		$window			= $(window)
 	;
+	
+	var isElementInViewport = function(el) {
+
+		if (typeof jQuery === 'function' && el instanceof jQuery) {
+			el = el[0];
+		}
+			
+		var rect = el.getBoundingClientRect();
+			
+		return (
+			rect.top >= 0 &&
+			rect.left >= 0 &&
+			rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /*or $(window).height() */
+			rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
+		);
+	}
 	
 	var onClick = function(e) {
 		
+		var
+			$target			= $($(this).attr('href')),
+			documentHeight	= $(document).height(),
+			windowHeight	= $window.height()
+		;
+		
 		e.preventDefault();
 		
-		var $target = $($(this).attr('href'));
-		
 		if ($target.length) {
-		
-			$('html, body').animate({
-				scrollTop: $target.offset().top - 90
-			}, 400);
+			
+			var closenessToBottom = 1 - ((documentHeight - $target.offset().top) / windowHeight);
+			var offset = 0;
+			
+			if (closenessToBottom > 0) {
+				offset = Math.pow(2 - closenessToBottom, -2) * (windowHeight - 90);
+			}
 			
 			$menuItems.closest('li').removeClass('is-active');
 			$(this).closest('li').addClass('is-active');
 		
-			window.location.hash = $(this).attr('href');
+			$('html, body').animate({
+				scrollTop: $target.offset().top - offset - 90
+			}, 400);
+		
+			setTimeout(function() {
+				window.location.hash = $(this).attr('href');
+			}, 400);
 		}
 		
 	};
 	
-	var init = function() {
+	var onLoad = function() {
 		
-		$menuItems.on('click', onClick);
-		
+		// Trigger click on load based on hash
 		if (window.location.hash) {
 			
 			$('a[href="' + window.location.hash + '"]', $menu).trigger('click');
 			
 		}
+		
+	};
+	
+	var onScroll = function() {
+		
+		var
+			$closestToTop	= null,
+			documentHeight	= $(document).height(),
+			distanceToTop	= 0,
+			scrollTop		= $window.scrollTop(),
+			windowHeight	= $window.height()
+		;
+		
+		$menuTargets.each(function() {
+			
+			var closenessToBottom = 1 - ((documentHeight - $(this).offset().top) / windowHeight);
+			var windowOffset = 90;
+			
+			if (closenessToBottom > 0) {
+				windowOffset += Math.pow(2 - closenessToBottom, -2) * (windowHeight - 90);
+			}
+			
+			var thisDistanceToTop = Math.abs((($(this).offset().top - windowOffset) / documentHeight) - (scrollTop / documentHeight));
+			
+			//console.log(thisDistanceToTop);
+			
+			if ($closestToTop && thisDistanceToTop > distanceToTop) {
+				return;
+			}
+		
+			$closestToTop	= $(this);
+			distanceToTop	= thisDistanceToTop;
+			
+		});
+		
+		$menuItems.closest('li').removeClass('is-active');
+		$('[href="#' + $closestToTop.attr('id') + '"]', $menu).closest('li').addClass('is-active');
+		
+	};
+	
+	var init = function() {
+		
+		// Setup targets array
+		var targets = [];
+		
+		$menuItems.each(function() {
+			
+			targets.push($(this).attr('href'));
+			
+		})
+		
+		$menuTargets = $(targets.join(', '));
+		
+		// Setup callbacks
+		$menuItems.on('click', onClick);
+		$window.on('load', onLoad);
+		$window.on('scroll', onScroll);
 		
 	};
 	

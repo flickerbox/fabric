@@ -10,8 +10,17 @@ h6,
 .h4,
 .h5,
 .h6 {
+	@include margin(($line-break * 4) 0 $line-break);
 	font-family: $font-family--sans-serif;
 	line-height: 1.1em;
+	
+	@include media('<medium') {
+		@include margin(($line-break * 3) 0 $line-break);
+	}
+	
+	@include media('<small') {
+		@include margin(($line-break * 2) 0 $line-break);
+	}
 }
 
 h1,

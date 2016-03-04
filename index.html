@@ -116,31 +116,31 @@
 				
 				<p>Drupal includes jQuery by default as does our parent Wordpress theme, <em>canvas</em>. Therefore, jQuery is not included as part of Fabric.</p>
 				
-				<p>All files under <code>~/source/js/</code> are compiled into a single file, <code>~/js/master.js</code>, that can then be included on the site.</p>
+				<p>All files under <code>~/source/js/</code> are compiled into a single file, <code>~/js/master.js</code>, that can be included on the site.</p>
 					
 				
 				<h2 id="sass" class="h3">SASS</h1>
 				
 				<p>The SASS folders are structured, and loaded, in a rough order of priority. The highlighted files and folders below are where new code should be placed. Fabric base and component files should be left untouched - rather, they're something to extend upon.</p>
 				
-				<pre><code>// normalize &amp; variables
+				<pre><code><strong>// normalize &amp; variables</strong>
 ~/source/sass/fabric/base/**/*.scss
 <span class="highlight">~/source/sass/base/variables.scss</span>
 
-// fabric components
+<strong>// fabric components</strong>
 ~/source/sass/fabric/components/**/*.scss
 
-// basic elements
+<strong>// basic elements</strong>
 <span class="highlight">~/source/sass/base/helpers.scss</span>
 <span class="highlight">~/source/sass/base/typography.scss</span>
 <span class="highlight">~/source/sass/base/forms.scss</span>
 <span class="highlight">~/source/sass/base/buttons.scss</span>
 <span class="highlight">~/source/sass/base/layout.scss</span>
 
-// components
+<strong>// components</strong>
 <span class="highlight">~/source/sass/components/**/*.scss</span>
 
-// page specific overrides
+<strong>// page specific overrides</strong>
 <span class="highlight">~/source/sass/pages/**/*.scss</span></code></pre>
 
 				<p>SASS is compiled down into a single file, <code>~/css/master.css</code>, that can then be included on the site.</p>
@@ -185,13 +185,13 @@
 					
 					<li>
 						<p><strong>Do not qualify type selectors.</strong> Better yet, don't use them at all, if possible: just use classes.</p>
-						<pre><code>// bad
+						<pre><code><strong>// bad</strong>
 a[href='horse'] { ... }
 
-// maybe fine
+<strong>// maybe fine</strong>
 [href='horse'] { ... }
 
-// good
+<strong>// good</strong>
 .horse { ... }</code></pre>
 					</li>
 					
@@ -200,29 +200,29 @@ a[href='horse'] { ... }
 					<li>
 						<p><strong>Do not chain more than three simple selectors.</strong> In almost every case, one simple selector is best (that is, no chaining, flat specificity, world peace). Some situations call for two. But let's just draw the line at three. Find another way.</p>
 						
-						<pre><code>// good
+						<pre><code><strong>// good</strong>
 .horse { ... }
 
-// often useful
+<strong>// often useful</strong>
 .horse + .horse { ... }
 
-// suspicious
+<strong>// suspicious</strong>
 .horse > .donkey { ... }
 
-// uh ...
+<strong>// uh ...</strong>
 .horse > .donkey + .mule { ... }
 
-// call the police
+<strong>// call the police</strong>
 ul li a span { ... }</code></pre>
 					</li>
 					
 					<li>
 						<p><strong>Include a line break between each selector in a group.</strong></p>
 						
-						<pre><code>// bad
+						<pre><code><strong>// bad</strong>
 .horse, .donkey, .mule { ... }
 
-// good
+<strong>// good</strong>
 .horse,
 .donkey,
 .mule { ... }</code></pre>
@@ -281,7 +281,7 @@ ul li a span { ... }</code></pre>
 					<li>
 						<p><strong>Put <code>@else</code> on the same line as the curly brace it follows.</strong></p>
 						
-						<pre><code>// bad
+						<pre><code><strong>// bad</strong>
 @if {
   // ...
 }
@@ -289,7 +289,7 @@ ul li a span { ... }</code></pre>
   // ...
 }
 
-// good
+<strong>// good</strong>
 @if {
   // ...
 } @else {
@@ -319,23 +319,23 @@ ul li a span { ... }</code></pre>
 					<li>
 						<p><strong>Do not nest selectors more than 3 levels deep.</strong> Zero levels of nesting is best, of course. One level is often handy, and arguably helps organize some common code (especially pseudo-classes and pseudo-elements). Two or three raises eyebrows and specificity. More invites (induces?) disaster.</p>
 						
-						<pre><code>// best
+						<pre><code><strong>// best</strong>
 .horse {
   font-size: 10em;
 
-  // handy
+  <strong>// handy</strong>
   &:hover {
     font-size: 20em;
 
-    // eyebrow-raising
+    <strong>// eyebrow-raising</strong>
     & > .donkey {
     color: #eee;
 
-      // disaster-inviting(-inducing?)
+      <strong>// disaster-inviting(-inducing?)</strong>
       & + .mule {
         margin: 100em;
 
-        // disaster-in-progress
+        <strong>// disaster-in-progress</strong>
         ul li a span {
           color: $death;
         }
@@ -372,24 +372,24 @@ ul li a span { ... }</code></pre>
 				<p>In your components, you can then define breakpoints with the mixin like:</p>
 				
 				<pre><code>@include media("&lt;medium") {
-	// your properties go here
+	// ...
 }</code></pre>
 
 				<p>For readability, it's often best to define your breakpoints at the top level of a component file such as:</p>
 				
 				<pre><code>.myComponent {
-	// properties
+	// ...
 }
 					
 @include media("&lt;medium") {
 	.myComponent {
-		// properties for less than 1024px
+		// ...
 	}
 }
 					
 @include media("&lt;small") {
 	.myComponent {
-		// properties for less than 768px
+		// ...
 	}
 }</code></pre>
 				
@@ -547,7 +547,7 @@ ul li a span { ... }</code></pre>
 				
 				<h2 id="animations" class="h3">Animations</h2>
 				
-				<p>This is mostly just a placeholder, cause there's only 1 animation right now. But all animations will be defined as both a placeholder, and a class, so they can be extended upon by components and use directly in html.</p>
+				<p>This is mostly just a placeholder, cause there's only one animation right now. But all animations will be defined as both a placeholder, and a class, so they can be extended upon by components and use directly in html.</p>
 				
 				<ul class="List">
 					<li><code>%animated-Underline</code> <code>.animated-Underline</code></li>
