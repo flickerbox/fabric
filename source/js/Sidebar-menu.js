@@ -24,7 +24,7 @@
 	}
 	
 	var setHash = function(hash) {
-		history.pushState(null, null, hash);
+		history.replaceState(null, null, hash);
 	};
 	
 	var onClick = function(e) {
