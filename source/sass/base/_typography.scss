@@ -15,21 +15,24 @@ h6,
 }
 
 h1,
-.h1 {
+h2,
+.h1,
+.h2 {
 	@include color('default');
 }
 
-h2,
 h3,
 h4,
+.h3,
+.h4 {
+	@include color('dark-gray');
+}
+
 h5,
 h6,
-.h2,
-.h3,
-.h4,
 .h5,
 .h6 {
-	@include color('dark-gray');
+	@include color('gray');
 }
 
 ol,
@@ -43,7 +46,10 @@ code {
 }
 
 pre {
+	max-width: 740px;
+	overflow: auto;
 	padding: 1em 0.5em;
+	white-space: nowrap;
 	
 	strong {
 		font-family: $font-family--sans-serif;
@@ -60,5 +66,5 @@ code {
 }
 
 .highlight {
-	@include color('accent-color');
+	@include color('accent');
 }

@@ -51,7 +51,7 @@
 		
 		&:active, 
 		&:hover {
-			@include color('accent-color');
+			@include color('accent');
 		}
 	}
 }

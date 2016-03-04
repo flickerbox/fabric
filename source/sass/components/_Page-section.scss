@@ -6,9 +6,9 @@
 			@extend %u-hr;
 			content: '';
 		}
-	}
 	
-	> :first-child {
-		margin-top: get-spacing(large);
+		> :first-child {
+			margin-top: get-spacing(large);
+		}
 	}
 }

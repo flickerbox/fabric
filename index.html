@@ -2,7 +2,7 @@
 <html>
 <head>
 	
-	<title>Fabric</title>
+	<title>Flickerbox Fabric</title>
 	<link rel="stylesheet" type="text/css" href="/fonts/neue-haas-grotesk/neue-haas-grotesk.css">
 	<link rel="stylesheet" type="text/css" href="/css/master.css">
 	
@@ -13,40 +13,41 @@
 <body>
 	
 	<div class="Sidebar">
-		<ul class="Sidebar-menu">
+		<ul id="Sidebar-menu" class="Sidebar-menu">
 			<li>
-				<a href="#">Overview</a>
+				<a href="#overview">Overview</a>
 			</li>
 			<li>
-				<a href="#">Dev Environment</a>
+				<a href="#dev-environment">Dev Environment</a>
 				<ul>
-					<li><a href="#">Gulp</a></li>
-					<li><a href="#">Live Reload</a></li>
-					<li><a href="#">Javascript</a>
-					<li><a href="#">SASS</a></li>
+					<li><a href="#installation">Installation</a></li>
+					<li><a href="#gulp">Gulp</a></li>
+					<li><a href="#livereload">Live Reload</a></li>
+					<li><a href="#javascript">Javascript</a>
+					<li><a href="#sass">SASS</a></li>
 				</ul>
 			</li>
 			<li>
-				<a href="#">Style Guide</a>
+				<a href="#style-guide">Style Guide</a>
 				<ul>
-					<li><a href="#">Whitespace &amp; Punctuation</a></li>
-					<li><a href="#">Selectors &amp; Naming</a></li>
-					<li><a href="#">Colors</a></li>
-					<li><a href="#">Numbers</a></li>
-					<li><a href="#">Sassy Things</a></li>
-					<li><a href="#">Miscellaneous</a></li>
+					<li><a href="#whitespace">Whitespace &amp; Punctuation</a></li>
+					<li><a href="#selectors">Selectors &amp; Naming</a></li>
+					<li><a href="#colors">Colors</a></li>
+					<li><a href="#numbers">Numbers</a></li>
+					<li><a href="#sassy-things">Sassy Things</a></li>
+					<li><a href="#miscellaneous">Miscellaneous</a></li>
 				</ul>
 			</li>
 			<li>
-				<a href="#">Fabric Components</a>
+				<a href="#fabric">Fabric Components</a>
 				<ul>
-					<li><a href="#">Responsive Breakpoints</a></li>
-					<li><a href="#">Layout &amp; The Grid</a></li>
-					<li><a href="#">Margin &amp; Padding</a></li>
-					<li><a href="#">Typography &amp; Colors</a></li>
-					<li><a href="#">Forms &amp; Buttons</a></li>
-					<li><a href="#">Animations</a></li>
-					<li><a href="#">Transitions</a></li>
+					<li><a href="#responsive">Responsive Breakpoints</a></li>
+					<li><a href="#layout">Layout &amp; The Grid</a></li>
+					<li><a href="#margin-padding">Margin &amp; Padding</a></li>
+					<li><a href="#typography">Typography &amp; Colors</a></li>
+					<li><a href="#forms-buttons">Forms &amp; Buttons</a></li>
+					<li><a href="#animations">Animations</a></li>
+					<li><a href="#transitions">Transitions</a></li>
 				</ul>
 			</li>
 		</ul>
@@ -57,7 +58,7 @@
 			
 			<section class="Page-section Text">
 				
-				<h1 class="Entry-title">Overview</h1>
+				<h1 id="overview" class="Entry-title">Overview</h1>
 				
 				<p>Fabric is the base SASS framework for new <em>(and several existing)</em> client sites. This is an evolving framework and set of rules meant to provide a thorough starting point and general tools to eliminate some redundancies in building new sites.</p>
 				
@@ -67,7 +68,7 @@
 			
 			<section class="Page-section Text">
 				
-				<h1 class="Entry-title">Dev Environment</h1>
+				<h1 id="dev-environment" class="Entry-title">Dev Environment</h1>
 				
 				<p>Our standard dev environment consists of the following front end stack:</p>
 				
@@ -82,12 +83,14 @@
 				</ul>
 				
 				
-				<h2 class="h3">Installation</h1>
+				<h2 id="installation" class="h3">Installation</h1>
 				
-				<p>For a new site install, <a href="#">download here</a>, unzip, and move the files into your main directory <em>(probably the theme's folder for Drupal or Wordpress.)</em>
+				<p>For a new site install, download, unzip, and move the files into your main directory <em>(probably the theme's folder for Drupal or Wordpress.)</em></p>
+				
+				<p><a class="button--withArrow" target="_blank" href="http://fabric.flickerbox.com/Fabric-2.0.0.zip">Download Fabric</a></p>
 				
 				
-				<h2 class="h3">Gulp</h1>
+				<h2 id="gulp" class="h3">Gulp</h1>
 				
 				<p>The standard gulpfile we use is configured to do the following:</p>
 				
@@ -102,40 +105,43 @@
 				<p>Each site we build probably has a slight variation on this file, but it's written to require minimal changes between iterations.</p>
 				
 				
-				<h2 class="h3">LiveReload</h1>
+				<h2 id="livereload" class="h3">LiveReload</h1>
 				
 				<p>The default LiveReload setup in Gulp does not account for an existing LiveReload process on <code>:35729</code>. If while running Gulp, the process dies or is killed, LiveReload will be left running. To account for this, on startup, the gulp task <code>livereload:cleanup</code> checks if a LiveReload process is currently running, and if so, kills it before starting LiveReload.</p>
 				
 				<p><a class="button--withArrow" target="_blank" href="https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en">Download Chrome Extension</a>
 				
 				
-				<h2 class="h3">Javascript</h2>
+				<h2 id="javascript" class="h3">Javascript</h2>
 				
 				<p>Drupal includes jQuery by default as does our parent Wordpress theme, <em>canvas</em>. Therefore, jQuery is not included as part of Fabric.</p>
 				
 				<p>All files under <code>~/source/js/</code> are compiled into a single file, <code>~/js/master.js</code>, that can then be included on the site.</p>
 					
 				
-				<h2 class="h3">SASS</h1>
+				<h2 id="sass" class="h3">SASS</h1>
 				
 				<p>The SASS folders are structured, and loaded, in a rough order of priority. The highlighted files and folders below are where new code should be placed. Fabric base and component files should be left untouched - rather, they're something to extend upon.</p>
 				
 				<pre><code>// normalize &amp; variables
-~/fabric/base/**/*.scss
-<span class="highlight">~/base/variables.scss</span>
+~/source/sass/fabric/base/**/*.scss
+<span class="highlight">~/source/sass/base/variables.scss</span>
 
 // fabric components
-~/fabric/components/**/*.scss
+~/source/sass/fabric/components/**/*.scss
 
 // basic elements
-<span class="highlight">~/base/helpers.scss</span>
-<span class="highlight">~/base/typography.scss</span>
-<span class="highlight">~/base/forms.scss</span>
-<span class="highlight">~/base/buttons.scss</span>
-<span class="highlight">~/base/layout.scss</span>
+<span class="highlight">~/source/sass/base/helpers.scss</span>
+<span class="highlight">~/source/sass/base/typography.scss</span>
+<span class="highlight">~/source/sass/base/forms.scss</span>
+<span class="highlight">~/source/sass/base/buttons.scss</span>
+<span class="highlight">~/source/sass/base/layout.scss</span>
 
 // components
-<span class="highlight">~/components/**/*.scss</span></code></pre>
+<span class="highlight">~/source/sass/components/**/*.scss</span>
+
+// page specific overrides
+<span class="highlight">~/source/sass/pages/**/*.scss</span></code></pre>
 
 				<p>SASS is compiled down into a single file, <code>~/css/master.css</code>, that can then be included on the site.</p>
 
@@ -143,14 +149,14 @@
 			
 			<section class="Page-section Text">
 				
-				<h1 class="Entry-title">Style Guide</h1>
+				<h1 id="style-guide" class="Entry-title">Style Guide</h1>
 				
 				<p>We use a fairly strict style guide, based partially on personal preference while emphasizing readability. The style guide is enforced by SCSS-LINT in Gulp. The settings for linting are in <code>~/lint.yml</code>.</p>
 				
 				<p>The style guide is loosely adopted from <a target="_blank" href="http://davidtheclark.com/scss-lint-styleguide/">http://davidtheclark.com/scss-lint-styleguide/</a>.</p>
 					
 				
-				<h2 class="h3">Whitespace &amp; Punctuation</h2>
+				<h2 id="whitespace" class="h3">Whitespace &amp; Punctuation</h2>
 				
 				<ul class="List">
 					
@@ -171,7 +177,7 @@
 				</ul>
 				
 				
-				<h2 class="h3">Selectors &amp; Naming</h2>
+				<h2 id="selectors" class="h3">Selectors &amp; Naming</h2>
 				
 				<ul class="List">
 					
@@ -240,7 +246,7 @@ ul li a span { ... }</code></pre>
 				</ul>
 				
 				
-				<h2 class="h3">Colors</h2>
+				<h2 id="colors" class="h3">Colors</h2>
 				
 				<ul class="List">
 					
@@ -253,7 +259,7 @@ ul li a span { ... }</code></pre>
 				</ul>
 				
 				
-				<h2 class="h3">Numbers</h2>
+				<h2 id="numbers" class="h3">Numbers</h2>
 				
 				<ul class="List">
 					
@@ -264,7 +270,7 @@ ul li a span { ... }</code></pre>
 				</ul>
 				
 				
-				<h2 class="h3">Sassy Things</h2>
+				<h2 id="sassy-things" class="h3">Sassy Things</h2>
 				
 				<ul class="List">
 					
@@ -296,7 +302,7 @@ ul li a span { ... }</code></pre>
 				</ul>
 				
 				
-				<h2 class="h3">Miscellaneous</h2>
+				<h2 id="miscellaneous" class="h3">Miscellaneous</h2>
 				
 				<ul class="List">
 					
@@ -347,21 +353,223 @@ ul li a span { ... }</code></pre>
 			
 			<section class="Page-section Text">
 				
-				<h1 class="Entry-title">Fabric Components</h1>
+				<h1 id="fabric" class="Entry-title">Fabric Components</h1>
 				
-				<h2 class="h3">Responsive Breakpoints</h2>
+				<h2 id="responsive" class="h3">Responsive Breakpoints</h2>
 				
-				<h2 class="h3">Layout &amp; The Grid</h2>
+				<p>Fabric utilizes <a target="_blank" href="http://include-media.com">@include-media</a> and full documentation is there. Breakpoints are defined in <code>~/source/sass/base/_variables.scss</code> like:</p>
 				
-				<h2 class="h3">Margin &amp; Padding</h2>
+				<pre><code>$breakpoints: (
+	'xx-small':	320px,
+	'x-small':	480px,
+	'small':	768px,
+	'medium':	1024px,
+	'large':	1200px,
+	'x-large':	1400px,
+	'xx-large':	1600px
+);</code></pre>
+
+				<p>In your components, you can then define breakpoints with the mixin like:</p>
 				
-				<h2 class="h3">Typography &amp; Colors</h2>
+				<pre><code>@include media("&lt;medium") {
+	// your properties go here
+}</code></pre>
+
+				<p>For readability, it's often best to define your breakpoints at the top level of a component file such as:</p>
 				
-				<h2 class="h3">Forms &amp; Buttons</h2>
+				<pre><code>.myComponent {
+	// properties
+}
+					
+@include media("&lt;medium") {
+	.myComponent {
+		// properties for less than 1024px
+	}
+}
+					
+@include media("&lt;small") {
+	.myComponent {
+		// properties for less than 768px
+	}
+}</code></pre>
 				
-				<h2 class="h3">Animations</h2>
 				
-				<h2 class="h3">Transitions</h2>
+				<h2 id="layout" class="h3">Layout &amp; The Grid</h2>
+			
+				<h3 class="h5">Basic Helper Classes</h3>
+				
+				<ul class="List">
+					<li><code>.clearfix</code> &mdash; self explanatory</li>
+					<li><code>.wrap</code> &mdash; utilizes <code>$site-width</code> &amp; <code>$gutter-width</code></li>
+				</ul>
+				
+				<h3 class="h5">The Grid</h3>
+				
+				<p>The grid included in Fabric is loosely based on bootstrap's grid, but uses flexbox. Classes are generated based on the defined <code>$grid-width</code> &mdash; e.g. the number of columns; default is 12. It also is tied in with the responsive breakpoints and has classes for that.</p>
+				
+				<ul class="List">
+					<li><code>.row</code></li>
+					<li><code>.column-<em class="color-gray">(1-12)</em></code></li>
+					<li><code>.columnOffset-<em class="color-gray">(0-11)</em></code></li>
+					<li><code>.lg-column-<em class="color-gray">(1-12)</em></code></li>
+					<li><code>.lg-columnOffset-<em class="color-gray">(0-11)</em></code></li>
+					<li><code>.md-column-<em class="color-gray">(1-12)</em></code></li>
+					<li><code>.md-columnOffset-<em class="color-gray">(0-11)</em></code></li>
+					<li><code>.sm-column-<em class="color-gray">(1-12)</em></code></li>
+					<li><code>.sm-columnOffset-<em class="color-gray">(0-11)</em></code></li>
+					<li><code>.xs-column-<em class="color-gray">(1-12)</em></code></li>
+					<li><code>.xs-columnOffset-<em class="color-gray">(0-11)</em></code></li>
+				</ul>
+				
+				<p>Utility classes are also defined for a couple regular grid-type features:</p>
+				
+				<ul class="List">
+					<li><code>.u-justify</code></li>
+					<li><code>.u-stretch</code></li>
+				</ul>
+				
+				
+				<h2 id="margin-padding" class="h3">Margin &amp; Padding</h2>
+				
+				<p>Mixins are available to set both margin and padding utilizing the <code>$spacing</code> variable defined in <code>~/source/sass/base/_variables.scss</code>. These should only really be used sparingly, and only if using the named amounts defined in <code>$spacing</code>.</p>
+				
+				<p>If you don't need to set all of the margins or padding on an element, you can use the <code>get-spacing</code> function to retrieve values from this variable directly.</p>
+				
+				<p><strong>Example:</strong></p>
+				
+				<pre><code>.myComponent {
+	margin-left: get-spacing(small);
+}</code></pre>
+				
+				
+				<h3 class="h5">Margin</h3>
+				
+				<p>The mixin expects an <strong>unquoted</strong> string of 1 to 4 values, just like you'd define them as a <code>margin:</code> property, except the spacing keywords <em>(e.g. x-small, small, medium, large, x-large)</em> will be replaced with their cooresponding values.</p>
+				
+				<p>It also includes <code>&:first-child</code> and <code>&:last-child</code> definitions that will set the margin respectively, at top or bottom, to zero.</p>
+				
+				<p><strong>Example:</strong></p>
+				
+				<pre><code>.myComponent {
+	@include margin(small 0);
+}</code></pre>
+
+				
+				<h3 class="h5">Padding</h3>
+				
+				<p>The mixin expects an <strong>unquoted</strong> string of 1 to 4 values, just like you'd define them as a <code>padding:</code> property, except the spacing keywords <em>(e.g. x-small, small, medium, large, x-large)</em> will be replaced with their cooresponding values.</p>
+				
+				<p><strong>Example:</strong></p>
+				
+				<pre><code>.myComponent {
+	@include padding(large x-small x-small);
+}</code></pre>
+				
+				
+				<h2 id="typography" class="h3">Typography &amp; Colors</h2>
+				
+				<h3 class="h5">Font Size</h3>
+				
+				<p>Font size is defined as the <code>$font-size</code> variable in <code>~/source/sass/base/_variables.scss</code>. They should be defined as <code>px</code> units. They coorespond to sizes defined on <code>html</code>, <code>h1</code>, <code>h2</code>, <code>h3</code>, <code>h4</code>, <code>h5</code>, and <code>h6</code>.</p>
+				
+				<p>It also integrates with the responsive breakpoints, if you define them in the <code>$font-size</code> variable map. The only caveat being, you cannot define responsive breakpoints on the <code>base</code> size. <em class="color-gray">(planned to be a future feature)</em></p>
+				
+				<p><strong>Example:</strong></p>
+				
+				<pre><code>$font-size: (
+	'base':	16px,
+	'h6':	16px,
+	'h5':	20px,
+	'h4':	24px,
+	'h3':	('small': 32px, 'medium': 36px, 'large': 40px),
+	'h2':	('small': 40px, 'medium': 44px, 'large': 48px),
+	'h1':	('small': 48px, 'medium': 52px, 'large': 56px)
+);</code></pre>
+				
+				
+				<h3 class="h5">Headings</h3>
+				
+				<p>Along with the heading font sizes, some basic properties are set like responsive margins. There is a placeholder defined if you'd like to extend upon these styles:</p>
+				
+				<ul class="List">
+					<li><code>%u-heading</code></li>
+				</ul>
+				
+
+				<h3 class="h5">Colors</h3>
+				
+				<p>All colors should be defined in the <code>$colors</code> variable in <code>~/source/sass/base/_variables.scss</code>. Based on this variable, utility classes are auto-generated for colors. It's <em>suggested</em> that color variations be named with <em>-darker</em>, <em>-darkest</em>, <em>-lighter</em>, and <em>-lightest</em> suffixes.</p>
+				
+				<p>The <code>default</code> and <code>accent</code> keys are used as the default font color, and color for links &amp; buttons.</p>
+				
+				<p><strong>Example:</strong></p>
+				
+				<pre><code>$colors: (
+	'default':	#232323,
+	'accent':	#fe5000,
+	
+	'black':	#000,
+	'white':	#fff
+	
+	'dark-gray':	#4a4a4a,
+	'gray':		#9b9b9b,
+	'light-gray':	#dedede
+);</code></pre>
+
+				<p><strong>Utility Classes <em class="color-gray">(generated)</em></strong></p>
+				
+				<ul class="List">
+					<li><code>.color-default</code></li>
+					<li><code>.color-accent</code></li>
+					<li><code>.color-black</code></li>
+					<li><code>.color-white</code></li>
+					<li><code>.color-dark-gray</code></li>
+					<li><code>.color-gray</code></li>
+					<li><code>.color-light-gray</code></li>
+				</ul>
+				
+				
+				<h2 id="forms-buttons" class="h3">Forms &amp; Buttons</h2>
+				
+				<h3 class="h5">Forms</h3>
+				
+				<p>There is just some general style cleanup for form elements, nothing fancy. But it is suggested that you use the grid framework to layout your form elements.</p>
+					
+				<h3 class="h5">Buttons</h3>
+				
+				<p>There is a placeholder defined for buttons that can be extended, and two button classes available to build off of:</p>
+				
+				<ul class="List">
+					<li><code>%button</code></li>
+					<li><code>.button, [class^='button--'], [class*=' button--']</code></li>
+					<li><code>.button--primary</code></li>
+				</ul>
+				
+				<h2 id="animations" class="h3">Animations</h2>
+				
+				<p>This is mostly just a placeholder, cause there's only 1 animation right now. But all animations will be defined as both a placeholder, and a class, so they can be extended upon by components and use directly in html.</p>
+				
+				<ul class="List">
+					<li><code>%animated-Underline</code> <code>.animated-Underline</code></li>
+				</ul>
+				
+				<h2 id="transitions" class="h3">Transitions</h2>
+				
+				<p>The <code>transition</code> mixin utilizes the <code>$transition-speed</code> variable defined in <code>~/source/sass/base/_variables.scss</code>. This makes it really easy to change transition speed across the board.</p>
+				
+				<p>The mixin expects an <strong>unquoted</strong> string of comma seperated values, just like you'd define them as a <code>transition:</code> property, except the speed keywords <em>(e.g. x-slow, normal, fast)</em> will be replaced with their cooresponding values.</p>
+				
+				<p><strong>Example</strong></p>
+				
+				<pre><code>.myComponent {
+	@include transition(background normal, color normal);
+	color: #f00;
+	
+	&:active, &:hover {
+		background: #ff0;
+		color: #0f0;
+	}
+}</code></pre>
 				
 			</section>
 			

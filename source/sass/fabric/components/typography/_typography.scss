@@ -88,13 +88,13 @@ ul {
 }
 
 a {
-	@include color('accent-color');
+	@include color('accent');
 	@include transition(normal color);
 	text-decoration: none;
 
 	&:active, 
 	&:hover {
-		color: lighten(get-color('accent-color'), 10%);
+		color: lighten(get-color('accent'), 10%);
 		text-decoration: underline;
 	}
 }

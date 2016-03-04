@@ -28,19 +28,19 @@
 		opacity: 0.5;
 		
 		&:hover {
-			background: get-color('accent-color');
+			background: get-color('accent');
 		}
 	}
 }
 
 %button--primary {
 	@include color('white');
-	background: get-color('accent-color');
+	background: get-color('accent');
 	
 	&:active,
 	&:hover {
 		@include color('white');
-		background: lighten(get-color('accent-color'), 10%);
+		background: lighten(get-color('accent'), 10%);
 	}
 }
 

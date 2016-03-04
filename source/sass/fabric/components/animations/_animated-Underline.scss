@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------
 // Placeholder
 //-----------------------------------------------------------------------
-%animatedUnderline {
+%animated-Underline {
 	padding-bottom: calc(1px + 0.1rem);
 	position: relative;
 	
@@ -34,6 +34,6 @@
 //-----------------------------------------------------------------------
 // Classe
 //-----------------------------------------------------------------------
-.animatedUnderline {
-	@extend %animatedUnderline;
+.animated-Underline {
+	@extend %animated-Underline;
 }
