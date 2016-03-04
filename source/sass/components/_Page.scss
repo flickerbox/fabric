@@ -1,4 +1,21 @@
 .Page {
 	@include padding(xx-large medium);
-	padding-left: 280 + get-spacing(medium);
+	@include transition(transform normal, width normal);
+	overflow: hidden;
+	position: relative;
+	transform: translate(280px, 0);
+	width: calc(100vw - 280px);
+	z-index: 20;
+}
+
+
+@include media('<small') {
+	.Page {
+		transform: translate(0, 0);
+		width: 100vw;
+	}
+
+	.has-sidebarToggled .Page {
+		transform: translate(280px, 0);
+	}
 }

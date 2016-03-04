@@ -57,7 +57,8 @@
 			right: get-spacing(small);
 		}
 		
-		&:active, &:hover {
+		&:active, 
+		&:hover {
 			@include color('white');
 		}
 	}

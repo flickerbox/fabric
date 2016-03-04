@@ -138,7 +138,7 @@ linters:
 
   PropertyUnits:
     enabled: true
-    global: ['em', 'rem', 'px', '%']
+    global: ['em', 'rem', 'px', 'vh', 'vw', '%']
     properties: {}
 
   PseudoElement:

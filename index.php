@@ -12,7 +12,12 @@
 
 <body>
 	
+	<div id="Sidebar-menuToggle" class="Sidebar-menuToggle">
+		<?php echo file_get_contents(__DIR__ . '/media/icon-Menu.svg'); ?>
+	</div>
+	
 	<div class="Sidebar">
+		
 		<ul id="Sidebar-menu" class="Sidebar-menu">
 			<li>
 				<a href="#overview">Overview</a>
@@ -51,6 +56,7 @@
 				</ul>
 			</li>
 		</ul>
+		
 	</div>
 	
 	<div class="Page">
