@@ -25,10 +25,10 @@ var onError = function(err) {
 gulp.task('lint:styles', function() {
 
 	gulp.src([
-		'source/sass/base/**/*.scss',
-		'source/sass/components/**/*.scss',
-		'source/sass/pages/**/*.scss',
-		'source/sass/master.scss'
+		'src/sass/base/**/*.scss',
+		'src/sass/components/**/*.scss',
+		'src/sass/pages/**/*.scss',
+		'src/sass/master.scss'
 	]).pipe(plugins.scssLint({
 		config: 'lint.yml'
 	}));
@@ -40,11 +40,11 @@ gulp.task('lint:styles', function() {
 // Compile Scripts
 gulp.task('compile:scripts', function() {
 
-	gulp.src('source/js/**/*.js')
+	gulp.src('src/js/**/*.js')
 		.pipe(plugins.plumber({errorHandler: onError}))
 		.pipe(plugins.uglify())
 		.pipe(plugins.concat('master.js'))
-		.pipe(gulp.dest('js'))
+		.pipe(gulp.dest('build/js'))
 		.pipe(plugins.livereload());
 
 });
@@ -54,7 +54,7 @@ gulp.task('compile:scripts', function() {
 // Compile Styles
 gulp.task('compile:styles', function() {
 
-	gulp.src('source/sass/master.scss')
+	gulp.src('src/sass/master.scss')
 		.pipe(plugins.cssGlobbing({
 			extensions: ['.scss']
 		}))
@@ -65,10 +65,10 @@ gulp.task('compile:styles', function() {
 		.on('error', onError)
 		.pipe(plugins.autoprefixer())
 		.pipe(plugins.sourcemaps.write('./', {
-			sourceRoot: 'source/sass',
+			sourceRoot: 'src/sass',
 			includeContent: true
 		}))
-		.pipe(gulp.dest('css'))
+		.pipe(gulp.dest('build/css'))
 		.pipe(plugins.livereload());
 	
 });
@@ -123,9 +123,10 @@ gulp.task('livereload:start', function() {
 // Watches for changes
 gulp.task('watch', function() {
 	
-	gulp.watch('source/sass/**/*.scss', ['lint:styles', 'compile:styles']);
-	gulp.watch('source/js/**/*.js', ['compile:scripts']);
-	gulp.watch(['**/*.html', '**/*.php']).on('change', plugins.livereload.changed);
+	gulp.watch('src/sass/**/*.scss', ['lint:styles', 'compile:styles']);
+	gulp.watch('src/js/**/*.js', ['compile:scripts']);
+	
+	gulp.watch(['src/**/*.*']).on('change', plugins.livereload.changed);
  	
 });
 
