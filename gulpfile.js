@@ -44,7 +44,7 @@ gulp.task('compile:scripts', function() {
 		.pipe(plugins.plumber({errorHandler: onError}))
 		.pipe(plugins.uglify())
 		.pipe(plugins.concat('master.js'))
-		.pipe(gulp.dest('build/js'))
+		.pipe(gulp.dest('js'))
 		.pipe(plugins.livereload());
 
 });
@@ -68,7 +68,7 @@ gulp.task('compile:styles', function() {
 			sourceRoot: 'src/sass',
 			includeContent: true
 		}))
-		.pipe(gulp.dest('build/css'))
+		.pipe(gulp.dest('css'))
 		.pipe(plugins.livereload());
 	
 });
