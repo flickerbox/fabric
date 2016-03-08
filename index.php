@@ -33,12 +33,12 @@
 				</ul>
 			</li>
 			<li>
-				<a href="#html-style-guide">HTML Style Guide</a>
+				<a href="#html-coding-standards">HTML Coding Standards</a>
 				<ul>
 				</ul>
 			</li>
 			<li>
-				<a href="#php-style-guide">PHP Style Guide</a>
+				<a href="#php-coding-standards">PHP Coding Standards</a>
 				<ul>
 				</ul>
 			</li>
@@ -86,7 +86,7 @@
 				
 				<h1 id="overview" class="Entry-title">Overview</h1>
 				
-				<p>This is Flickerbox's general development style guide. It includes an overview of our dev environment, style guides for SASS, HTML, and PHP, an overview of our home-brewed Fabric SASS framework, and best practices for Drupal and Wordpress.</p>
+				<p>This is Flickerbox's general development style guide and coding standards. It includes an overview of our dev environment, coding standards for HTML and PHP, style guide for SASS, an overview of our home-brewed Fabric framework for SASS, and best practices for Drupal and Wordpress.</p>
 				
 				<p>this should be considered the evolving reference guide for development work. Legacy projects will not fit this structure perfectly and should generally follow their established code styles.</p>
 				
@@ -170,12 +170,20 @@
 <span class="highlight">~/source/sass/pages/**/*.scss</span></code></pre>
 
 				<p>SASS is compiled down into a single file, <code>~/css/master.css</code>, that can then be included on the site.</p>
+				
+				<h3 class="h5">Components</h3>
+				
+				<p>Components should each exist in their own file. The filename should match the main component selector. E.g. <code>_MyComponent-childComponent.scss</code> &raquo; <code>.MyComponent-childComponent {}</code>.
+				
+				<h3 class="h5">Pages</h3>
+				
+				<p>Page specific overrides should be seperated out into their own files. This includes templates such as would exist in a Wordpress or Drupal theme. Filenames should match the directory structure and filename of the template. E.g. <code>_archive.scss</code> &raquo; <code>archive.php</code>.
 
 			</section>
 			
 			<section class="Page-section Text">
 				
-				<h1 id="html-style-guide" class="Entry-title">HTML Style Guide</h1>
+				<h1 id="html-coding-standards" class="Entry-title">HTML Coding Standards</h1>
 				
 				<p>TBD</p>
 				
@@ -183,7 +191,7 @@
 			
 			<section class="Page-section Text">
 				
-				<h1 id="php-style-guide" class="Entry-title">PHP Style Guide</h1>
+				<h1 id="php-coding-standards" class="Entry-title">PHP Coding Standards</h1>
 				
 				<p>TBD</p>
 				
@@ -191,7 +199,7 @@
 			
 			<section class="Page-section Text">
 				
-				<h1 id="sass-style-guide" class="Entry-title">Style Guide</h1>
+				<h1 id="sass-style-guide" class="Entry-title">SASS Style Guide</h1>
 				
 				<p>We use a fairly strict style guide, based partially on personal preference while emphasizing readability. The style guide is enforced by SCSS-LINT in Gulp. The settings for linting are in <code>~/lint.yml</code>.</p>
 				
