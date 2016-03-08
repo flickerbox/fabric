@@ -33,7 +33,17 @@
 				</ul>
 			</li>
 			<li>
-				<a href="#style-guide">Style Guide</a>
+				<a href="#html-style-guide">HTML Style Guide</a>
+				<ul>
+				</ul>
+			</li>
+			<li>
+				<a href="#php-style-guide">PHP Style Guide</a>
+				<ul>
+				</ul>
+			</li>
+			<li>
+				<a href="#sass-style-guide">SASS Style Guide</a>
 				<ul>
 					<li><a href="#whitespace">Whitespace &amp; Punctuation</a></li>
 					<li><a href="#selectors">Selectors &amp; Naming</a></li>
@@ -44,7 +54,7 @@
 				</ul>
 			</li>
 			<li>
-				<a href="#fabric">Fabric Components</a>
+				<a href="#fabric-framework">Fabric Framework</a>
 				<ul>
 					<li><a href="#responsive">Responsive Breakpoints</a></li>
 					<li><a href="#layout">Layout &amp; The Grid</a></li>
@@ -53,6 +63,16 @@
 					<li><a href="#forms-buttons">Forms &amp; Buttons</a></li>
 					<li><a href="#animations">Animations</a></li>
 					<li><a href="#transitions">Transitions</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#drupal-best-practices">Drupal Best Practices</a>
+				<ul>
+				</ul>
+			</li>
+			<li>
+				<a href="#wordpress-best-practices">Wordpress Best Practices</a>
+				<ul>
 				</ul>
 			</li>
 		</ul>
@@ -66,9 +86,9 @@
 				
 				<h1 id="overview" class="Entry-title">Overview</h1>
 				
-				<p>Fabric is the base SASS framework for new <em>(and several existing)</em> client sites. This is an evolving framework and set of rules meant to provide a thorough starting point and general tools to eliminate some redundancies in building new sites.</p>
+				<p>This is Flickerbox's general development style guide. It includes an overview of our dev environment, style guides for SASS, HTML, and PHP, an overview of our home-brewed Fabric SASS framework, and best practices for Drupal and Wordpress.</p>
 				
-				<p>This document is an overview of the methodologies and framework's features.</p>
+				<p>this should be considered the evolving reference guide for development work. Legacy projects will not fit this structure perfectly and should generally follow their established code styles.</p>
 				
 			</section>
 			
@@ -155,7 +175,23 @@
 			
 			<section class="Page-section Text">
 				
-				<h1 id="style-guide" class="Entry-title">Style Guide</h1>
+				<h1 id="html-style-guide" class="Entry-title">HTML Style Guide</h1>
+				
+				<p>TBD</p>
+				
+			</section>
+			
+			<section class="Page-section Text">
+				
+				<h1 id="php-style-guide" class="Entry-title">PHP Style Guide</h1>
+				
+				<p>TBD</p>
+				
+			</section>
+			
+			<section class="Page-section Text">
+				
+				<h1 id="sass-style-guide" class="Entry-title">Style Guide</h1>
 				
 				<p>We use a fairly strict style guide, based partially on personal preference while emphasizing readability. The style guide is enforced by SCSS-LINT in Gulp. The settings for linting are in <code>~/lint.yml</code>.</p>
 				
@@ -359,7 +395,7 @@ ul li a span { ... }</code></pre>
 			
 			<section class="Page-section Text">
 				
-				<h1 id="fabric" class="Entry-title">Fabric Components</h1>
+				<h1 id="fabric-framework" class="Entry-title">Fabric Framework</h1>
 				
 				<h2 id="responsive" class="h3">Responsive Breakpoints</h2>
 				
@@ -515,7 +551,7 @@ ul li a span { ... }</code></pre>
 	'accent':	#fe5000,
 	
 	'black':	#000,
-	'white':	#fff
+	'white':	#fff,
 	
 	'dark-gray':	#4a4a4a,
 	'gray':		#9b9b9b,
@@ -579,6 +615,17 @@ ul li a span { ... }</code></pre>
 				
 			</section>
 			
+			<section class="Page-section Text">
+				
+				<h1 id="drupal-best-practices" class="Entry-title">Drupal Best Practices</h1>
+			
+			</section>
+			
+			<section class="Page-section Text">
+				
+				<h1 id="wordpress-best-practices" class="Entry-title">Wordpress Best Practices</h1>
+			
+			</section>
 		
 		</div>
 	</div>

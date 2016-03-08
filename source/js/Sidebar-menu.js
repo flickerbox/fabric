@@ -132,7 +132,8 @@
 		// Setup callbacks
 		$menuItems.on('click', onClick);
 		$window.on('load', onLoad);
-		$window.on('scroll', onScroll);
+		
+		//$window.on('scroll', onScroll);
 		
 	};
 	
