@@ -173,11 +173,13 @@
 				
 				<h3 class="h5">Components</h3>
 				
-				<p>Components should each exist in their own file. The filename should match the main component selector. E.g. <code>_MyComponent-childComponent.scss</code> &raquo; <code>.MyComponent-childComponent {}</code>.
+				<p>Components should each exist in their own file. The filename should match the main component selector.</p>
+				<p><code>_MyComponent-childComponent.scss</code> &raquo; <code>.MyComponent-childComponent {}</code></p>
 				
 				<h3 class="h5">Pages</h3>
 				
-				<p>Page specific overrides should be seperated out into their own files. This includes templates such as would exist in a Wordpress or Drupal theme. Filenames should match the directory structure and filename of the template. E.g. <code>_archive.scss</code> &raquo; <code>archive.php</code>.
+				<p>Page specific overrides should be seperated out into their own files. This includes templates such as would exist in a Wordpress or Drupal theme. Filenames should match the directory structure and filename of the template.</p>
+				<p><code>_archive.scss</code> &raquo; <code>archive.php</code></p>
 
 			</section>
 			
