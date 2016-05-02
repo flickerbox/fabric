@@ -2,19 +2,23 @@
 
 @import
 
-	'fabric/base',
+	'_/base',
 	'base/variables',
-	
-	'fabric/components',
+
+	'_/components',
 	'base/helpers',
 	'base/typography',
 	'base/forms',
 	'base/buttons',
-	
+
 	'base/layout'
-	
+
 ;
 
+@import 'mixins/**/*';
+@import 'animations/**/*';
+@import 'placeholders/**/*';
 @import 'components/**/*';
+@import 'pages/**/*';
 
 // scss-lint:enable Indentation, TrailingSemicolon

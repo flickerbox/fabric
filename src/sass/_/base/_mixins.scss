@@ -36,14 +36,14 @@
 					
 					@if $first {
 						
-						font-size: px-to-rem(map-get($_stack, $key));
+						font-size: map-get($_stack, $key);
 						$first: false;
 						
 					} @else {
 						
 						@include media('<'+$key) {
 							
-							font-size: px-to-rem(map-get($_stack, $key));
+							font-size: map-get($_stack, $key);
 							
 						}
 						
@@ -54,13 +54,13 @@
 			
 		} @else {
 			
-			font-size: px-to-rem(map-get($font-size, $_size));
+			font-size: map-get($font-size, $_size);
 			
 		}
 		
 	} @else {
 		
-		font-size: px-to-rem($_size);
+		font-size: $_size;
 		
 	}
 	
@@ -210,72 +210,5 @@
 	}
 
 	transition: $_result;
-	
-}
-
-
-
-//---------------------------------------------------------------
-// Reverse the order of a list
-//---------------------------------------------------------------
-
-@function list-reverse($_list) {
-	
-	$_result: null;
-	
-	@if type-of($_list) == 'list' {
-		$_list-reversed: ();
-		
-		@for $i from length($_list) through 1 {
-			$_list-reversed: append(
-				$_list-reversed, 
-				nth($_list, $i)
-			);
-		}
-		
-		@if type-of($_list-reversed) == 'list' {
-			$_result: $_list-reversed;
-		} @else {
-			@warn 'There was an error reversing the order of '#{$_list}'';
-		}
-	} @else {
-		@warn ''#{$_list}' is not a valid list';
-	}
-	
-	@return $_result;
-	
-}
-
-
-
-//---------------------------------------------------------------
-// Reverse the order of a map
-//---------------------------------------------------------------
-
-@function map-reverse($_map) {
-	
-	$_result: null;
-
-	@if type-of($_map) == 'map' {
-		$keys: map-keys($_map);
-		$_map-reversed: ();
-		
-		@for $i from length($keys) through 1 {
-			$_map-reversed: map-merge(
-				$_map-reversed,
-				(nth($keys, $i): map-get($_map, nth($keys, $i)))
-			);
-		}
-
-		@if type-of($_map-reversed) == 'map' {
-			$_result: $_map-reversed;
-		} @else {
-			@warn 'There was an error reversing the order of '#{$_map}'';
-		}
-	} @else {
-		@warn ''#{$_map}' is not a valid map';
-	}
-
-	@return $_result;
 	
 }

@@ -1,0 +1,13 @@
+@each $_breakpoint in map-keys($breakpoints) {
+	
+	@include media('<' + #{$_breakpoint}) {
+		.HideOn--#{$_breakpoint} {
+			display: none;
+		}
+		
+		.ShowOn--#{$_breakpoint} {
+			display: block;
+		}
+	}
+	
+}

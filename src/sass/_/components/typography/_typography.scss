@@ -100,7 +100,7 @@ a {
 }
 
 article {
-	@include margin('large 0');
+	@include margin(large 0);
 }
 
 strong {
@@ -123,4 +123,16 @@ blockquote {
 
 img {
 	max-width: 100%;
+}
+
+.u-AlignCenter {
+	text-align: center !important;
+}
+
+.u-AlignLeft {
+	text-align: left !important;
+}
+
+.u-AlignRight {
+	text-align: right !important;
 }

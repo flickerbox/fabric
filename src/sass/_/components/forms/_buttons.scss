@@ -40,7 +40,7 @@
 	&:active,
 	&:hover {
 		@include color('white');
-		background: lighten(get-color('accent'), 10%);
+		background: lighten(get-color('accent'), 75%);
 	}
 }
 

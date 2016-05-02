@@ -1,14 +1,14 @@
 //-----------------------------------------------------------------------
 // Placeholders
 //-----------------------------------------------------------------------
-%row {
+%Row {
 	align-content: flex-start;
 	align-items: flex-start;
 	display: flex;
 	flex-wrap: wrap;
 	margin: ($line-break * 2) ($gutter-width * -0.5) (($line-break * 2) - $gutter-width);
 	
-	+ .row {
+	+ %row {
 		margin-top: (-$line-break * 2) + $gutter-width;
 	}
 	
@@ -21,7 +21,7 @@
 	}
 }
 
-%column {
+%Column {
 	padding: 0 ($gutter-width * 0.5) $gutter-width;
 	position: relative;
 }
@@ -31,70 +31,54 @@
 //-----------------------------------------------------------------------
 // Classes
 //-----------------------------------------------------------------------
-.row {
-	@extend %row;
+.Row,
+[class^='Row--'],
+[class*=' Row--'] {
+	@extend %Row;
 }
 
-.column,
-[class^='column-'],
-[class*=' column-'] {
-	@extend %column;
+.Row--wideGutters {
+	margin-left: -$gutter-width;
+	margin-right: -$gutter-width;
+	
+	+ .Row--wideGutters {
+		margin-top: (-$line-break * 2) + $gutter-width * 2;
+	}
+	
+	.Column,
+	[class^='Column-'],
+	[class*=' Column-'] {
+		padding: 0 $gutter-width ($gutter-width * 2);
+	}
+}
+
+.Column,
+[class^='Column-'],
+[class*=' Column-'] {
+	@extend %Column;
 }
 
 @for $i from 1 through $grid-width {
-	.column-#{$i} {
+	.Column--#{$i} {
 		width: 100% * ($i / $grid-width);
 	}
 
-	.columnOffset-#{$i - 1} {
+	.ColumnOffset--#{$i - 1} {
 		margin-left: 100% * (($i - 1) / $grid-width);
 	}
 }
 
-@include media('<large') {
-	@for $i from 1 through $grid-width {
-		.lg-column-#{$i} {
-			width: 100% * ($i / $grid-width);
-		}
-
-		.lg-columnOffset-#{$i - 1} {
-			margin-left: 100% * (($i - 1) / $grid-width);
-		}
-	}
-}
-
-@include media('<medium') {
-	@for $i from 1 through $grid-width {
-		.md-column-#{$i} {
-			width: 100% * ($i / $grid-width);
-		}
-
-		.md-columnOffset-#{$i - 1} {
-			margin-left: 100% * (($i - 1) / $grid-width);
-		}
-	}
-}
-
-@include media('<small') {
-	@for $i from 1 through $grid-width {
-		.sm-column-#{$i} {
-			width: 100% * ($i / $grid-width);
-		}
-
-		.sm-columnOffset-#{$i - 1} {
-			margin-left: 100% * (($i - 1) / $grid-width);
-		}
-	}
-}
-
-@include media('<x-small') {
-	@for $i from 1 through $grid-width {
-		.xs-column-#{$i} {
-			width: 100% * ($i / $grid-width);
-		}
-
-		.xs-columnOffset-#{$i - 1} {
-			margin-left: 100% * (($i - 1) / $grid-width);
+@each $_breakpoint in map-keys($breakpoints) {
+	
+	@include media('<' + #{$_breakpoint}) {
+		@for $i from 1 through $grid-width {
+			.Column--#{camelize($_breakpoint)}-#{$i} {
+				width: 100% * ($i / $grid-width);
+			}
+	
+			.ColumnOffset--#{camelize($_breakpoint)}-#{$i - 1} {
+				margin-left: 100% * (($i - 1) / $grid-width);
+			}
 		}
 	}
 }
