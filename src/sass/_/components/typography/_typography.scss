@@ -31,7 +31,7 @@ html {
 	@include color('default');
 	font-family: $font-family;
 	font-size: get-font-size('base');
-	font-weight: 400;
+	font-weight: get-font-weight('base');
 	line-height: remove-unit($line-height);
 }
 
@@ -39,36 +39,48 @@ h1,
 .h1 {
 	@extend %u-heading;
 	@include font-size('h1');
+	@include font-weight('h1');
+	line-height: remove-unit($line-height--heading);
 }
 
 h2,
 .h2 {
 	@extend %u-heading;
 	@include font-size('h2');
+	@include font-weight('h2');
+	line-height: remove-unit($line-height--heading);
 }
 
 h3,
 .h3 {
 	@extend %u-heading;
 	@include font-size('h3');
+	@include font-weight('h3');
+	line-height: remove-unit($line-height--heading);
 }
 
 h4,
 .h4 {
 	@extend %u-heading;
 	@include font-size('h4');
+	@include font-weight('h4');
+	line-height: remove-unit($line-height--heading);
 }
 
 h5,
 .h5 {
 	@extend %u-heading;
 	@include font-size('h5');
+	@include font-weight('h5');
+	line-height: remove-unit($line-height--heading);
 }
 
 h6,
 .h6 {
 	@extend %u-heading;
 	@include font-size('h6');
+	@include font-weight('h6');
+	line-height: remove-unit($line-height--heading);
 }
 
 p,

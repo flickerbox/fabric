@@ -39,16 +39,28 @@
 //---------------------------------------------------------------
 
 @function get-font-size($_value) {
-	
+
 	@if str-slice($_value, 1, 1) == '-' and index(map-keys($font-size), str-slice($_value, 2)) {
-			
+
 		@return map-get($font-size, str-slice($_value, 2)) * -1;
-	
+
 	} @else {
-		
+
 		@return map-get($font-size, $_value);
-		
+
 	}
+	
+}
+
+
+
+//---------------------------------------------------------------
+// Shorthand to get font weight
+//---------------------------------------------------------------
+
+@function get-font-weight($_value) {
+	
+	@return map-get($font-weight, $_value);
 	
 }
 

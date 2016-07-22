@@ -19,7 +19,7 @@
 
 
 //---------------------------------------------------------------
-// Sets font size relative to root em
+// Sets font size responsively
 //---------------------------------------------------------------
 
 @mixin font-size($_size) {
@@ -61,6 +61,56 @@
 	} @else {
 		
 		font-size: $_size;
+		
+	}
+	
+}
+
+
+
+//---------------------------------------------------------------
+// Sets font weight responsively
+//---------------------------------------------------------------
+
+@mixin font-weight($_weight) {
+	
+	@if type-of($_weight) == string and index(map-keys($font-weight), $_weight) {
+		
+		@if type-of(map-get($font-weight, $_weight)) == 'map' {
+			
+			$_stack: map-get($font-weight, $_weight);
+			$first: true;
+
+			@each $key in list-reverse(map-keys($_stack)) {
+				@if index(map-keys($breakpoints), $key) {
+					
+					@if $first {
+						
+						font-weight: map-get($_stack, $key);
+						$first: false;
+						
+					} @else {
+						
+						@include media('<'+$key) {
+							
+							font-weight: map-get($_stack, $key);
+							
+						}
+						
+					}
+					
+				}
+			}
+			
+		} @else {
+			
+			font-weight: map-get($font-weight, $_weight);
+			
+		}
+		
+	} @else {
+		
+		font-weight: $_weight;
 		
 	}
 	

@@ -7,15 +7,15 @@
 	display: flex;
 	flex-wrap: wrap;
 	margin: ($line-break * 2) ($gutter-width * -0.5) (($line-break * 2) - $gutter-width);
-	
-	+ %row {
+
+	+ & {
 		margin-top: (-$line-break * 2) + $gutter-width;
 	}
-	
+
 	&:first-child {
 		margin-top: 0;
 	}
-	
+
 	&:last-child {
 		margin-bottom: $gutter-width * -1;
 	}
@@ -38,17 +38,22 @@
 }
 
 .Row--wideGutters {
-	margin-left: -$gutter-width;
-	margin-right: -$gutter-width;
-	
+	margin-bottom: ($line-break * 2) - ($gutter-width * 3);
+	margin-left: -($gutter-width * 1.5);
+	margin-right: -($gutter-width * 1.5);
+
 	+ .Row--wideGutters {
-		margin-top: (-$line-break * 2) + $gutter-width * 2;
+		margin-top: (-$line-break * 2) + ($gutter-width * 3);
 	}
-	
+
+	&:last-child {
+		margin-bottom: $gutter-width * -3;
+	}
+
 	.Column,
 	[class^='Column-'],
 	[class*=' Column-'] {
-		padding: 0 $gutter-width ($gutter-width * 2);
+		padding: 0 ($gutter-width * 1.5) ($gutter-width * 3);
 	}
 }
 
@@ -68,14 +73,14 @@
 	}
 }
 
-@each $_breakpoint in map-keys($breakpoints) {
-	
-	@include media('<' + #{$_breakpoint}) {
+@each $_breakpoint in map-keys(map-reverse($breakpoints)) {
+
+	@include media(unquote('<#{$_breakpoint}')) {
 		@for $i from 1 through $grid-width {
 			.Column--#{camelize($_breakpoint)}-#{$i} {
 				width: 100% * ($i / $grid-width);
 			}
-	
+
 			.ColumnOffset--#{camelize($_breakpoint)}-#{$i - 1} {
 				margin-left: 100% * (($i - 1) / $grid-width);
 			}
@@ -88,10 +93,23 @@
 //-----------------------------------------------------------------------
 // Utility Classes
 //-----------------------------------------------------------------------
+.u-flex {
+	display: flex;
+}
+
 .u-stretch {
 	align-items: stretch;
 }
 
 .u-justify {
 	justify-content: center;
+}
+
+.u-wrap {
+	flex-wrap: wrap;
+}
+
+.u-wrapRow {
+	flex-wrap: column;
+	display: none;
 }

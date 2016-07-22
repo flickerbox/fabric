@@ -1,3 +1,5 @@
 node_modules
 css/*
 js/*
+.idea
+**/npm-debug.log

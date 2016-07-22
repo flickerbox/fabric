@@ -5,7 +5,9 @@
 $font-family:				Helvetica, Arial, sans-serif		!default;
 $font-family--sans-serif:	Helvetica, Arial, sans-serif		!default;
 $font-family--serif:		serif								!default;
+
 $line-height:				1.5									!default;
+$line-height--heading:		1.5									!default;
 
 $font-size:					(
 							'base':				16px,
@@ -15,6 +17,16 @@ $font-size:					(
 							'h3':				32px,
 							'h2':				40px,
 							'h1':				48px
+							)									!default;
+
+$font-weight:				(
+							'base':				400,
+							'h6':				400,
+							'h5':				400,
+							'h4':				400,
+							'h3':				400,
+							'h2':				400,
+							'h1':				400
 							)									!default;
 
 
