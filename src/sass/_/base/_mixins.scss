@@ -19,6 +19,20 @@
 
 
 //---------------------------------------------------------------
+// Sets font responsively
+//---------------------------------------------------------------
+
+@mixin font($_size) {
+	
+	@include font-size($_size);
+	@include font-weight($_size);
+	@include line-height($_size);
+	
+}
+
+
+
+//---------------------------------------------------------------
 // Sets font size responsively
 //---------------------------------------------------------------
 
@@ -111,6 +125,56 @@
 	} @else {
 		
 		font-weight: $_weight;
+		
+	}
+	
+}
+
+
+
+//---------------------------------------------------------------
+// Sets line height responsively
+//---------------------------------------------------------------
+
+@mixin line-height($_height) {
+	
+	@if type-of($_height) == string and index(map-keys($line-height), $_height) {
+		
+		@if type-of(map-get($line-height, $_height)) == 'map' {
+			
+			$_stack: map-get($line-height, $_height);
+			$first: true;
+
+			@each $key in list-reverse(map-keys($_stack)) {
+				@if index(map-keys($breakpoints), $key) {
+					
+					@if $first {
+						
+						line-height: map-get($_stack, $key);
+						$first: false;
+						
+					} @else {
+						
+						@include media('<'+$key) {
+							
+							line-height: map-get($_stack, $key);
+							
+						}
+						
+					}
+					
+				}
+			}
+			
+		} @else {
+			
+			line-height: map-get($line-height, $_height);
+			
+		}
+		
+	} @else {
+		
+		line-height: $_height;
 		
 	}
 	

@@ -50,9 +50,9 @@
 		margin-bottom: $gutter-width * -3;
 	}
 
-	.Column,
-	[class^='Column-'],
-	[class*=' Column-'] {
+	> .Column,
+	> [class^='Column-'],
+	> [class*=' Column-'] {
 		padding: 0 ($gutter-width * 1.5) ($gutter-width * 3);
 	}
 }
@@ -93,23 +93,23 @@
 //-----------------------------------------------------------------------
 // Utility Classes
 //-----------------------------------------------------------------------
-.u-flex {
+.u-Flex {
 	display: flex;
 }
 
-.u-stretch {
+.u-Stretch {
 	align-items: stretch;
 }
 
-.u-justify {
+.u-Justify {
 	justify-content: center;
 }
 
-.u-wrap {
+.u-Wrap {
 	flex-wrap: wrap;
 }
 
-.u-wrapRow {
+.u-WrapRow {
 	flex-wrap: column;
 	display: none;
 }

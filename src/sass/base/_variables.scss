@@ -2,21 +2,40 @@
 // Typography
 //-----------------------------------------------------------------------
 
-$font-family:				Helvetica, Arial, sans-serif;
-$font-family--monospace:	monospace;
-$font-family--sans-serif:	'Neue Haas Grotesk', Helvetica, Arial, sans-serif;
-$font-family--serif:		'garamond-premier-pro', serif;
-$line-height:				1.5;
+$font-family:             Helvetica, Arial, sans-serif;
+$font-family--monospace:  monospace;
+$font-family--sans-serif: Helvetica, Arial, sans-serif;
+$font-family--serif:      serif;
 
-$font-size:					(
-							'base':				15px,
-							'h6':				17px,
-							'h5':				21px,
-							'h4':				25px,
-							'h3':				29px,
-							'h2':				33px,
-							'h1':				37px
-							);
+$font-size: (
+	'base': 16px,
+	'h6':   16px,
+	'h5':   20px,
+	'h4':   24px,
+	'h3':   32px,
+	'h2':   40px,
+	'h1':   48px
+);
+
+$font-weight: (
+	'base': 400,
+	'h6':   400,
+	'h5':   400,
+	'h4':   400,
+	'h3':   400,
+	'h2':   400,
+	'h1':   400
+);
+
+$line-height: (
+    'base': 26px,
+    'h6':   26px,
+    'h5':   30px,
+    'h4':   34px,
+    'h3':   42px,
+    'h2':   50px,
+    'h1':   58px
+);
 
 
 
@@ -24,18 +43,18 @@ $font-size:					(
 // Colors
 //-----------------------------------------------------------------------
 
-$colors:					(
-							'default':			#232323,
-							'accent':			#fe5000,
-							
-							'black':			#000,
-							'darker-gray':		#232323,
-							'dark-gray':		#4a4a4a,
-							'gray':				#9b9b9b,
-							'light-gray':		#dedede,
-							'lighter-gray':		#fcfcfc,
-							'white':			#fff
-							);
+$colors: 	(
+	'default':      #232323,
+	'accent':       #fe5000,
+	
+	'black':        #000,
+	'darker-gray':  #232323,
+	'dark-gray':    #4a4a4a,
+	'gray':         #9b9b9b,
+	'light-gray':   #dedede,
+	'lighter-gray': #fcfcfc,
+	'white':        #fff
+);
 
 
 
@@ -43,31 +62,31 @@ $colors:					(
 // Layout
 //-----------------------------------------------------------------------
 
-$site-width:				1080px;
-$grid-width:				12;
+$site-width: 1080px;
+$grid-width: 12;
 
-$line-break:				20px;
-$gutter-width:				20px;
-							 
-$breakpoints:				(
-							'xx-small':			320px,
-							'x-small':			480px,
-							'small':			768px,
-							'medium':			1024px,
-							'large':			1200px,
-							'x-large':			1400px,
-							'xx-large':			1600px
-							);
-						 
-$spacing:					(
-							'xx-small':			10px,
-							'x-small':			20px,
-							'small':			30px,
-							'medium':			45px,
-							'large':			60px,
-							'x-large':			75px,
-							'xx-large':			90px
-							);
+$line-break: 20px;
+$gutter-width: 20px;
+  	 
+$breakpoints: (
+	'xx-small': 320px,
+	'x-small':  480px,
+	'small':    768px,
+	'medium':   1024px,
+	'large':    1200px,
+	'x-large':  1400px,
+	'xx-large': 1600px
+);
+   
+$spacing: 	(
+	'xx-small': 10px,
+	'x-small':  20px,
+	'small':    30px,
+	'medium':   45px,
+	'large':    60px,
+	'x-large':  75px,
+	'xx-large': 90px
+);
 
 
 
@@ -75,10 +94,10 @@ $spacing:					(
 // Transitions
 //-----------------------------------------------------------------------
 
-$transition-speed:			(
-							'x-slow':			0.8s,
-							'slow':				0.6s,
-							'normal':			0.4s,
-							'fast':				0.2s,
-							'x-fast':			0.1s
-							);
+$transition-speed: (
+	'x-slow': 0.8s,
+	'slow':   0.6s,
+	'normal': 0.4s,
+	'fast':   0.2s,
+	'x-fast': 0.1s
+);

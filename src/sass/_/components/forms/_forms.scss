@@ -10,12 +10,12 @@ input[type=date],
 input[type=month],
 input[type=week],
 textarea {
+	@include line-height('base');
 	@include padding(x-small small);
 	@include transition();
 	
 	border: 1px solid get-color('light-gray');
 	font-size: 1rem;
-	line-height: $line-height;
 	
 	&::placeholder {
 		@include color('gray');
