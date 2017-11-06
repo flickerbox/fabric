@@ -1,71 +1,70 @@
 //-----------------------------------------------------------------------
-// Placeholders
+// Mixins
 //-----------------------------------------------------------------------
-%Row {
+@mixin grid($_gutter-width: $gutter-width, $_grid-width: $grid-width, $_column-prefix: 'Column', $_column-offset-prefix: 'ColumnOffset') {
+	@include grid-container($_gutter-width);
+	
+	@if $_gutter-width != $gutter-width or $_column-prefix != 'Column' {
+		> .#{$_column-prefix},
+		> [class^='#{$_column-prefix}--'],
+		> [class*=' #{$_column-prefix}--'] {
+			@include grid-item($_gutter-width);
+		}
+	}
+	
+	@if $_grid-width != $grid-width {
+		@for $i from 1 through $_grid-width {
+			> .#{$_column-prefix}--#{$i} {
+				width: 100% * ($i / $_grid-width);
+			}
+		
+			> .#{$_column-offset-prefix}--#{$i - 1} {
+				margin-left: 100% * (($i - 1) / $_grid-width);
+			}
+		}
+		
+		@each $_breakpoint in map-keys(map-reverse($breakpoints)) {
+			@include media(unquote('<#{$_breakpoint}')) {
+				@for $i from 1 through $_grid-width {
+					> .#{$_column-prefix}--#{camelize($_breakpoint)}-#{$i} {
+						width: 100% * ($i / $_grid-width);
+					}
+		
+					> .#{$_column-offset-prefix}--#{camelize($_breakpoint)}-#{$i - 1} {
+						margin-left: 100% * (($i - 1) / $_grid-width);
+					}
+				}
+			}
+		}
+	}
+}
+
+@mixin grid-container($_gutter-width: $gutter-width) {
 	align-content: flex-start;
 	align-items: flex-start;
 	display: flex;
 	flex-wrap: wrap;
-	margin: ($line-break * 2) ($gutter-width * -0.5) (($line-break * 2) - $gutter-width);
-	width: calc(100% + #{$gutter-width});
-
-	+ & {
-		margin-top: (-$line-break * 2) + $gutter-width;
-	}
-
-	&:first-child {
-		margin-top: 0;
-	}
-
-	&:last-child {
-		margin-bottom: $gutter-width * -1;
-	}
+	margin: 0 ($_gutter-width * -0.5) ($_gutter-width * -1);
+	width: calc(100% + #{$_gutter-width});
 }
 
-%Column {
-	padding: 0 ($gutter-width * 0.5) $gutter-width;
+@mixin grid-item($_gutter-width: $gutter-width) {
+	padding: 0 ($_gutter-width * 0.5) ($_gutter-width);
 	position: relative;
 }
-
 
 
 //-----------------------------------------------------------------------
 // Classes
 //-----------------------------------------------------------------------
-.Row,
-[class^='Row--'],
-[class*=' Row--'] {
-	@extend %Row;
-}
-
-@include media('>=medium') {
-	.Row--wideGutters {
-		margin-bottom: ($line-break * 2) - ($gutter-width * 2);
-		margin-left: -($gutter-width * 1);
-		margin-right: -($gutter-width * 1);
-		width: calc(100% + #{$gutter-width * 2});
-	
-		+ .Row,
-		+ .Row--wideGutters {
-			margin-top: (-$line-break * 2) + ($gutter-width * 2);
-		}
-	
-		&:last-child {
-			margin-bottom: $gutter-width * -2;
-		}
-	
-		> .Column,
-		> [class^='Column-'],
-		> [class*=' Column-'] {
-			padding: 0 ($gutter-width * 1) ($gutter-width * 2);
-		}
-	}
+.Row {
+	@include grid-container();
 }
 
 .Column,
-[class^='Column-'],
-[class*=' Column-'] {
-	@extend %Column;
+[class^='.Column--'],
+[class*=' .Column--'] {
+	@include grid-item();
 }
 
 @for $i from 1 through $grid-width {
@@ -78,50 +77,16 @@
 	}
 }
 
-@each $_breakpoint in map-keys(map-reverse($breakpoints)) {
-
-	@include media(unquote('<#{$_breakpoint}')) {
+@each $breakpoint in map-keys(map-reverse($breakpoints)) {
+	@include media(unquote('<#{$breakpoint}')) {
 		@for $i from 1 through $grid-width {
-			.Column--#{camelize($_breakpoint)}-#{$i} {
+			.Column--#{camelize($breakpoint)}-#{$i} {
 				width: 100% * ($i / $grid-width);
 			}
 
-			.ColumnOffset--#{camelize($_breakpoint)}-#{$i - 1} {
+			.ColumnOffset--#{camelize($breakpoint)}-#{$i - 1} {
 				margin-left: 100% * (($i - 1) / $grid-width);
 			}
 		}
 	}
-}
-
-
-
-//-----------------------------------------------------------------------
-// Utility Classes
-//-----------------------------------------------------------------------
-.u-Flex {
-	display: flex;
-}
-
-.u-Center,
-.u-alignCenter,
-.u-valignMiddle {
-	align-items: center;
-}
-
-.u-Stretch {
-	align-items: stretch;
-}
-
-.u-Justify,
-.u-justifyCenter {
-	justify-content: center;
-}
-
-.u-Wrap {
-	flex-wrap: wrap;
-}
-
-.u-WrapRow {
-	flex-wrap: column;
-	display: none;
 }
