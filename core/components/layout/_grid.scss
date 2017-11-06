@@ -7,6 +7,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	margin: ($line-break * 2) ($gutter-width * -0.5) (($line-break * 2) - $gutter-width);
+	width: calc(100% + #{$gutter-width});
 
 	+ & {
 		margin-top: (-$line-break * 2) + $gutter-width;
@@ -37,23 +38,27 @@
 	@extend %Row;
 }
 
-.Row--wideGutters {
-	margin-bottom: ($line-break * 2) - ($gutter-width * 3);
-	margin-left: -($gutter-width * 1.5);
-	margin-right: -($gutter-width * 1.5);
-
-	+ .Row--wideGutters {
-		margin-top: (-$line-break * 2) + ($gutter-width * 3);
-	}
-
-	&:last-child {
-		margin-bottom: $gutter-width * -3;
-	}
-
-	> .Column,
-	> [class^='Column-'],
-	> [class*=' Column-'] {
-		padding: 0 ($gutter-width * 1.5) ($gutter-width * 3);
+@include media('>=medium') {
+	.Row--wideGutters {
+		margin-bottom: ($line-break * 2) - ($gutter-width * 2);
+		margin-left: -($gutter-width * 1);
+		margin-right: -($gutter-width * 1);
+		width: calc(100% + #{$gutter-width * 2});
+	
+		+ .Row,
+		+ .Row--wideGutters {
+			margin-top: (-$line-break * 2) + ($gutter-width * 2);
+		}
+	
+		&:last-child {
+			margin-bottom: $gutter-width * -2;
+		}
+	
+		> .Column,
+		> [class^='Column-'],
+		> [class*=' Column-'] {
+			padding: 0 ($gutter-width * 1) ($gutter-width * 2);
+		}
 	}
 }
 
@@ -97,11 +102,18 @@
 	display: flex;
 }
 
+.u-Center,
+.u-alignCenter,
+.u-valignMiddle {
+	align-items: center;
+}
+
 .u-Stretch {
 	align-items: stretch;
 }
 
-.u-Justify {
+.u-Justify,
+.u-justifyCenter {
 	justify-content: center;
 }
 

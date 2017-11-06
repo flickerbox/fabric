@@ -2,8 +2,10 @@
 // Placeholder
 //-----------------------------------------------------------------------
 %ResponsiveRatio {
+	display: block;
 	font-size: 0;
 	position: relative;
+	width: 100%;
 	
 	&:before {
 		content: '';

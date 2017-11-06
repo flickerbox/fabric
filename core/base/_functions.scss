@@ -38,16 +38,12 @@
 // Shorthand to get font size
 //---------------------------------------------------------------
 
-@function get-font-size($_value) {
+@function get-font-size($_value, $_size: '') {
 
-	@if str-slice($_value, 1, 1) == '-' and index(map-keys($font-size), str-slice($_value, 2)) {
-
-		@return map-get($font-size, str-slice($_value, 2)) * -1;
-
+	@if $_size != '' {
+		@return map-get(map-get($font-size, $_value), $_size);
 	} @else {
-
 		@return map-get($font-size, $_value);
-
 	}
 	
 }
@@ -58,9 +54,13 @@
 // Shorthand to get font weight
 //---------------------------------------------------------------
 
-@function get-font-weight($_value) {
+@function get-font-weight($_value, $_size: '') {
 	
-	@return map-get($font-weight, $_value);
+	@if $_size != '' {
+		@return map-get(map-get($font-weight, $_value), $_size);
+	} @else {
+		@return map-get($font-weight, $_value);
+	}
 	
 }
 
@@ -70,9 +70,13 @@
 // Shorthand to get line height
 //---------------------------------------------------------------
 
-@function get-line-height($_value) {
+@function get-line-height($_value, $_size: '') {
 	
-	@return map-get($line-height, $_value);
+	@if $_size != '' {
+		@return map-get(map-get($line-height, $_value), $_size);
+	} @else {
+		@return map-get($line-height, $_value);
+	}
 	
 }
 
@@ -82,9 +86,13 @@
 // Shorthand to get color
 //---------------------------------------------------------------
 
-@function get-color($_value) {
+@function get-color($_value, $_alpha: 1) {
 	
-	@return map-get($colors, $_value);
+	@if $_alpha < 1 {
+		@return rgba(map-get($colors, $_value), $_alpha);
+	} @else {
+		@return map-get($colors, $_value);
+	}
 	
 }
 
@@ -348,4 +356,55 @@
 	
 	@return $_result;
 	
+}
+
+
+
+//---------------------------------------------------------------
+// Convert string to pascal-case
+//---------------------------------------------------------------
+
+@function pascalize($_string) {
+	
+	@return capitalize(camelize($_string));
+	
+}
+
+
+
+//---------------------------------------------------------------
+// Convert hsb to hsl color
+//---------------------------------------------------------------
+@function hsb($h-hsb, $s-hsb, $b-hsb, $a: 1) {
+	@if $b-hsb == 0 {
+		@return hsla(0, 0, 0, $a);
+	} @else if $b-hsb == 100 {
+		@return hsla(0, 0, 100, $a);
+	} @else {
+		$l-hsl: ($b-hsb/2) * (2 - ($s-hsb/100));
+		$s-hsl: ($b-hsb * $s-hsb) / if($l-hsl < 50, $l-hsl * 2, 200 - $l-hsl * 2);
+		@return hsla($h-hsb, $s-hsl, $l-hsl, $a);
+	}
+}
+
+//---------------------------------------------------------------
+// Get the opposite position of a position
+//---------------------------------------------------------------
+@function opposite-position($position) {
+	$opposite_position: '';
+	$position-map: (
+		'top':    'bottom',
+		'right':  'left',
+		'bottom': 'top',
+		'left':   'right',
+		'center': 'center',
+	);
+
+	@if map-has-key($position-map, $position) {
+		$opposite-position: unquote(map-get($position-map, $position));
+	} @else {
+		@warn "No opposite direction can be found for `#{$position}`. Direction omitted.";
+	}
+
+	@return $opposite-position;
 }
