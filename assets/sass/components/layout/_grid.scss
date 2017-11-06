@@ -62,8 +62,8 @@
 }
 
 .Column,
-[class^='.Column--'],
-[class*=' .Column--'] {
+[class^='Column--'],
+[class*=' Column--'] {
 	@include grid-item();
 }
 
