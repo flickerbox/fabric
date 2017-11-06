@@ -8,6 +8,7 @@
   },
   "description": "An unopinionated framework that works within your existing workflow to cut down on repetitive tasks.",
   "eyeglass": {
+	"name": "fabric",
     "needs": "*",
     "exports": "eyeglass-exports.js"
   },
@@ -26,5 +27,5 @@
     "type": "git",
     "url": "https://github.com/flickerbox/fabric.git"
   },
-  "version": "1.2.0"
+  "version": "1.2.1"
 }
