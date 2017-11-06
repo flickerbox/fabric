@@ -8,7 +8,7 @@
   },
   "description": "An unopinionated framework that works within your existing workflow to cut down on repetitive tasks.",
   "eyeglass": {
-	"name": "fabric",
+    "name": "fabric",
     "needs": "*",
     "exports": "eyeglass-exports.js"
   },
