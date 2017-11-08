@@ -63,10 +63,8 @@ $colors: 	(
 //-----------------------------------------------------------------------
 
 $site-width: 1080px                                             !default;
-$grid-width: 12                                                 !default;
 
 $line-break: 20px                                               !default;
-$gutter-width: 20px                                             !default;
   	 
 $breakpoints: (
 	'xx-small': 320px,
@@ -86,6 +84,24 @@ $spacing: 	(
 	'large':    60px,
 	'x-large':  75px,
 	'xx-large': 90px
+)                                                               !default;
+
+
+
+//-----------------------------------------------------------------------
+// Grid
+//-----------------------------------------------------------------------
+
+$grid-columns: 12                                               !default;
+
+$grid-breakpoints: (
+	'normal': ('small', 'medium', 'large')
+)                                                               !default;
+
+$grid-gaps: (
+	'small': 10px,
+	'normal': 20px,
+	'large': 40px
 )                                                               !default;
 
 

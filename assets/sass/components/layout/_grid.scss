@@ -1,55 +1,100 @@
 //-----------------------------------------------------------------------
-// Mixins
+// Placeholders
 //-----------------------------------------------------------------------
-@mixin grid($_gutter-width: $gutter-width, $_grid-width: $grid-width, $_column-prefix: 'Column', $_column-offset-prefix: 'ColumnOffset') {
-	@include grid-container($_gutter-width);
+%Grid {
+	align-content: flex-start;
+	align-items: flex-start;
+	display: flex;
+	flex-wrap: wrap;
 	
-	@if $_gutter-width != $gutter-width or $_column-prefix != 'Column' {
-		> .#{$_column-prefix},
-		> [class^='#{$_column-prefix}--'],
-		> [class*=' #{$_column-prefix}--'] {
-			@include grid-item($_gutter-width);
+	> div {
+		@extend %GridItem;
+	}
+	
+	@for $i from 1 through $grid-columns {
+		$_class: '&.with-#{$i} > div';
+		
+		@if $i == 1 {
+			$_class: '> div, #{$_class}';
+		}
+			
+		#{$_class} {
+			flex-basis: 100% / $i;
 		}
 	}
 	
-	@if $_grid-width != $grid-width {
-		@for $i from 1 through $_grid-width {
-			> .#{$_column-prefix}--#{$i} {
-				width: 100% * ($i / $_grid-width);
-			}
+	@each $_grid-breakpoint in map-keys($grid-breakpoints) {
+		$_breakpoints: map-get($grid-breakpoints, $_grid-breakpoint);
+		$_grid-class: '.has-#{$_grid-breakpoint}Breakpoints';
 		
-			> .#{$_column-offset-prefix}--#{$i - 1} {
-				margin-left: 100% * (($i - 1) / $_grid-width);
-			}
+		@if length($_breakpoints) > 1 {
+			$_breakpoints: list-reverse($_breakpoints);
 		}
 		
-		@each $_breakpoint in map-keys(map-reverse($breakpoints)) {
-			@include media(unquote('<#{$_breakpoint}')) {
-				@for $i from 1 through $_grid-width {
-					> .#{$_column-prefix}--#{camelize($_breakpoint)}-#{$i} {
-						width: 100% * ($i / $_grid-width);
-					}
+		@if $_grid-breakpoint == 'normal' {
+			$_grid-class: '';
+		}
 		
-					> .#{$_column-offset-prefix}--#{camelize($_breakpoint)}-#{$i - 1} {
-						margin-left: 100% * (($i - 1) / $_grid-width);
+		@for $i from 1 through length($_breakpoints) {
+			$_breakpoint: nth($_breakpoints, $i);
+			
+			@if $i == 1 {
+				@for $_columns from 1 through $grid-columns {
+					@for $j from 1 through $_columns {
+						$_grid-item-class: '> .is-#{$j}';
+						
+						@if $j == 1 {
+							$_grid-item-class: '> div, ${_grid-item-class}';
+						}
+						
+						&#{$_grid-class}.with-#{$_columns} #{$_grid-item-class} {
+							flex-basis: 100% * ($j / $_columns);
+						}
+					}
+				}
+			} @else {
+				@include media('<#{$_breakpoint}') {
+					@for $_columns from 1 through $grid-columns {
+						@for $j from 1 through $_columns {
+							$_grid-class-suffix: '.with-#{$_columns}';
+							$_grid-item-class: '> .is-#{$_breakpoint}--#{$j}';
+						
+							@if $j == 1 {
+								$_grid-class-suffix: '.with-#{$_breakpoint}--#{$_columns}';
+								$_grid-item-class: '> div';
+							}
+							
+							&#{$_grid-class}#{$_grid-class-suffix} #{$_grid-item-class} {
+								flex-basis: 100% * ($j / $_columns);
+							}
+						}
 					}
 				}
 			}
 		}
 	}
+	
+	@each $key in map-keys($grid-gaps) {
+		$_gap: map-get($grid-gaps, $key);
+		$_grid-class: '&.has-#{$key}Gaps';
+		
+		@if $key == 'normal' {
+			$_grid-class: '&, #{$_grid-class}';
+		}
+		
+		#{$_grid-class} {
+			margin: 0 (-$_gap / 2) (-$_gap);
+			width: calc(100% + #{$_gap});
+			
+			> div {
+				padding: 0 ($_gap / 2) ($_gap);
+			}
+		}
+	}
 }
 
-@mixin grid-container($_gutter-width: $gutter-width) {
-	align-content: flex-start;
-	align-items: flex-start;
-	display: flex;
-	flex-wrap: wrap;
-	margin: 0 ($_gutter-width * -0.5) ($_gutter-width * -1);
-	width: calc(100% + #{$_gutter-width});
-}
-
-@mixin grid-item($_gutter-width: $gutter-width) {
-	padding: 0 ($_gutter-width * 0.5) ($_gutter-width);
+%GridItem {
+	flex-shrink: 0;
 	position: relative;
 }
 
@@ -57,36 +102,10 @@
 //-----------------------------------------------------------------------
 // Classes
 //-----------------------------------------------------------------------
-.Row {
-	@include grid-container();
+.Grid {
+	@extend %Grid;
 }
 
-.Column,
-[class^='Column--'],
-[class*=' Column--'] {
-	@include grid-item();
-}
-
-@for $i from 1 through $grid-width {
-	.Column--#{$i} {
-		width: 100% * ($i / $grid-width);
-	}
-
-	.ColumnOffset--#{$i - 1} {
-		margin-left: 100% * (($i - 1) / $grid-width);
-	}
-}
-
-@each $breakpoint in map-keys(map-reverse($breakpoints)) {
-	@include media(unquote('<#{$breakpoint}')) {
-		@for $i from 1 through $grid-width {
-			.Column--#{camelize($breakpoint)}-#{$i} {
-				width: 100% * ($i / $grid-width);
-			}
-
-			.ColumnOffset--#{camelize($breakpoint)}-#{$i - 1} {
-				margin-left: 100% * (($i - 1) / $grid-width);
-			}
-		}
-	}
+.Grid-item {
+	@extend %GridItem;
 }
