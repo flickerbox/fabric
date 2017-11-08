@@ -287,7 +287,6 @@ th {
       flex-wrap: wrap;
 }
 
-.Grid > div,
 .with-1.Grid > div {
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
@@ -343,6 +342,7 @@ th {
       flex-basis: 9.09090909%;
 }
 
+.Grid > div,
 .with-12.Grid > div {
   -ms-flex-preferred-size: 8.33333333%;
       flex-basis: 8.33333333%;

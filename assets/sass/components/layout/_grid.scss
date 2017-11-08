@@ -14,7 +14,7 @@
 	@for $i from 1 through $grid-columns {
 		$_class: '&.with-#{$i} > div';
 		
-		@if $i == 1 {
+		@if $i == $grid-columns {
 			$_class: '> div, #{$_class}';
 		}
 			
