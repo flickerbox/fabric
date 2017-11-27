@@ -86,13 +86,13 @@
 // Shorthand to get color
 //---------------------------------------------------------------
 
-@function get-color($_value, $_alpha: 1) {
+@function get-color($_color, $_alpha: 1) {
 	
-	@if $_alpha < 1 {
-		@return rgba(map-get($colors, $_value), $_alpha);
-	} @else {
-		@return map-get($colors, $_value);
+	@if type-of($_color) == string and index(map-keys($colors), $_color) {
+		$_color: map-get($colors, $_color);
 	}
+	
+	@return rgba($_color, $_alpha);
 	
 }
 

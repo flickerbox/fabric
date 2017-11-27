@@ -2,26 +2,9 @@
 // Sets color from color map
 //---------------------------------------------------------------
 
-@mixin color($_color, $_hover: false) {
-
-	@if type-of($_color) == string and index(map-keys($colors), $_color) {
-
-		color: map-get($colors, $_color);
-
-		@if $_hover == true and index(map-keys($colors), $_color+'-hover') {
-
-  		&:active,
-  		&:hover {
-    		color: map-get($colors, $_color+'-hover');
-  		}
-
-		}
-
-	} @else {
-
-		color: $_color;
-
-	}
+@mixin color($_color, $_alpha: 1) {
+	
+	color: get-color($_color, $_alpha);
 
 }
 
