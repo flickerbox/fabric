@@ -92,7 +92,11 @@
 		$_color: map-get($colors, $_color);
 	}
 	
-	@return rgba($_color, $_alpha);
+	@if $_alpha < 1 {
+		$_color: rgba($_color, $_alpha)
+	}
+	
+	@return $_color;
 	
 }
 
