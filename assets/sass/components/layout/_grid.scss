@@ -19,7 +19,7 @@
 		}
 			
 		#{$_class} {
-			flex-basis: 100% / $i;
+			width: 100% / $i;
 		}
 	}
 	
@@ -48,7 +48,7 @@
 						}
 						
 						&#{$_grid-class}.with-#{$_columns} #{$_grid-item-class} {
-							flex-basis: 100% * ($j / $_columns);
+							width: 100% * ($j / $_columns);
 						}
 					}
 				}
@@ -65,7 +65,7 @@
 							}
 							
 							&#{$_grid-class}#{$_grid-class-suffix} #{$_grid-item-class} {
-								flex-basis: 100% * ($j / $_columns);
+								width: 100% * ($j / $_columns);
 							}
 						}
 					}
