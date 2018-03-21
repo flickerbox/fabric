@@ -3,7 +3,25 @@
 //---------------------------------------------------------
 
 @function remove-unit($_value) {
+
+	$_new-value: string($_value);
 	
-	@return $_value / ($_value * 0 + 1);
+	@if str-length($_new-value) > 1 and str-slice($_new-value, -1, -1) == 'x' and is-number(number(str-slice($_new-value, 1, -2))) {
+		
+		$_new-value: str-slice($_new-value, 1, -2);
+		
+	}
+	
+	$_new-value: number($_new-value);
+	
+	@if $_new-value != false {
+		
+		@return $_new-value / ($_new-value * 0 + 1);
+	
+	} @else {
+		
+		@return $_value;
+		
+	}
 	
 }

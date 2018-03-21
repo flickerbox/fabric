@@ -8,7 +8,6 @@
 	$index: index($strings, $unit);
 	
 	@if not $index {
-		@warn 'Unknown unit `#{$unit}`.';
 		@return false;
 	}
 	
