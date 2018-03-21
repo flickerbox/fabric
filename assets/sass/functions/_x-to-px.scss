@@ -5,8 +5,16 @@
 
 @function x-to-px($_value) {
 	
+	@if type-of($value) == 'string' {
+		$_value: unquote($_value);
+	}
+	
 	@if $_value != 'auto' {
-		$_value: remove-unit($_value) * $site-spacing;
+		$_value: remove-unit($_value);
+	}
+	
+	@if is-number($_value) {
+		$_value: $_value * $site-spacing;
 	}
 	
 	@return $_value;
