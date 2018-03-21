@@ -1,0 +1,17 @@
+//---------------------------------------------------------------
+// Shorthand to get color
+//---------------------------------------------------------------
+
+@function get-color($_color, $_alpha: 1) {
+	
+	@if type-of($_color) == string and index(map-keys($colors), $_color) {
+		$_color: map-get($colors, $_color);
+	}
+	
+	@if $_alpha < 1 {
+		$_color: rgba($_color, $_alpha)
+	}
+	
+	@return $_color;
+	
+}

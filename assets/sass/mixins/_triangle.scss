@@ -1,0 +1,34 @@
+//---------------------------------------------------------------
+// Make a triangle
+//---------------------------------------------------------------
+
+@mixin triangle($position, $color: currentcolor, $size: 1em, $angle: 1.25) {
+
+	// make sure we get a valid position
+	@if not index(top right bottom left, $position) {
+		@error "Direction must be either top, right, bottom or left.";
+	}
+
+	// base styles
+	width: 0;
+	height: 0;
+	z-index: 10;
+
+	// add content for use in pseudo elements
+	content: '';
+
+	// create the triangle direction by adding border to the opposite position
+	border-#{opposite-position($position)}: ($size * $angle) solid $color;
+
+	// set the transparent sides
+	$transparent-sides: $size solid transparent;
+
+	@if $position == top or $position == bottom {
+		border-left:   $transparent-sides;
+		border-right:  $transparent-sides;
+	}
+	@else if $position == right or $position == left {
+		border-bottom: $transparent-sides;
+		border-top:    $transparent-sides;
+	}
+}

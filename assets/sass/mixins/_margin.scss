@@ -1,0 +1,41 @@
+//---------------------------------------------------------------
+// Sets margins relative to root em
+//---------------------------------------------------------------
+
+@mixin margin($_margins: $line-height auto) {
+	
+	$_result: ();
+
+	@each $_margin in $_margins {
+		
+		@if $_margin == 'auto' {
+			
+			$_result: append($_result, auto);
+			
+		} @else if type-of($_margin) == string and index(map-keys($spacing), $_margin) {
+			
+			$_result: append($_result, map-get($spacing, $_margin));
+			
+		} @else if type-of($_margin) == string and str-slice($_margin, 1, 1) == '-' and index(map-keys($spacing), str-slice($_margin, 2)) {
+			
+			$_result: append($_result, map-get($spacing, str-slice($_margin, 2)) * -1);
+			
+		} @else {
+			
+			$_result: append($_result, $_margin);
+		}
+		
+		
+	}
+
+	margin: $_result;
+
+	&:first-child {
+		margin-top: 0;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+	
+}

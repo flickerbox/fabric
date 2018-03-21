@@ -9,7 +9,3 @@
 	
 	@return $value;
 }
-
-@function mod($number, $divisor) {
-	@return $number - (floor($number / $divisor) * $divisor);
-}

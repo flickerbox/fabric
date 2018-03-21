@@ -1,0 +1,21 @@
+//---------------------------------------------------------------
+// Get the opposite position of a position
+//---------------------------------------------------------------
+@function opposite-position($position) {
+	$opposite_position: '';
+	$position-map: (
+		'top':    'bottom',
+		'right':  'left',
+		'bottom': 'top',
+		'left':   'right',
+		'center': 'center',
+	);
+
+	@if map-has-key($position-map, $position) {
+		$opposite-position: unquote(map-get($position-map, $position));
+	} @else {
+		@warn "No opposite direction can be found for `#{$position}`. Direction omitted.";
+	}
+
+	@return $opposite-position;
+}

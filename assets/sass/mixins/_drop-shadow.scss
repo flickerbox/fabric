@@ -1,0 +1,35 @@
+//---------------------------------------------------------------
+// Set drop shadow based on default
+//---------------------------------------------------------------
+
+@mixin drop-shadow($_color: 'black', $_elevation: 'medium', $_inset: false) {
+	
+	$_box_shadow: ();
+
+	@if($_inset) {
+		$_inset: 'inset';
+	} @else {
+		$_inset: '';
+	}
+	
+	@if type-of($_color) == string and index(map-keys($colors), $_color) {
+
+		$_color: map-get($colors, $_color);
+
+	}
+	
+	@if type-of($_elevation) == string and index(map-keys($drop-shadow-elevations), $_elevation) {
+		
+		$_alpha: map-get($drop-shadow-alpha, $_elevation);
+		$_shadow_list: map-get($drop-shadow-elevations, $_elevation);
+		
+		@each $_shadow in $_shadow_list {
+			$_this_color: rgba($_color, ($_alpha / index($_shadow_list, $_shadow)));
+			$_box_shadow: append($_box_shadow, unquote('#{$_this_color} #{$_shadow} #{$_inset}'), 'comma');
+		}
+
+	}
+	
+	box-shadow: $_box_shadow;
+	
+}

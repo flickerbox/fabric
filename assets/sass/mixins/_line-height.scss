@@ -1,0 +1,55 @@
+//---------------------------------------------------------------
+// Sets line height responsively
+//---------------------------------------------------------------
+
+@mixin line-height($_value, $_size: '') {
+	
+	@if type-of($_value) == string and index(map-keys($line-height), $_value) {
+		
+		@if type-of(map-get($line-height, $_value)) == 'map' {
+			
+			@if $_size != '' {
+				
+				line-height: map-get(map-get($line-height, $_value), $_size);
+				
+			} @else {
+				
+				$_stack: map-get($line-height, $_value);
+				$first: true;
+	
+				@each $key in list-reverse(map-keys($_stack)) {
+					@if index(map-keys($breakpoints), $key) {
+						
+						@if $first {
+							
+							line-height: map-get($_stack, $key);
+							$first: false;
+							
+						} @else {
+							
+							@include media('<'+$key) {
+								
+								line-height: map-get($_stack, $key);
+								
+							}
+							
+						}
+						
+					}
+				}
+			
+			}
+			
+		} @else {
+			
+			line-height: map-get($line-height, $_value);
+			
+		}
+		
+	} @else {
+		
+		line-height: $_value;
+		
+	}
+	
+}

@@ -63,8 +63,7 @@ $colors: 	(
 //-----------------------------------------------------------------------
 
 $site-width: 1080px                                             !default;
-
-$line-break: 20px                                               !default;
+$site-spacing: 8px                                              !default;
   	 
 $breakpoints: (
 	'xx-small': 320px,
@@ -74,16 +73,6 @@ $breakpoints: (
 	'large':    1200px,
 	'x-large':  1400px,
 	'xx-large': 1600px
-)                                                               !default;
-   
-$spacing: 	(
-	'xx-small': 10px,
-	'x-small':  20px,
-	'small':    30px,
-	'medium':   45px,
-	'large':    60px,
-	'x-large':  75px,
-	'xx-large': 90px
 )                                                               !default;
 
 

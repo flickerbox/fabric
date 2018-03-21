@@ -1,0 +1,11 @@
+//---------------------------------------------------------------
+// Sets font responsively
+//---------------------------------------------------------------
+
+@mixin font($_value, $_size: '') {
+	
+	@include font-size($_value, $_size);
+	@include font-weight($_value, $_size);
+	@include line-height($_value, $_size);
+	
+}

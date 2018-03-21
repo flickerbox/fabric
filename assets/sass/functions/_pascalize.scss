@@ -1,0 +1,9 @@
+//---------------------------------------------------------------
+// Convert string to pascal-case
+//---------------------------------------------------------------
+
+@function pascalize($_string) {
+	
+	@return capitalize(camelize($_string));
+	
+}

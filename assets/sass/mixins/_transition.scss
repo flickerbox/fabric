@@ -1,0 +1,43 @@
+//---------------------------------------------------------------
+// Sets transition based on defaults
+//---------------------------------------------------------------
+
+@mixin transition($_properties...) {
+	
+	$_result: ();
+	
+	@if length($_properties) == 0 {
+		$_properties: (
+			'normal all'
+		);
+	}
+	
+	@for $i from 1 through length($_properties) {
+		 
+		$_property: nth($_properties, $i);
+		$_subResult: ();
+		
+		@if type-of($_property) == string {
+			$_property: explode($_property, ' ');
+		}
+		
+		@each $_sub-property in $_property {
+		
+			@if type-of($_sub-property) == string and index(map-keys($transition-speed), $_sub-property) {
+				
+				$_subResult: append($_subResult, map-get($transition-speed, $_sub-property));
+				
+			} @else {
+				
+				$_subResult: append($_subResult, unquote(inspect($_sub-property)));
+				
+			}
+		
+		}
+		
+		$_result: append($_result, $_subResult, comma);
+	}
+
+	transition: $_result;
+	
+}

@@ -1,0 +1,28 @@
+//---------------------------------------------------------------
+// Sets margins relative to root em
+//---------------------------------------------------------------
+
+@mixin padding($_paddings: $line-height auto) {
+	
+	$_result: ();
+
+	@each $_padding in $_paddings {
+		
+		@if type-of($_padding) == string and index(map-keys($spacing), $_padding) {
+			
+			$_result: append($_result, map-get($spacing, $_padding));
+			
+		} @else if type-of($_padding) == string and str-slice($_padding, 1, 1) == '-' and index(map-keys($spacing), str-slice($_padding, 2)) {
+			
+			$_result: append($_result, map-get($spacing, str-slice($_padding, 2)) * -1);
+			
+		} @else {
+			
+			$_result: append($_result, $_padding);
+			
+		}
+	}
+
+	padding: $_result;
+	
+}

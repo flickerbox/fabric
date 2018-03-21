@@ -1,0 +1,8 @@
+//---------------------------------------------------------------
+// Check if word (or list) contains value
+//---------------------------------------------------------------
+@function contain($list, $value) {
+	
+	@return not not index($list, $value);
+	
+}

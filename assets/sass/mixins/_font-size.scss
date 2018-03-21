@@ -1,0 +1,55 @@
+//---------------------------------------------------------------
+// Sets font size responsively
+//---------------------------------------------------------------
+
+@mixin font-size($_value, $_size: '') {
+	
+	@if type-of($_value) == string and index(map-keys($font-size), $_value) {
+		
+		@if type-of(map-get($font-size, $_value)) == 'map' {
+			
+			@if $_size != '' {
+				
+				font-size: map-get(map-get($font-size, $_value), $_size);
+				
+			} @else {
+			
+				$_stack: map-get($font-size, $_value);
+				$first: true;
+	
+				@each $key in list-reverse(map-keys($_stack)) {
+					@if index(map-keys($breakpoints), $key) {
+						
+						@if $first {
+							
+							font-size: map-get($_stack, $key);
+							$first: false;
+							
+						} @else {
+							
+							@include media('<'+$key) {
+								
+								font-size: map-get($_stack, $key);
+								
+							}
+							
+						}
+						
+					}
+				}
+			
+			}
+			
+		} @else {
+			
+			font-size: map-get($font-size, $_value);
+			
+		}
+		
+	} @else {
+		
+		font-size: $_value;
+		
+	}
+	
+}

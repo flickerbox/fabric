@@ -1,0 +1,44 @@
+//---------------------------------------------------------------
+// Multi color gradients
+//---------------------------------------------------------------
+@mixin linear-gradient($_direction, $_color-stops...) {
+	// Direction has been omitted and happens to be a color-stop
+	@if is-direction($_direction) == false {
+		$_color-stops: $_direction, $_color-stops;
+		$_direction: 180deg;
+	}
+	
+	$_result: ();
+	
+	@for $i from 1 through length($_color-stops) {
+		 
+		$_color-stop: nth($_color-stops, $i);
+		$_subResult: ();
+		
+		@if type-of($_color-stop) == string {
+			$_color-stop: explode($_color-stop, ' ');
+		}
+		
+		@each $_sub-color-stop in $_color-stop {
+			
+			$_sub-color-stop: unquote(inspect($_sub-color-stop));
+			
+			@if type-of(inspect($_sub-color-stop)) == string and index(map-keys($colors), inspect($_sub-color-stop)) {
+				
+				$_subResult: append($_subResult, map-get($colors, inspect($_sub-color-stop)));
+				
+			} @else {
+				
+				$_subResult: append($_subResult, unquote(inspect($_sub-color-stop)));
+				
+			}
+		
+		}
+		
+		$_result: append($_result, $_subResult, comma);
+	}
+	
+	background: nth(nth($_result, 1), 1);
+	background: -webkit-linear-gradient(legacy-direction($_direction), $_result);
+	background: linear-gradient($_direction, $_result);
+}

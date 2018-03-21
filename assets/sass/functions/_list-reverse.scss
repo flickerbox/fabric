@@ -1,0 +1,30 @@
+//---------------------------------------------------------------
+// Reverse the order of a list
+//---------------------------------------------------------------
+
+@function list-reverse($_list) {
+	
+	$_result: null;
+	
+	@if type-of($_list) == 'list' {
+		$_list-reversed: ();
+		
+		@for $i from length($_list) through 1 {
+			$_list-reversed: append(
+				$_list-reversed, 
+				nth($_list, $i)
+			);
+		}
+		
+		@if type-of($_list-reversed) == 'list' {
+			$_result: $_list-reversed;
+		} @else {
+			@warn 'There was an error reversing the order of '#{$_list}'';
+		}
+	} @else {
+		@warn ''#{$_list}' is not a valid list';
+	}
+	
+	@return $_result;
+	
+}

@@ -1,0 +1,9 @@
+//---------------------------------------------------------
+// Add unit to variable
+//---------------------------------------------------------
+
+@function add-unit($_value, $_unit) {
+	
+	@return unquote(remove-unit($_value) + $_unit);
+	
+}

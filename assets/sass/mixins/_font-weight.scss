@@ -1,0 +1,55 @@
+//---------------------------------------------------------------
+// Sets font weight responsively
+//---------------------------------------------------------------
+
+@mixin font-weight($_value, $_size: '') {
+	
+	@if type-of($_value) == string and index(map-keys($font-weight), $_value) {
+		
+		@if type-of(map-get($font-weight, $_value)) == 'map' {
+			
+			@if $_size != '' {
+				
+				font-weight: map-get(map-get($font-weight, $_value), $_size);
+				
+			} @else {
+			
+				$_stack: map-get($font-weight, $_value);
+				$first: true;
+	
+				@each $key in list-reverse(map-keys($_stack)) {
+					@if index(map-keys($breakpoints), $key) {
+						
+						@if $first {
+							
+							font-weight: map-get($_stack, $key);
+							$first: false;
+							
+						} @else {
+							
+							@include media('<'+$key) {
+								
+								font-weight: map-get($_stack, $key);
+								
+							}
+							
+						}
+						
+					}
+				}
+			
+			}
+			
+		} @else {
+			
+			font-weight: map-get($font-weight, $_value);
+			
+		}
+		
+	} @else {
+		
+		font-weight: $_value;
+		
+	}
+	
+}
