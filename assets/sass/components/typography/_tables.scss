@@ -8,5 +8,5 @@ th {
 
 th, 
 td {
-	@include padding(x-small small);
+	@include padding(1x 2x);
 }

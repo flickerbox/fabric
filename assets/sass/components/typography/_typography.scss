@@ -2,7 +2,7 @@
 // Placeholders
 //-----------------------------------------------------------------------
 %u-Heading {
-	@include margin($line-break 0);
+	@include margin(3x 0);
 	font-weight: inherit;
 	
 	@include media('<small') {
@@ -33,10 +33,7 @@ html {
 
 %h1 {
 	@extend %u-Heading;
-	@include font-size('h1');
-	@include font-weight('h1');
-	@include line-height('h1');
-	font-family: $font-family;
+	@include font('h1');
 }
 
 h1,
@@ -46,10 +43,7 @@ h1,
 
 %h2 {
 	@extend %u-Heading;
-	@include font-size('h2');
-	@include font-weight('h2');
-	@include line-height('h2');
-	font-family: $font-family;
+	@include font('h2');
 }
 
 h2,
@@ -59,10 +53,7 @@ h2,
 
 %h3 {
 	@extend %u-Heading;
-	@include font-size('h3');
-	@include font-weight('h3');
-	@include line-height('h3');
-	font-family: $font-family;
+	@include font('h3');
 }
 
 h3,
@@ -72,10 +63,7 @@ h3,
 
 %h4 {
 	@extend %u-Heading;
-	@include font-size('h4');
-	@include font-weight('h4');
-	@include line-height('h4');
-	font-family: $font-family;
+	@include font('h4');
 }
 
 h4,
@@ -85,10 +73,7 @@ h4,
 
 %h5 {
 	@extend %u-Heading;
-	@include font-size('h5');
-	@include font-weight('h5');
-	@include line-height('h5');
-	font-family: $font-family;
+	@include font('h5');
 }
 
 h5,
@@ -98,10 +83,7 @@ h5,
 
 %h6 {
 	@extend %u-Heading;
-	@include font-size('h6');
-	@include font-weight('h6');
-	@include line-height('h6');
-	font-family: $font-family;
+	@include font('h6');
 }
 
 h6,
@@ -118,20 +100,12 @@ table,
 address,
 form,
 pre {
-	@include margin($line-break 0);
-	
-	+ %u-Heading {
-		margin-top: $line-break * 3;
-		
-		@include media('<medium') {
-			margin-top: $line-break * 2;
-		}
-	}
+	@include margin(2x 0);
 }
 
 ol,
 ul {
-	padding-left: 1.5em;
+	@include padding(0 0 0 2x);
 }
 
 a {
@@ -147,7 +121,7 @@ a {
 }
 
 article {
-	@include margin(large 0);
+	@include margin(4x 0);
 }
 
 strong {
@@ -165,7 +139,7 @@ code {
 }
 
 blockquote {
-	@include padding(0 0 0 medium);
+	@include padding(0 0 0 2x);
 }
 
 img {

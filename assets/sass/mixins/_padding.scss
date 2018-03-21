@@ -1,28 +1,29 @@
 //---------------------------------------------------------------
-// Sets margins relative to root em
+// Sets paddings relative to $site-spacing
 //---------------------------------------------------------------
 
-@mixin padding($_paddings: $line-height auto) {
+@mixin padding($_paddings: 3x auto, $_breakpoint: '') {
 	
 	$_result: ();
 
 	@each $_padding in $_paddings {
 		
-		@if type-of($_padding) == string and index(map-keys($spacing), $_padding) {
-			
-			$_result: append($_result, map-get($spacing, $_padding));
-			
-		} @else if type-of($_padding) == string and str-slice($_padding, 1, 1) == '-' and index(map-keys($spacing), str-slice($_padding, 2)) {
-			
-			$_result: append($_result, map-get($spacing, str-slice($_padding, 2)) * -1);
-			
-		} @else {
-			
-			$_result: append($_result, $_padding);
-			
-		}
+		$_result: append($_result, x-to-px($_padding));
+		
 	}
 
-	padding: $_result;
+	@if $_breakpoint != '' {
+		
+		@include media($_breakpoint) {
+					
+			padding: $_result;
+			
+		}
+		
+	} @else {
+			
+		padding: $_result;
+		
+	}
 	
 }

@@ -18,10 +18,10 @@
 	margin-left: auto;
 	margin-right: auto;
 	max-width: $site-width;
-	padding-left: get-spacing('small');
-	padding-right: get-spacing('small');
+	padding-left: get-spacing(3x);
+	padding-right: get-spacing(3x);
 	position: relative;
-	width: calc(100% - #{get-spacing('small') * 2});
+	width: calc(100% - #{get-spacing(6x)});
 }
 
 .Wrap {
@@ -32,14 +32,14 @@
 	@extend %Wrap;
 	padding-left: 0;
 	padding-right: 0;
-	max-width: $site-width + get-spacing('small') * 2;
+	max-width: $site-width + get-spacing(6x);
 	width: 100%;
 }
 
 .Wrap--noPaddingAll {
 	@extend %Wrap;
 	padding: 0 !important;
-	max-width: $site-width + get-spacing('small') * 2;
+	max-width: $site-width + get-spacing(6x);
 	width: 100%;
 }
 

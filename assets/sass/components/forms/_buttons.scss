@@ -2,7 +2,7 @@
 	@include color('default');
 	@include font-size('button');
 	@include font-weight('button');
-	@include padding(0 small);
+	@include padding(0 3x);
 	@include transition(normal background, normal border, normal color);
 	border: 2px solid transparent;
 	cursor: pointer;

@@ -127,7 +127,7 @@
 }
 
 .Icon--circle {
-	@include margin(0 auto small);
+	@include margin(0 auto 2x);
 	border: 2px solid currentColor;
 	border-radius: 100%;
 	box-sizing: content-box;

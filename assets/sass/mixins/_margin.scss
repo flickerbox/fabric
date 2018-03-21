@@ -1,41 +1,45 @@
 //---------------------------------------------------------------
-// Sets margins relative to root em
+// Sets margins relative to $site-spacing
 //---------------------------------------------------------------
 
-@mixin margin($_margins: $line-height auto) {
+@mixin margin($_margins: 3x auto, $_breakpoint: '') {
 	
 	$_result: ();
 
 	@each $_margin in $_margins {
 		
-		@if $_margin == 'auto' {
+		$_result: append($_result, x-to-px($_margin));
+		
+	}
+
+	@if $_breakpoint != '' {
+		
+		@include media($_breakpoint) {
+					
+			margin: $_result;
+		
+			&:first-child {
+				margin-top: 0;
+			}
+		
+			&:last-child {
+				margin-bottom: 0;
+			}
 			
-			$_result: append($_result, auto);
-			
-		} @else if type-of($_margin) == string and index(map-keys($spacing), $_margin) {
-			
-			$_result: append($_result, map-get($spacing, $_margin));
-			
-		} @else if type-of($_margin) == string and str-slice($_margin, 1, 1) == '-' and index(map-keys($spacing), str-slice($_margin, 2)) {
-			
-			$_result: append($_result, map-get($spacing, str-slice($_margin, 2)) * -1);
-			
-		} @else {
-			
-			$_result: append($_result, $_margin);
 		}
 		
+	} @else {
+			
+		margin: $_result;
+	
+		&:first-child {
+			margin-top: 0;
+		}
+	
+		&:last-child {
+			margin-bottom: 0;
+		}
 		
-	}
-
-	margin: $_result;
-
-	&:first-child {
-		margin-top: 0;
-	}
-
-	&:last-child {
-		margin-bottom: 0;
 	}
 	
 }

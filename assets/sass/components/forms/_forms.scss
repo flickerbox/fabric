@@ -1,10 +1,9 @@
 %TextInput {
-	@include line-height('base');
-	@include padding(x-small small);
+	@include font('base');
+	@include padding(1x 2x);
 	@include transition();
 	
 	border: 1px solid get-color('light-gray');
-	font-size: 1rem;
 	
 	&::placeholder {
 		@include color('gray');

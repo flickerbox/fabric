@@ -1,9 +1,7 @@
 //---------------------------------------------------------------
-// Shorthand to get spacing unit
+// Is a number?
 //---------------------------------------------------------------
 
-@function get-spacing($_value) {
-	
-	@return x-to-px($_value);
-		
+@function is-number($_value) {
+  @return type-of($_value) == 'number';
 }

@@ -8,9 +8,9 @@ $font-family--sans-serif: Helvetica, Arial, sans-serif          !default;
 $font-family--serif:      serif                                 !default;
 
 $font-size: (
-	'base': 16px,
+	'base': 18px,
 	'h6':   16px,
-	'h5':   20px,
+	'h5':   18px,
 	'h4':   24px,
 	'h3':   32px,
 	'h2':   40px,
@@ -28,13 +28,13 @@ $font-weight: (
 )                                                              !default;
 
 $line-height: (
-    'base': 26px,
-    'h6':   26px,
-    'h5':   30px,
-    'h4':   34px,
-    'h3':   42px,
-    'h2':   50px,
-    'h1':   58px
+    'base': 18px / 32px,
+    'h6':   16px / 24px,
+    'h5':   18px / 24px,
+    'h4':   24px / 32px,
+    'h3':   32px / 40px,
+    'h2':   40px / 48px,
+    'h1':   48px / 48px
 )                                                               !default;
 
 

@@ -57,10 +57,10 @@
 					@for $_columns from 1 through $grid-columns {
 						@for $j from 1 through $_columns {
 							$_grid-class-suffix: '.with-#{$_columns}';
-							$_grid-item-class: '> .is-#{$_breakpoint}--#{$j}';
+							$_grid-item-class: '> .is-#{$j}--#{$_breakpoint}';
 						
 							@if $j == 1 {
-								$_grid-class-suffix: '.with-#{$_breakpoint}--#{$_columns}';
+								$_grid-class-suffix: '.with-#{$_columns}--#{$_breakpoint}';
 								$_grid-item-class: '> div';
 							}
 							
