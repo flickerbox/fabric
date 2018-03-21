@@ -5,7 +5,7 @@
 
 @function x-to-px($_value) {
 	
-	@if type-of($value) == 'string' {
+	@if type-of($_value) == 'string' {
 		$_value: unquote($_value);
 	}
 	
