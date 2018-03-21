@@ -4,6 +4,6 @@
 
 @function remove-unit($_value) {
 	
-	@return unquote($_value / ($_value * 0 + 1));
+	@return $_value / ($_value * 0 + 1);
 	
 }
