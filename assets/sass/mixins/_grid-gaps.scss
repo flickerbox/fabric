@@ -1,0 +1,9 @@
+@mixin grid-gaps($_key: 'normal') {
+	$_gap-width: get-grid-gap($_key);
+	margin: 0 (-$_gap-width / 2) (-$_gap-width);
+	width: calc(100% + #{$_gap-width});
+
+	> div {
+		padding: 0 ($_gap-width / 2) ($_gap-width);
+	}
+}

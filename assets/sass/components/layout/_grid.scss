@@ -75,7 +75,7 @@
 	}
 	
 	@each $key in map-keys($grid-gaps) {
-		$_gap: map-get($grid-gaps, $key);
+		$_gap: get-grid-gap($key);
 		$_grid-class: '&.has-#{$key}Gaps';
 		
 		@if $key == 'normal' {
