@@ -4,6 +4,16 @@
 
 @function get-grid-gap($_value) {
 
-	@return _(map-get($grid-gaps, $_value));
+	$_value: string($_value);
+	
+	@if type-of($_value) == 'string' and index(map-keys($grid-gaps), $_value) {
+	
+		@return _(map-get($grid-gaps, $_value));
+	
+	} @else {
+		
+		@return 0;
+		
+	}
 	
 }
