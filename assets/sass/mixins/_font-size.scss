@@ -6,43 +6,36 @@
 	
 	@if type-of($_value) == string and index(map-keys($font-size), $_value) {
 		
-		@if type-of(map-get($font-size, $_value)) == 'map' {
+		$_font-size: get-font-size($_value, $_size);
+		
+		@if type-of($_font-size) == 'map' {
 			
-			@if $_size != '' {
-				
-				font-size: map-get(map-get($font-size, $_value), $_size);
-				
-			} @else {
-			
-				$_stack: map-get($font-size, $_value);
-				$first: true;
-	
-				@each $key in list-reverse(map-keys($_stack)) {
-					@if index(map-keys($breakpoints), $key) {
+			$first: true;
+
+			@each $_size in list-reverse(map-keys($_font-size)) {
+				@if index(map-keys($breakpoints), $_size) {
+					
+					@if $first {
 						
-						@if $first {
+						font-size: get-font-size($_value, $_size);
+						$first: false;
+						
+					} @else {
+						
+						@include media('<'+$_size) {
 							
-							font-size: map-get($_stack, $key);
-							$first: false;
-							
-						} @else {
-							
-							@include media('<'+$key) {
-								
-								font-size: map-get($_stack, $key);
-								
-							}
+							font-size: get-font-size($_value, $_size);
 							
 						}
 						
 					}
+					
 				}
-			
 			}
 			
 		} @else {
 			
-			font-size: map-get($font-size, $_value);
+			font-size: $_font-size;
 			
 		}
 		

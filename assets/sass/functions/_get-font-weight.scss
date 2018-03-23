@@ -4,10 +4,14 @@
 
 @function get-font-weight($_value, $_size: '') {
 	
-	@if $_size != '' {
+	@if type-of(map-get($font-weight, $_value)) == 'map' and $_size != '' {
+		
 		@return map-get(map-get($font-weight, $_value), $_size);
+		
 	} @else {
+		
 		@return map-get($font-weight, $_value);
+		
 	}
 	
 }

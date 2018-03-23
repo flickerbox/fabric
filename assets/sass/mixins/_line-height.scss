@@ -6,43 +6,42 @@
 	
 	@if type-of($_value) == string and index(map-keys($line-height), $_value) {
 		
-		@if type-of(map-get($line-height, $_value)) == 'map' {
-			
-			@if $_size != '' {
-				
-				line-height: map-get(map-get($line-height, $_value), $_size);
-				
-			} @else {
-				
-				$_stack: map-get($line-height, $_value);
-				$first: true;
-	
-				@each $key in list-reverse(map-keys($_stack)) {
-					@if index(map-keys($breakpoints), $key) {
+		$_line-height: get-line-height($_value, $_size);
+		
+		@if type-of($_line-height) == 'map' {
+		
+			$first: true;
+
+			@each $_size in list-reverse(map-keys($_line-height)) {
+				@if index(map-keys($breakpoints), $_size) {
+					
+					@if $first {
 						
-						@if $first {
+						line-height: get-line-height($_value, $_size);
+						$first: false;
+						
+					} @else {
+						
+						@include media('<'+$_size) {
 							
-							line-height: map-get($_stack, $key);
-							$first: false;
-							
-						} @else {
-							
-							@include media('<'+$key) {
-								
-								line-height: map-get($_stack, $key);
-								
-							}
+							line-height: get-line-height($_value, $_size);
 							
 						}
 						
 					}
+					
 				}
-			
 			}
 			
 		} @else {
 			
-			line-height: map-get($line-height, $_value);
+			$_font-size: get-font-size($_value);
+			
+			@if type-of($_font-size) == 'map' {
+				$_font-size: get-font-size($_value, nth(list-reverse(map-keys($_font-size)), 1));
+			}
+			
+			line-height: $_line-height / $_font-size;
 			
 		}
 		
