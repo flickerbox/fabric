@@ -1,0 +1,5 @@
+@mixin button-hover($_background: 'accent', $_border: transparent, $_text: 'white') {
+	@include hover {
+		@include button-colors($_background, $_border, $_text);
+	}
+}

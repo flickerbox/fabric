@@ -1,0 +1,10 @@
+//---------------------------------------------------------------
+// Is an x unit?
+//---------------------------------------------------------------
+
+@function is-x-unit($_value) {
+
+	$_value: string($_value);
+	@return (str-length($_value) > 1 and str-slice($_value, -1, -1) == 'x' and is-number(number(str-slice($_value, 1, -2))));
+	
+}

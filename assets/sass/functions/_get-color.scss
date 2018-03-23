@@ -4,7 +4,9 @@
 
 @function get-color($_color, $_alpha: 1) {
 	
-	@if type-of($_color) == string and index(map-keys($colors), $_color) {
+	$_color: string($_color);
+	
+	@if type-of($_color) == 'string' and index(map-keys($colors), $_color) {
 		$_color: map-get($colors, $_color);
 	}
 	

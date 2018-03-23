@@ -9,12 +9,8 @@
 		$_value: unquote($_value);
 	}
 	
-	@if $_value != 'auto' {
-		$_value: remove-unit($_value);
-	}
-	
-	@if is-number($_value) {
-		$_value: $_value * $site-spacing;
+	@if is-x-unit($_value) {
+		$_value: remove-unit($_value) * $site-spacing;
 	}
 	
 	@return $_value;

@@ -1,0 +1,10 @@
+@mixin button-size($_height, $_padding: 3x, $_border-width: 2px, $_rounded: true) {
+  @include padding(0 $_padding);
+  border-width: _($_border-width);
+  height: _($_height);
+  line-height: _($_height) - _($_border-width);
+  
+  @if $_rounded == true {
+	  border-radius: _($_height / 2);
+  }
+}

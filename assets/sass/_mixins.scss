@@ -2,7 +2,12 @@
 
 @import
 	
+	'mixins/button-colors',
+	'mixins/button-hover',
+	'mixins/button-size',
+	'mixins/color',
 	'mixins/font-size',
+	'mixins/hover',
 	'mixins/margin',
 	'mixins/line-height',
 	'mixins/font-weight',
@@ -11,8 +16,7 @@
 	'mixins/transition',
 	'mixins/triangle',
 	'mixins/drop-shadow',
-	'mixins/linear-gradient',
-	'mixins/color'
+	'mixins/linear-gradient'
 	
 ;
 

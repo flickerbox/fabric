@@ -3,5 +3,5 @@
 //---------------------------------------------------------------
 
 @function string($_value) {
-  @return unquote(inspect($_value));
+  @return inspect($_value);
 }
