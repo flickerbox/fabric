@@ -1277,32 +1277,32 @@ th {
 }
 
 .has-smallGaps.Grid {
-  margin: 0 -5px -10px;
-  width: calc(100% + 10px);
+  margin: 0 -8px -16px;
+  width: calc(100% + 16px);
 }
 
 .has-smallGaps.Grid > div {
-  padding: 0 5px 10px;
+  padding: 0 8px 16px;
 }
 
 .Grid,
 .has-normalGaps.Grid {
-  margin: 0 -10px -20px;
-  width: calc(100% + 20px);
+  margin: 0 -12px -24px;
+  width: calc(100% + 24px);
 }
 
 .Grid > div,
 .has-normalGaps.Grid > div {
-  padding: 0 10px 20px;
+  padding: 0 12px 24px;
 }
 
 .has-largeGaps.Grid {
-  margin: 0 -20px -40px;
-  width: calc(100% + 40px);
+  margin: 0 -16px -32px;
+  width: calc(100% + 32px);
 }
 
 .has-largeGaps.Grid > div {
-  padding: 0 20px 40px;
+  padding: 0 16px 32px;
 }
 
 .Grid > div,
@@ -1510,7 +1510,7 @@ body .PacNav--hidden {
 }
 
 hr {
-  margin: 24px 0px;
+  margin: 24px 0;
   background: #dedede;
   border: 0;
   display: block;
@@ -1527,7 +1527,7 @@ hr:last-child {
 
 @media (max-width: 1023px) {
   hr {
-    margin: 16px 0px;
+    margin: 16px 0;
   }
 
   hr:first-child {
@@ -1551,7 +1551,7 @@ h5,
 .h5,
 h6,
 .h6 {
-  margin: 24px 0px;
+  margin: 24px 0;
   font-weight: inherit;
 }
 
@@ -1646,49 +1646,49 @@ html {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 18px;
   font-weight: 400;
-  line-height: 18px/32px;
+  line-height: 32px;
 }
 
 h1,
 .h1 {
   font-size: 48px;
   font-weight: 400;
-  line-height: 48px/48px;
+  line-height: 1;
 }
 
 h2,
 .h2 {
   font-size: 40px;
   font-weight: 400;
-  line-height: 40px/48px;
+  line-height: 1.2;
 }
 
 h3,
 .h3 {
   font-size: 32px;
   font-weight: 400;
-  line-height: 32px/40px;
+  line-height: 1.25;
 }
 
 h4,
 .h4 {
   font-size: 24px;
   font-weight: 400;
-  line-height: 24px/32px;
+  line-height: 1.33333333;
 }
 
 h5,
 .h5 {
   font-size: 18px;
   font-weight: 400;
-  line-height: 18px/24px;
+  line-height: 1.33333333;
 }
 
 h6,
 .h6 {
   font-size: 16px;
   font-weight: 400;
-  line-height: 16px/24px;
+  line-height: 1.5;
 }
 
 p,
@@ -1699,7 +1699,7 @@ table,
 address,
 form,
 pre {
-  margin: 16px 0px;
+  margin: 16px 0;
 }
 
 p:first-child,
@@ -1726,7 +1726,7 @@ pre:last-child {
 
 ol,
 ul {
-  padding: 0px 0px 0px 16px;
+  padding: 0 0 0 16px;
 }
 
 a {
@@ -1743,7 +1743,7 @@ a:hover {
 }
 
 article {
-  margin: 32px 0px;
+  margin: 32px 0;
 }
 
 article:first-child {
@@ -1769,7 +1769,7 @@ code {
 }
 
 blockquote {
-  padding: 0px 0px 0px 16px;
+  padding: 0 0 0 16px;
 }
 
 img {
@@ -1815,7 +1815,7 @@ input[type=week],
 textarea {
   font-size: 18px;
   font-weight: 400;
-  line-height: 18px/32px;
+  line-height: 1.77777778;
   padding: 8px 16px;
   -webkit-transition: 0.4s all;
   transition: 0.4s all;
@@ -2024,66 +2024,56 @@ textarea:hover::placeholder {
 .Button,
 [class^='Button--'],
 [class*=' Button--'] {
-  color: #232323;
-  font-size: "button";
-  font-weight: "button";
-  padding: 0px 24px;
+  color: #fff;
+  background: #fe5000;
+  border-color: transparent;
+  padding: 0 24px;
+  border-width: 2px;
+  height: 40px;
+  line-height: 38px;
+  border-radius: 20px;
   -webkit-transition: 0.4s background, 0.4s border, 0.4s color;
   transition: 0.4s background, 0.4s border, 0.4s color;
-  border: 2px solid transparent;
+  border-style: solid;
   cursor: pointer;
   display: inline-block;
-  height: 34px;
-  line-height: 30px;
+  position: relative;
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
+}
+
+.Button:active,
+[class^='Button--']:active,
+[class*=' Button--']:active,
+.Button:focus,
+[class^='Button--']:focus,
+[class*=' Button--']:focus,
+.Button:hover,
+[class^='Button--']:hover,
+[class*=' Button--']:hover {
+  color: #fff;
+  background: #fe5000;
+  border-color: transparent;
 }
 
 .Button > a,
 [class^='Button--'] > a,
 [class*=' Button--'] > a {
   color: inherit;
-}
-
-.Button:active,
-[class^='Button--']:active,
-[class*=' Button--']:active,
-.Button:hover,
-[class^='Button--']:hover,
-[class*=' Button--']:hover {
-  color: #232323;
   text-decoration: none;
 }
 
-.Button,
-[class^='Button--'],
-[class*=' Button--'] {
-  background: #fe5000;
-  color: #fff;
-}
-
 .Button:active,
-.Button:hover,
 [class^='Button--']:active,
-[class^='Button--']:hover,
 [class*=' Button--']:active,
+.Button:focus,
+[class^='Button--']:focus,
+[class*=' Button--']:focus,
+.Button:hover,
+[class^='Button--']:hover,
 [class*=' Button--']:hover {
-  background-color: "accent--hover";
-  color: #fff;
-}
-
-.Button--outline {
-  background: transparent;
-  border-color: #fe5000;
-  color: #fe5000;
-}
-
-.Button--outline:active,
-.Button--outline:hover {
-  background-color: transparent;
-  border-color: "accent--hover";
-  color: "accent--hover";
+  text-decoration: none;
 }
 
 .animated-Underline {
@@ -2119,6 +2109,114 @@ textarea:hover::placeholder {
   opacity: 0.75;
   -webkit-transform: scaleX(1);
           transform: scaleX(1);
+}
+
+a,
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=search],
+input[type=number],
+input[type=url],
+input[type=tel],
+input[type=datetime],
+input[type=date],
+input[type=month],
+input[type=week],
+textarea,
+.Button,
+[class^='Button--'],
+[class*=' Button--'],
+.animated-Underline:after,
+.Icon,
+[class^='Icon--'],
+[class*=' Icon--'],
+.Icon [fill] > circle,
+[class^='Icon--'] [fill] > circle,
+[class*=' Icon--'] [fill] > circle,
+.Icon [fill] > ellipse,
+[class^='Icon--'] [fill] > ellipse,
+[class*=' Icon--'] [fill] > ellipse,
+.Icon [fill] > path,
+[class^='Icon--'] [fill] > path,
+[class*=' Icon--'] [fill] > path,
+.Icon [fill] > polygon,
+[class^='Icon--'] [fill] > polygon,
+[class*=' Icon--'] [fill] > polygon,
+.Icon [fill] > polyline,
+[class^='Icon--'] [fill] > polyline,
+[class*=' Icon--'] [fill] > polyline,
+.Icon [fill] > rect,
+[class^='Icon--'] [fill] > rect,
+[class*=' Icon--'] [fill] > rect,
+.Icon g[fill] > use,
+[class^='Icon--'] g[fill] > use,
+[class*=' Icon--'] g[fill] > use,
+.Icon [stroke] > circle,
+[class^='Icon--'] [stroke] > circle,
+[class*=' Icon--'] [stroke] > circle,
+.Icon [stroke] > ellipse,
+[class^='Icon--'] [stroke] > ellipse,
+[class*=' Icon--'] [stroke] > ellipse,
+.Icon [stroke] > path,
+[class^='Icon--'] [stroke] > path,
+[class*=' Icon--'] [stroke] > path,
+.Icon [stroke] > polygon,
+[class^='Icon--'] [stroke] > polygon,
+[class*=' Icon--'] [stroke] > polygon,
+.Icon [stroke] > polyline,
+[class^='Icon--'] [stroke] > polyline,
+[class*=' Icon--'] [stroke] > polyline,
+.Icon [stroke] > rect,
+[class^='Icon--'] [stroke] > rect,
+[class*=' Icon--'] [stroke] > rect,
+.Icon g[stroke] > use,
+[class^='Icon--'] g[stroke] > use,
+[class*=' Icon--'] g[stroke] > use,
+.Icon circle[fill],
+[class^='Icon--'] circle[fill],
+[class*=' Icon--'] circle[fill],
+.Icon ellipse[fill],
+[class^='Icon--'] ellipse[fill],
+[class*=' Icon--'] ellipse[fill],
+.Icon path[fill],
+[class^='Icon--'] path[fill],
+[class*=' Icon--'] path[fill],
+.Icon polygon[fill],
+[class^='Icon--'] polygon[fill],
+[class*=' Icon--'] polygon[fill],
+.Icon polyline[fill],
+[class^='Icon--'] polyline[fill],
+[class*=' Icon--'] polyline[fill],
+.Icon rect[fill],
+[class^='Icon--'] rect[fill],
+[class*=' Icon--'] rect[fill],
+.Icon g use[fill],
+[class^='Icon--'] g use[fill],
+[class*=' Icon--'] g use[fill],
+.Icon circle[stroke],
+[class^='Icon--'] circle[stroke],
+[class*=' Icon--'] circle[stroke],
+.Icon ellipse[stroke],
+[class^='Icon--'] ellipse[stroke],
+[class*=' Icon--'] ellipse[stroke],
+.Icon path[stroke],
+[class^='Icon--'] path[stroke],
+[class*=' Icon--'] path[stroke],
+.Icon polygon[stroke],
+[class^='Icon--'] polygon[stroke],
+[class*=' Icon--'] polygon[stroke],
+.Icon polyline[stroke],
+[class^='Icon--'] polyline[stroke],
+[class*=' Icon--'] polyline[stroke],
+.Icon rect[stroke],
+[class^='Icon--'] rect[stroke],
+[class*=' Icon--'] rect[stroke],
+.Icon g use[stroke],
+[class^='Icon--'] g use[stroke],
+[class*=' Icon--'] g use[stroke] {
+  -webkit-transition-timing-function: ease;
+          transition-timing-function: ease;
 }
 
 .Icon,
@@ -2374,7 +2472,7 @@ textarea:hover::placeholder {
 }
 
 .Icon--circle {
-  margin: 0px auto 16px;
+  margin: 0 auto 16px;
   border: 2px solid currentColor;
   border-radius: 100%;
   -webkit-box-sizing: content-box;
