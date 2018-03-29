@@ -1,0 +1,20 @@
+
+//---------------------------------------------------------------
+// Validate (and normalize) a position value
+//---------------------------------------------------------------
+
+@function validate-position($_position) {
+
+	$_position: string($_position);
+	$_valid_positions: ('top', 'right', 'bottom', 'left');
+
+	@if not index($_valid_positions, $_position) {
+		@warn('Direction should be either top, right, bottom or left. Top used instead.');
+		$_position: 'top';
+	}
+	
+	$_position: unquote($_position);
+	
+	@return $_position;
+	
+}
