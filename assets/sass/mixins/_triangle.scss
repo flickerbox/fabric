@@ -7,6 +7,7 @@
 	
 	$_position: validate-position($_position);
 	$_opposite: opposite-position($_position);
+	$_color: get-color($_color);
 	$_size: _($_size) / 2;
 
 	@if $_position == top or $_position == bottom {
