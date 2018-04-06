@@ -25,10 +25,8 @@
 //-----------------------------------------------------------------------
 html {
 	@include color('default');
+	@include font('base');
 	font-family: $font-family;
-	font-size: get-font-size('base');
-	font-weight: get-font-weight('base');
-	line-height: get-line-height('base');
 }
 
 %h1 {
