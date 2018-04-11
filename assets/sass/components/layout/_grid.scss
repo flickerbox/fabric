@@ -25,7 +25,7 @@
 	
 	@each $_grid-breakpoint in map-keys($grid-breakpoints) {
 		$_breakpoints: map-get($grid-breakpoints, $_grid-breakpoint);
-		$_grid-class: '.has-#{$_grid-breakpoint}Breakpoints';
+		$_grid-class: '.has-#{camelize($_grid-breakpoint)}Breakpoints';
 		
 		@if length($_breakpoints) > 1 {
 			$_breakpoints: list-reverse($_breakpoints);
@@ -57,10 +57,10 @@
 					@for $_columns from 1 through $grid-columns {
 						@for $j from 1 through $_columns {
 							$_grid-class-suffix: '.with-#{$_columns}';
-							$_grid-item-class: '> .is-#{$j}--#{$_breakpoint}';
+							$_grid-item-class: '> .is-#{$j}--#{camelize($_breakpoint)}';
 						
 							@if $j == 1 {
-								$_grid-class-suffix: '.with-#{$_columns}--#{$_breakpoint}';
+								$_grid-class-suffix: '.with-#{$_columns}--#{camelize($_breakpoint)}';
 								$_grid-item-class: '> div';
 							}
 							
