@@ -44,7 +44,7 @@
 						$_grid-item-class: '> .is-#{$j}';
 						
 						@if $j == 1 {
-							$_grid-item-class: '> div, ${_grid-item-class}';
+							$_grid-item-class: '> div, #{_grid-item-class}';
 						}
 						
 						&#{$_grid-class}.with-#{$_columns} #{$_grid-item-class} {
