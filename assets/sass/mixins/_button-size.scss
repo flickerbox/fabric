@@ -1,4 +1,4 @@
-@mixin button-size($_height, $_padding: 3x, $_border-width: 2px, $_rounded: true) {
+@mixin button-size($_height, $_padding: 3x, $_border-width: 2px, $_rounded: $buttons-rounded) {
   @include padding(0 $_padding);
   border-width: _($_border-width);
   height: _($_height);
