@@ -3,7 +3,7 @@
 //---------------------------------------------------------------
 
 @function get-font-size($_value, $_size: '') {
-
+	
 	@if type-of(map-get($font-size, $_value)) == 'map' and $_size != '' {
 		
 		@return map-get(map-get($font-size, $_value), $_size);

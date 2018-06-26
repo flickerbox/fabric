@@ -2,14 +2,8 @@
 // Placeholders
 //-----------------------------------------------------------------------
 %u-Heading {
-	@include margin(3x 0);
+	@include margin(0 0 3x);
 	font-weight: inherit;
-	
-	@include media('<small') {
-		br {
-			display: none;
-		}
-	}
 	
 	a, 
 	a:active, 
@@ -144,14 +138,14 @@ img {
 	max-width: 100%;
 }
 
-.u-AlignCenter {
+.u-alignCenter {
 	text-align: center !important;
 }
 
-.u-AlignLeft {
+.u-alignLeft {
 	text-align: left !important;
 }
 
-.u-AlignRight {
+.u-alignRight {
 	text-align: right !important;
 }

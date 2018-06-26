@@ -1,4 +1,4 @@
-@mixin button-colors($_background: 'accent', $_border: transparent, $_text: 'white') {
+@mixin button-colors($_background: $buttons-background-color, $_border: $buttons-border-color, $_text: $buttons-text-color) {
 	@include color($_text);
 	background: get-color($_background);
 	border-color: get-color($_border);

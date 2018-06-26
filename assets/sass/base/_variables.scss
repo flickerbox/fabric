@@ -15,7 +15,7 @@ $font-size: (
 	'h3':   32px,
 	'h2':   40px,
 	'h1':   48px
-);
+)                                                              !default;
 
 $font-weight: (
 	'base': 400,
@@ -99,7 +99,18 @@ $grid-gaps: (
 // Buttons
 //-----------------------------------------------------------------------
 
-$buttons-rounded: false                                         !default;
+$buttons-border-width: 2px                                      !default;
+$buttons-height: 5x                                             !default;
+$buttons-padding: 3x                                            !default;
+$buttons-radius: 3px                                            !default;
+
+$buttons-background-color: 'accent'                             !default;
+$buttons-border-color: transparent                              !default;
+$buttons-text-color: 'white'                                    !default;
+
+$buttons-hover-background-color: 'accent'                       !default;
+$buttons-hover-border-color: transparent                        !default;
+$buttons-hover-text-color: 'white'                              !default;
 
 
 
@@ -120,7 +131,7 @@ $transition-speed: (
 // Drop Shadows
 //-----------------------------------------------------------------------
 
-$drop-shadow-alpha: 0.2;
+$drop-shadow-alpha: 0.2 !default;
 
 $drop-shadow-elevations: (
 	'lowest':  ('0 1px 2px', '0 1px 3px'),

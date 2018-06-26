@@ -11,27 +11,7 @@
 		@if type-of($_font-weight) == 'map' {
 		
 			$first: true;
-
-			@each $_size in list-reverse(map-keys($_font-weight)) {
-				@if index(map-keys($breakpoints), $_size) {
-					
-					@if $first {
-						
-						font-weight: get-font-weight($_value, $_size);
-						$first: false;
-						
-					} @else {
-						
-						@include media('<'+$_size) {
-							
-							font-weight: get-font-weight($_value, $_size);
-							
-						}
-						
-					}
-					
-				}
-			}
+			@include responsive-property('font-weight', $_font-weight);
 			
 		} @else {
 			

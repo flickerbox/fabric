@@ -2,7 +2,7 @@
 	@include font('button');
 	@include button-colors();
 	@include button-hover();
-	@include button-size(5x);
+	@include button-size($buttons-height);
 	@include transition(normal background, normal border, normal color);
 	border-style: solid;
 	cursor: pointer;
