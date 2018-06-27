@@ -14,37 +14,51 @@
 		$_property: str-slice($_property, 2);
 		
 	}
+	
+	@if type-of($_values) == 'map' {
 
-	@each $_breakpoint in map-keys($_values) {
-		
-		$_value: map-get($_values, $_breakpoint);
+		@each $_breakpoint in map-keys($_values) {
+			
+			$_value: map-get($_values, $_breakpoint);
+			
+			@if $_negative {
+				
+				$_value: -$_value;
+				
+			}
+				
+			@if $_first {
+				
+				#{$_property}: _($_value);
+				$_first: false;
+				
+			} @else {
+				
+				@if str-index($_breakpoint, '<') == null {
+					
+					$_breakpoint: '<#{$_breakpoint}';
+				
+				}
+				
+				@include media('#{$_breakpoint}') {
+					
+					#{$_property}: _($_value);
+					
+				}
+			
+			}
+			
+		}
+	
+	} @else {
 		
 		@if $_negative {
 			
-			$_value: -$_value;
+			$_values: -$_values;
 			
 		}
-			
-		@if $_first {
-			
-			#{$_property}: _($_value);
-			$_first: false;
-			
-		} @else {
-			
-			@if str-index($_breakpoint, '<') == null {
-				
-				$_breakpoint: '<#{$_breakpoint}';
-			
-			}
-			
-			@include media('#{$_breakpoint}') {
-				
-				#{$_property}: _($_value);
-				
-			}
 		
-		}
+		#{$_property}: _($_values);
 		
 	}
 	
