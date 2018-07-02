@@ -3,10 +3,13 @@
 // pairs defined in a map
 //---------------------------------------------------------------
 
-@mixin responsive-property($_property, $_values) {
+@mixin responsive-property($_property, $_values, $_format: false) {
 	
 	$_first: true;
 	$_negative: false;
+	$_formatted: false;
+	$_formatted-prefix: '';
+	$_formatted-suffix: '';
 	
 	@if str-index($_property, '-') == 1 {
 		
@@ -15,21 +18,35 @@
 		
 	}
 	
+	@if type-of($_format) == 'string' and str-index($_format, '%s') != null {
+		
+		$_formatted: true;
+		$_formatted-prefix: str-slice($_format, 0, str-index($_format, '%s') - 1);
+		$_formatted-suffix: str-slice($_format, str-index($_format, '%s') + 2);
+		
+	}
+	
 	@if type-of($_values) == 'map' {
 
 		@each $_breakpoint in map-keys($_values) {
 			
-			$_value: map-get($_values, $_breakpoint);
+			$_value: _(map-get($_values, $_breakpoint));
 			
 			@if $_negative {
 				
 				$_value: -$_value;
 				
 			}
+			
+			@if $_formatted {
+				
+				$_value: unquote('#{$_formatted-prefix}#{$_value}#{$_formatted-suffix}');
+				
+			}
 				
 			@if $_first {
 				
-				#{$_property}: _($_value);
+				#{$_property}: $_value;
 				$_first: false;
 				
 			} @else {
@@ -42,7 +59,7 @@
 				
 				@include media('#{$_breakpoint}') {
 					
-					#{$_property}: _($_value);
+					#{$_property}: $_value;
 					
 				}
 			
@@ -52,13 +69,21 @@
 	
 	} @else {
 		
+		$_values: _($_values);
+		
 		@if $_negative {
 			
 			$_values: -$_values;
 			
 		}
 		
-		#{$_property}: _($_values);
+		@if $_formatted {
+				
+			$_values: unquote('#{$_formatted-prefix}#{$_values}#{$_formatted-suffix}');
+			
+		}
+		
+		#{$_property}: $_values;
 		
 	}
 	
