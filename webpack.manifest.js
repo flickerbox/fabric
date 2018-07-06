@@ -1,7 +1,5 @@
 var fabric = require('./index');
 
-module.exports = function(eyeglass, sass) {
-  return {
+module.exports = {
     sassDir: fabric.sassDir
-  };
 };
