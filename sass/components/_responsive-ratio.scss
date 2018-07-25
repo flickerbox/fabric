@@ -1,0 +1,56 @@
+[class^='ResponsiveRatio--'],
+[class*=' ResponsiveRatio--'] {
+	@extend %ResponsiveRatio;
+}
+
+.ResponsiveRatio--1x2 {
+	@include responsive-ratio('1x2');
+}
+
+.ResponsiveRatio--2x1 {
+	@include responsive-ratio('2x1');
+}
+
+.ResponsiveRatio--2x3 {
+	@include responsive-ratio('2x3');
+}
+
+.ResponsiveRatio--3x1 {
+	@include responsive-ratio('3x1');
+}
+
+.ResponsiveRatio--3x2 {
+	@include responsive-ratio('3x2');
+}
+
+.ResponsiveRatio--3x4 {
+	@include responsive-ratio('3x4');
+}
+
+.ResponsiveRatio--4x1 {
+	@include responsive-ratio('4x1');
+}
+
+.ResponsiveRatio--4x3 {
+	@include responsive-ratio('4x3');
+}
+
+.ResponsiveRatio--5x1 {
+	@include responsive-ratio('5x1');
+}
+
+.ResponsiveRatio--5x2 {
+	@include responsive-ratio('5x2');
+}
+
+.ResponsiveRatio--5x3 {
+	@include responsive-ratio('5x3');
+}
+
+.ResponsiveRatio--5x4 {
+	@include responsive-ratio('5x4');
+}
+
+.ResponsiveRatio--16x9 {
+	@include responsive-ratio('16x9');
+}

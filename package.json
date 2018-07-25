@@ -1,44 +1,45 @@
 {
-  "author": {
-    "name": "flickerbox",
-    "url": "http://flickerbox.com"
+  "name": "@flickerbox/fabric",
+  "version": "4.0.0",
+  "description": "An unopinionated framework that works within your existing workflow to cut down on repetitive tasks.",
+  "scripts": {
+    "production": "webpack --config=config/webpack.prod.js --info-verbosity verbose --progress && npm run delete-maps",
+    "development": "webpack --config=config/webpack.dev.js --info-verbosity verbose --progress",
+    "development-dashboard": "webpack-dashboard -- npm run development",
+    "delete-maps": "find ./ -name '*.map' -delete",
+    "help": "flickerbox-build -- help",
+    "version-check": "flickerbox-build -- version-check",
+    "commands": "npm run help",
+    "dev": "npm run development",
+    "dev-dashboard": "npm run development-dashboard",
+    "prod": "npm run production",
+    "watch": "npm run development"
   },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/flickerbox/fabric"
+  },
+  "author": "Flickerbox <dev@flickerbox.com> (https://www.flickerbox.com)",
+  "license": "CC-BY-SA-4.0",
   "bugs": {
     "url": "https://github.com/flickerbox/fabric/issues"
   },
-  "description": "An unopinionated framework that works within your existing workflow to cut down on repetitive tasks.",
-  "eyeglass": {
-    "name": "fabric",
-    "needs": "*",
-    "exports": "eyeglass-exports.js"
-  },
-  "homepage": "http://github.com/flickerbox/fabric",
   "keywords": [
     "css",
     "eyeglass-module",
     "sass",
     "scss"
   ],
-  "license": "MIT",
-  "main": "index.js",
-  "style": "core/_fabric.scss",
-  "name": "@flickerbox/fabric",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/flickerbox/fabric.git"
+  "eyeglass": {
+    "name": "fabric",
+    "needs": "*",
+    "exports": "eyeglass-exports.js"
   },
-  "version": "3.0.5",
-  "dependencies": {
-    "cross-env": "^5.1.1",
-    "laravel-mix": "^1.6.1",
-    "node-sass": "^4.6.0",
-    "path": "^0.12.7",
-    "webpack": "^3.8.1"
+  "engines": {
+    "node": ">=8.0.0",
+    "npm": ">=6.0.0"
   },
-  "scripts": {
-    "dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  "devDependencies": {
+    "@flickerbox/build": "https://github.com/flickerbox/build/tarball/v1.0.2"
   }
 }

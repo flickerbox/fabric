@@ -1,0 +1,40 @@
+//----------------------------------------------------------------------
+//
+// Fonts
+//
+//----------------------------------------------------------------------
+
+$font-family:             Helvetica, Arial, sans-serif         !default;
+$font-family--monospace:  monospace                            !default;
+$font-family--sans-serif: Helvetica, Arial, sans-serif         !default;
+$font-family--serif:      serif                                !default;
+
+$font-size: (
+	'base': 18px,
+	'h6':   16px,
+	'h5':   18px,
+	'h4':   24px,
+	'h3':   32px,
+	'h2':   40px,
+	'h1':   48px
+)                                                             !default;
+
+$font-weight: (
+	'base': 400,
+	'h6':   400,
+	'h5':   400,
+	'h4':   400,
+	'h3':   400,
+	'h2':   400,
+	'h1':   400
+)                                                             !default;
+
+$line-height: (
+    'base': 32px,
+    'h6':   24px,
+    'h5':   24px,
+    'h4':   32px,
+    'h3':   40px,
+    'h2':   48px,
+    'h1':   48px
+)                                                             !default;

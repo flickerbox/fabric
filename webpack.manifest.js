@@ -1,5 +1,3 @@
-var fabric = require('./index');
-
 module.exports = {
-    sassDir: fabric.sassDir
+	sassDir: path.join(__dirname, 'sass')
 };

@@ -1,0 +1,19 @@
+//----------------------------------------------------------------------
+//
+// Layout
+//
+//----------------------------------------------------------------------
+
+$wrap-padding: (
+
+	'narrow': $layout-padding,
+	'no-padding': $layout-padding
+
+)                                                             !default;
+
+$wrap-width: (
+
+	'narrow': $layout-width * 2/3,
+	'no-padding': $layout-width
+
+)                                                             !default;

@@ -1,0 +1,17 @@
+//---------------------------------------------------------------
+// Shorthand to get transition speed
+//---------------------------------------------------------------
+
+@function get-transition-speed($_value) {
+
+	@if str-slice($_value, 1, 1) == '-' and index(map-keys($transitions-speed), str-slice($_value, 2)) {
+
+		@return map-get($transitions-speed, str-slice($_value, 2)) * -1;
+
+	} @else {
+
+		@return map-get($transitions-speed, $_value);
+
+	}
+
+}

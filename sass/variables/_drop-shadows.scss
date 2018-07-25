@@ -1,0 +1,17 @@
+//----------------------------------------------------------------------
+//
+// Drop Shadows
+//
+//----------------------------------------------------------------------
+
+$drop-shadows-alpha: 0.2                                       !default;
+
+$drop-shadows-elevations: (
+
+	'lowest':  ('0 1px 2px', '0 1px 3px'),
+	'low':     ('0 3px 5px', '0 3px 10px'),
+	'medium':  ('0 5px 5px', '0 10px 20px'),
+	'high':    ('0 10px 10px', '0 15px 30px'),
+	'highest': ('0 15px 10px', '0 20px 40px')
+
+)                                                             !default;

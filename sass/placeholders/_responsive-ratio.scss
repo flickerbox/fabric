@@ -1,0 +1,26 @@
+%ResponsiveRatio {
+	display: block;
+	font-size: 0;
+	position: relative;
+	width: 100%;
+
+	&:before {
+		content: '';
+		display: inline-block;
+		margin-left: -1px;
+		padding-bottom: 100%;
+		vertical-align: middle;
+		width: 1px;
+	}
+
+	> :only-child {
+		display: block;
+		font-size: 1rem;
+		height: 100%;
+		left: 0;
+		overflow: hidden;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+}

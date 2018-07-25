@@ -1,0 +1,21 @@
+//----------------------------------------------------------------------
+//
+// Grid
+//
+//----------------------------------------------------------------------
+
+$grid-columns: 12                                              !default;
+
+$grid-breakpoints: (
+
+	'normal': ('small', 'medium', 'large')
+
+)                                                              !default;
+
+$grid-gaps: (
+
+	'small':  2x,
+	'normal': 3x,
+	'large':  4x
+
+)                                                              !default;

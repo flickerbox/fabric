@@ -1,0 +1,45 @@
+//---------------------------------------------------------------
+// Sets margins relative to $layout-spacing
+//---------------------------------------------------------------
+
+@mixin margin($_margins: 3x auto, $_breakpoint: '') {
+
+	$_result: ();
+
+	@each $_margin in $_margins {
+
+		$_result: append($_result, x-to-px($_margin));
+
+	}
+
+	@if $_breakpoint != '' {
+
+		@include media($_breakpoint) {
+
+			margin: $_result;
+
+			&:first-child {
+				margin-top: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+		}
+
+	} @else {
+
+		margin: $_result;
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+	}
+
+}

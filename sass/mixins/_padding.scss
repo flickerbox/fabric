@@ -1,0 +1,29 @@
+//---------------------------------------------------------------
+// Sets paddings relative to $layout-spacing
+//---------------------------------------------------------------
+
+@mixin padding($_paddings: 3x auto, $_breakpoint: '') {
+
+	$_result: ();
+
+	@each $_padding in $_paddings {
+
+		$_result: append($_result, x-to-px($_padding));
+
+	}
+
+	@if $_breakpoint != '' {
+
+		@include media($_breakpoint) {
+
+			padding: $_result;
+
+		}
+
+	} @else {
+
+		padding: $_result;
+
+	}
+
+}

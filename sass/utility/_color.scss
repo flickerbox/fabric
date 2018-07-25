@@ -1,0 +1,7 @@
+@each $name, $hex in $colors {
+
+	.color-#{camelize($name)} {
+		color: $hex;
+	}
+
+}

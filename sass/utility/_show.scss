@@ -1,0 +1,14 @@
+[class^='show-'],
+[class*=' show-'] {
+	display: none;
+}
+
+@each $_breakpoint in map-keys($breakpoints) {
+	@include media(unquote('<#{$_breakpoint}')) {
+
+		.show-#{camelize($_breakpoint)} {
+			display: block;
+		}
+
+	}
+}
