@@ -1,6 +1,6 @@
 {
   "name": "@flickerbox/fabric",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "An unopinionated framework that works within your existing workflow to cut down on repetitive tasks.",
   "scripts": {
     "production": "webpack --config=config/webpack.prod.js --info-verbosity verbose --progress && npm run delete-maps",
@@ -38,6 +38,9 @@
   "engines": {
     "node": ">=8.0.0",
     "npm": ">=6.0.0"
+  },
+  "dependencies": {
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "@flickerbox/build": "https://github.com/flickerbox/build/tarball/v1.0.2"
