@@ -58,7 +58,7 @@
 
 							@if $j == 1 {
 								$_grid-class-suffix: '.with-#{$_columns}--#{camelize($_breakpoint)}';
-								$_grid-item-class: '> div';
+								$_grid-item-class: '> div, #{_grid-item-class}';
 							}
 
 							&#{$_grid-class}#{$_grid-class-suffix} #{$_grid-item-class} {
