@@ -53,17 +53,19 @@
 				@include media('<#{$_breakpoint}') {
 					@for $_columns from 1 through $grid-columns {
 						@for $j from 1 through $_columns {
-							$_grid-class-suffix: '.with-#{$_columns}';
-							$_grid-item-class: '> .is-#{$j}--#{camelize($_breakpoint)}';
 
 							@if $j == 1 {
-								$_grid-class-suffix: '.with-#{$_columns}--#{camelize($_breakpoint)}';
-								$_grid-item-class: '> div, #{$_grid-item-class}';
+
+								&#{$_grid-class}.with-#{$_columns}--#{camelize($_breakpoint)} > div {
+									width: 100% * ($j / $_columns);
+								}
+
 							}
 
-							&#{$_grid-class}#{$_grid-class-suffix} #{$_grid-item-class} {
+							&#{$_grid-class}.with-#{$_columns} > .is-#{$j}--#{camelize($_breakpoint)} {
 								width: 100% * ($j / $_columns);
 							}
+
 						}
 					}
 				}
