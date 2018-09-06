@@ -9,7 +9,13 @@
 	@if type-of($_color) == 'string' and index(map-keys($colors), $_color) {
 
 		@if $colors-use-variables == true and $_return-hex == false {
-			$_color: var(--color-#{$_color});
+
+			@if $_alpha < 1 {
+				$_color: var(--color-#{$_color}-rgb);
+			} @else {
+				$_color: var(--color-#{$_color});
+			}
+
 		} @else {
 			$_color: map-get($colors, $_color);
 		}
@@ -17,7 +23,7 @@
 	}
 
 	@if $_alpha < 1 {
-		$_color: rgba($_color, $_alpha)
+		$_color: rgba($_color, $_alpha);
 	}
 
 	@return $_color;
