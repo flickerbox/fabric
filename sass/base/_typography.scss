@@ -105,9 +105,13 @@ a {
 	@include transition(normal color);
 	text-decoration: none;
 
-	&:active,
-	&:hover {
-		color: lighten(get-color(accent), 10%);
+	@include hover {
+		@if index(map-keys($colors), 'accent-hover') {
+			@include color(accent-hover);
+		} @else {
+			color: lighten(get-color(accent, 1, true), 10%);
+		}
+
 		text-decoration: underline;
 	}
 }

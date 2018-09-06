@@ -2,13 +2,13 @@
 // Shorthand to get color
 //---------------------------------------------------------------
 
-@function get-color($_color, $_alpha: 1) {
+@function get-color($_color, $_alpha: 1, $_return-hex: false) {
 
 	$_color: string($_color);
 
 	@if type-of($_color) == 'string' and index(map-keys($colors), $_color) {
 
-		@if $colors-use-variables {
+		@if $colors-use-variables == true && $_return-hex == false {
 			$_color: var(--color-#{$_color});
 		} @else {
 			$_color: map-get($colors, $_color);
