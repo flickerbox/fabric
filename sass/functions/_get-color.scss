@@ -8,7 +8,7 @@
 
 	@if type-of($_color) == 'string' and index(map-keys($colors), $_color) {
 
-		@if $colors-use-variables == true && $_return-hex == false {
+		@if $colors-use-variables == true and $_return-hex == false {
 			$_color: var(--color-#{$_color});
 		} @else {
 			$_color: map-get($colors, $_color);
