@@ -2,7 +2,7 @@
 
 	@each $name, $hex in $colors {
 		--color-#{$name}: #{$hex};
-		--color-#{$name}-rgb: red(#{$hex}), green(#{$hex}), blue(#{$hex});
+		--color-#{$name}-rgb: #{red($hex)}, #{green($hex)}, #{blue($hex)};
 	}
 
 }
