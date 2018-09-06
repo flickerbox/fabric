@@ -4,11 +4,13 @@
 //
 //----------------------------------------------------------------------
 
+$colors-use-variables: false                                   !default;
+
 $colors: (
-	
+
 	'default':      #232323,
 	'accent':       #fe5000,
-	
+
 	'black':        #000,
 	'darker-gray':  #232323,
 	'dark-gray':    #4a4a4a,
@@ -16,5 +18,5 @@ $colors: (
 	'light-gray':   #dedede,
 	'lighter-gray': #fcfcfc,
 	'white':        #fff
-	
+
 )                                                              !default;
