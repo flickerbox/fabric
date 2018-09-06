@@ -1,6 +1,6 @@
 {
   "name": "@flickerbox/fabric",
-  "version": "4.0.8",
+  "version": "4.0.9",
   "description": "An unopinionated framework that works within your existing workflow to cut down on repetitive tasks.",
   "scripts": {
     "production": "webpack --config=config/webpack.prod.js --info-verbosity verbose --progress && npm run delete-maps",
