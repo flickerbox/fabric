@@ -85,7 +85,7 @@
 			margin: 0 (-$_gap / 2) (-$_gap);
 			width: calc(100% + #{$_gap});
 
-			> div {
+			> %GridItem {
 				padding: 0 ($_gap / 2) ($_gap);
 			}
 		}
