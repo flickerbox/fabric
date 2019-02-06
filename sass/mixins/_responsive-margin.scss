@@ -1,0 +1,35 @@
+//---------------------------------------------------------------
+// Sets marfgins based on the responsive key:value
+// pairs defined in a map
+//---------------------------------------------------------------
+
+@mixin responsive-margin($_values) {
+
+	@each $_breakpoint in map-keys($_values) {
+
+		$_value: map-get($_values, $_breakpoint);
+
+		@if $_first {
+
+			@include margin($_value);
+			$_first: false;
+
+		} @else {
+
+			@if str-index($_breakpoint, '<') == null {
+
+				$_breakpoint: '<#{$_breakpoint}';
+
+			}
+
+			@include media('#{$_breakpoint}') {
+
+				@include margin($_value);
+
+			}
+
+		}
+
+	}
+
+}
