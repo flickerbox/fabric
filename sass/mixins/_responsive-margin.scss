@@ -5,6 +5,8 @@
 
 @mixin responsive-margin($_values) {
 
+	$_first: true;
+
 	@each $_breakpoint in map-keys($_values) {
 
 		$_value: map-get($_values, $_breakpoint);
