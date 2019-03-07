@@ -29,6 +29,16 @@ $font-weight: (
 	'h1':   400
 )                                                             !default;
 
+$letter-spacing: (
+	'base': 0,
+	'h6':   0,
+	'h5':   0,
+	'h4':   0,
+	'h3':   0,
+	'h2':   0,
+	'h1':   0
+)                                                             !default;
+
 $line-height: (
     'base': 32px,
     'h6':   24px,

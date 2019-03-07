@@ -1,0 +1,24 @@
+//---------------------------------------------------------------
+// Sets letter spacing responsively
+//---------------------------------------------------------------
+
+@mixin letter-spacing($_value, $_size: '') {
+
+	@if type-of($_value) == string and index(map-keys($letter-spacing), $_value) {
+
+		$_letter-spacing: get-letter-spacing($_value, $_size);
+
+		@if type-of($_letter-spacing) == 'map' {
+
+			$first: true;
+			@include responsive-property('letter-spacing', $_letter-spacing);
+
+		} @else {
+
+			letter-spacing: $_letter-spacing;
+
+		}
+
+	}
+
+}

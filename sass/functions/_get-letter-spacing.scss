@@ -1,0 +1,17 @@
+//---------------------------------------------------------------
+// Shorthand to get letter spacing
+//---------------------------------------------------------------
+
+@function get-letter-spacing($_value, $_size: '') {
+
+	@if type-of(map-get($letter-spacing, $_value)) == 'map' and $_size != '' {
+
+		@return map-get(map-get($letter-spacing, $_value), $_size);
+
+	} @else {
+
+		@return map-get($letter-spacing, $_value);
+
+	}
+
+}
