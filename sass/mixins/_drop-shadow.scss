@@ -20,7 +20,12 @@
 
 	@if type-of($_elevation) == string and index(map-keys($drop-shadows-elevations), $_elevation) {
 
-		$_alpha: map-get($drop-shadows-alpha, $_elevation);
+		$_alpha: $drop-shadows-alpha;
+
+		@if type-of($_alpha) == 'map' {
+			$_alpha: map-get($_alpha, $_elevation);
+		}
+
 		$_shadow_list: map-get($drop-shadows-elevations, $_elevation);
 
 		@each $_shadow in $_shadow_list {
