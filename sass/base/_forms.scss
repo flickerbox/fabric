@@ -1,26 +1,26 @@
 %TextInput {
-	@include font('base');
+	@include font(base);
 	@include padding(1x 2x);
 	@include transition();
-	
-	border: 1px solid get-color('light-gray');
-	
+
+	border: 1px solid get-color(light-gray);
+
 	&::placeholder {
-		@include color('gray');
+		@include color(gray);
 	}
-	
+
 	&:focus {
-		border-color: get-color('dark-gray');
+		border-color: get-color(dark-gray);
 		outline: none;
 	}
-	
+
 	&:hover {
-		border-color: get-color('gray');
+		border-color: get-color(gray);
 	}
-	
+
 	&:focus::placeholder,
 	&:hover::placeholder {
-		@include color('dark-gray');
+		@include color(dark-gray);
 	}
 }
 
@@ -36,5 +36,5 @@ input[type=date],
 input[type=month],
 input[type=week],
 textarea {
-	@extend %TextInput;
+	@extend %TextInput !optional;
 }

@@ -4,10 +4,6 @@
 	display: flex;
 	flex-wrap: wrap;
 
-	> div {
-		@extend %GridItem;
-	}
-
 	@for $i from 1 through $grid-columns {
 		$_class: '&.with-#{$i} > div';
 

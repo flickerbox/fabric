@@ -1,0 +1,135 @@
+//     _            _           _                           _ _
+//    (_)          | |         | |                         | (_)
+//     _ _ __   ___| |_   _  __| | ___   _ __ ___   ___  __| |_  __ _
+//    | | '_ \ / __| | | | |/ _` |/ _ \ | '_ ` _ \ / _ \/ _` | |/ _` |
+//    | | | | | (__| | |_| | (_| |  __/ | | | | | |  __/ (_| | | (_| |
+//    |_|_| |_|\___|_|\__,_|\__,_|\___| |_| |_| |_|\___|\__,_|_|\__,_|
+//
+//      Simple, elegant and maintainable media queries in Sass
+//                        v1.4.9
+//
+//                http://include-media.com
+//
+//         Authors: Eduardo Boucas (@eduardoboucas)
+//                  Hugo Giraudel (@hugogiraudel)
+//
+//      This project is licensed under the terms of the MIT license
+
+
+////
+/// include-media library public configuration
+/// @author Eduardo Boucas
+/// @access public
+////
+
+
+///
+/// Wrapper mixin for the log function so it can be used with a more friendly
+/// API than `@if im-log('..') {}` or `$_: im-log('..')`. Basically, use the function
+/// within functions because it is not possible to include a mixin in a function
+/// and use the mixin everywhere else because it's much more elegant.
+///
+/// @param {String} $message - Message to log
+///
+@mixin log($message) {
+  @if im-log($message) {}
+}
+
+
+///
+/// This mixin aims at redefining the configuration just for the scope of
+/// the call. It is helpful when having a component needing an extended
+/// configuration such as custom breakpoints (referred to as tweakpoints)
+/// for instance.
+///
+/// @author Hugo Giraudel
+///
+/// @param {Map} $tweakpoints [()] - Map of tweakpoints to be merged with `$breakpoints`
+/// @param {Map} $tweak-media-expressions [()] - Map of tweaked media expressions to be merged with `$media-expression`
+///
+/// @example scss - Extend the global breakpoints with a tweakpoint
+///  @include media-context(('custom': 678px)) {
+///    .foo {
+///      @include media('>phone', '<=custom') {
+///       // ...
+///      }
+///    }
+///  }
+///
+/// @example scss - Extend the global media expressions with a custom one
+///  @include media-context($tweak-media-expressions: ('all': 'all')) {
+///    .foo {
+///      @include media('all', '>phone') {
+///       // ...
+///      }
+///    }
+///  }
+///
+/// @example scss - Extend both configuration maps
+///  @include media-context(('custom': 678px), ('all': 'all')) {
+///    .foo {
+///      @include media('all', '>phone', '<=custom') {
+///       // ...
+///      }
+///    }
+///  }
+///
+@mixin media-context($tweakpoints: (), $tweak-media-expressions: ()) {
+  // Save global configuration
+  $global-breakpoints: $breakpoints;
+  $global-media-expressions: $media-expressions;
+
+  // Update global configuration
+  $breakpoints: map-merge($breakpoints, $tweakpoints) !global;
+  $media-expressions: map-merge($media-expressions, $tweak-media-expressions) !global;
+
+  @content;
+
+  // Restore global configuration
+  $breakpoints: $global-breakpoints !global;
+  $media-expressions: $global-media-expressions !global;
+}
+
+////
+/// include-media public exposed API
+/// @author Eduardo Boucas
+/// @access public
+////
+
+
+///
+/// Generates a media query based on a list of conditions
+///
+/// @param {Arglist}   $conditions  - Media query conditions
+///
+/// @example scss - With a single set breakpoint
+///  @include media('>phone') { }
+///
+/// @example scss - With two set breakpoints
+///  @include media('>phone', '<=tablet') { }
+///
+/// @example scss - With custom values
+///  @include media('>=358px', '<850px') { }
+///
+/// @example scss - With set breakpoints with custom values
+///  @include media('>desktop', '<=1350px') { }
+///
+/// @example scss - With a static expression
+///  @include media('retina2x') { }
+///
+/// @example scss - Mixing everything
+///  @include media('>=350px', '<tablet', 'retina3x') { }
+///
+@mixin media($conditions...) {
+  @if ($im-media-support and length($conditions) == 0) or
+      (not $im-media-support and im-intercepts-static-breakpoint($conditions...)) {
+    @content;
+  } @else if ($im-media-support and length($conditions) > 0) {
+    @media #{unquote(parse-expression(nth($conditions, 1)))} {
+      // Recursive call
+      @include media(slice($conditions, 2)...) {
+        @content;
+      }
+    }
+  }
+}

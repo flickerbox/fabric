@@ -1,7 +1,8 @@
 .Grid {
-	@extend %Grid;
+	@extend %Grid !optional;
 }
 
+.Grid > div,
 .Grid-item {
-	@extend %GridItem;
+	@extend %GridItem !optional;
 }

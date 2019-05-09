@@ -1,0 +1,11 @@
+%Wrap {
+	@extend %Clearfix;
+	@include responsive-property('max-width', $layout-width);
+	box-sizing: content-box;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: _($layout-padding);
+	padding-right: _($layout-padding);
+	position: relative;
+	width: calc(100% - #{_($layout-padding) * 2});
+}
