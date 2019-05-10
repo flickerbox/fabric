@@ -1,0 +1,9 @@
+//---------------------------------------------------------------
+// Sets background color from color map
+//---------------------------------------------------------------
+
+@mixin background-color($_color, $_alpha: 1) {
+
+	background-color: get-color($_color, $_alpha);
+
+}
