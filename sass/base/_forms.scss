@@ -1,29 +1,3 @@
-%TextInput {
-	@include font(base);
-	@include padding(1x 2x);
-	@include transition();
-
-	border: 1px solid get-color(light-gray);
-
-	&::placeholder {
-		@include color(gray);
-	}
-
-	&:focus {
-		border-color: get-color(dark-gray);
-		outline: none;
-	}
-
-	&:hover {
-		border-color: get-color(gray);
-	}
-
-	&:focus::placeholder,
-	&:hover::placeholder {
-		@include color(dark-gray);
-	}
-}
-
 input[type=text],
 input[type=email],
 input[type=password],

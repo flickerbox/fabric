@@ -1,0 +1,10 @@
+%Heading {
+	@include margin(0 0 3x);
+	font-weight: inherit;
+
+	a,
+	a:active,
+	a:hover {
+		color: inherit;
+	}
+}
