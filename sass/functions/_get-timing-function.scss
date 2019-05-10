@@ -1,0 +1,17 @@
+//---------------------------------------------------------------
+// Sets transition timing function
+//---------------------------------------------------------------
+
+@function get-timing-function($_value) {
+
+	@if type-of($_value) == string and index(map-keys($timing-functions), $_value) {
+
+		@return map-get($timing-functions, $_value);
+
+	} @else {
+
+		@return unquote(inspect($_value));
+
+	}
+
+}

@@ -1,8 +1,8 @@
 //---------------------------------------------------------------
-// Sets transition timing function
+// Sets animation timing function
 //---------------------------------------------------------------
 
-@mixin transition-timing-function($_functions...) {
+@mixin animation-timing-function($_functions...) {
 
 	$_result: ();
 
@@ -30,6 +30,6 @@
 		$_result: append($_result, $_sub-result, comma);
 	}
 
-	transition-timing-function: $_result;
+	animation-timing-function: $_result;
 
 }
