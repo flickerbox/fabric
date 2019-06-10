@@ -1,7 +1,5 @@
 html {
-	@include color(default);
-	@include font(base);
-	font-family: $font-family;
+	@extend %html !optional;
 }
 
 h1,
