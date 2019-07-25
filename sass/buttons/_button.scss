@@ -1,5 +1,5 @@
 .Button,
 [class^='Button--'],
 [class*=' Button--'] {
-	@extend %Button;
+	@extend %Button !optional;
 }
