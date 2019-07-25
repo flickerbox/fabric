@@ -2,6 +2,10 @@ html {
 	@extend %html !optional;
 }
 
+body {
+	@extend %body !optional;
+}
+
 h1,
 .h1 {
 	@extend %h1 !optional;
