@@ -6,10 +6,7 @@
 
 	.Wrap--#{camelize($name)} {
 		@extend %Wrap !optional;
-		@include responsive-property('max-width', $width);
-		padding-left: _(map-get($wrap-padding, $name));
-		padding-right: _(map-get($wrap-padding, $name));
-		width: calc(100% - #{_(map-get($wrap-padding, $name)) * 2});
+		@extend %Wrap--#{camelize($name)} !optional;
 	}
 
 }
