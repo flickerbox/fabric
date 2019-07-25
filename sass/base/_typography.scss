@@ -43,52 +43,41 @@ table,
 address,
 form,
 pre {
-	@include margin(2x 0);
+	@extend %margins !optional;
 }
 
-ol,
+ol {
+	@extend %ol !optional;
+}
+
 ul {
-	@include padding(0 0 0 2x);
+	@extend %ul !optional;
 }
 
 a {
-	@include color(accent);
-	@include transition(normal color);
-	text-decoration: none;
-
-	@include hover {
-		@if index(map-keys($colors), 'accent-hover') {
-			@include color(accent-hover);
-		} @else {
-			color: lighten(get-color(accent, 1, true), 10%);
-		}
-
-		text-decoration: underline;
-	}
+	@extend %a !optional;
 }
 
 article {
-	@include margin(4x 0);
+	@extend %article !optional;
 }
 
 strong {
-	font-weight: bold;
+	@extend %strong !optional;
 }
 
 pre {
-	display: block;
-	white-space: pre-wrap;
+	@extend %pre !optional;
 }
 
 code {
-	display: inline-block;
-	white-space: pre;
+	@extend %code !optional;
 }
 
 blockquote {
-	@include padding(0 0 0 2x);
+	@extend %blockquote !optional;
 }
 
 img {
-	max-width: 100%;
+	@extend %img !optional;
 }

@@ -1,0 +1,15 @@
+%a {
+	@include color(accent);
+	@include transition(normal color);
+	text-decoration: none;
+
+	@include hover {
+		@if index(map-keys($colors), 'accent-hover') {
+			@include color(accent-hover);
+		} @else {
+			color: lighten(get-color(accent, 1, true), 10%);
+		}
+
+		text-decoration: underline;
+	}
+}

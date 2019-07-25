@@ -1,0 +1,11 @@
+table {
+	@extend %table !optional;
+}
+
+th {
+	@extend %th !optional;
+}
+
+td {
+	@extend %td !optional;
+}
