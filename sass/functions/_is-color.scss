@@ -1,0 +1,8 @@
+//---------------------------------------------------------------
+// Is a color in the colors map?
+//---------------------------------------------------------------
+
+@function is-color($_color) {
+	$_color: unquote(inspect($_color));
+	@return (type-of($_color) == string or type-of($_color) == color) and index(map-keys($colors), $_color);
+}

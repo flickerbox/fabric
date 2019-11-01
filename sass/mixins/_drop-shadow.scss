@@ -12,9 +12,9 @@
 		$_inset: '';
 	}
 
-	@if type-of($_color) == string and index(map-keys($colors), $_color) {
+	@if is-color($_color) {
 
-		$_color: map-get($colors, $_color);
+		$_color: get-color($_color);
 
 	}
 

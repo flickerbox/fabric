@@ -23,9 +23,9 @@
 
 			$_sub-color-stop: unquote(inspect($_sub-color-stop));
 
-			@if type-of(inspect($_sub-color-stop)) == string and index(map-keys($colors), inspect($_sub-color-stop)) {
+			@if is-color($_sub-color-stop) {
 
-				$_subResult: append($_subResult, map-get($colors, inspect($_sub-color-stop)));
+				$_subResult: append($_subResult, get-color($_sub-color-stop));
 
 			} @else {
 
