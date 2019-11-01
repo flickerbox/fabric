@@ -2,6 +2,7 @@
 // Multi color gradients
 //---------------------------------------------------------------
 @mixin linear-gradient($_direction, $_color-stops...) {
+
 	// Direction has been omitted and happens to be a color-stop
 	@if is-direction($_direction) == false {
 		$_color-stops: $_direction, $_color-stops;
@@ -9,11 +10,12 @@
 	}
 
 	$_result: ();
+	$_is-transparent: false;
 
 	@for $i from 1 through length($_color-stops) {
 
 		$_color-stop: nth($_color-stops, $i);
-		$_subResult: ();
+		$_sub-result: ();
 
 		@if type-of($_color-stop) == string {
 			$_color-stop: explode($_color-stop, ' ');
@@ -24,21 +26,24 @@
 			$_sub-color-stop: unquote(inspect($_sub-color-stop));
 
 			@if is-color($_sub-color-stop) {
-
-				$_subResult: append($_subResult, get-color($_sub-color-stop));
-
-			} @else {
-
-				$_subResult: append($_subResult, unquote(inspect($_sub-color-stop)));
-
+				$_sub-color-stop: get-color($_sub-color-stop);
 			}
+
+			@if $_sub-color-stop == transparent {
+				$_is-transparent: true;
+			}
+
+			$_sub-result: append($_sub-result, $_sub-color-stop);
 
 		}
 
 		$_result: append($_result, $_subResult, comma);
 	}
 
-	background-color: nth(nth($_result, 1), 1);
+	@if $_is-transparent == false {
+		background-color: nth(nth($_result, 1), 1);
+	}
+
 	background-image: -webkit-linear-gradient(legacy-direction($_direction), $_result);
 	background-image: linear-gradient($_direction, $_result);
 }
