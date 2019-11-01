@@ -37,7 +37,7 @@
 
 		}
 
-		$_result: append($_result, $_subResult, comma);
+		$_result: append($_result, $_sub-result, comma);
 	}
 
 	@if $_is-transparent == false {
