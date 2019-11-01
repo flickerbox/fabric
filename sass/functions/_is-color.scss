@@ -3,6 +3,12 @@
 //---------------------------------------------------------------
 
 @function is-color($_color) {
+
 	$_color: unquote(inspect($_color));
-	@return (type-of($_color) == string or type-of($_color) == color) and index(map-keys($colors), $_color);
+	$_has-index: (index(map-keys($colors), $_color) != null);
+	$_is-color: (type-of($_color) == color);
+	$_is-string: (type-of($_color) == string);
+
+	@return ($_is-string or $_is-color) and $_has-index;
+
 }
