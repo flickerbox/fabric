@@ -1,6 +1,9 @@
 %Grid {
-	display: flex;
-	flex-wrap: wrap;
+	@extend %Grid-wrap;
+
+	> div {
+		@extend %Grid-item;
+	}
 
 	@for $i from 1 through $grid-columns {
 		$_class: '&.with-#{$i} > div';
@@ -66,6 +69,11 @@
 			}
 		}
 	}
+}
+
+%Grid-wrap {
+	display: flex;
+	flex-wrap: wrap;
 
 	@each $key in map-keys($grid-gaps) {
 		$_gap: get-grid-gap($key);
@@ -79,14 +87,14 @@
 			margin: 0 (-$_gap / 2) (-$_gap);
 			width: calc(100% + #{$_gap});
 
-			> %GridItem {
+			> %Grid-item {
 				padding: 0 ($_gap / 2) ($_gap);
 			}
 		}
 	}
 }
 
-%GridItem {
+%Grid-item {
 	flex-shrink: 0;
 	position: relative;
 }
