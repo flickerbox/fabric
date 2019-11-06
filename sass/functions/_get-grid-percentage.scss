@@ -1,0 +1,19 @@
+//---------------------------------------------------------------
+// Return width as percentage of grid
+//---------------------------------------------------------------
+
+@function grid-percentage($_columns, $_grid-width, $_grid-gap: normal, $_add: 0) {
+	$_grid-gap: unquote(inspect($_grid-gap));
+	$_percentage: abs($_columns) / $_grid-width;
+	$_offset: get-grid-gap($_grid-gap) * (1 - $_percentage);
+
+	@if remove-unit($_add) != 0 and str-slice(string($_columns), 0, 1) == '-' {
+		@return calc(#{$_offset} - #{100% * $_percentage} + #{_($_add)});
+	} @elseif str-slice(string($_columns), 0, 1) == '-' {
+		@return calc(#{$_offset} - #{100% * $_percentage});
+	} @elseif remove-unit($_add) != 0 {
+		@return calc(#{100% * $_percentage} - #{$_offset} + #{_($_add)});
+	} @else {
+		@return calc(#{100% * $_percentage} - #{$_offset});
+	}
+}
