@@ -29,7 +29,7 @@
 				$_sub-color-stop: get-color($_sub-color-stop);
 			}
 
-			@if $_sub-color-stop == transparent {
+			@if $_sub-color-stop == 'transparent' {
 				$_is-transparent: true;
 			}
 
