@@ -2,5 +2,5 @@
 /// @author Cody Baker
 
 .Clearfix {
-	@extend %Clearfix;
+	@extend %Clearfix !optional;
 }

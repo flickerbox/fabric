@@ -1,90 +1,45 @@
-//-----------------------------------------------------------------------
-// Placeholders
-//-----------------------------------------------------------------------
-
-%Heading {
-	@include margin(0 0 3x);
-	font-weight: inherit;
-
-	a,
-	a:active,
-	a:hover {
-		color: inherit;
-	}
-}
-
-//-----------------------------------------------------------------------
-// Classes
-//-----------------------------------------------------------------------
-
 html {
-	@include color('default');
-	@include font('base');
-	font-family: $font-family;
+	@extend %html !optional;
 }
 
-%h1 {
-	@extend %Heading;
-	@include font('h1');
+body {
+	@extend %body !optional;
 }
 
 h1,
 .h1 {
-	@extend %h1;
-}
-
-%h2 {
-	@extend %Heading;
-	@include font('h2');
+	@extend %h1 !optional;
 }
 
 h2,
 .h2 {
-	@extend %h2;
-}
-
-%h3 {
-	@extend %Heading;
-	@include font('h3');
+	@extend %h2 !optional;
 }
 
 h3,
 .h3 {
-	@extend %h3;
-}
-
-%h4 {
-	@extend %Heading;
-	@include font('h4');
+	@extend %h3 !optional;
 }
 
 h4,
 .h4 {
-	@extend %h4;
-}
-
-%h5 {
-	@extend %Heading;
-	@include font('h5');
+	@extend %h4 !optional;
 }
 
 h5,
 .h5 {
-	@extend %h5;
-}
-
-%h6 {
-	@extend %Heading;
-	@include font('h6');
+	@extend %h5 !optional;
 }
 
 h6,
 .h6 {
-	@extend %h6;
+	@extend %h6 !optional;
 }
 
-%p,
-p,
+p {
+	@extend %p !optional;
+}
+
 ul,
 ol,
 blockquote,
@@ -92,52 +47,41 @@ table,
 address,
 form,
 pre {
-	@include margin(2x 0);
+	@extend %margins !optional;
 }
 
-ol,
+ol {
+	@extend %ol !optional;
+}
+
 ul {
-	@include padding(0 0 0 2x);
+	@extend %ul !optional;
 }
 
 a {
-	@include color(accent);
-	@include transition(normal color);
-	text-decoration: none;
-
-	@include hover {
-		@if index(map-keys($colors), 'accent-hover') {
-			@include color(accent-hover);
-		} @else {
-			color: lighten(get-color(accent, 1, true), 10%);
-		}
-
-		text-decoration: underline;
-	}
+	@extend %a !optional;
 }
 
 article {
-	@include margin(4x 0);
+	@extend %article !optional;
 }
 
 strong {
-	font-weight: bold;
+	@extend %strong !optional;
 }
 
 pre {
-	display: block;
-	white-space: pre-wrap;
+	@extend %pre !optional;
 }
 
 code {
-	display: inline-block;
-	white-space: pre;
+	@extend %code !optional;
 }
 
 blockquote {
-	@include padding(0 0 0 2x);
+	@extend %blockquote !optional;
 }
 
 img {
-	max-width: 100%;
+	@extend %img !optional;
 }

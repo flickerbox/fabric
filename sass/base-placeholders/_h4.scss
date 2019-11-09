@@ -1,0 +1,4 @@
+%h4 {
+	@extend %Heading !optional;
+	@include font(h4);
+}

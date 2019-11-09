@@ -1,7 +1,6 @@
-// scss-lint:disable Indentation, TrailingSemicolon
-
 @import
 
+	'vendor/include-media/variables',
 	'variables/breakpoints',
 	'variables/buttons',
 	'variables/colors',
@@ -9,9 +8,9 @@
 	'variables/font',
 	'variables/grid',
 	'variables/layout',
+	'variables/math',
+	'variables/timing-functions',
 	'variables/transitions',
 	'variables/wrap'
 
 ;
-
-// scss-lint:enable Indentation, TrailingSemicolon

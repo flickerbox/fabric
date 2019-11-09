@@ -1,56 +1,56 @@
 [class^='ResponsiveRatio--'],
 [class*=' ResponsiveRatio--'] {
-	@extend %ResponsiveRatio;
+	@extend %ResponsiveRatio !optional;
 }
 
 .ResponsiveRatio--1x2 {
-	@include responsive-ratio('1x2');
+	@extend %ResponsiveRatio--1x2 !optional;
 }
 
 .ResponsiveRatio--2x1 {
-	@include responsive-ratio('2x1');
+	@extend %ResponsiveRatio--2x1 !optional;
 }
 
 .ResponsiveRatio--2x3 {
-	@include responsive-ratio('2x3');
+	@extend %ResponsiveRatio--2x3 !optional;
 }
 
 .ResponsiveRatio--3x1 {
-	@include responsive-ratio('3x1');
+	@extend %ResponsiveRatio--3x1 !optional;
 }
 
 .ResponsiveRatio--3x2 {
-	@include responsive-ratio('3x2');
+	@extend %ResponsiveRatio--3x2 !optional;
 }
 
 .ResponsiveRatio--3x4 {
-	@include responsive-ratio('3x4');
+	@extend %ResponsiveRatio--3x4 !optional;
 }
 
 .ResponsiveRatio--4x1 {
-	@include responsive-ratio('4x1');
+	@extend %ResponsiveRatio--4x1 !optional;
 }
 
 .ResponsiveRatio--4x3 {
-	@include responsive-ratio('4x3');
+	@extend %ResponsiveRatio--4x3 !optional;
 }
 
 .ResponsiveRatio--5x1 {
-	@include responsive-ratio('5x1');
+	@extend %ResponsiveRatio--5x1 !optional;
 }
 
 .ResponsiveRatio--5x2 {
-	@include responsive-ratio('5x2');
+	@extend %ResponsiveRatio--5x2 !optional;
 }
 
 .ResponsiveRatio--5x3 {
-	@include responsive-ratio('5x3');
+	@extend %ResponsiveRatio--5x3 !optional;
 }
 
 .ResponsiveRatio--5x4 {
-	@include responsive-ratio('5x4');
+	@extend %ResponsiveRatio--5x4 !optional;
 }
 
 .ResponsiveRatio--16x9 {
-	@include responsive-ratio('16x9');
+	@extend %ResponsiveRatio--16x9 !optional;
 }

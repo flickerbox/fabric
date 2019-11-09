@@ -1,11 +1,11 @@
-// scss-lint:disable Indentation, TrailingSemicolon
-
 @import
 
+	'vendor/include-media/functions',
 	'functions/_',
 	'functions/add-unit',
 	'functions/camelize',
 	'functions/capitalize',
+	'functions/circumference',
 	'functions/contain',
 	'functions/explode',
 	'functions/get-color',
@@ -14,6 +14,8 @@
 	'functions/get-grid-gap',
 	'functions/get-line-height',
 	'functions/get-letter-spacing',
+	'functions/get-text-transform',
+	'functions/get-timing-function',
 	'functions/get-transition-speed',
 	'functions/get-spacing',
 	'functions/hsb',
@@ -27,6 +29,7 @@
 	'functions/number',
 	'functions/opposite-position',
 	'functions/pascalize',
+	'functions/pi',
 	'functions/pow',
 	'functions/px-to-rem',
 	'functions/remove-unit',
@@ -36,5 +39,3 @@
 	'functions/x-to-px'
 
 ;
-
-// scss-lint:enable Indentation, TrailingSemicolon

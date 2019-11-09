@@ -1,0 +1,24 @@
+//---------------------------------------------------------------
+// Sets text transform responsively
+//---------------------------------------------------------------
+
+@mixin text-transform($_value, $_size: '') {
+
+	@if type-of($_value) == string and index(map-keys($text-transform), $_value) {
+
+		$_text-transform: get-text-transform($_value, $_size);
+
+		@if type-of($_text-transform) == 'map' {
+
+			$first: true;
+			@include responsive-property('text-transform', $_text-transform);
+
+		} @else {
+
+			text-transform: $_text-transform;
+
+		}
+
+	}
+
+}

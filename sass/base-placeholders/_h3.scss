@@ -1,0 +1,4 @@
+%h3 {
+	@extend %Heading !optional;
+	@include font(h3);
+}

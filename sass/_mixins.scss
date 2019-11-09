@@ -1,7 +1,8 @@
-// scss-lint:disable Indentation, TrailingSemicolon
-
 @import
 
+	'vendor/include-media/mixins',
+	'mixins/animation-timing-function',
+	'mixins/background-color',
 	'mixins/button-colors',
 	'mixins/button-hover',
 	'mixins/button-size',
@@ -20,10 +21,9 @@
 	'mixins/responsive-margin',
 	'mixins/responsive-property',
 	'mixins/responsive-ratio',
+	'mixins/text-transform',
 	'mixins/transition',
 	'mixins/transition-timing-function',
 	'mixins/triangle'
 
 ;
-
-// scss-lint:enable Indentation, TrailingSemicolon

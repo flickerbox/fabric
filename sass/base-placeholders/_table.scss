@@ -1,12 +1,12 @@
-table {
+%table {
 	width: 100%;
 }
 
-th {
+%th {
 	text-align: left;
 }
 
-th, 
-td {
+%th,
+%td {
 	@include padding(1x 2x);
 }

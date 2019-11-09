@@ -21,9 +21,3 @@
 		text-decoration: none;
 	}
 }
-
-.Button,
-[class^='Button--'],
-[class*=' Button--'] {
-	@extend %Button;
-}
