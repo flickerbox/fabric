@@ -1,9 +1,13 @@
-//---------------------------------------------------------------
-// Sets color from color map
-//---------------------------------------------------------------
+/// Sets color from color map
+/// @name color
+/// @author Cody Baker
+/// @param {string} $_color [''] - Set the color
+/// @param {string} $_alpha [1] - Set the alpha the color
+/// @requires {function} get-color
+
 
 @mixin color($_color, $_alpha: 1) {
-	
+
 	color: get-color($_color, $_alpha);
 
 }

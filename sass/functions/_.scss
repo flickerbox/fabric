@@ -1,9 +1,13 @@
-//---------------------------------------------------------------
-// Shorthand to x-to-px
-//---------------------------------------------------------------
+/// Shorthand to x-to-px
+/// @name _
+/// @access public
+/// @author Cody Baker
+/// @param {number} $_value [''] - Set the height of the button
+/// @require {function} x-to-px
+/// @returns {string}
 
 @function _($_value) {
-	
+
 	@return x-to-px($_value);
-		
+
 }

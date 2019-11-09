@@ -1,6 +1,12 @@
-//---------------------------------------------------------------
-// Sets paddings relative to $layout-spacing
-//---------------------------------------------------------------
+/// Sets paddings relative to $layout-spacing
+/// @name padding
+/// @author Cody Baker
+/// @access public
+/// @param {string} $_paddings [3x auto] -
+/// @param {string} $_breakpoint [''] -
+/// @requires {function} SassCore::append
+/// @requires {function} x-to-px
+/// @requires {mixin} media
 
 @mixin padding($_paddings: 3x auto, $_breakpoint: '') {
 

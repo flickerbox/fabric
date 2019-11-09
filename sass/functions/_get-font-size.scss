@@ -1,17 +1,22 @@
-//---------------------------------------------------------------
-// Shorthand to get font size
-//---------------------------------------------------------------
+/// Shorthand to get font size
+/// @name get-font-size
+/// Cody Baker
+/// @param {string} $_value [''] - Set the font size type
+/// @param {string} $_size ['']
+/// @require {function} SassCore::type-of
+/// @require {function} SassCore::map-get
+/// @return {property}
 
 @function get-font-size($_value, $_size: '') {
-	
+
 	@if type-of(map-get($font-size, $_value)) == 'map' and $_size != '' {
-		
+
 		@return map-get(map-get($font-size, $_value), $_size);
-		
+
 	} @else {
-		
+
 		@return map-get($font-size, $_value);
-		
+
 	}
-	
+
 }

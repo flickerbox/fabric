@@ -1,6 +1,8 @@
-//---------------------------------------------------------------
-// Is a number?
-//---------------------------------------------------------------
+/// Is a number?
+/// @name is-number
+/// @author Cody Baker
+/// @param {string} $_value [] - Check to see if this is a number
+/// @require {function} SassCore::type-of
 
 @function is-number($_value) {
   @return type-of($_value) == 'number';

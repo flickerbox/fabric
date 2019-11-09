@@ -1,3 +1,14 @@
+/// Creates the styles for button sizes
+/// @name button-size
+/// @author Cody Baker
+/// @access public
+/// @param {string} $_height [''] - Set the height of the button
+/// @param {string} $_padding [3px] - Set the padding of the button
+/// @param {string} $_border-width [2px] - Set the border width of the button
+/// @param {string} $_radius [3px] - Set the border radius of the button
+/// @require {mixin} padding
+/// @require {function} _
+
 @mixin button-size($_height, $_padding: $buttons-padding, $_border-width: $buttons-border-width, $_radius: $buttons-radius) {
   @include padding(0 $_padding);
   border-width: _($_border-width);

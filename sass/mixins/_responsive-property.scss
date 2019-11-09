@@ -1,90 +1,92 @@
-//---------------------------------------------------------------
-// Sets a property based on the responsive key:value 
-// pairs defined in a map
-//---------------------------------------------------------------
+/// Sets a property based on the responsive key:value pairs defined in a map
+/// @name responsive-property
+/// @author Cody Baker
+/// @param {string} $_property [] - Set the property you want to be responsive
+/// @param {string} $_values [] - Set the font size type
+/// @param {string} $_format [false] - Set the font size type
 
 @mixin responsive-property($_property, $_values, $_format: false) {
-	
+
 	$_first: true;
 	$_negative: false;
 	$_formatted: false;
 	$_formatted-prefix: '';
 	$_formatted-suffix: '';
-	
+
 	@if str-index($_property, '-') == 1 {
-		
+
 		$_negative: true;
 		$_property: str-slice($_property, 2);
-		
+
 	}
-	
+
 	@if type-of($_format) == 'string' and str-index($_format, '%s') != null {
-		
+
 		$_formatted: true;
 		$_formatted-prefix: str-slice($_format, 0, str-index($_format, '%s') - 1);
 		$_formatted-suffix: str-slice($_format, str-index($_format, '%s') + 2);
-		
+
 	}
-	
+
 	@if type-of($_values) == 'map' {
 
 		@each $_breakpoint in map-keys($_values) {
-			
+
 			$_value: _(map-get($_values, $_breakpoint));
-			
+
 			@if $_negative {
-				
+
 				$_value: -$_value;
-				
+
 			}
-			
+
 			@if $_formatted {
-				
+
 				$_value: unquote('#{$_formatted-prefix}#{$_value}#{$_formatted-suffix}');
-				
+
 			}
-				
+
 			@if $_first {
-				
+
 				#{$_property}: $_value;
 				$_first: false;
-				
+
 			} @else {
-				
+
 				@if str-index($_breakpoint, '<') == null {
-					
+
 					$_breakpoint: '<#{$_breakpoint}';
-				
+
 				}
-				
+
 				@include media('#{$_breakpoint}') {
-					
+
 					#{$_property}: $_value;
-					
+
 				}
-			
+
 			}
-			
+
 		}
-	
+
 	} @else {
-		
+
 		$_values: _($_values);
-		
+
 		@if $_negative {
-			
+
 			$_values: -$_values;
-			
+
 		}
-		
+
 		@if $_formatted {
-				
+
 			$_values: unquote('#{$_formatted-prefix}#{$_values}#{$_formatted-suffix}');
-			
+
 		}
-		
+
 		#{$_property}: $_values;
-		
+
 	}
-	
+
 }

@@ -13,7 +13,8 @@
     "dev": "npm run development",
     "dev-dashboard": "npm run development-dashboard",
     "prod": "npm run production",
-    "watch": "npm run development"
+    "watch": "npm run development",
+    "sassdoc": "node ./sass-docs.js"
   },
   "repository": {
     "type": "git",
@@ -41,5 +42,8 @@
   },
   "dependencies": {
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "sassdoc": "^2.7.0"
   }
 }

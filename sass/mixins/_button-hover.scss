@@ -1,3 +1,13 @@
+/// Creates a hover style effect
+/// @name button-hover
+/// @author Cody Baker
+/// @access public
+/// @param {string} $_background ['accent'] - This sets the background color
+/// @param {string} $_border [transparent] - This sets the border color
+/// @param {string} $_text ['white'] - This sets the text color
+/// @require {mixin} hover
+/// @require {mixin} button-colors
+
 @mixin button-hover($_background: $buttons-hover-background-color, $_border: $buttons-hover-border-color, $_text: $buttons-hover-text-color) {
 	@include hover {
 		@include button-colors($_background, $_border, $_text);

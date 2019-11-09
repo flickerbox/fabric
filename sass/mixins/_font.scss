@@ -1,6 +1,9 @@
-//---------------------------------------------------------------
-// Sets font responsively
-//---------------------------------------------------------------
+/// Sets font responsively
+/// @name font
+/// @author Cody Baker
+/// @access public
+/// @param {string} $_value
+/// @param {string} $_size ['']
 
 @mixin font($_value, $_size: '') {
 
