@@ -1,6 +1,13 @@
-//---------------------------------------------------------------
-// Sets margins relative to $layout-spacing
-//---------------------------------------------------------------
+/// Sets margins relative to $layout-spacing
+/// @name margin
+/// @group Fabric Mixins
+/// @author Cody Baker
+/// @access public
+/// @param {string} $_margins [3x auto] - Set the margin amount
+/// @param {map} $_breakpoint [''] - Set the color stop values
+/// @require {mixin} SassCore::append
+/// @require {mixin} media
+/// @require {function} x-to-px
 
 @mixin margin($_margins: 3x auto, $_breakpoint: '') {
 

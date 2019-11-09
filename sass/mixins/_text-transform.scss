@@ -1,6 +1,15 @@
-//---------------------------------------------------------------
-// Sets text transform responsively
-//---------------------------------------------------------------
+/// Sets text transform responsively
+/// @name text-transform
+/// @group Fabric Mixins
+/// @author Cody Baker
+/// @access public
+/// @param {string} $_value [] - Set the text transform type
+/// @param {string} $_size [''] -
+/// @require {function} SassCore::type-of
+/// @require {function} SassCore::index
+/// @require {function} SassCore::map-keys
+/// @require {function} get-text-transform
+/// @require {function} responsive-property
 
 @mixin text-transform($_value, $_size: '') {
 

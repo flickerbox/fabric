@@ -1,6 +1,15 @@
-//---------------------------------------------------------------
-// Sets transition timing function
-//---------------------------------------------------------------
+/// Sets transition timing function
+/// @name transition-timing-function
+/// @group Fabric Mixins
+/// @author Cody Baker
+/// @access public
+/// @param {map} $_functions [] - Set the transition timing function
+/// @require {function} SassCore::length
+/// @require {function} SassCore::nth
+/// @require {function} SassCore::type-of
+/// @require {function} SassCore::append
+/// @require {function} explode
+/// @require {function} get-timing-function
 
 @mixin transition-timing-function($_functions...) {
 

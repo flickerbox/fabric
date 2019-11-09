@@ -1,3 +1,9 @@
+/// @name grid-gaps
+/// @group Fabric Mixins
+/// @author Cody Baker
+/// @access public
+/// @param {string} $_key ['normal'] - Set the grid gap
+
 @mixin grid-gaps($_key: 'normal') {
 	$_gap-width: get-grid-gap($_key);
 	margin: 0 (-$_gap-width / 2) (-$_gap-width);

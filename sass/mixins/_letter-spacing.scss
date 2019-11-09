@@ -1,6 +1,15 @@
-//---------------------------------------------------------------
-// Sets letter spacing responsively
-//---------------------------------------------------------------
+/// Sets letter spacing responsively
+/// @name letter-spacing
+/// @group Fabric Mixins
+/// @author Cody Baker
+/// @access public
+/// @param {string} $_value [] - Set the letter spacing type
+/// @param {string} $_size [''] -
+/// @require {function} SassCore::type-of
+/// @require {function} SassCore::index
+/// @require {function} SassCore::map-keys
+/// @require {function} get-letter-spacing
+/// @require {function} responsive-property
 
 @mixin letter-spacing($_value, $_size: '') {
 

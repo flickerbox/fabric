@@ -1,6 +1,11 @@
-//---------------------------------------------------------------
-// Sets background color from color map
-//---------------------------------------------------------------
+/// Sets background color from color map
+/// @name background-color
+/// @group Fabric Mixins
+/// @author Cody Baker
+/// @access public
+/// @param {map} $_color [] - Set the color of the background
+/// @param {map} $_alpha [] - Set the alpha of the background
+/// @require {function} get-color
 
 @mixin background-color($_color, $_alpha: 1) {
 
