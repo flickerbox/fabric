@@ -1,17 +1,22 @@
-//----------------------------------------------------------------------
-//
-// Grid
-//
-//----------------------------------------------------------------------
+////
+/// Grid
+/// @name Grid Variables
+/// @group Fabric Variables
+/// @author Cody Baker
+/// @access public
+////
 
+/// @name grid-columns
 $grid-columns: 12                                              !default;
 
+/// @name grid-breakpoints
 $grid-breakpoints: (
 
 	'normal': ('small', 'medium', 'large')
 
 )                                                              !default;
 
+/// @name grid-gaps
 $grid-gaps: (
 
 	'small':  2x,

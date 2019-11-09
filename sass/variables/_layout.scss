@@ -1,9 +1,16 @@
-//----------------------------------------------------------------------
-//
-// Layout
-//
-//----------------------------------------------------------------------
+////
+/// Layout
+/// @name Layout Variables
+/// @group Fabric Variables
+/// @author Cody Baker
+/// @access public
+////
 
+/// @name layout-padding
 $layout-padding: 3x                                            !default;
+
+/// @name layout-spacing
 $layout-spacing: 8px                                           !default;
+
+/// @name layout-width
 $layout-width: 1080px                                          !default;

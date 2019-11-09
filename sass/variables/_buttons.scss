@@ -1,18 +1,38 @@
-//----------------------------------------------------------------------
-//
-// Buttons
-//
-//----------------------------------------------------------------------
+////
+/// Button variables
+/// @name Button Variables
+/// @group Fabric Variables
+/// @author Cody Baker
+/// @access public
+////
 
+/// @name buttons-border-width
 $buttons-border-width: 2px                                     !default;
+
+/// @name buttons-height
 $buttons-height: 5x                                            !default;
+
+/// @name buttons-padding
 $buttons-padding: 3x                                           !default;
+
+/// @name buttons-radius
 $buttons-radius: 3px                                           !default;
 
+/// @name buttons-background-color
 $buttons-background-color: 'accent'                            !default;
+
+/// @name buttons-border-color
 $buttons-border-color: transparent                             !default;
+
+/// @name buttons-text-color
 $buttons-text-color: 'white'                                   !default;
 
+/// @name buttons-hover-background-color
 $buttons-hover-background-color: 'accent'                      !default;
+
+/// @name buttons-hover-border-color
 $buttons-hover-border-color: transparent                       !default;
+
+/// @name buttons-hover-text-color
 $buttons-hover-text-color: 'white'                             !default;
+

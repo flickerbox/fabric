@@ -1,14 +1,25 @@
-//----------------------------------------------------------------------
-//
-// Fonts
-//
-//----------------------------------------------------------------------
+////
+/// Fonts
+/// @name Fonts Variables
+/// @group Fabric Variables
+/// @author Cody Baker
+/// @access public
+////
 
+/// @name font-family
 $font-family:             Helvetica, Arial, sans-serif         !default;
+
+/// @name font-family--monospace
 $font-family--monospace:  monospace                            !default;
+
+/// @name font-family--sans-serif
 $font-family--sans-serif: Helvetica, Arial, sans-serif         !default;
+
+/// @name font-family--serif
 $font-family--serif:      serif                                !default;
 
+
+/// @name font-size
 $font-size: (
 	'base': 18px,
 	'h6':   16px,
@@ -19,6 +30,7 @@ $font-size: (
 	'h1':   48px
 )                                                             !default;
 
+/// @name font-weight
 $font-weight: (
 	'base': 400,
 	'h6':   400,
@@ -29,6 +41,7 @@ $font-weight: (
 	'h1':   400
 )                                                             !default;
 
+/// @name letter-spacing
 $letter-spacing: (
 	'base': 0,
 	'h6':   0,
@@ -39,6 +52,7 @@ $letter-spacing: (
 	'h1':   0
 )                                                             !default;
 
+/// @name line-height
 $line-height: (
     'base': 32px,
     'h6':   24px,
@@ -49,6 +63,7 @@ $line-height: (
     'h1':   48px
 )                                                             !default;
 
+/// @name text-transform
 $text-transform: (
     'base': none,
     'h6':   none,

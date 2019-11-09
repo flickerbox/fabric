@@ -1,11 +1,15 @@
-//----------------------------------------------------------------------
-//
-// Colors
-//
-//----------------------------------------------------------------------
+////
+/// Colors
+/// @name Colors Variables
+/// @group Fabric Variables
+/// @author Cody Baker
+/// @access public
+////
+
 
 $colors-use-variables: false                                   !default;
 
+/// @name colors
 $colors: (
 
 	'default':      #232323,

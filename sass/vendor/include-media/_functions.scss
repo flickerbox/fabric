@@ -27,7 +27,7 @@
 /// Log a message either with `@error` if supported
 /// else with `@warn`, using `feature-exists('at-error')`
 /// to detect support.
-///
+/// @group Include Media
 /// @param {String} $message - Message to log
 ///
 @function im-log($message) {
@@ -45,12 +45,14 @@
 ///
 /// Function with no `@return` called next to `@warn` in Sass 3.3
 /// to trigger a compiling error and stop the process.
+/// @group Include Media
 ///
 @function noop() {}
 
 
 ///
 /// Determines whether a list of conditions is intercepted by the static breakpoint.
+/// @group Include Media
 ///
 /// @param {Arglist}   $conditions  - Media query conditions
 ///
@@ -91,6 +93,7 @@
 
 ///
 /// Get operator of an expression
+/// @group Include Media
 ///
 /// @param {String} $expression - Expression to extract operator from
 ///
@@ -114,6 +117,7 @@
 
 ///
 /// Get dimension of an expression, based on a found operator
+/// @group Include Media
 ///
 /// @param {String} $expression - Expression to extract dimension from
 /// @param {String} $operator - Operator from `$expression`
@@ -135,6 +139,7 @@
 
 ///
 /// Get dimension prefix based on an operator
+/// @group Include Media
 ///
 /// @param {String} $operator - Operator
 ///
@@ -147,6 +152,7 @@
 
 ///
 /// Get value of an expression, based on a found operator
+/// @group Include Media
 ///
 /// @param {String} $expression - Expression to extract value from
 /// @param {String} $operator - Operator from `$expression`
@@ -186,6 +192,7 @@
 
 ///
 /// Parse an expression to return a valid media-query expression
+/// @group Include Media
 ///
 /// @param {String} $expression - Expression to parse
 ///
@@ -208,6 +215,7 @@
 
 ///
 /// Slice `$list` between `$start` and `$end` indexes
+/// @group Include Media
 ///
 /// @access private
 ///
@@ -240,6 +248,7 @@
 
 ///
 /// Casts a string into a number
+/// @group Include Media
 ///
 /// @param {String | Number} $value - Value to be parsed
 ///
@@ -286,6 +295,7 @@
 
 ///
 /// Add `$unit` to `$value`
+/// @group Include Media
 ///
 /// @param {Number} $value - Value to add unit to
 /// @param {String} $unit - String representation of the unit
