@@ -1,11 +1,20 @@
+////
+/// @group Fabric Base Placeholders
+/// @author Cody Baker
+/// @access public
+////
+
+/// @name table
 %table {
 	width: 100%;
 }
 
+/// @name th
 %th {
 	text-align: left;
 }
 
+/// @name th and td
 %th,
 %td {
 	@include padding(1x 2x);

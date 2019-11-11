@@ -1,3 +1,11 @@
+/// Sets background color from color map
+/// @group Fabric Base Placeholders
+/// @author Cody Baker
+/// @access public
+/// @require {function} SassCore::index
+/// @require {function} SassCore::map-keys
+/// @require {function} lightens
+
 %a {
 	@include color(accent);
 	@include transition(normal color);
