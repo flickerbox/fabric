@@ -1,6 +1,11 @@
 const sassdoc = require('sassdoc');
 
-sassdoc('./sass', { verbose: true }).then(function () {
+const config = {
+	verbose: true,
+	dest: './docs',
+};
+
+sassdoc('./sass', config).then(function () {
 	console.log('Your documentation has been generated!');
 }, function (err) {
 	console.error(err);
