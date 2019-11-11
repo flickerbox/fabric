@@ -1,3 +1,7 @@
+/// @group Fabric Component Placeholders
+
+/// @access public
+
 %Wrap {
 	@extend %Clearfix;
 	@include responsive-property('max-width', $layout-width);

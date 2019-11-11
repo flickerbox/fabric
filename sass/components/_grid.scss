@@ -1,7 +1,14 @@
+////
+/// @group Fabric
+/// @access public
+////
+
+/// @name .Grid
 .Grid {
 	@extend %Grid !optional;
 }
 
+/// @name .Grid > div and .Grid-item
 .Grid > div,
 .Grid-item {
 	@extend %GridItem !optional;
