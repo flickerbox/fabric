@@ -1,9 +1,14 @@
-//---------------------------------------------------------
-// Add unit to variable
-//---------------------------------------------------------
+/// Add unit to variable
+/// @name add-unit
+/// @group Fabric Functions
+/// @access public
+/// @param {string} $_value [''] - Set the value you which you want to add to the unit
+/// @param {string} $_unit [''] - Set the unit you wish to use
+/// @require {function} SassCore::unquote
+/// @require {function} remove-unit
 
 @function add-unit($_value, $_unit) {
-	
+
 	@return unquote(remove-unit($_value) + $_unit);
-	
+
 }

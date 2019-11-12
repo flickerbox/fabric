@@ -1,7 +1,14 @@
+////
+/// @group Fabric
+/// @access public
+////
+
+/// @name .Wrap
 .Wrap {
 	@extend %Wrap !optional;
 }
 
+// @todo Keith Not sure how to annotate this one
 @each $name, $width in $wrap-width {
 
 	.Wrap--#{camelize($name)} {
