@@ -1,9 +1,13 @@
-//---------------------------------------------------------------
-// Converts a pixel value into a root em based value
-//---------------------------------------------------------------
+/// Converts a pixel value into a root em based value
+/// @name px-to-rem
+/// @group Fabric Functions
+/// @param {string} $_value [] - Set the pixel value you want to turn into a rem
+/// @require {function} SassCore::map-get
+/// @require {function} remove-unit
+/// @return {property}
 
 @function px-to-rem($_value) {
-	
+
 	@return (remove-unit($_value) / remove-unit(map-get($font-size, 'base'))) * 1rem;
-	
+
 }

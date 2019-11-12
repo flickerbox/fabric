@@ -1,6 +1,12 @@
-//---------------------------------------------------------------
-// Shorthand to get transition speed
-//---------------------------------------------------------------
+/// Shorthand to get transition speed
+/// @name get-transition-speed
+/// @group Fabric Functions
+/// @access public
+/// @param {string} $_value [] - This sets the animation speed
+/// @require {function} SassCore::str-slice
+/// @require {function} SassCore::index
+/// @require {function} SassCore::map-keys
+/// @require {function} SassCore::map-get
 
 @function get-transition-speed($_value) {
 

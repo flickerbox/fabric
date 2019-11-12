@@ -1,15 +1,23 @@
-//---------------------------------------------------------------
-// Reverse the order of a map
-//---------------------------------------------------------------
+/// Reverse the order of a map
+/// @name  map-reverse
+/// @group Fabric Functions
+/// @param {map} $_map [] - Set the map you want to reverse
+/// @require {function} SassCore::type-of
+/// @require {function} SassCore::map-keys
+/// @require {function} SassCore::length
+/// @require {function} SassCore::map-merge
+/// @require {function} SassCore::map-get
+/// @require {function} SassCore::nth
+/// @return {map}
 
 @function map-reverse($_map) {
-	
+
 	$_result: null;
 
 	@if type-of($_map) == 'map' {
 		$keys: map-keys($_map);
 		$_map-reversed: ();
-		
+
 		@for $i from length($keys) through 1 {
 			$_map-reversed: map-merge(
 				$_map-reversed,
@@ -27,5 +35,5 @@
 	}
 
 	@return $_result;
-	
+
 }

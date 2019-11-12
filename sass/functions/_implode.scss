@@ -1,13 +1,23 @@
+/// Shorthand to get transition speed
+/// @name implode
+/// @group Fabric Functions
+/// @access public
+/// @param {map} $list [] - Set the map
+/// @param {map} $separator [','] - Set the delimiter
+/// @require {function} SassCore::length
+/// @require {function} SassCore::nth
+/// @return {string}
+
 @function implode($list, $separator: ',') {
 	$string: '';
-	
+
 	@for $i from 1 through length($list) {
 		@if($i > 1) {
 			$string: $string + $separator;
 		}
-		
+
 		$string: $string + nth($list, $i);
 	}
-	
+
 	@return $string;
 }

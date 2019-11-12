@@ -1,6 +1,9 @@
-//---------------------------------------------------------------
-// Convert to string
-//---------------------------------------------------------------
+/// Convert to string
+/// @name string
+/// @group Fabric Functions
+/// @param {string} $_value [] - Set the value you want to turn into a string
+/// @require {function} SassCore::inspect
+/// @return {string}
 
 @function string($_value) {
   @return inspect($_value);

@@ -1,9 +1,10 @@
-//---------------------------------------------------------
-// Pi
-//---------------------------------------------------------
+/// Pi
+/// @name pi
+/// @group Fabric Functions
+/// @return {number} - Returns PI the number
 
 @function pi() {
-	
+
 	@return $math-pi;
-	
+
 }
