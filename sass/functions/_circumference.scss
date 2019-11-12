@@ -1,9 +1,12 @@
-//---------------------------------------------------------
-// Circumference
-//---------------------------------------------------------
+/// Circumference
+/// @name circumference
+/// @group Fabric Functions
+/// @access public
+/// @param {string} $r [] - Set the radius you want to the circumference of
+/// @return {number}
 
 @function circumference($r) {
-	
+
 	@return 2 * $math-pi * $r;
-	
+
 }

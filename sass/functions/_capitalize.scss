@@ -1,8 +1,14 @@
-//---------------------------------------------------------------
-// Capitalize a string
-//---------------------------------------------------------------
+/// Capitalize a string
+/// @name capitalize
+/// @group Fabric Functions
+/// @access public
+/// @param {string} $_string [] - Set the string you which you want to capitalize
+/// @require {function} SassCore::to-upper-case
+/// @require {function} SassCore::str-slice
+/// @return {string}
+
 @function capitalize($string) {
-	
+
 	@return to-upper-case(str-slice($string, 1, 1)) + str-slice($string, 2);
-	
+
 }

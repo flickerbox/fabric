@@ -1,75 +1,89 @@
 ////
-/// @group Fabric
+/// @group Fabric Components
 /// @access public
 ////
 
 /// @name ResponsiveRatio-- and ResponsiveRatio--
-[class^='ResponsiveRatio--'],
+[class^='ResponsiveRatio--']
+/// @require %ResponsiveRatio,
 [class*=' ResponsiveRatio--'] {
 	@extend %ResponsiveRatio !optional;
 }
 
 /// @name .ResponsiveRatio--1x2
+/// @require %ResponsiveRatio--1x2
 .ResponsiveRatio--1x2 {
 	@extend %ResponsiveRatio--1x2 !optional;
 }
 
 /// @name .ResponsiveRatio--2x1
+/// @require %ResponsiveRatio--2x1
 .ResponsiveRatio--2x1 {
 	@extend %ResponsiveRatio--2x1 !optional;
 }
 
 /// @name .ResponsiveRatio--2x3
+/// @require %ResponsiveRatio--2x3
 .ResponsiveRatio--2x3 {
 	@extend %ResponsiveRatio--2x3 !optional;
 }
 
 /// @name .ResponsiveRatio--3x1
+/// @require %ResponsiveRatio--3x1
 .ResponsiveRatio--3x1 {
 	@extend %ResponsiveRatio--3x1 !optional;
 }
 
 /// @name .ResponsiveRatio--3x2
+/// @require %ResponsiveRatio--3x2
 .ResponsiveRatio--3x2 {
 	@extend %ResponsiveRatio--3x2 !optional;
 }
 
 /// @name .ResponsiveRatio--3x4
+/// @require %ResponsiveRatio--3x4
 .ResponsiveRatio--3x4 {
 	@extend %ResponsiveRatio--3x4 !optional;
 }
 
 /// @name .ResponsiveRatio--4x1
+/// @require %ResponsiveRatio--4x1
 .ResponsiveRatio--4x1 {
 	@extend %ResponsiveRatio--4x1 !optional;
 }
 
 /// @name .ResponsiveRatio--4x3
+/// @require %ResponsiveRatio--4x3
 .ResponsiveRatio--4x3 {
 	@extend %ResponsiveRatio--4x3 !optional;
 }
 
 /// @name .ResponsiveRatio--5x1
+/// @require %ResponsiveRatio--5x1
 .ResponsiveRatio--5x1 {
 	@extend %ResponsiveRatio--5x1 !optional;
 }
 
 /// @name .ResponsiveRatio--5x2
+/// @require %ResponsiveRatio--5x2
 .ResponsiveRatio--5x2 {
 	@extend %ResponsiveRatio--5x2 !optional;
 }
 
 /// @name .ResponsiveRatio--5x3
+/// @require %ResponsiveRatio--5x3
 .ResponsiveRatio--5x3 {
 	@extend %ResponsiveRatio--5x3 !optional;
 }
 
 /// @name .ResponsiveRatio--5x4
+/// @require %ResponsiveRatio--5x4
 .ResponsiveRatio--5x4 {
 	@extend %ResponsiveRatio--5x4 !optional;
 }
 
 /// @name .ResponsiveRatio--16x9
+/// @require %ResponsiveRatio--16x9
 .ResponsiveRatio--16x9 {
 	@extend %ResponsiveRatio--16x9 !optional;
 }

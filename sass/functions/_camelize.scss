@@ -1,13 +1,13 @@
 /// Convert string to camel-case
-/// Add unit to variable
-/// @name add-unit
+/// @name camelize
 /// @group Fabric Functions
 /// @access public
-/// @param {string} $_string [''] - Set the string you which you want to camelize
+/// @param {string} $_string [] - Set the string you which you want to camelize
 /// @require {function} SassCore::str-length
 /// @require {function} SassCore::str-slice
 /// @require {function} contain
 /// @require {function} capitalize
+/// @return {string}
 
 @function camelize($_string) {
 

@@ -1,17 +1,22 @@
-//---------------------------------------------------------------
-// Shorthand to get line height
-//---------------------------------------------------------------
+/// Shorthand to get line height
+/// @name get-line-height
+/// @group Fabric Functions
+/// @param {string} $_value [] - Set the  get-line-height type
+/// @param {string} $_size [''] - Set the  get-line-height size
+/// @require {function} SassCore::type-of
+/// @require {function} SassCore::map-get
+/// @return {property | null}
 
 @function get-line-height($_value, $_size: '') {
-	
+
 	@if type-of(map-get($line-height, $_value)) == 'map' and $_size != '' {
-		
+
 		@return map-get(map-get($line-height, $_value), $_size);
-		
+
 	} @else {
-		
+
 		@return map-get($line-height, $_value);
-		
+
 	}
-	
+
 }
