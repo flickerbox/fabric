@@ -1,4 +1,4 @@
-# Contributing to Flickerbox Patterns
+# Contributing to Fabric
 
 **Find a bug?**
 

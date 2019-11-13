@@ -58,3 +58,4 @@ Fabric is a work of [our contributors](https://github.com/flickerbox/fabric/grap
 
 ## Contributing 
 
+We welcome feedback and pull requests! See our [contributing guide](https://github.com/flickerbox/fabric/blob/documentation/.github/CONTRIBUTING.md) for details.
