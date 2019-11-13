@@ -17,12 +17,6 @@ Please describe the type of change.
 
 Please describe the tests that you ran to verify your changes. Provide instructions so we can reproduce. Please also list any relevant details for your test configuration.
 
-### Test Configuration:
-
-- **WordPress version**:
-- **PHP version**:
-- **MySQL version**:
-
 ## Screenshots (if appropriate):
 
 ## Checklist:
