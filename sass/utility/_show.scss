@@ -1,5 +1,12 @@
+////
+/// @group Fabric Utility
+/// @access public
+/// @require {function} camelize
+////
+
 @each $_breakpoint in map-keys($breakpoints) {
 
+	/// @name .show-
 	.show-#{camelize($_breakpoint)} {
 		@extend %show-#{camelize($_breakpoint)} !optional;
 	}
