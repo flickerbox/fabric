@@ -1,0 +1,41 @@
+@function parse-spacing($values) {
+
+	$top: 0;
+	$right: 0;
+	$bottom: 0;
+	$left: 0;
+
+	@if type-of($values) != 'list' {
+		$values: ($values,);
+	}
+
+	@if length($values) == 1 {
+		$top: nth($values, 1);
+		$right: nth($values, 1);
+		$bottom: nth($values, 1);
+		$left: nth($values, 1);
+	} @elseif length($values) == 2 {
+		$top: nth($values, 1);
+		$right: nth($values, 2);
+		$bottom: nth($values, 1);
+		$left: nth($values, 2);
+	} @elseif length($values) == 3 {
+		$top: nth($values, 1);
+		$right: nth($values, 2);
+		$bottom: nth($values, 3);
+		$left: nth($values, 2);
+	} @elseif length($values) == 4 {
+		$top: nth($values, 1);
+		$right: nth($values, 2);
+		$bottom: nth($values, 3);
+		$left: nth($values, 4);
+	}
+
+	@return (
+		'top': $top,
+		'right': $right,
+		'bottom': $bottom,
+		'left': $left,
+	);
+
+}

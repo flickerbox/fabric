@@ -3,32 +3,20 @@
 // pairs defined in a map
 //---------------------------------------------------------------
 
-@mixin responsive-margin($_values) {
+@mixin responsive-margin($values) {
 
-	$_first: true;
+	$first: true;
 
-	@each $_breakpoint in map-keys($_values) {
+	@each $breakpoint, $margins in $values {
 
-		$_value: map-get($_values, $_breakpoint);
+		@if $first {
 
-		@if $_first {
-
-			@include margin($_value);
-			$_first: false;
+			@include margin($margins);
+			$first: false;
 
 		} @else {
 
-			@if str-index($_breakpoint, '<') == null {
-
-				$_breakpoint: '<#{$_breakpoint}';
-
-			}
-
-			@include media('#{$_breakpoint}') {
-
-				@include margin($_value);
-
-			}
+			@include margin($margins, $breakpoint);
 
 		}
 

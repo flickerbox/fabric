@@ -3,16 +3,32 @@
 // the $layout-spacing variable
 //---------------------------------------------------------------
 
-@function x-to-px($_value) {
+@function x-to-px($values) {
 
-	@if type-of($_value) == 'string' {
-		$_value: unquote($_value);
+	$list: ();
+
+	@if type-of($values) != 'list' {
+		$values: ($values,);
 	}
 
-	@if is-x-unit($_value) {
-		$_value: remove-unit($_value) * $layout-spacing;
+	@each $value in $values {
+		@if type-of($value) == 'string' {
+			$value: unquote($value);
+		}
+
+		@if is-x-unit($value) {
+			$value: remove-unit($value) * $layout-spacing;
+		}
+
+		@if $value != null {
+			$list: append($list, $value);
+		}
 	}
 
-	@return $_value;
+	@if length($list) == 1 {
+		@return nth($list, 1);
+	} @else {
+		@return $list;
+	}
 
 }
