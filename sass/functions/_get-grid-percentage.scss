@@ -9,9 +9,9 @@
 
 	@if remove-unit($_add) != 0 and str-slice(string($_columns), 0, 1) == '-' {
 		@return calc(#{$_offset} - #{100% * $_percentage} + #{_($_add)});
-	} @elseif str-slice(string($_columns), 0, 1) == '-' {
+	} @else if str-slice(string($_columns), 0, 1) == '-' {
 		@return calc(#{$_offset} - #{100% * $_percentage});
-	} @elseif remove-unit($_add) != 0 {
+	} @else if remove-unit($_add) != 0 {
 		@return calc(#{100% * $_percentage} - #{$_offset} + #{_($_add)});
 	} @else {
 		@return calc(#{100% * $_percentage} - #{$_offset});

@@ -14,17 +14,17 @@
 		$right: nth($values, 1);
 		$bottom: nth($values, 1);
 		$left: nth($values, 1);
-	} @elseif length($values) == 2 {
+	} @else if length($values) == 2 {
 		$top: nth($values, 1);
 		$right: nth($values, 2);
 		$bottom: nth($values, 1);
 		$left: nth($values, 2);
-	} @elseif length($values) == 3 {
+	} @else if length($values) == 3 {
 		$top: nth($values, 1);
 		$right: nth($values, 2);
 		$bottom: nth($values, 3);
 		$left: nth($values, 2);
-	} @elseif length($values) == 4 {
+	} @else if length($values) == 4 {
 		$top: nth($values, 1);
 		$right: nth($values, 2);
 		$bottom: nth($values, 3);

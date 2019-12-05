@@ -11,7 +11,7 @@
 		}
 
 		@return $list;
-	} @elseif type-of($values) != 'list' {
+	} @else if type-of($values) != 'list' {
 		@return ($values,);
 	}
 

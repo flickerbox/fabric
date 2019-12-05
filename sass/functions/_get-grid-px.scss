@@ -9,9 +9,9 @@
 
 	@if remove-unit($_add) != 0 and str-slice(string($_columns), 0, 1) == '-' {
 		@return $_offset - ($layout-width * $_percentage) + _($_add);
-	} @elseif str-slice(string($_columns), 0, 1) == '-' {
+	} @else if str-slice(string($_columns), 0, 1) == '-' {
 		@return $_offset - ($layout-width * $_percentage);
-	} @elseif remove-unit($_add) != 0 {
+	} @else if remove-unit($_add) != 0 {
 		@return ($layout-width * $_percentage) - $_offset + _($_add);
 	} @else {
 		@return ($layout-width * $_percentage) - $_offset;
