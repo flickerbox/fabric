@@ -4,8 +4,8 @@
 
 @mixin responsive-ratio($_ratio) {
 
-	$_first: number(nth(explode(inspect($_ratio), 'x'), 1));
-	$_last: number(nth(explode(inspect($_ratio), 'x'), 2));
+	$_first: number(nth(explode($_ratio, 'x'), 1));
+	$_last: number(nth(explode($_ratio, 'x'), 2));
 
 	&:before {
 		padding-bottom: 100% * $_last / $_first;
