@@ -23,7 +23,7 @@
 
 		@each $_sub-color-stop in $_color-stop {
 
-			$_sub-color-stop: unquote(inspect($_sub-color-stop));
+			$_sub-color-stop: unquote(string($_sub-color-stop));
 
 			@if is-color($_sub-color-stop) {
 				$_sub-color-stop: get-color($_sub-color-stop);

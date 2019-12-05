@@ -3,7 +3,7 @@
 //---------------------------------------------------------------
 
 @function get-grid-px($_columns, $_grid-width, $_grid-gap: normal, $_add: 0) {
-	$_grid-gap: unquote(inspect($_grid-gap));
+	$_grid-gap: unquote(string($_grid-gap));
 	$_percentage: abs($_columns) / $_grid-width;
 	$_offset: get-grid-gap($_grid-gap) * (1 - $_percentage);
 

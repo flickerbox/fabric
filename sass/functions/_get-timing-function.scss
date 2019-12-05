@@ -10,7 +10,7 @@
 
 	} @else {
 
-		@return unquote(inspect($_value));
+		@return unquote(string($_value));
 
 	}
 

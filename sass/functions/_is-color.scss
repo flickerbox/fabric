@@ -4,7 +4,7 @@
 
 @function is-color($_color) {
 
-	$_color: unquote(inspect($_color));
+	$_color: unquote(string($_color));
 	$_has-index: (index(map-keys($colors), $_color) != null);
 	$_is-color: (type-of($_color) == color);
 	$_is-string: (type-of($_color) == string);
