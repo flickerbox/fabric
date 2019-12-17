@@ -23,6 +23,8 @@
 		$_shadow_list: map-get($drop-shadows-elevations, $_elevation);
 
 		@each $_shadow in $_shadow_list {
+			$_this_color: '';
+
 			@if is-color($_color) {
 				$_this_color: get-color($_color, ($_alpha / index($_shadow_list, $_shadow)));
 			} @else {
