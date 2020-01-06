@@ -1,0 +1,19 @@
+//---------------------------------------------------------------
+// Sets margins relative to $layout-spacing
+//---------------------------------------------------------------
+
+@function to-list($values) {
+	@if type-of($values) == 'map' {
+		$list: ();
+
+		@each $key, $value in $values {
+			$list: append($list, $value);
+		}
+
+		@return $list;
+	} @else if type-of($values) != 'list' {
+		@return ($values,);
+	}
+
+	@return $values;
+}

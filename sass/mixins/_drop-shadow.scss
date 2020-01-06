@@ -12,12 +12,6 @@
 		$_inset: '';
 	}
 
-	@if type-of($_color) == string and index(map-keys($colors), $_color) {
-
-		$_color: map-get($colors, $_color);
-
-	}
-
 	@if type-of($_elevation) == string and index(map-keys($drop-shadows-elevations), $_elevation) {
 
 		$_alpha: $drop-shadows-alpha;
@@ -29,12 +23,21 @@
 		$_shadow_list: map-get($drop-shadows-elevations, $_elevation);
 
 		@each $_shadow in $_shadow_list {
-			$_this_color: rgba($_color, ($_alpha / index($_shadow_list, $_shadow)));
+			$_this_color: '';
+
+			@if is-color($_color) {
+				$_this_color: get-color($_color, ($_alpha / index($_shadow_list, $_shadow)));
+			} @else {
+				$_this_color: rgba($_color, ($_alpha / index($_shadow_list, $_shadow)));
+			}
+
 			$_box_shadow: append($_box_shadow, unquote('#{$_this_color} #{$_shadow} #{$_inset}'), 'comma');
 		}
 
 	}
 
-	box-shadow: $_box_shadow;
+	@if length($_box_shadow) > 0 {
+		box-shadow: $_box_shadow;
+	}
 
 }

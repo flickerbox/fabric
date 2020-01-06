@@ -1,0 +1,23 @@
+@function to-negative($values) {
+
+	$list: ();
+
+	@if type-of($values) != 'list' {
+		$values: ($values,);
+	}
+
+	@each $value in $values {
+		@if type-of($value) == 'string' {
+			$value: unquote($value);
+		}
+
+		$list: append($list, -$value);
+	}
+
+	@if length($list) == 1 {
+		@return nth($list, 1);
+	} @else {
+		@return $list;
+	}
+
+}

@@ -2,6 +2,10 @@
 // Convert to string
 //---------------------------------------------------------------
 
-@function string($_value) {
-  @return inspect($_value);
+@function string($value) {
+	@if is-string($value) == false {
+		$value: inspect($value);
+	}
+
+	@return $value;
 }
