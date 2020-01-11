@@ -11,14 +11,14 @@
 	$_size: _($_size) / 2;
 
 	@if $_position == top or $_position == bottom {
-		border-left: $_size solid transparent;
-		border-right: $_size solid transparent;
+		border-left: #{$_size} solid transparent;
+		border-right: #{$_size} solid transparent;
 	} @else {
-		border-bottom: $_size solid transparent;
-		border-top: $_size solid transparent;
+		border-bottom: #{$_size} solid transparent;
+		border-top: #{$_size} solid transparent;
 	}
 
-	border-#{$_opposite}: ($_size * $_scale) solid $_color;
+	border-#{$_opposite}: #{$_size * $_scale} solid $_color;
 	content: '';
 	display: block;
 	height: 0;

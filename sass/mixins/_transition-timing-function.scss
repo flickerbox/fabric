@@ -30,6 +30,6 @@
 		$_result: append($_result, $_sub-result, comma);
 	}
 
-	transition-timing-function: $_result;
+	transition-timing-function: #{$_result};
 
 }

@@ -15,7 +15,7 @@
 
 		} @else {
 
-			letter-spacing: $_letter-spacing;
+			letter-spacing: #{$_letter-spacing};
 
 		}
 

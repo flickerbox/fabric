@@ -3,22 +3,22 @@
 //---------------------------------------------------------------
 
 @mixin font-weight($_value, $_size: '') {
-	
+
 	@if type-of($_value) == string and index(map-keys($font-weight), $_value) {
-		
+
 		$_font-weight: get-font-weight($_value, $_size);
-		
+
 		@if type-of($_font-weight) == 'map' {
-		
+
 			$first: true;
 			@include responsive-property('font-weight', $_font-weight);
-			
+
 		} @else {
-			
-			font-weight: $_font-weight;
-			
+
+			font-weight: #{$_font-weight};
+
 		}
-		
+
 	}
-	
+
 }

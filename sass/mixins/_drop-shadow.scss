@@ -37,7 +37,7 @@
 	}
 
 	@if length($_box_shadow) > 0 {
-		box-shadow: $_box_shadow;
+		box-shadow: #{$_box_shadow};
 	}
 
 }

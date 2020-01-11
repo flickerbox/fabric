@@ -18,13 +18,13 @@
 
 		@include media($breakpoint) {
 
-			padding: $padding;
+			padding: #{$padding};
 
 		}
 
 	} @else {
 
-		padding: $padding;
+		padding: #{$padding};
 
 	}
 

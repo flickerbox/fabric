@@ -38,6 +38,6 @@
 		$_result: append($_result, $_subResult, comma);
 	}
 
-	transition: $_result;
+	transition: #{$_result};
 
 }

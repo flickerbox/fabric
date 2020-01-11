@@ -46,7 +46,7 @@
 
 			@if $first {
 
-				#{$property}: $value;
+				#{$property}: #{$value};
 				$first: false;
 
 			} @else {
@@ -59,7 +59,7 @@
 
 				@include media('#{$breakpoint}') {
 
-					#{$property}: $value;
+					#{$property}: #{$value};
 
 				}
 
@@ -83,7 +83,7 @@
 
 		}
 
-		#{$property}: $values;
+		#{$property}: #{$values};
 
 	}
 

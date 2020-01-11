@@ -15,7 +15,7 @@
 
 		} @else {
 
-			text-transform: $_text-transform;
+			text-transform: #{$_text-transform};
 
 		}
 

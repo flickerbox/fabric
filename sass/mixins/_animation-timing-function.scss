@@ -30,6 +30,6 @@
 		$_result: append($_result, $_sub-result, comma);
 	}
 
-	animation-timing-function: $_result;
+	animation-timing-function: #{$_result};
 
 }

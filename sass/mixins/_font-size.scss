@@ -3,22 +3,22 @@
 //---------------------------------------------------------------
 
 @mixin font-size($_value, $_size: '') {
-	
+
 	@if type-of($_value) == string and index(map-keys($font-size), $_value) {
-		
+
 		$_font-size: get-font-size($_value, $_size);
-		
+
 		@if type-of($_font-size) == 'map' {
-			
+
 			$first: true;
 			@include responsive-property('font-size', $_font-size);
-			
+
 		} @else {
-			
-			font-size: $_font-size;
-			
+
+			font-size: #{$_font-size};
+
 		}
-		
+
 	}
-	
+
 }
