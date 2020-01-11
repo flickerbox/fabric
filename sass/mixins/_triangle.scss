@@ -3,8 +3,8 @@
 // Make a triangle
 //---------------------------------------------------------------
 
-@mixin triangle($_position: top, $_color: currentcolor, $_size: 2x, $_scale: 1) {
-	
+@mixin triangle($_position: top, $_color: currentColor, $_size: 2x, $_scale: 1) {
+
 	$_position: validate-position($_position);
 	$_opposite: opposite-position($_position);
 	$_color: get-color($_color);
@@ -17,11 +17,11 @@
 		border-bottom: $_size solid transparent;
 		border-top: $_size solid transparent;
 	}
-	
+
 	border-#{$_opposite}: ($_size * $_scale) solid $_color;
 	content: '';
 	display: block;
 	height: 0;
 	width: 0;
-	
+
 }
