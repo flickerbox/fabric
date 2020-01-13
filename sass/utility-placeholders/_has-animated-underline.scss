@@ -4,7 +4,7 @@
 
 	&:after {
 		@include transition(opacity normal, transform normal);
-		background: currentcolor;
+		background: currentColor;
 		bottom: 0;
 		content: '';
 		display: block;
