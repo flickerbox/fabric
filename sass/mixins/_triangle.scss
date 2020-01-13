@@ -3,7 +3,7 @@
 // Make a triangle
 //---------------------------------------------------------------
 
-@mixin triangle($_position: top, $_color: currentColor, $_size: 2x, $_scale: 1) {
+@mixin triangle($_position: top, $_color: currentcolor, $_size: 2x, $_scale: 1) {
 
 	$_position: validate-position($_position);
 	$_opposite: opposite-position($_position);
