@@ -1,5 +1,0 @@
-@mixin button-hover($_background: $buttons-hover-background-color, $_border: $buttons-hover-border-color, $_text: $buttons-hover-text-color) {
-	@include hover {
-		@include button-colors($_background, $_border, $_text);
-	}
-}

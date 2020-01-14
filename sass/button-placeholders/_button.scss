@@ -1,7 +1,6 @@
 %Button {
 	@include font(button);
 	@include button-colors();
-	@include button-hover();
 	@include button-size($buttons-height);
 	@include transition(normal background, normal border, normal color);
 	border-style: solid;
@@ -19,6 +18,7 @@
 }
 
 %Button-hover {
+	@include button-colors($buttons-hover-background-color, $buttons-hover-border-color, $buttons-hover-text-color);
 	text-decoration: none;
 }
 
