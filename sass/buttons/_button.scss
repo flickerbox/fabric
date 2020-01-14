@@ -2,4 +2,16 @@
 [class^='Button--'],
 [class*=' Button--'] {
 	@extend %Button !optional;
+
+	@include hover {
+		@extend %Button-hover !optional;
+	}
+
+	&:focus {
+		@extend %Button-focus !optional;
+	}
+
+	&:active {
+		@extend %Button-active !optional;
+	}
 }

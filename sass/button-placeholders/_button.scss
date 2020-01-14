@@ -16,8 +16,15 @@
 		color: inherit;
 		text-decoration: none;
 	}
+}
 
-	@include hover {
-		text-decoration: none;
-	}
+%Button-hover {
+	text-decoration: none;
+}
+
+%Button-focus {
+	outline: none;
+}
+
+%Button-active {
 }
