@@ -1,16 +1,12 @@
-@import
-
-	'vendor/include-media/variables',
-	'variables/breakpoints',
-	'variables/buttons',
-	'variables/colors',
-	'variables/drop-shadows',
-	'variables/font',
-	'variables/grid',
-	'variables/layout',
-	'variables/math',
-	'variables/timing-functions',
-	'variables/transitions',
-	'variables/wrap'
-
-;
+@import 'vendor/include-media/variables';
+@import 'variables/breakpoints';
+@import 'variables/buttons';
+@import 'variables/colors';
+@import 'variables/drop-shadows';
+@import 'variables/font';
+@import 'variables/grid';
+@import 'variables/layout';
+@import 'variables/math';
+@import 'variables/timing-functions';
+@import 'variables/transitions';
+@import 'variables/wrap';
