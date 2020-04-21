@@ -1,3 +1,5 @@
-:root {
-	@extend %root !optional;
+@at-root {
+	:root {
+		@extend %root !optional;
+	}
 }
