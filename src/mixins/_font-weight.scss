@@ -11,10 +11,12 @@
 		@if type-of($_font-weight) == 'map' {
 
 			$first: true;
+			@include responsive-property('font-variation-settings', $_font-weight, "'wght' %s");
 			@include responsive-property('font-weight', $_font-weight);
 
 		} @else {
 
+			font-variation-settings: 'wght' #{$_font-weight};
 			font-weight: #{$_font-weight};
 
 		}
