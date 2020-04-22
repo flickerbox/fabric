@@ -44,6 +44,5 @@
 		background-color: nth(nth($_result, 1), 1);
 	}
 
-	background-image: -webkit-linear-gradient(legacy-direction($_direction), $_result);
 	background-image: linear-gradient($_direction, $_result);
 }
