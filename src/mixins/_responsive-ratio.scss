@@ -7,6 +7,8 @@
 	$_first: number(nth(explode($_ratio, 'x'), 1));
 	$_last: number(nth(explode($_ratio, 'x'), 2));
 
+	@extend %ResponsiveRatio;
+
 	&:before {
 		padding-bottom: 100% * $_last / $_first;
 	}
