@@ -1,6 +1,6 @@
 @each $_breakpoint in map-keys($breakpoints) {
 
-	%show-#{camelize($_breakpoint)} {
+	%show--#{camelize($_breakpoint)} {
 		display: none;
 
 		@include media(unquote('<#{$_breakpoint}')) {
