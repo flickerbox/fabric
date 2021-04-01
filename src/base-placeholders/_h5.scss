@@ -1,4 +1,4 @@
 %h5 {
-	@extend %Heading !optional;
+	@extend %h !optional;
 	@include font(h5);
 }
