@@ -13,6 +13,8 @@
 	@each $value in $values {
 		@if type-of($value) == 'string' and index(map-keys($spacing), $value) {
 
+			$negative: false;
+
 			@if str-index($value, '-') == 1 {
 				$negative: true;
 				$value: str-slice($value, 2);
