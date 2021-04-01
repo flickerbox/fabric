@@ -16,7 +16,7 @@
 
 		@include media($breakpoint) {
 
-			margin: x-to-px(to-list($margin));
+			margin: get-spacing(to-list($margin));
 
 			@if map-get($margin, 'top') != 0 {
 				&:first-child {
@@ -34,7 +34,7 @@
 
 	} @else {
 
-		margin: x-to-px(to-list($margin));
+		margin: get-spacing(to-list($margin));
 
 		@if map-get($margin, 'top') != 0 {
 			&:first-child {

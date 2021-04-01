@@ -6,7 +6,7 @@
 
 	$padding: parse-spacing($padding);
 	$padding: to-list($padding);
-	$padding: x-to-px($padding);
+	$padding: get-spacing($padding);
 
 	@if $breakpoint != '' {
 

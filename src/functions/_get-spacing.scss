@@ -2,16 +2,49 @@
 // Shorthand to get spacing unit
 //---------------------------------------------------------------
 
-@function get-spacing($value) {
+@function get-spacing($values) {
 
-	@if type-of($value) == 'string' and index(map-keys($spacing), $value) {
-	
-		@return x-to-px(map-get($spacing, $value));
-	
-	} @else {
+	$list: ();
+
+	@if type-of($values) != 'list' {
+		$values: ($values,);
+	}
+
+	@each $value in $values {
+		@if type-of($value) == 'string' and index(map-keys($spacing), $value) {
+
+			@if str-index($value, '-') == 1 {
+				$negative: true;
+				$value: str-slice($value, 2);
+			}
+
+			$spacingValue: map-get($spacing, $value);
+
+			@if $negative {
+				$spacingValue: to-negative($spacingValue);
+			}
+
+			$spacingValue: x-to-px($spacingValue);
+
+			@if $spacingValue != null {
+				$list: append($list, $spacingValue);
+			}
 		
-		@return x-to-px($value);
+		} @else {
+			
+			$value: x-to-px($value);
 
+			@if $value != null {
+				$list: append($list, $value);
+			}
+
+		}
+	}
+
+	@if length($list) == 1 {
+		@return nth($list, 1);
+	} @else {
+		@return $list;
 	}
 		
 }
