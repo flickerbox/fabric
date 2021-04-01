@@ -1,22 +1,22 @@
 %Wrap {
 	@extend %Clearfix;
 	@include responsive-property('max-width', $layout-width);
+	@include responsive-property('padding-left', $layout-padding);
+	@include responsive-property('padding-right', $layout-padding);
+	@include responsive-property('width', $layout-padding, 'calc(100% - (%s * 2)');
 	box-sizing: content-box;
 	margin-left: auto;
 	margin-right: auto;
-	padding-left: _($layout-padding);
-	padding-right: _($layout-padding);
 	position: relative;
-	width: calc(100% - #{_($layout-padding) * 2});
 }
 
 @each $name, $width in $wrap-width {
 
 	%Wrap--#{camelize($name)} {
 		@include responsive-property('max-width', $width);
-		padding-left: _(map-get($wrap-padding, $name));
-		padding-right: _(map-get($wrap-padding, $name));
-		width: calc(100% - #{_(map-get($wrap-padding, $name)) * 2});
+		@include responsive-property('padding-left', map-get($wrap-padding, $name));
+		@include responsive-property('padding-right', map-get($wrap-padding, $name));
+		@include responsive-property('width', map-get($wrap-padding, $name), 'calc(100% - (%s * 2)');
 	}
 
 }
