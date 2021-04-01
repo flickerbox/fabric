@@ -2,8 +2,16 @@
 // Shorthand to get spacing unit
 //---------------------------------------------------------------
 
-@function get-spacing($_value) {
+@function get-spacing($value) {
+
+	@if type-of($value) == 'string' and index(map-keys($spacing), $value) {
 	
-	@return x-to-px($_value);
+		@return x-to-px(map-get($spacing, $value));
+	
+	} @else {
+		
+		@return x-to-px($value);
+
+	}
 		
 }
