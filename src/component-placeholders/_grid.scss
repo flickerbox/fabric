@@ -72,6 +72,7 @@
 }
 
 %Grid-wrap {
+	box-sizing: border-box;
 	display: flex;
 	flex-wrap: wrap;
 
@@ -95,6 +96,7 @@
 }
 
 %Grid-item {
+	box-sizing: border-box;
 	flex-shrink: 0;
 	position: relative;
 }
