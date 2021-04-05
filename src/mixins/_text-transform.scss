@@ -1,7 +1,10 @@
-//---------------------------------------------------------------
-// Sets text transform responsively
-//---------------------------------------------------------------
-
+///
+/// Responsively sets text-transform based on key in $text-transform map
+///
+/// @group Mixins
+/// @param {String} $key - Key defined in $text-transform map
+/// @param {String} $breakpoint - If defined as a sub value, will only apply the specific breakpoint value
+///
 @mixin text-transform($_value, $_size: '') {
 
 	@if type-of($_value) == string and index(map-keys($text-transform), $_value) {

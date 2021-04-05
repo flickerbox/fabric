@@ -1,9 +1,11 @@
-//---------------------------------------------------------------
-// Shorthand to x-to-px
-//---------------------------------------------------------------
-
+///
+/// Converts x units to px units
+///
+/// @group Functions
+/// @param {String} $value - X unit value to convert to px
+///
 @function _($_value) {
-	
+
 	@return x-to-px($_value);
-		
+
 }

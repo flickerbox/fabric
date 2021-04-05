@@ -1,7 +1,10 @@
-//---------------------------------------------------------------
-// Sets font weight responsively
-//---------------------------------------------------------------
-
+///
+/// Responsively sets font-weight based on key in $font-weight map
+///
+/// @group Mixins
+/// @param {String} $key - Key defined in $font-weight map
+/// @param {String} $breakpoint - If defined as a sub value, will only apply the specific breakpoint value
+///
 @mixin font-weight($_value, $_size: '') {
 
 	@if type-of($_value) == string and index(map-keys($font-weight), $_value) {

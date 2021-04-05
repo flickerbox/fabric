@@ -1,7 +1,10 @@
-//---------------------------------------------------------------
-// Sets font size responsively
-//---------------------------------------------------------------
-
+///
+/// Responsively sets font-size based on key in $font-size map
+///
+/// @group Mixins
+/// @param {String} $key - Key defined in $font-size map
+/// @param {String} $breakpoint - If defined as a sub value, will only apply the specific breakpoint value
+///
 @mixin font-size($_value, $_size: '') {
 
 	@if type-of($_value) == string and index(map-keys($font-size), $_value) {

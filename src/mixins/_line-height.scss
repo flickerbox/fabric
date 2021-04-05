@@ -1,7 +1,10 @@
-//---------------------------------------------------------------
-// Sets line height responsively
-//---------------------------------------------------------------
-
+///
+/// Responsively sets line-height based on key in $line-height map
+///
+/// @group Mixins
+/// @param {String} $key - Key defined in $line-height map
+/// @param {String} $breakpoint - If defined as a sub value, will only apply the specific breakpoint value
+///
 @mixin line-height($_value, $_size: '') {
 
 	@if type-of($_value) == string and index(map-keys($line-height), $_value) {
