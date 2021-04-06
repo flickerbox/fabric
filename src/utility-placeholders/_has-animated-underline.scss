@@ -1,3 +1,10 @@
+/// Animate a line underneath an element
+/// @group Fabric Utility Placeholders
+/// @access public
+/// @require {function} SassCore::calc
+/// @require {function} SassCore::scaleX
+/// @require {function} transition
+
 %has-animatedUnderline {
 	padding-bottom: calc(1px + 0.1rem);
 	position: relative;

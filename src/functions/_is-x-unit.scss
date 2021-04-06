@@ -1,10 +1,16 @@
-//---------------------------------------------------------------
-// Is an x unit?
-//---------------------------------------------------------------
+/// Is an x unit?
+/// @name is-x-unit
+/// @group Fabric Functions
+/// @param {mixed} $_value [] - Check to see if value is a px value
+/// @require {function} SassCore::str-length
+/// @require {function} SassCore::str-slice
+/// @require {function} SassCore::is-number
+/// @require {function} SassCore::number
+/// @return {boolean}
 
 @function is-x-unit($_value) {
 
 	$_value: string($_value);
 	@return (str-length($_value) > 1 and str-slice($_value, -1, -1) == 'x' and is-number(number(str-slice($_value, 1, -2))));
-	
+
 }

@@ -1,3 +1,8 @@
+/// This creates the styles for a hover effect
+/// @name hover
+/// @group Fabric Mixins
+/// @access public
+
 @mixin hover {
 	&:active,
 	&:focus,

@@ -1,21 +1,28 @@
-//---------------------------------------------------------------
-// Convert string to camel-case
-//---------------------------------------------------------------
+/// Convert string to camel-case
+/// @name camelize
+/// @group Fabric Functions
+/// @access public
+/// @param {string} $_string [] - Set the string you which you want to camelize
+/// @require {function} SassCore::str-length
+/// @require {function} SassCore::str-slice
+/// @require {function} contain
+/// @require {function} capitalize
+/// @return {string}
 
 @function camelize($_string) {
-	
+
 	$_progress: $_string;
 	$_result: '';
 	$_exclude: ' ', '-', '–', '—', '_', ',', ';', ':', '.';
-	
+
 	@if (str-length($_progress) > 2) {
-		
+
 		$_result: str-slice($_progress, 1, 1);
 		$_progress: str-slice($_progress, 2);
-		
+
 		@while str-length($_progress) > 0  {
 			$_char: str-slice($_progress, 1, 1);
-			
+
 			@if contain($_exclude, $_char) {
 				$_progress: capitalize(str-slice($_progress, 2, 2)) + str-slice($_progress, 3);
 			} @else {
@@ -23,13 +30,13 @@
 				$_progress: str-slice($_progress, 2);
 			}
 		}
-		
+
 	} @else {
-		
+
 		$_result: $_progress;
-		
+
 	}
-	
+
 	@return $_result;
-	
+
 }

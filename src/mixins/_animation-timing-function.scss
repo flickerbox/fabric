@@ -1,6 +1,14 @@
-//---------------------------------------------------------------
-// Sets animation timing function
-//---------------------------------------------------------------
+/// Sets animation timing function
+/// @name animation-timing-function
+/// @group Fabric Mixins
+/// @access public
+/// @param {map} $_functions [] - This sets which timing functions you want to use
+/// @require {function} SassCore::length
+/// @require {function} SassCore::type-of
+/// @require {function} SassCore::nth
+/// @require {function} explode
+/// @require {function} get-timing-function
+/// @require {function} SassCore::append
 
 @mixin animation-timing-function($_functions...) {
 

@@ -1,7 +1,11 @@
-
-//---------------------------------------------------------------
-// Validate (and normalize) a position value
-//---------------------------------------------------------------
+/// Validate (and normalize) a position value
+/// @name validate-position
+/// @group Fabric Functions
+/// @param {string} $_position [] - Set the position you want to validate
+/// @require {function} SassCore::index
+/// @require {function} SassCore::unquote
+/// @require {function} string
+/// @return {string}
 
 @function validate-position($_position) {
 
@@ -12,9 +16,9 @@
 		@warn('Direction should be either top, right, bottom or left. Top used instead.');
 		$_position: 'top';
 	}
-	
+
 	$_position: unquote($_position);
-	
+
 	@return $_position;
-	
+
 }

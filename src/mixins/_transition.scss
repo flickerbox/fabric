@@ -1,6 +1,18 @@
-//---------------------------------------------------------------
-// Sets transition based on defaults
-//---------------------------------------------------------------
+/// Sets transition based on defaults
+/// @name transition
+/// @group Fabric Mixins
+/// @access public
+/// @param {properties} $_properties [] - This sets which transition functions you want to use
+/// @require {function} SassCore::length
+/// @require {function} SassCore::type-of
+/// @require {function} SassCore::nth
+/// @require {function} SassCore::index
+/// @require {function} SassCore::map-keys
+/// @require {function} SassCore::get-keys
+/// @require {function} explode
+/// @require {function} SassCore::append
+/// @require {function} SassCore::unquote
+/// @require {function} SassCore::inspect
 
 @mixin transition($_properties...) {
 

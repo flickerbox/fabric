@@ -1,6 +1,16 @@
-//---------------------------------------------------------------
-// Set drop shadow based on default
-//---------------------------------------------------------------
+/// Set drop shadow based on default
+/// @name drop-shadow
+/// @group Fabric Mixins
+/// @param {string} $_color ['black'] - Set the color of the drop shadow
+/// @param {string} $_elevation ['medium'] - Set the level of visible appearance of distance from the ground
+/// @param {string} $_inset [false] - Set if the drop shadow show be inset
+///// @require {function} SassCore::type-of
+/// @require {function} SassCore::index
+/// @require {function} SassCore::map-keys
+/// @require {function} SassCore::map-get
+/// @require {function} SassCore::rgba
+/// @require {function} SassCore::append
+/// @require {function} SassCore::unquote
 
 @mixin drop-shadow($_color: 'black', $_elevation: 'medium', $_inset: false) {
 

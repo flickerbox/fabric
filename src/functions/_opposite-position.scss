@@ -1,12 +1,16 @@
-
-//---------------------------------------------------------------
-// Get the opposite position of a position
-//---------------------------------------------------------------
+/// Get the opposite position of a position
+/// @name opposite-position
+/// @group Fabric Functions
+/// @param {string} $_position [] - Set the position you want to find the opposite of
+/// @require {function} SassCore::unquote
+/// @require {function} SassCore::map-get
+/// @require {function} validate-position
+/// @return {string}
 
 @function opposite-position($_position) {
-	
+
 	$_position: validate-position($_position);
-	
+
 	$_positions: (
 		'top':    'bottom',
 		'right':  'left',
@@ -15,5 +19,5 @@
 	);
 
 	@return unquote(map-get($_positions, $_position));
-	
+
 }

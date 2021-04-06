@@ -1,19 +1,26 @@
-//---------------------------------------------------------------
-// Shorthand to get grid gap
-//---------------------------------------------------------------
+/// Shorthand to get grid gap
+/// @name get-grid-gap
+/// @group Fabric Functions
+/// @param {string} $_value [] - Set the grid gap size
+/// @require {function} SassCore::type-of
+/// @require {function} SassCore::index
+/// @require {function} SassCore::map-keys
+/// @require {function} string
+/// @require {function} _
+/// @return {property | 0 | null}
 
 @function get-grid-gap($_value) {
 
 	$_value: string($_value);
-	
+
 	@if type-of($_value) == 'string' and index(map-keys($grid-gaps), $_value) {
-	
+
 		@return _(map-get($grid-gaps, $_value));
-	
+
 	} @else {
-		
+
 		@return 0;
-		
+
 	}
-	
+
 }

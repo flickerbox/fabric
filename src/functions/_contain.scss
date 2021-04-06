@@ -1,8 +1,13 @@
-//---------------------------------------------------------------
-// Check if word (or list) contains value
-//---------------------------------------------------------------
+/// Check if word (or list) contains value
+/// @name contain
+/// @group Fabric Functions
+/// @access public
+/// @param {string} $list [] - Set the radius you want to the circumference of
+/// @param {string} $value [] - Set the radius you want to the circumference of
+/// @return {boolean}
+
 @function contain($list, $value) {
-	
+
 	@return not not index($list, $value);
-	
+
 }

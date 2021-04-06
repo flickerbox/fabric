@@ -1,3 +1,10 @@
+/// Sets background color from color map
+/// @group Fabric Base Placeholders
+/// @access public
+/// @require {function} SassCore::index
+/// @require {function} SassCore::map-keys
+/// @require {function} SassCore::lightens
+
 %a {
 	@include color(accent);
 	@include transition(normal color);

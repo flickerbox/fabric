@@ -1,5 +1,15 @@
+////
+/// @group Fabric Utility Placeholders
+/// @access public
+/// @require {function} SassCore::map-keys
+/// @require {function} SassCore::unquote
+/// @require {function} media
+/// @require {function} camelize
+////
+
 @each $_breakpoint in map-keys($breakpoints) {
 
+	/// @name show-
 	%show--#{camelize($_breakpoint)} {
 		display: none;
 

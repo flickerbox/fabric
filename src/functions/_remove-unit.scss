@@ -1,27 +1,34 @@
-//---------------------------------------------------------
-// Removes any unit from the variable
-//---------------------------------------------------------
+/// Removes any unit from the variable
+/// @name remove-unit
+/// @group Fabric Functions
+/// @param {string} $_value [] - Set the pixel value remove the unit from
+/// @require {function} SassCore::str-length
+/// @require {function} SassCore::str-slice
+/// @require {function} string
+/// @require {function} is-number
+/// @require {function} number
+/// @return {number}
 
 @function remove-unit($_value) {
 
 	$_new-value: string($_value);
-	
+
 	@if str-length($_new-value) > 1 and str-slice($_new-value, -1, -1) == 'x' and is-number(number(str-slice($_new-value, 1, -2))) {
-		
+
 		$_new-value: str-slice($_new-value, 1, -2);
-		
+
 	}
-	
+
 	$_new-value: number($_new-value);
-	
+
 	@if $_new-value != false {
-		
+
 		@return $_new-value / ($_new-value * 0 + 1);
-	
+
 	} @else {
-		
+
 		@return $_value;
-		
+
 	}
-	
+
 }

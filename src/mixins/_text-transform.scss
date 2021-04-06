@@ -1,10 +1,15 @@
-///
-/// Responsively sets text-transform based on key in $text-transform map
-///
-/// @group Mixins
-/// @param {String} $key - Key defined in $text-transform map
-/// @param {String} $breakpoint - If defined as a sub value, will only apply the specific breakpoint value
-///
+/// Sets text transform responsively
+/// @name text-transform
+/// @group Fabric Mixins
+/// @access public
+/// @param {string} $_value [] - Set the text transform type
+/// @param {string} $_size [''] -
+/// @require {function} SassCore::type-of
+/// @require {function} SassCore::index
+/// @require {function} SassCore::map-keys
+/// @require {function} get-text-transform
+/// @require {function} responsive-property
+
 @mixin text-transform($_value, $_size: '') {
 
 	@if type-of($_value) == string and index(map-keys($text-transform), $_value) {

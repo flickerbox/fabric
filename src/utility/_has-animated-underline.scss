@@ -1,3 +1,9 @@
+////
+/// @group Fabric Utility
+/// @access public
+/// @require {function} camelize
+////
+
 .has-animatedUnderline {
 	@extend %has-animatedUnderline !optional;
 }

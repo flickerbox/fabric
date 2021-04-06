@@ -1,10 +1,18 @@
-//----------------------------------------------------------------------
-//
-// Layout
-//
-//----------------------------------------------------------------------
+////
+/// Layout
+/// @name Layout Variables
+/// @group Fabric Variables
+/// @access public
+////
 
+/// @name layout-box-sizing
 $layout-box-sizing: border-box                                 !default;
+
+/// @name layout-padding
 $layout-padding: 3x                                            !default;
+
+/// @name layout-spacing
 $layout-spacing: 8px                                           !default;
+
+/// @name layout-width
 $layout-width: 1080px                                          !default;

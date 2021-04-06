@@ -1,9 +1,13 @@
-//---------------------------------------------------------------
-// Convert string to pascal-case
-//---------------------------------------------------------------
+/// Convert string to pascal-case
+/// @name pascalize
+/// @group Fabric Functions
+/// @param {string} $_position [] - Set the string you want to convert to pascal-case
+/// @require {function} capitalize
+/// @require {function} camelize
+/// @return {string}
 
 @function pascalize($_string) {
-	
+
 	@return capitalize(camelize($_string));
-	
+
 }

@@ -1,6 +1,17 @@
-//---------------------------------------------------------------
-// Shorthand to get color
-//---------------------------------------------------------------
+/// Shorthand to get color
+/// @name get-color
+/// @group Fabric Functions
+/// @param {string} $_color [] - Set the color
+/// @param {string} $_alpha [1] - Set the alpha the color
+/// @param {string} $_return-hex [false] - true to return a hex value for the color
+/// @requires {function} SassCore::string
+/// @requires {function} SassCore::type-of
+/// @requires {function} SassCore::index
+/// @requires {function} SassCore::map-keys
+/// @requires {function} SassCore::var
+/// @requires {function} SassCore::map-get
+/// @requires {function} SassCore::rgba
+/// @returns {mixed}
 
 @function get-color($_color, $_alpha: 1, $_return-hex: false) {
 

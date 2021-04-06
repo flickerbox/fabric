@@ -1,10 +1,17 @@
-///
-/// Responsively sets line-height based on key in $line-height map
-///
-/// @group Mixins
-/// @param {String} $key - Key defined in $line-height map
-/// @param {String} $breakpoint - If defined as a sub value, will only apply the specific breakpoint value
-///
+/// Sets line height responsively
+/// @name line-height
+/// @group Fabric Mixins
+/// @access public
+/// @param {string} $_value [] - Set the line height type
+/// @param {string} $_size [''] -
+/// @require {function} SassCore::type-of
+/// @require {function} SassCore::index
+/// @require {function} SassCore::map-keys
+/// @require {function} SassCore::nth
+/// @require {function} get-line-height
+/// @require {function} responsive-property
+/// @require {function} get-font-size
+
 @mixin line-height($_value, $_size: '') {
 
 	@if type-of($_value) == string and index(map-keys($line-height), $_value) {

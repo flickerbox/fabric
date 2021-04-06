@@ -1,9 +1,11 @@
-//----------------------------------------------------------------------
-//
-// Transitions
-//
-//----------------------------------------------------------------------
+////
+/// Transitions
+/// @name Transitions Variables
+/// @group Fabric Variables
+/// @access public
+////
 
+/// @name transitions-speed
 $transitions-speed: (
 
 	'x-slow': 0.8s,

@@ -1,6 +1,11 @@
-//---------------------------------------------------------------
-// Shorthand to get letter spacing
-//---------------------------------------------------------------
+/// Shorthand to get letter spacing
+/// @name get-letter-spacing
+/// @group Fabric Functions
+/// @param {string} $_value [] - Set the letter-spacing type
+/// @param {string} $_size [''] - Set the letter-spacing size
+/// @require {function} SassCore::type-of
+/// @require {function} SassCore::map-get
+/// @return {number | null}
 
 @function get-letter-spacing($_value, $_size: '') {
 

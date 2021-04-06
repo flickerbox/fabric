@@ -1,9 +1,10 @@
-//----------------------------------------------------------------------
-//
-// Layout
-//
-//----------------------------------------------------------------------
+////
+/// Layout
+/// @name Layout Variables
+/// @group Fabric Variables
+////
 
+/// @name wrap-padding
 $wrap-padding: (
 
 	'narrow': $layout-padding,
@@ -11,6 +12,7 @@ $wrap-padding: (
 
 )                                                             !default;
 
+/// @name wrap-width
 $wrap-width: (
 
 	'narrow': $layout-width * 2/3,

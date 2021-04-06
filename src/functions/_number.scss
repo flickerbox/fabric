@@ -1,22 +1,29 @@
-//---------------------------------------------------------------
-// Number
-//---------------------------------------------------------------
+/// Number
+/// @name number
+/// @group Fabric Functions
+/// @param {string} $string [] - Set the string you want to turn into a number
+/// @require {function} SassCore::str-length
+/// @require {function} SassCore::str-slice
+/// @require {function} SassCore::index
+/// @require {function} SassCore::nth
+/// @require {function} unit-length
+/// @return {number}
 
 @function number($string) {
 	// Matrices
 	$strings: '0' '1' '2' '3' '4' '5' '6' '7' '8' '9';
 	$numbers:  0   1   2   3   4   5   6   7   8   9;
-	
+
 	// Result
 	$result: 0;
 	$divider: 0;
 	$minus: false;
-	
+
 	// Looping through all characters
 	@for $i from 1 through str-length($string) {
 		$character: str-slice($string, $i, $i);
 		$index: index($strings, $character);
-		
+
 		@if $character == '-' {
 			$minus: true;
 		} @else if $character == '.' {
@@ -26,9 +33,9 @@
 				$result: if($minus, $result * -1, $result);
 				@return unit-length($result, str-slice($string, $i));
 			}
-			
+
 			$number: nth($numbers, $index);
-			
+
 			@if $divider == 0 {
 				$result: $result * 10;
 			} @else {
@@ -36,10 +43,10 @@
 				$divider: $divider * 10;
 				$number: $number / $divider;
 			}
-		
+
 			$result: $result + $number;
 		}
 	}
-	
+
 	@return if($minus, $result * -1, $result);
 }

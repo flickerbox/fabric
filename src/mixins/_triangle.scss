@@ -1,7 +1,14 @@
-
-//---------------------------------------------------------------
-// Make a triangle
-//---------------------------------------------------------------
+/// Make a triangle
+/// @name triangle
+/// @group Fabric Mixins
+/// @access public
+/// @param {string} $_position [top] - Set the position of the triangle
+/// @param {string} $_color [currentcolor] - Set the color of the triangle
+/// @param {string} $_size [2x] - Set the size of the triangle
+/// @param {string} $_scale [1] - Set the scale of the triangle
+/// @require {function} validate-position
+/// @require {function} opposite-position
+/// @require {function} get-color
 
 @mixin triangle($_position: top, $_color: currentcolor, $_size: 2x, $_scale: 1) {
 

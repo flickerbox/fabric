@@ -1,5 +1,12 @@
+////
+/// @group Fabric Utility
+/// @access public
+/// @require {function} camelize
+////
+
 @each $name, $hex in $colors {
 
+	/// @name .color-
 	.color-#{camelize($name)} {
 		@extend %color-#{camelize($name)} !optional;
 	}

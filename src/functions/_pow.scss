@@ -1,11 +1,18 @@
+/// Returns the base to the exponent power
+/// @name pow
+/// @group Fabric Functions
+/// @param {string} $number [] - Set the base number
+/// @param {string} $exponent [] - Set the the exponent used to raise the base
+/// @return {number}
+
 @function pow($number, $exponent) {
 	$value: 1;
-	
+
 	@if $exponent > 0 {
 		@for $i from 1 through $exponent {
 			$value: $value * $number;
 		}
 	}
-	
+
 	@return $value;
 }

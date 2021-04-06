@@ -1,6 +1,20 @@
-//---------------------------------------------------------------
-// Multi color gradients
-//---------------------------------------------------------------
+/// Multi color gradients
+/// @name linear-gradient
+/// @group Fabric Mixins
+/// @access public
+/// @param {string} $_direction [] - Set the gradient direction
+/// @param {map} $_color-stops [''] - Set the color stop values
+/// @require {function} is-direction
+/// @require {function} SassCore::length
+/// @require {function} SassCore::nth
+/// @require {function} SassCore::explode
+/// @require {function} SassCore::unquote
+/// @require {function} SassCore::inspect
+/// @require {function} SassCore::inspect
+/// @require {function} SassCore::index
+/// @require {function} SassCore::map-keys
+/// @require {function} SassCore::append
+
 @mixin linear-gradient($_direction, $_color-stops...) {
 
 	// Direction has been omitted and happens to be a color-stop

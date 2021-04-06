@@ -1,3 +1,11 @@
+/// Finds the remainder after division of one number by another
+/// @name mod
+/// @group Fabric Functions
+/// @param {map} $number [] - Set the number you want find the reminder of
+/// @param {map} $divisor [] - Set number you want to divide by
+/// @require {function} SassCore::type-of
+/// @return {number}
+
 @function mod($number, $divisor) {
 	@return $number - (floor($number / $divisor) * $divisor);
 }

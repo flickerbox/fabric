@@ -1,3 +1,7 @@
+/// Sets a default margin
+/// @group Fabric Base Placeholders
+/// @access public
+
 %article {
 	@include margin(4x 0);
 }

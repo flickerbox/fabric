@@ -25,6 +25,7 @@
 
 ///
 /// Creates a list of global breakpoints
+/// @group Include Media
 ///
 /// @example scss - Creates a single breakpoint with the label `phone`
 ///  $breakpoints: ('phone': 320px);
@@ -38,6 +39,7 @@ $breakpoints: (
 
 ///
 /// Creates a list of static expressions or media types
+/// @group Include Media
 ///
 /// @example scss - Creates a single media type (screen)
 ///  $media-expressions: ('screen': 'screen');
@@ -60,6 +62,7 @@ $media-expressions: (
 
 ///
 /// Defines a number to be added or subtracted from each unit when declaring breakpoints with exclusive intervals
+/// @group Include Media
 ///
 /// @example scss - Interval for pixels is defined as `1` by default
 ///  @include media('>128px') {}
@@ -88,6 +91,7 @@ $unit-intervals: (
 
 ///
 /// Defines whether support for media queries is available, useful for creating separate stylesheets
+/// @group Include Media
 /// for browsers that don't support media queries.
 ///
 /// @example scss - Disables support for media queries
@@ -108,6 +112,7 @@ $im-media-support: true !default;
 ///
 /// Selects which breakpoint to emulate when support for media queries is disabled. Media queries that start at or
 /// intercept the breakpoint will be displayed, any others will be ignored.
+/// @group Include Media
 ///
 /// @example scss - This media query will show because it intercepts the static breakpoint
 ///  $im-media-support: false;
@@ -139,6 +144,7 @@ $im-no-media-breakpoint: 'desktop' !default;
 ///
 /// Selects which media expressions are allowed in an expression for it to be used when media queries
 /// are not supported.
+/// @group Include Media
 ///
 /// @example scss - This media query will show because it intercepts the static breakpoint and contains only accepted media expressions
 ///  $im-media-support: false;

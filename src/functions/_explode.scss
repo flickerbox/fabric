@@ -1,6 +1,16 @@
-//---------------------------------------------------------------
-// Explode a string, cause we can
-//---------------------------------------------------------------
+/// Explode a string, cause we can
+/// @name explode
+/// @group Fabric Functions
+/// @access public
+/// @param {string} $_string [] - Set the string you which you want to explode
+/// @param {string} $dem [] - Set the delimiter
+/// @require {function} SassCore::str-length
+/// @require {function} SassCore::str-index
+/// @require {function} SassCore::append
+/// @require {function} SassCore::type-of
+/// @require {function} SassCore::str-slice
+/// @return {map}
+
 @function explode($string, $dem) {
 
 	$list: ();

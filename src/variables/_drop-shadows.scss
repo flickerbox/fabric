@@ -1,11 +1,14 @@
-//----------------------------------------------------------------------
-//
-// Drop Shadows
-//
-//----------------------------------------------------------------------
+////
+/// Drop Shadows
+/// @name Drop Shadows Variables
+/// @group Fabric Variables
+/// @access public
+////
 
+/// @name drop-shadows-alpha
 $drop-shadows-alpha: 0.2                                       !default;
 
+/// @name drop-shadows-elevations
 $drop-shadows-elevations: (
 
 	'lowest':  ('0 1px 2px', '0 1px 3px'),

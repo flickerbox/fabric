@@ -28,6 +28,7 @@
 /// API than `@if im-log('..') {}` or `$_: im-log('..')`. Basically, use the function
 /// within functions because it is not possible to include a mixin in a function
 /// and use the mixin everywhere else because it's much more elegant.
+/// @group Include Media
 ///
 /// @param {String} $message - Message to log
 ///
@@ -41,6 +42,7 @@
 /// the call. It is helpful when having a component needing an extended
 /// configuration such as custom breakpoints (referred to as tweakpoints)
 /// for instance.
+/// @group Include Media
 ///
 /// @author Hugo Giraudel
 ///
@@ -99,6 +101,7 @@
 
 ///
 /// Generates a media query based on a list of conditions
+/// @group Include Media
 ///
 /// @param {Arglist}   $conditions  - Media query conditions
 ///

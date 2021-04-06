@@ -1,21 +1,26 @@
-//---------------------------------------------------------------
-// Reverse the order of a list
-//---------------------------------------------------------------
+/// Reverse the order of a list
+/// @name list-reverse
+/// @group Fabric Functions
+/// @param {list} $_list [] - Set the list you want to reverse
+/// @require {function} SassCore::type-of
+/// @require {function} SassCore::length
+/// @require {function} SassCore::append
+/// @return {boolean}
 
 @function list-reverse($_list) {
-	
+
 	$_result: null;
-	
+
 	@if type-of($_list) == 'list' {
 		$_list-reversed: ();
-		
+
 		@for $i from length($_list) through 1 {
 			$_list-reversed: append(
-				$_list-reversed, 
+				$_list-reversed,
 				nth($_list, $i)
 			);
 		}
-		
+
 		@if type-of($_list-reversed) == 'list' {
 			$_result: $_list-reversed;
 		} @else {
@@ -24,7 +29,7 @@
 	} @else {
 		@warn ''#{$_list}' is not a valid list';
 	}
-	
+
 	@return $_result;
-	
+
 }
