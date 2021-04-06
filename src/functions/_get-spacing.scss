@@ -1,0 +1,45 @@
+//---------------------------------------------------------------
+// Shorthand to get spacing unit
+//---------------------------------------------------------------
+
+@function get-spacing($values) {
+
+	$list: ();
+
+	@if type-of($values) != 'list' {
+		$values: ($values,);
+	}
+
+	@each $value in $values {
+
+		$negative: false;
+		$value: string($value);
+
+		@if str-index($value, '-') == 1 {
+			$negative: true;
+			$value: str-slice($value, 2);
+		}
+		
+		@if type-of($value) == 'string' and index(map-keys($spacing), $value) {
+			$value: map-get($spacing, $value);
+		}
+
+		@if $negative {
+			$value: to-negative($value);
+		}
+		
+		$value: x-to-px($value);
+
+		@if $value != null {
+			$list: append($list, $value);
+		}
+
+	}
+
+	@if length($list) == 1 {
+		@return nth($list, 1);
+	} @else {
+		@return $list;
+	}
+		
+}

@@ -1,0 +1,43 @@
+/// Sets transition timing function
+/// @name transition-timing-function
+/// @group Fabric Mixins
+/// @access public
+/// @param {map} $_functions [] - Set the transition timing function
+/// @require {function} SassCore::length
+/// @require {function} SassCore::nth
+/// @require {function} SassCore::type-of
+/// @require {function} SassCore::append
+/// @require {function} explode
+/// @require {function} get-timing-function
+
+@mixin transition-timing-function($_functions...) {
+
+	$_result: ();
+
+	@if length($_functions) == 0 {
+		$_functions: (
+			'linear'
+		);
+	}
+
+	@for $i from 1 through length($_functions) {
+
+		$_property: nth($_functions, $i);
+		$_sub-result: ();
+
+		@if type-of($_property) == string {
+			$_property: explode($_property, ' ');
+		}
+
+		@each $_sub-property in $_property {
+
+			$_sub-result: get-timing-function($_sub-property);
+
+		}
+
+		$_result: append($_result, $_sub-result, comma);
+	}
+
+	transition-timing-function: #{$_result};
+
+}

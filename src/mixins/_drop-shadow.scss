@@ -1,0 +1,53 @@
+/// Set drop shadow based on default
+/// @name drop-shadow
+/// @group Fabric Mixins
+/// @param {string} $_color ['black'] - Set the color of the drop shadow
+/// @param {string} $_elevation ['medium'] - Set the level of visible appearance of distance from the ground
+/// @param {string} $_inset [false] - Set if the drop shadow show be inset
+///// @require {function} SassCore::type-of
+/// @require {function} SassCore::index
+/// @require {function} SassCore::map-keys
+/// @require {function} SassCore::map-get
+/// @require {function} SassCore::rgba
+/// @require {function} SassCore::append
+/// @require {function} SassCore::unquote
+
+@mixin drop-shadow($_color: 'black', $_elevation: 'medium', $_inset: false) {
+
+	$_box_shadow: ();
+
+	@if($_inset) {
+		$_inset: 'inset';
+	} @else {
+		$_inset: '';
+	}
+
+	@if type-of($_elevation) == string and index(map-keys($drop-shadows-elevations), $_elevation) {
+
+		$_alpha: $drop-shadows-alpha;
+
+		@if type-of($_alpha) == 'map' {
+			$_alpha: map-get($_alpha, $_elevation);
+		}
+
+		$_shadow_list: map-get($drop-shadows-elevations, $_elevation);
+
+		@each $_shadow in $_shadow_list {
+			$_this_color: '';
+
+			@if is-color($_color) {
+				$_this_color: get-color($_color, ($_alpha / index($_shadow_list, $_shadow)));
+			} @else {
+				$_this_color: rgba($_color, ($_alpha / index($_shadow_list, $_shadow)));
+			}
+
+			$_box_shadow: append($_box_shadow, unquote('#{$_this_color} #{$_shadow} #{$_inset}'), 'comma');
+		}
+
+	}
+
+	@if length($_box_shadow) > 0 {
+		box-shadow: #{$_box_shadow};
+	}
+
+}

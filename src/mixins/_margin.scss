@@ -1,0 +1,53 @@
+//---------------------------------------------------------------
+// Sets margins relative to $layout-spacing
+//---------------------------------------------------------------
+
+@mixin margin($margin: 3x auto, $breakpoint: '') {
+
+	$margin: parse-spacing($margin);
+
+	@if $breakpoint != '' {
+
+		@if str-index($breakpoint, '<') == null {
+
+			$breakpoint: '<#{$breakpoint}';
+
+		}
+
+		@include media($breakpoint) {
+
+			margin: get-spacing(to-list($margin));
+
+			@if map-get($margin, 'top') != 0 {
+				&:first-child {
+					margin-top: 0;
+				}
+			}
+
+			@if map-get($margin, 'bottom') != 0 {
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+
+		}
+
+	} @else {
+
+		margin: get-spacing(to-list($margin));
+
+		@if map-get($margin, 'top') != 0 {
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+
+		@if map-get($margin, 'bottom') != 0 {
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+	}
+
+}

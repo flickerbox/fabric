@@ -1,8 +1,0 @@
-/// @group Fabric
-/// @access public
-
-.Button,
-[class^='Button--'],
-[class*=' Button--'] {
-	@extend %Button !optional;
-}

@@ -1,0 +1,14 @@
+////
+/// @group Fabric Utility Placeholders
+/// @access public
+/// @require {function} camelize
+////
+
+@each $name, $hex in $colors {
+
+	/// @name color-
+	%color-#{camelize($name)} {
+		color: #{$hex};
+	}
+
+}

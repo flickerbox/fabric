@@ -1,0 +1,4 @@
+%h6 {
+	@extend %h !optional;
+	@include font(h6);
+}

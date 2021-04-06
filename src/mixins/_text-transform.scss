@@ -1,0 +1,32 @@
+/// Sets text transform responsively
+/// @name text-transform
+/// @group Fabric Mixins
+/// @access public
+/// @param {string} $_value [] - Set the text transform type
+/// @param {string} $_size [''] -
+/// @require {function} SassCore::type-of
+/// @require {function} SassCore::index
+/// @require {function} SassCore::map-keys
+/// @require {function} get-text-transform
+/// @require {function} responsive-property
+
+@mixin text-transform($_value, $_size: '') {
+
+	@if type-of($_value) == string and index(map-keys($text-transform), $_value) {
+
+		$_text-transform: get-text-transform($_value, $_size);
+
+		@if type-of($_text-transform) == 'map' {
+
+			$first: true;
+			@include responsive-property('text-transform', $_text-transform);
+
+		} @else {
+
+			text-transform: #{$_text-transform};
+
+		}
+
+	}
+
+}

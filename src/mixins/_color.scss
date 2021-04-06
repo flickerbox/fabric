@@ -1,0 +1,12 @@
+///
+/// Sets text color based on key in $colors map
+///
+/// @group Mixins
+/// @param {String} $color - Key of color in $colors map
+/// @param {Number} $alpha - Alpha value that should be applied to color
+///
+@mixin color($_color, $_alpha: 1) {
+
+	color: get-color($_color, $_alpha);
+
+}

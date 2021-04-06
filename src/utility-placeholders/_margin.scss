@@ -1,0 +1,36 @@
+@each $key, $value in $spacing {
+	%mb-#{camelize($key)} {
+		margin-bottom: _($value) !important;
+	}
+
+	%mt-#{camelize($key)} {
+		margin-top: _($value) !important;
+	}
+}
+
+@each $breakpoint in map-keys($breakpoints) {
+	@include media('<#{$breakpoint}') {
+		@each $key, $value in $spacing {
+			%mb-#{camelize($key)}--#{camelize($breakpoint)} {
+				margin-bottom: _($value) !important;
+			}
+
+			%mt-#{camelize($key)}--#{camelize($breakpoint)} {
+				margin-top: _($value) !important;
+			}
+		}
+	}
+}
+
+%ml-auto {
+	margin-left: auto !important;
+}
+
+%mr-auto {
+	margin-right: auto !important;
+}
+
+%mx-auto {
+	margin-left: auto !important;
+	margin-right: auto !important;
+}

@@ -1,0 +1,26 @@
+/// Sets transition timing function
+/// @name get-timing-function
+/// @group Fabric Functions
+/// @access public
+/// @param {property} $_value [] - This sets the animation functions
+/// @require {function} SassCore::type-of
+/// @require {function} SassCore::index
+/// @require {function} SassCore::map-keys
+/// @require {function} SassCore::map-get
+/// @require {function} SassCore::unquote
+/// @require {function} SassCore::inspect
+/// @return {property}
+
+@function get-timing-function($_value) {
+
+	@if type-of($_value) == string and index(map-keys($timing-functions), $_value) {
+
+		@return map-get($timing-functions, $_value);
+
+	} @else {
+
+		@return unquote(string($_value));
+
+	}
+
+}

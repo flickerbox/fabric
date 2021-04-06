@@ -1,0 +1,7 @@
+@each $_breakpoint in map-keys($breakpoints) {
+
+	.hide--#{camelize($_breakpoint)} {
+		@extend %hide--#{camelize($_breakpoint)} !optional;
+	}
+
+}

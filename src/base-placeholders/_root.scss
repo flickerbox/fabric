@@ -1,0 +1,13 @@
+/// @group Fabric Base Placeholders
+/// @access public
+
+%root {
+	@each $name, $breakpoint in $breakpoints {
+		--breakpoint-#{$name}: #{$breakpoint};
+	}
+
+	@each $name, $hex in $colors {
+		--color-#{$name}: #{$hex};
+		--color-#{$name}-rgb: #{red($hex)}, #{green($hex)}, #{blue($hex)};
+	}
+}

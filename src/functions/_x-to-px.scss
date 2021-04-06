@@ -1,0 +1,34 @@
+//---------------------------------------------------------------
+// Converts an 'x' unit into px based on
+// the $layout-spacing variable
+//---------------------------------------------------------------
+
+@function x-to-px($values) {
+
+	$list: ();
+
+	@if type-of($values) != 'list' {
+		$values: ($values,);
+	}
+
+	@each $value in $values {
+		@if type-of($value) == 'string' {
+			$value: unquote($value);
+		}
+
+		@if is-x-unit($value) {
+			$value: remove-unit($value) * $layout-spacing;
+		}
+
+		@if $value != null {
+			$list: append($list, $value);
+		}
+	}
+
+	@if length($list) == 1 {
+		@return nth($list, 1);
+	} @else {
+		@return $list;
+	}
+
+}

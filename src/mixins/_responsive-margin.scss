@@ -1,0 +1,25 @@
+//---------------------------------------------------------------
+// Sets marfgins based on the responsive key:value
+// pairs defined in a map
+//---------------------------------------------------------------
+
+@mixin responsive-margin($values) {
+
+	$first: true;
+
+	@each $breakpoint, $margins in $values {
+
+		@if $first {
+
+			@include margin($margins);
+			$first: false;
+
+		} @else {
+
+			@include margin($margins, $breakpoint);
+
+		}
+
+	}
+
+}

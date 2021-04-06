@@ -1,0 +1,4 @@
+%h2 {
+	@extend %h !optional;
+	@include font(h2);
+}

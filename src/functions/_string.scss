@@ -1,0 +1,14 @@
+/// Convert to string
+/// @name string
+/// @group Fabric Functions
+/// @param {string} $_value [] - Set the value you want to turn into a string
+/// @require {function} SassCore::inspect
+/// @return {string}
+
+@function string($value) {
+	@if is-string($value) == false {
+		$value: inspect($value);
+	}
+
+	@return $value;
+}

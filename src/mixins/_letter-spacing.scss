@@ -1,0 +1,27 @@
+///
+/// Responsively sets letter-spacing based on key in $letter-spacing map
+///
+/// @group Mixins
+/// @param {String} $key - Key defined in $letter-spacing map
+/// @param {String} $breakpoint - If defined as a sub value, will only apply the specific breakpoint value
+///
+@mixin letter-spacing($_value, $_size: '') {
+
+	@if type-of($_value) == string and index(map-keys($letter-spacing), $_value) {
+
+		$_letter-spacing: get-letter-spacing($_value, $_size);
+
+		@if type-of($_letter-spacing) == 'map' {
+
+			$first: true;
+			@include responsive-property('letter-spacing', $_letter-spacing);
+
+		} @else {
+
+			letter-spacing: #{$_letter-spacing};
+
+		}
+
+	}
+
+}

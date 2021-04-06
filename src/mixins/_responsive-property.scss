@@ -1,0 +1,90 @@
+//---------------------------------------------------------------
+// Sets a property based on the responsive key:value
+// pairs defined in a map
+//---------------------------------------------------------------
+
+@mixin responsive-property($property, $values, $format: false) {
+
+	$first: true;
+	$negative: false;
+	$formatted: false;
+	$formatted-prefix: '';
+	$formatted-suffix: '';
+
+	@if str-index($property, '-') == 1 {
+
+		$negative: true;
+		$property: str-slice($property, 2);
+
+	}
+
+	@if type-of($format) == 'string' and str-index($format, '%s') != null {
+
+		$formatted: true;
+		$formatted-prefix: str-slice($format, 0, str-index($format, '%s') - 1);
+		$formatted-suffix: str-slice($format, str-index($format, '%s') + 2);
+
+	}
+
+	@if type-of($values) == 'map' {
+
+		@each $breakpoint, $value in $values {
+
+			$value: x-to-px($value);
+
+			@if $negative {
+
+				$value: to-negative($value);
+
+			}
+
+			@if $formatted {
+
+				$value: unquote('#{$formatted-prefix}#{$value}#{$formatted-suffix}');
+
+			}
+
+			@if $first {
+
+				#{$property}: #{$value};
+				$first: false;
+
+			} @else {
+
+				@if str-index($breakpoint, '<') == null {
+
+					$breakpoint: '<#{$breakpoint}';
+
+				}
+
+				@include media('#{$breakpoint}') {
+
+					#{$property}: #{$value};
+
+				}
+
+			}
+
+		}
+
+	} @else {
+
+		$values: x-to-px($values);
+
+		@if $negative {
+
+			$values: to-negative($values);
+
+		}
+
+		@if $formatted {
+
+			$values: unquote('#{$formatted-prefix}#{$values}#{$formatted-suffix}');
+
+		}
+
+		#{$property}: #{$values};
+
+	}
+
+}

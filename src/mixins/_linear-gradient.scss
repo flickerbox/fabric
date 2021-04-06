@@ -1,0 +1,62 @@
+/// Multi color gradients
+/// @name linear-gradient
+/// @group Fabric Mixins
+/// @access public
+/// @param {string} $_direction [] - Set the gradient direction
+/// @param {map} $_color-stops [''] - Set the color stop values
+/// @require {function} is-direction
+/// @require {function} SassCore::length
+/// @require {function} SassCore::nth
+/// @require {function} SassCore::explode
+/// @require {function} SassCore::unquote
+/// @require {function} SassCore::inspect
+/// @require {function} SassCore::inspect
+/// @require {function} SassCore::index
+/// @require {function} SassCore::map-keys
+/// @require {function} SassCore::append
+
+@mixin linear-gradient($_direction, $_color-stops...) {
+
+	// Direction has been omitted and happens to be a color-stop
+	@if is-direction($_direction) == false {
+		$_color-stops: $_direction, $_color-stops;
+		$_direction: 180deg;
+	}
+
+	$_result: ();
+	$_is-transparent: false;
+
+	@for $i from 1 through length($_color-stops) {
+
+		$_color-stop: nth($_color-stops, $i);
+		$_sub-result: ();
+
+		@if type-of($_color-stop) == string {
+			$_color-stop: explode($_color-stop, ' ');
+		}
+
+		@each $_sub-color-stop in $_color-stop {
+
+			$_sub-color-stop: unquote(string($_sub-color-stop));
+
+			@if is-color($_sub-color-stop) {
+				$_sub-color-stop: get-color($_sub-color-stop);
+			}
+
+			@if $_sub-color-stop == 'transparent' {
+				$_is-transparent: true;
+			}
+
+			$_sub-result: append($_sub-result, $_sub-color-stop);
+
+		}
+
+		$_result: append($_result, $_sub-result, comma);
+	}
+
+	@if $_is-transparent == false {
+		background-color: nth(nth($_result, 1), 1);
+	}
+
+	background-image: linear-gradient($_direction, $_result);
+}
