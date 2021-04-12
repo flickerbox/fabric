@@ -19,7 +19,7 @@
 			$negative: true;
 			$value: str-slice($value, 2);
 		}
-		
+
 		@if type-of($value) == 'string' and index(map-keys($spacing), $value) {
 			$value: map-get($spacing, $value);
 		}
@@ -27,11 +27,11 @@
 		@if $negative {
 			$value: to-negative($value);
 		}
-		
+
 		$value: x-to-px($value);
 
 		@if $value != null {
-			$list: append($list, $value);
+			$list: append($list, number($value));
 		}
 
 	}
@@ -41,5 +41,5 @@
 	} @else {
 		@return $list;
 	}
-		
+
 }

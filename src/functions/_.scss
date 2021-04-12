@@ -6,6 +6,6 @@
 ///
 @function _($_value) {
 
-	@return x-to-px($_value);
+	@return get-spacing($_value);
 
 }
