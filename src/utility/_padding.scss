@@ -3,21 +3,35 @@
 		@extend %pb-#{camelize($key)} !optional;
 	}
 
+	.pl-#{camelize($key)} {
+		@extend %pl-#{camelize($key)} !optional;
+	}
+
+	.pr-#{camelize($key)} {
+		@extend %pr-#{camelize($key)} !optional;
+	}
+
 	.pt-#{camelize($key)} {
 		@extend %pt-#{camelize($key)} !optional;
 	}
 }
 
 @each $breakpoint in map-keys($breakpoints) {
-	@include media('<#{$breakpoint}') {
-		@each $key, $value in $spacing {
-			.pb-#{camelize($key)}--#{camelize($breakpoint)} {
-				@extend %pb-#{camelize($key)}--#{camelize($breakpoint)} !optional;
-			}
+	@each $key, $value in $spacing {
+		.pb-#{camelize($key)}--#{camelize($breakpoint)} {
+			@extend %pb-#{camelize($key)}--#{camelize($breakpoint)} !optional;
+		}
 
-			.pt-#{camelize($key)}--#{camelize($breakpoint)} {
-				@extend %pt-#{camelize($key)}--#{camelize($breakpoint)} !optional;
-			}
+		.pl-#{camelize($key)}--#{camelize($breakpoint)} {
+			@extend %pl-#{camelize($key)}--#{camelize($breakpoint)} !optional;
+		}
+
+		.pr-#{camelize($key)}--#{camelize($breakpoint)} {
+			@extend %pr-#{camelize($key)}--#{camelize($breakpoint)} !optional;
+		}
+
+		.pt-#{camelize($key)}--#{camelize($breakpoint)} {
+			@extend %pt-#{camelize($key)}--#{camelize($breakpoint)} !optional;
 		}
 	}
 }
