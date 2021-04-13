@@ -3,6 +3,14 @@
 		padding-bottom: _($value) !important;
 	}
 
+	%pl-#{camelize($key)} {
+		padding-left: _($value) !important;
+	}
+
+	%pr-#{camelize($key)} {
+		padding-right: _($value) !important;
+	}
+
 	%pt-#{camelize($key)} {
 		padding-top: _($value) !important;
 	}
@@ -13,6 +21,14 @@
 		@each $key, $value in $spacing {
 			%pb-#{camelize($key)}--#{camelize($breakpoint)} {
 				padding-bottom: _($value) !important;
+			}
+
+			%pl-#{camelize($key)}--#{camelize($breakpoint)} {
+				padding-left: _($value) !important;
+			}
+
+			%pr-#{camelize($key)}--#{camelize($breakpoint)} {
+				padding-right: _($value) !important;
 			}
 
 			%pt-#{camelize($key)}--#{camelize($breakpoint)} {

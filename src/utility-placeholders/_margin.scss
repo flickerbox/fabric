@@ -3,22 +3,16 @@
 		margin-bottom: _($value) !important;
 	}
 
+	%ml-#{camelize($key)} {
+		margin-left: _($value) !important;
+	}
+
+	%mr-#{camelize($key)} {
+		margin-right: _($value) !important;
+	}
+
 	%mt-#{camelize($key)} {
 		margin-top: _($value) !important;
-	}
-}
-
-@each $breakpoint in map-keys($breakpoints) {
-	@include media('<#{$breakpoint}') {
-		@each $key, $value in $spacing {
-			%mb-#{camelize($key)}--#{camelize($breakpoint)} {
-				margin-bottom: _($value) !important;
-			}
-
-			%mt-#{camelize($key)}--#{camelize($breakpoint)} {
-				margin-top: _($value) !important;
-			}
-		}
 	}
 }
 
@@ -33,4 +27,39 @@
 %mx-auto {
 	margin-left: auto !important;
 	margin-right: auto !important;
+}
+
+@each $breakpoint in map-keys($breakpoints) {
+	@include media('<#{$breakpoint}') {
+		@each $key, $value in $spacing {
+			%mb-#{camelize($key)}--#{camelize($breakpoint)} {
+				margin-bottom: _($value) !important;
+			}
+
+			%ml-#{camelize($key)}--#{camelize($breakpoint)} {
+				margin-left: _($value) !important;
+			}
+
+			%mr-#{camelize($key)}--#{camelize($breakpoint)} {
+				margin-right: _($value) !important;
+			}
+
+			%mt-#{camelize($key)}--#{camelize($breakpoint)} {
+				margin-top: _($value) !important;
+			}
+		}
+
+		%ml-auto--#{camelize($breakpoint)} {
+			margin-left: auto !important;
+		}
+
+		%mr-auto--#{camelize($breakpoint)} {
+			margin-right: auto !important;
+		}
+
+		%mx-auto--#{camelize($breakpoint)} {
+			margin-left: auto !important;
+			margin-right: auto !important;
+		}
+	}
 }
