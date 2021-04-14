@@ -69,7 +69,7 @@
 
 	} @else {
 
-		$values: x-to-px($values);
+		$values: get-spacing($values);
 
 		@if $negative {
 
