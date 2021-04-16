@@ -2,20 +2,36 @@
 /// @access public
 
 %Grid {
+	@extend %Grid-columns;
+	@extend %Grid-gaps;
 	@extend %Grid-wrap;
 
 	> div {
 		@extend %Grid-item;
 	}
+}
 
-	@for $i from 1 through $grid-columns {
-		$_class: '&.with-#{$i} > div';
+%Grid-wrap {
+	$grid-gap: get-grid-gap('normal');
+	box-sizing: border-box;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 (-$grid-gap / 2) (-$grid-gap);
+	width: calc(100% + #{$grid-gap});
+}
 
-		@if $i == $grid-columns {
-			$_class: '> div, #{$_class}';
-		}
+%Grid-item {
+	$grid-gap: get-grid-gap('normal');
+	box-sizing: border-box;
+	flex-shrink: 0;
+	padding: 0 ($grid-gap / 2) ($grid-gap);
+	position: relative;
+	width: 100% / $grid-columns;
+}
 
-		#{$_class} {
+%Grid-columns {
+	@for $i from $grid-columns through 1 {
+		&.with-#{$i} > div {
 			width: 100% / $i;
 		}
 	}
@@ -36,7 +52,7 @@
 			$_breakpoint: nth($_breakpoints, $i);
 
 			@if $i == 1 {
-				@for $_columns from 1 through $grid-columns {
+				@for $_columns from $grid-columns through 1 {
 					@for $j from 1 through $_columns {
 						$_grid-item-class: '> .is-#{$j}';
 
@@ -51,7 +67,7 @@
 				}
 			} @else {
 				@include media('<#{$_breakpoint}') {
-					@for $_columns from 1 through $grid-columns {
+					@for $_columns from $grid-columns through 1 {
 						@for $j from 1 through $_columns {
 
 							@if $j == 1 {
@@ -61,8 +77,9 @@
 								}
 
 							}
-
-							&#{$_grid-class}.with-#{$_columns} > .is-#{$j}--#{camelize($_breakpoint)} {
+							&#{$_grid-class}.with-#{$_columns} > .is-#{$j}--#{camelize($_breakpoint)},
+							&#{$_grid-class}.with-#{$_columns}--#{camelize($_breakpoint)} > .is-#{$j},
+							&#{$_grid-class}.with-#{$_columns}--#{camelize($_breakpoint)} > .is-#{$j}--#{camelize($_breakpoint)} {
 								width: 100% * ($j / $_columns);
 							}
 
@@ -74,32 +91,51 @@
 	}
 }
 
-%Grid-wrap {
-	box-sizing: border-box;
-	display: flex;
-	flex-wrap: wrap;
+%Grid-gaps {
+	@each $_grid-breakpoint in map-keys($grid-breakpoints) {
+		$_breakpoints: map-get($grid-breakpoints, $_grid-breakpoint);
+		$_grid-class: '.has-#{camelize($_grid-breakpoint)}Breakpoints';
 
-	@each $key in map-keys($grid-gaps) {
-		$_gap: get-grid-gap($key);
-		$_grid-class: '&.has-#{camelize($key)}Gaps';
-
-		@if $key == 'normal' {
-			$_grid-class: '&, #{$_grid-class}';
+		@if length($_breakpoints) > 1 {
+			$_breakpoints: list-reverse($_breakpoints);
 		}
 
-		#{$_grid-class} {
-			margin: 0 (-$_gap / 2) (-$_gap);
-			width: calc(100% + #{$_gap});
+		@if $_grid-breakpoint == 'normal' {
+			$_grid-class: '';
+		}
 
-			> %Grid-item {
-				padding: 0 ($_gap / 2) ($_gap);
+		@for $i from 1 through length($_breakpoints) {
+			$_breakpoint: nth($_breakpoints, $i);
+
+			@if $i == 1 {
+				@each $key in map-keys($grid-gaps) {
+					$_gap: get-grid-gap($key);
+
+					&.has-#{camelize($key)}Gaps {
+						margin: 0 (-$_gap / 2) (-$_gap);
+						width: calc(100% + #{$_gap});
+
+						> div {
+							padding: 0 ($_gap / 2) ($_gap);
+						}
+					}
+				}
+			} @else {
+				@include media('<#{$_breakpoint}') {
+					@each $key in map-keys($grid-gaps) {
+						$_gap: get-grid-gap($key);
+
+						&.has-#{camelize($key)}Gaps--#{camelize($_breakpoint)} {
+							margin: 0 (-$_gap / 2) (-$_gap);
+							width: calc(100% + #{$_gap});
+
+							> div {
+								padding: 0 ($_gap / 2) ($_gap);
+							}
+						}
+					}
+				}
 			}
 		}
 	}
-}
-
-%Grid-item {
-	box-sizing: border-box;
-	flex-shrink: 0;
-	position: relative;
 }
