@@ -31,7 +31,11 @@
 		$value: x-to-px($value);
 
 		@if $value != null {
-			$list: append($list, number($value));
+			@if ($value == 'auto') {
+				$list: append($list, auto);
+			} @else {
+				$list: append($list, number($value));
+			}
 		}
 
 	}
