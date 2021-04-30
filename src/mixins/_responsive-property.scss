@@ -30,7 +30,11 @@
 
 		@each $breakpoint, $value in $values {
 
-			$value: get-spacing($value);
+			$spacing-value: get-spacing($value);
+
+			@if $spacing-value != false {
+				$value: $spacing-value;
+			}
 
 			@if $negative {
 
