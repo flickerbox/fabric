@@ -28,7 +28,11 @@
 			$value: to-negative($value);
 		}
 
-		$value: x-to-px($value);
+		$px-value: x-to-px($value);
+
+		@if $px-value != false {
+			$value: $px-value;
+		}
 
 		@if $value != null {
 			@if ($value == 'auto') {
