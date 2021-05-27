@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 ////
 /// Layout
 /// @name Layout Variables
@@ -15,7 +17,7 @@ $wrap-padding: (
 /// @name wrap-width
 $wrap-width: (
 
-	'narrow': $layout-width * 2/3,
+	'narrow': $layout-width * math.div(2, 3),
 	'no-padding': $layout-width
 
 )                                                             !default;
