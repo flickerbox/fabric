@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 /// Converts a pixel value into a root em based value
 /// @name px-to-rem
 /// @group Fabric Functions
@@ -8,6 +10,6 @@
 
 @function px-to-rem($_value) {
 
-	@return (remove-unit($_value) / remove-unit(map-get($font-size, 'base'))) * 1rem;
+	@return math.div(remove-unit($_value), remove-unit(map-get($font-size, 'base'))) * 1rem;
 
 }

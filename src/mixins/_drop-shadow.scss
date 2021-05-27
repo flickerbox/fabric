@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 /// Set drop shadow based on default
 /// @name drop-shadow
 /// @group Fabric Mixins
@@ -36,9 +38,9 @@
 			$_this_color: '';
 
 			@if is-color($_color) {
-				$_this_color: get-color($_color, ($_alpha / index($_shadow_list, $_shadow)));
+				$_this_color: get-color($_color, math.div($_alpha, index($_shadow_list, $_shadow)));
 			} @else {
-				$_this_color: rgba($_color, ($_alpha / index($_shadow_list, $_shadow)));
+				$_this_color: rgba($_color, math.div($_alpha, index($_shadow_list, $_shadow)));
 			}
 
 			$_box_shadow: append($_box_shadow, unquote('#{$_this_color} #{$_shadow} #{$_inset}'), 'comma');

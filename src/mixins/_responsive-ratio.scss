@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 //---------------------------------------------------------------
 // Sets responsive ratio on an object
 //---------------------------------------------------------------
@@ -20,7 +22,7 @@
 				$first: false;
 
 				&:before {
-					padding-bottom: 100% * $height / $width;
+					padding-bottom: 100% * math.div($height, $width);
 				}
 
 			} @else {
@@ -31,7 +33,7 @@
 
 				@include media('#{$breakpoint}') {
 					&:before {
-						padding-bottom: 100% * $height / $width;
+						padding-bottom: 100% * math.div($height, $width);
 					}
 				}
 
@@ -47,7 +49,7 @@
 		$height: number(nth(explode($ratios, 'x'), 2));
 
 		&:before {
-			padding-bottom: 100% * $height / $width;
+			padding-bottom: 100% * math.div($height, $width);
 		}
 
 	}

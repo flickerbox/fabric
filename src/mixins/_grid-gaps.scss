@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 /// @name grid-gaps
 /// @group Fabric Mixins
 /// @access public
@@ -5,10 +7,10 @@
 
 @mixin grid-gaps($_key: 'normal') {
 	$_gap-width: get-grid-gap($_key);
-	margin: 0 (-$_gap-width / 2) (-$_gap-width);
+	margin: 0 math.div(-$_gap-width, 2) (-$_gap-width);
 	width: calc(100% + #{$_gap-width});
 
 	> div {
-		padding: 0 ($_gap-width / 2) ($_gap-width);
+		padding: 0 math.div($_gap-width, 2) ($_gap-width);
 	}
 }

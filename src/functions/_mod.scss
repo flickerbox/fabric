@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 /// Finds the remainder after division of one number by another
 /// @name mod
 /// @group Fabric Functions
@@ -7,5 +9,5 @@
 /// @return {number}
 
 @function mod($number, $divisor) {
-	@return $number - (floor($number / $divisor) * $divisor);
+	@return $number - (floor(math.div($number, $divisor)) * $divisor);
 }

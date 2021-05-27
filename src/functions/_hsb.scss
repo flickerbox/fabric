@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 /// Convert hsb to hsl color
 /// @name hsb
 /// @group Fabric Functions
@@ -15,8 +17,8 @@
 	} @else if $b-hsb == 100 {
 		@return hsla(0, 0, 100, $a);
 	} @else {
-		$l-hsl: ($b-hsb/2) * (2 - ($s-hsb/100));
-		$s-hsl: ($b-hsb * $s-hsb) / if($l-hsl < 50, $l-hsl * 2, 200 - $l-hsl * 2);
+		$l-hsl: math.div($b-hsb, 2) * (2 - math.div($s-hsb, 100));
+		$s-hsl: math.div(($b-hsb * $s-hsb), if($l-hsl < 50, $l-hsl * 2, 200 - $l-hsl * 2));
 		@return hsla($h-hsb, $s-hsl, $l-hsl, $a);
 	}
 }

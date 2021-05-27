@@ -1,10 +1,12 @@
+@use 'sass:math';
+
 //---------------------------------------------------------------
 // Return width as percentage of grid
 //---------------------------------------------------------------
 
 @function get-grid-percentage($_columns, $_grid-width, $_grid-gap: normal, $_add: 0) {
 	$_grid-gap: unquote(string($_grid-gap));
-	$_percentage: abs($_columns) / $_grid-width;
+	$_percentage: math.div(abs($_columns), $_grid-width);
 	$_offset: get-grid-gap($_grid-gap) * (1 - $_percentage);
 
 	@if remove-unit($_add) != 0 and str-slice(string($_columns), 0, 1) == '-' {
