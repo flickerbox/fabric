@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 /// @group Fabric Component Placeholders
 /// @access public
 
@@ -16,7 +18,7 @@
 	box-sizing: border-box;
 	display: flex;
 	flex-wrap: wrap;
-	margin: 0 (-$grid-gap / 2) (-$grid-gap);
+	margin: 0 math.div(-$grid-gap, 2) (-$grid-gap);
 	width: calc(100% + #{$grid-gap});
 }
 
@@ -24,15 +26,15 @@
 	$grid-gap: get-grid-gap('normal');
 	box-sizing: border-box;
 	flex-shrink: 0;
-	padding: 0 ($grid-gap / 2) ($grid-gap);
+	padding: 0 math.div($grid-gap, 2) ($grid-gap);
 	position: relative;
-	width: 100% / $grid-columns;
+	width: math.div(100%, $grid-columns);
 }
 
 %Grid-columns {
 	@for $i from $grid-columns through 1 {
 		&.with-#{$i} > div {
-			width: 100% / $i;
+			width: math.div(100%, $i);
 		}
 	}
 
@@ -61,7 +63,7 @@
 						}
 
 						&#{$_grid-class}.with-#{$_columns} #{$_grid-item-class} {
-							width: 100% * ($j / $_columns);
+							width: 100% * math.div($j, $_columns);
 						}
 					}
 				}
@@ -73,14 +75,14 @@
 							@if $j == 1 {
 
 								&#{$_grid-class}.with-#{$_columns}--#{camelize($_breakpoint)} > div {
-									width: 100% * ($j / $_columns);
+									width: 100% * math.div($j, $_columns);
 								}
 
 							}
 							&#{$_grid-class}.with-#{$_columns} > .is-#{$j}--#{camelize($_breakpoint)},
 							&#{$_grid-class}.with-#{$_columns}--#{camelize($_breakpoint)} > .is-#{$j},
 							&#{$_grid-class}.with-#{$_columns}--#{camelize($_breakpoint)} > .is-#{$j}--#{camelize($_breakpoint)} {
-								width: 100% * ($j / $_columns);
+								width: 100% * math.div($j, $_columns);
 							}
 
 						}
@@ -112,11 +114,11 @@
 					$_gap: get-grid-gap($key);
 
 					&.has-#{camelize($key)}Gaps {
-						margin: 0 (-$_gap / 2) (-$_gap);
+						margin: 0 math.div(-$_gap, 2) (-$_gap);
 						width: calc(100% + #{$_gap});
 
 						> div {
-							padding: 0 ($_gap / 2) ($_gap);
+							padding: 0 math.div($_gap, 2) ($_gap);
 						}
 					}
 				}
@@ -126,11 +128,11 @@
 						$_gap: get-grid-gap($key);
 
 						&.has-#{camelize($key)}Gaps--#{camelize($_breakpoint)} {
-							margin: 0 (-$_gap / 2) (-$_gap);
+							margin: 0 math.div(-$_gap, 2) (-$_gap);
 							width: calc(100% + #{$_gap});
 
 							> div {
-								padding: 0 ($_gap / 2) ($_gap);
+								padding: 0 math.div($_gap, 2) ($_gap);
 							}
 						}
 					}
