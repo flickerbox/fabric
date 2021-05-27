@@ -1,0 +1,7 @@
+html {
+	@extend %html !optional;
+}
+
+body {
+	@extend %body !optional;
+}
