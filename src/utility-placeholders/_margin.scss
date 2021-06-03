@@ -16,6 +16,10 @@
 	}
 }
 
+%mb-auto {
+	margin-bottom: auto !important;
+}
+
 %ml-auto {
 	margin-left: auto !important;
 }
@@ -24,9 +28,18 @@
 	margin-right: auto !important;
 }
 
+%mt-auto {
+	margin-top: auto !important;
+}
+
 %mx-auto {
 	margin-left: auto !important;
 	margin-right: auto !important;
+}
+
+%my-auto {
+	margin-bottom: auto !important;
+	margin-top: auto !important;
 }
 
 @each $breakpoint in map-keys($breakpoints) {
@@ -49,6 +62,10 @@
 			}
 		}
 
+		%mb-auto--#{camelize($breakpoint)} {
+			margin-bottom: auto !important;
+		}
+
 		%ml-auto--#{camelize($breakpoint)} {
 			margin-left: auto !important;
 		}
@@ -57,9 +74,18 @@
 			margin-right: auto !important;
 		}
 
+		%mt-auto--#{camelize($breakpoint)} {
+			margin-top: auto !important;
+		}
+
 		%mx-auto--#{camelize($breakpoint)} {
 			margin-left: auto !important;
 			margin-right: auto !important;
+		}
+
+		%my-auto--#{camelize($breakpoint)} {
+			margin-bottom: auto !important;
+			margin-top: auto !important;
 		}
 	}
 }

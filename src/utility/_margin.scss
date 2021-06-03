@@ -16,6 +16,10 @@
 	}
 }
 
+.mb-auto {
+	@extend %mb-auto !optional;
+}
+
 .ml-auto {
 	@extend %ml-auto !optional;
 }
@@ -24,8 +28,16 @@
 	@extend %mr-auto !optional;
 }
 
+.mt-auto {
+	@extend %mt-auto !optional;
+}
+
 .mx-auto {
 	@extend %mx-auto !optional;
+}
+
+.my-auto {
+	@extend %my-auto !optional;
 }
 
 @each $breakpoint in map-keys($breakpoints) {
@@ -47,6 +59,10 @@
 		}
 	}
 
+	.mb-auto--#{camelize($breakpoint)} {
+		@extend %mb-auto--#{camelize($breakpoint)} !optional;
+	}
+
 	.ml-auto--#{camelize($breakpoint)} {
 		@extend %ml-auto--#{camelize($breakpoint)} !optional;
 	}
@@ -55,7 +71,15 @@
 		@extend %mr-auto--#{camelize($breakpoint)} !optional;
 	}
 
+	.mt-auto--#{camelize($breakpoint)} {
+		@extend %mt-auto--#{camelize($breakpoint)} !optional;
+	}
+
 	.mx-auto--#{camelize($breakpoint)} {
 		@extend %mx-auto--#{camelize($breakpoint)} !optional;
+	}
+
+	.my-auto--#{camelize($breakpoint)} {
+		@extend %my-auto--#{camelize($breakpoint)} !optional;
 	}
 }
