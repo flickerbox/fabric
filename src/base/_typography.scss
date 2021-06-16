@@ -8,31 +8,37 @@ body {
 
 h1,
 .h1 {
+	@extend %h !optional;
 	@extend %h1 !optional;
 }
 
 h2,
 .h2 {
+	@extend %h !optional;
 	@extend %h2 !optional;
 }
 
 h3,
 .h3 {
+	@extend %h !optional;
 	@extend %h3 !optional;
 }
 
 h4,
 .h4 {
+	@extend %h !optional;
 	@extend %h4 !optional;
 }
 
 h5,
 .h5 {
+	@extend %h !optional;
 	@extend %h5 !optional;
 }
 
 h6,
 .h6 {
+	@extend %h !optional;
 	@extend %h6 !optional;
 }
 
