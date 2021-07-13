@@ -30,7 +30,13 @@
 
 		@each $breakpoint, $value in $values {
 
-			$value: get-spacing($value);
+			$spacing-value: get-spacing($value);
+
+			@if $spacing-value != false {
+
+				$value: $spacing-value;
+
+			}
 
 			@if $negative {
 
@@ -69,7 +75,13 @@
 
 	} @else {
 
-		$values: get-spacing($values);
+		$spacing-values: get-spacing($values);
+
+		@if $spacing-values != false {
+
+			$values: $spacing-values;
+
+		}
 
 		@if $negative {
 
