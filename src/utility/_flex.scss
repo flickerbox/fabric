@@ -1,0 +1,35 @@
+.flex-center {
+	@extend %flex-center !optional;
+}
+
+.flex-start {
+	@extend %flex-start !optional;
+}
+
+.flex-end {
+	@extend %flex-end !optional;
+}
+
+.justify-center {
+	@extend %justify-center !optional;
+}
+
+.justify-start {
+	@extend %justify-start !optional;
+}
+
+.justify-end {
+	@extend %justify-end !optional;
+}
+
+.justify-around {
+	@extend %justify-around !optional;
+}
+
+.justify-between {
+	@extend %justify-between !optional;
+}
+
+.justify-evenly {
+	@extend %justify-evenly !optional;
+}
