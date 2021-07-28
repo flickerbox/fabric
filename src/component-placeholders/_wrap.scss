@@ -1,5 +1,4 @@
 %Wrap {
-	@extend %Clearfix;
 	@include responsive-property('max-width', $layout-width);
 	@include responsive-property('padding-left', $layout-padding);
 	@include responsive-property('padding-right', $layout-padding);
