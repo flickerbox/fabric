@@ -11,17 +11,15 @@
 }
 
 @each $breakpoint in map-keys($breakpoints) {
-	@each $key, $value in $spacing {
-		.text-center--#{camelize($breakpoint)} {
-			@extend %text-center--#{camelize($breakpoint)} !optional;
-		}
+	.text-center--#{camelize($breakpoint)} {
+		@extend %text-center--#{camelize($breakpoint)} !optional;
+	}
 
-		.text-left--#{camelize($breakpoint)} {
-			@extend %text-left--#{camelize($breakpoint)} !optional;
-		}
+	.text-left--#{camelize($breakpoint)} {
+		@extend %text-left--#{camelize($breakpoint)} !optional;
+	}
 
-		.text-right--#{camelize($breakpoint)} {
-			@extend %text-right--#{camelize($breakpoint)} !optional;
-		}
+	.text-right--#{camelize($breakpoint)} {
+		@extend %text-right--#{camelize($breakpoint)} !optional;
 	}
 }

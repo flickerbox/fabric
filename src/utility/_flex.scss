@@ -1,3 +1,21 @@
+.flex-column {
+	@extend %flex-column !optional;
+}
+
+.flex-row {
+	@extend %flex-row !optional;
+}
+
+@each $breakpoint in map-keys($breakpoints) {
+	.flex-column--#{camelize($breakpoint)} {
+		@extend %flex-column--#{camelize($breakpoint)} !optional;
+	}
+
+	.flex-row--#{camelize($breakpoint)} {
+		@extend %flex-row--#{camelize($breakpoint)} !optional;
+	}
+}
+
 .flex-center {
 	@extend %flex-center !optional;
 }
