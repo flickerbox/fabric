@@ -3,7 +3,6 @@
 
 %hr {
 	@include margin(3x 0);
-	@include margin(2x 0, '<medium');
 	background: get-color(light-gray);
 	border: 0;
 	display: block;
