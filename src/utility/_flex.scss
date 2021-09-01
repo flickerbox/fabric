@@ -28,6 +28,10 @@
 	@extend %flex-end !optional;
 }
 
+.flex-stretch {
+	@extend %flex-stretch !optional;
+}
+
 .justify-center {
 	@extend %justify-center !optional;
 }
