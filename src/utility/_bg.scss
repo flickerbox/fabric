@@ -7,6 +7,7 @@
 @each $name, $hex in $colors {
 
 	/// @name .bg-
+	.bg-#{to-lower-case(str-slice(#{$hex}, 2))},
 	.bg-#{camelize($name)} {
 		@extend %bg-#{camelize($name)} !optional;
 	}
