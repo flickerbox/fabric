@@ -1,3 +1,5 @@
+@use 'sass:list';
+
 /// @group Fabric Base Placeholders
 /// @access public
 
@@ -6,8 +8,80 @@
 		--breakpoint-#{$name}: #{$breakpoint};
 	}
 
+	@each $name, $shadows in $drop-shadows-elevations {
+		$alpha: $drop-shadows-alpha;
+
+		@if type-of($alpha) == 'map' {
+			$alpha: #{map-get($alpha, $name)};
+		}
+
+		$first: true;
+
+		@each $color in $drop-shadows-color {
+			$box-shadow: ();
+			$rgba-color: rgba(var(--color-#{$color}-rgb), $alpha);
+
+			@each $shadow in $shadows {
+				$box-shadow: append($box-shadow, unquote('#{$rgba-color} #{$shadow}'), 'comma');
+			}
+
+			@if $first {
+				--box-shadow-#{$name}: #{$box-shadow};
+				$first: false;
+			}
+
+			--box-shadow-#{$name}-#{$color}: #{$box-shadow};
+		}
+	}
+
 	@each $name, $hex in $colors {
 		--color-#{$name}: #{$hex};
 		--color-#{$name}-rgb: #{red($hex)}, #{green($hex)}, #{blue($hex)};
+	}
+
+	--font-family: #{$font-family};
+	--font-family-secondary: #{$font-family--secondary};
+	--font-family-monospace: #{$font-family--monospace};
+	--font-family-sans-serif: #{$font-family--sans-serif};
+	--font-family-serif: #{$font-family--serif};
+
+	$excluded-font-sizes: (
+		'base',
+		'button',
+	);
+
+	@each $name, $value in $font-size {
+		@if not list.index($excluded-font-sizes, $name) {
+			@include responsive-property('--font-size-#{$name}', $value);
+		}
+	}
+
+	@each $name, $value in $font-weight {
+		@if not list.index($excluded-font-sizes, $name) {
+			@include responsive-property('--font-weight-#{$name}', $value);
+		}
+	}
+
+	@each $name, $value in $letter-spacing {
+		@if not list.index($excluded-font-sizes, $name) {
+			@include responsive-property('--letter-spacing-#{$name}', $value);
+		}
+	}
+
+	@each $name, $value in $line-height {
+		@if not list.index($excluded-font-sizes, $name) {
+			@include responsive-property('--line-height-#{$name}', $value);
+		}
+	}
+
+	$excluded-spacing: (
+		'0',
+		'none',
+	);
+
+	@each $name, $value in $spacing {
+		@if not list.index($excluded-spacing, $name) {
+			@include responsive-property('--spacing-#{$name}', $value);
+		}
 	}
 }

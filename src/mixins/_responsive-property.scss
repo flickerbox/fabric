@@ -11,7 +11,7 @@
 	$formatted-prefix: '';
 	$formatted-suffix: '';
 
-	@if str-index($property, '-') == 1 {
+	@if str-index($property, '-') == 1 and str-index($property, '--') != 1 {
 
 		$negative: true;
 		$property: str-slice($property, 2);

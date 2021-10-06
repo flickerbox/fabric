@@ -8,6 +8,9 @@
 /// @name font-family
 $font-family:             Helvetica, Arial, sans-serif         !default;
 
+/// @name font-family
+$font-family--secondary:  $font-family                         !default;
+
 /// @name font-family--monospace
 $font-family--monospace:  monospace                            !default;
 
