@@ -39,11 +39,11 @@
 		--color-#{$name}-rgb: #{red($hex)}, #{green($hex)}, #{blue($hex)};
 	}
 
-	--font-family: $font-family;
-	--font-family-secondary: $font-family--secondary;
-	--font-family-monospace: $font-family--monospace;
-	--font-family-sans-serif: $font-family--sans-serif;
-	--font-family-serif: $font-family--serif;
+	--font-family: #{$font-family};
+	--font-family-secondary: #{$font-family--secondary};
+	--font-family-monospace: #{$font-family--monospace};
+	--font-family-sans-serif: #{$font-family--sans-serif};
+	--font-family-serif: #{$font-family--serif};
 
 	$excluded-font-sizes: (
 		'base',
