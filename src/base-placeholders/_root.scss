@@ -1,3 +1,5 @@
+@use 'sass:list';
+
 /// @group Fabric Base Placeholders
 /// @access public
 
@@ -31,17 +33,11 @@
 
 	$excluded-font-sizes: (
 		'base',
-		'h1',
-		'h2',
-		'h3',
-		'h4',
-		'h5',
-		'h6',
 		'button',
 	);
 
 	@each $name, $value in $font-size {
-		@if not list.index($excluded-font-sizes, $value) {
+		@if not list.index($excluded-font-sizes, $name) {
 			@include responsive-property('--font-size-#{$name}', $value);
 		}
 	}
@@ -64,7 +60,14 @@
 		}
 	}
 
+	$excluded-spacing: (
+		'0',
+		'none',
+	);
+
 	@each $name, $value in $spacing {
-		@include responsive-property('--spacing-#{$name}', $value);
+		@if not list.index($excluded-spacing, $name) {
+			@include responsive-property('--spacing-#{$name}', $value);
+		}
 	}
 }
