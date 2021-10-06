@@ -8,16 +8,16 @@
 		--breakpoint-#{$name}: #{$breakpoint};
 	}
 
-	@each $name, $box-shadow in $drop-shadows-elevations {
-		--box-shadow-#{$name}: $box-shadow;
+	@each $name, $value in $drop-shadows-elevations {
+		--box-shadow-#{$name}: #{$value};
 
 		$alpha: $drop-shadows-alpha;
 
 		@if type-of($alpha) == 'map' {
-			$alpha: map-get($alpha, $name);
+			$alpha: #{map-get($alpha, $name)};
 		}
 
-		--box-shadow-alpha-#{$name}: $alpha;
+		--box-shadow-#{$name}-alpha: #{$alpha};
 	}
 
 	@each $name, $hex in $colors {
