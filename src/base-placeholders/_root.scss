@@ -8,16 +8,30 @@
 		--breakpoint-#{$name}: #{$breakpoint};
 	}
 
-	@each $name, $value in $drop-shadows-elevations {
-		--box-shadow-#{$name}: #{$value};
-
+	@each $name, $shadows in $drop-shadows-elevations {
 		$alpha: $drop-shadows-alpha;
 
 		@if type-of($alpha) == 'map' {
 			$alpha: #{map-get($alpha, $name)};
 		}
 
-		--box-shadow-#{$name}-alpha: #{$alpha};
+		$first: true;
+
+		@each $color in $drop-shadows-color {
+			$box-shadow: '';
+			$rgba-color: rgba(var(--color-#{$color}-rgb), $alpha);
+
+			@each $shadow in $shadows {
+				$box-shadow: append($box-shadow, unquote('#{$rgba-color} #{$shadow}'), 'comma');
+			}
+
+			@if $first {
+				--box-shadow-#{$name}: #{$box-shadow};
+				$first: false;
+			}
+
+			--box-shadow-#{$name}-#{$color}: #{$box-shadow};
+		}
 	}
 
 	@each $name, $hex in $colors {
