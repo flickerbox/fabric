@@ -74,6 +74,13 @@
 		}
 	}
 
+	@each $name, $value in $grid-gaps {
+		@if $name == 'normal' {
+			@include responsive-property('--gap', $value);
+		}
+		@include responsive-property('--gap-#{$name}', $value);
+	}
+
 	$excluded-spacing: (
 		'0',
 		'none',
@@ -83,5 +90,9 @@
 		@if not list.index($excluded-spacing, $name) {
 			@include responsive-property('--spacing-#{$name}', $value);
 		}
+	}
+
+	@for $i from 1 through $layout-spacing-max-units {
+		@include responsive-property('--#{$i}x', _(#{$i}x));
 	}
 }
