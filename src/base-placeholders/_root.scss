@@ -6,8 +6,65 @@
 		--breakpoint-#{$name}: #{$breakpoint};
 	}
 
+	@each $name, $box-shadow in $drop-shadows-elevations {
+		--box-shadow-#{$name}: $box-shadow;
+
+		$alpha: $drop-shadows-alpha;
+
+		@if type-of($alpha) == 'map' {
+			$alpha: map-get($alpha, $name);
+		}
+
+		--box-shadow-alpha-#{$name}: $alpha;
+	}
+
 	@each $name, $hex in $colors {
 		--color-#{$name}: #{$hex};
 		--color-#{$name}-rgb: #{red($hex)}, #{green($hex)}, #{blue($hex)};
+	}
+
+	--font-family: $font-family;
+	--font-family-secondary: $font-family--secondary;
+	--font-family-monospace: $font-family--monospace;
+	--font-family-sans-serif: $font-family--sans-serif;
+	--font-family-serif: $font-family--serif;
+
+	$excluded-font-sizes: (
+		'base',
+		'h1',
+		'h2',
+		'h3',
+		'h4',
+		'h5',
+		'h6',
+		'button',
+	);
+
+	@each $name, $value in $font-size {
+		@if not list.index($excluded-font-sizes, $value) {
+			@include responsive-property('--font-size-#{$name}', $value);
+		}
+	}
+
+	@each $name, $value in $font-weight {
+		@if not list.index($excluded-font-sizes, $name) {
+			@include responsive-property('--font-weight-#{$name}', $value);
+		}
+	}
+
+	@each $name, $value in $letter-spacing {
+		@if not list.index($excluded-font-sizes, $name) {
+			@include responsive-property('--letter-spacing-#{$name}', $value);
+		}
+	}
+
+	@each $name, $value in $line-height {
+		@if not list.index($excluded-font-sizes, $name) {
+			@include responsive-property('--line-height-#{$name}', $value);
+		}
+	}
+
+	@each $name, $value in $spacing {
+		@include responsive-property('--spacing-#{$name}', $value);
 	}
 }
