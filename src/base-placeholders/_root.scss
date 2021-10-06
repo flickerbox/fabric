@@ -18,7 +18,7 @@
 		$first: true;
 
 		@each $color in $drop-shadows-color {
-			$box-shadow: '';
+			$box-shadow: ();
 			$rgba-color: rgba(var(--color-#{$color}-rgb), $alpha);
 
 			@each $shadow in $shadows {
