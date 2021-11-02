@@ -3,14 +3,13 @@
 ///
 /// @group Mixins
 /// @param {String} $key - Key defined in font property maps
-/// @param {String} $breakpoint - If defined as a sub value, will only apply the specific breakpoint value
 ///
-@mixin font($_value, $_size: '') {
+@mixin font($key) {
 
-	@include font-size($_value, $_size);
-	@include font-weight($_value, $_size);
-	@include letter-spacing($_value, $_size);
-	@include line-height($_value, $_size);
-	@include text-transform($_value, $_size);
+	@include font-size($key);
+	@include font-weight($key);
+	@include letter-spacing($key);
+	@include line-height($key);
+	@include text-transform($key);
 
 }

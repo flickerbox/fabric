@@ -45,33 +45,20 @@
 	--font-family-sans-serif: #{$font-family--sans-serif};
 	--font-family-serif: #{$font-family--serif};
 
-	$excluded-font-sizes: (
-		'base',
-		'button',
-	);
-
 	@each $name, $value in $font-size {
-		@if not list.index($excluded-font-sizes, $name) {
-			@include responsive-property('--font-size-#{$name}', $value);
-		}
+		@include responsive-property('--font-size-#{$name}', $value);
 	}
 
 	@each $name, $value in $font-weight {
-		@if not list.index($excluded-font-sizes, $name) {
-			@include responsive-property('--font-weight-#{$name}', $value);
-		}
+		@include responsive-property('--font-weight-#{$name}', $value);
 	}
 
 	@each $name, $value in $letter-spacing {
-		@if not list.index($excluded-font-sizes, $name) {
-			@include responsive-property('--letter-spacing-#{$name}', $value);
-		}
+		@include responsive-property('--letter-spacing-#{$name}', $value);
 	}
 
 	@each $name, $value in $line-height {
-		@if not list.index($excluded-font-sizes, $name) {
-			@include responsive-property('--line-height-#{$name}', $value);
-		}
+		@include responsive-property('--line-height-#{$name}', $value);
 	}
 
 	@each $name, $value in $grid-gaps {

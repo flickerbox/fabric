@@ -3,26 +3,13 @@
 ///
 /// @group Mixins
 /// @param {String} $key - Key defined in $font-weight map
-/// @param {String} $breakpoint - If defined as a sub value, will only apply the specific breakpoint value
 ///
-@mixin font-weight($_value, $_size: '') {
+@mixin font-weight($key) {
 
-	@if type-of($_value) == string and index(map-keys($font-weight), $_value) {
+	@if type-of($key) == string and index(map-keys($font-weight), $key) {
 
-		$_font-weight: get-font-weight($_value, $_size);
-
-		@if type-of($_font-weight) == 'map' {
-
-			$first: true;
-			@include responsive-property('font-variation-settings', $_font-weight, "'wght' %s");
-			@include responsive-property('font-weight', $_font-weight);
-
-		} @else {
-
-			font-variation-settings: 'wght' #{$_font-weight};
-			font-weight: #{$_font-weight};
-
-		}
+		font-variation-settings: 'wght' var(--font-weight-#{$key});
+		font-weight: var(--font-weight-#{$key});
 
 	}
 
