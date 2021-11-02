@@ -1,39 +1,33 @@
-@use 'sass:math';
+///
+/// Responsively sets line-height based on key in $line-height map
+///
+/// @group Mixins
+/// @param {String} $key - Key defined in $line-height map
+///
+@mixin line-height($key) {
 
-/// Sets line height responsively
-/// @name line-height
-/// @group Fabric Mixins
-/// @access public
-/// @param {string} $_value [] - Set the line height type
-/// @param {string} $_size [''] -
-/// @require {function} SassCore::type-of
-/// @require {function} SassCore::index
-/// @require {function} SassCore::map-keys
-/// @require {function} SassCore::nth
-/// @require {function} get-line-height
-/// @require {function} responsive-property
-/// @require {function} get-font-size
+	@if type-of($key) == string and index(map-keys($line-height), $key) {
 
-@mixin line-height($_value, $_size: '') {
+		$line-height: get-line-height($key);
 
-	@if type-of($_value) == string and index(map-keys($line-height), $_value) {
+		@if type-of($line-height) == 'map' {
 
-		$_line-height: get-line-height($_value, $_size);
-
-		@if type-of($_line-height) == 'map' {
-
-			$first: true;
-			@include responsive-property('line-height', $_line-height);
+			line-height: var(--line-height-#{$key});
 
 		} @else {
 
-			$_font-size: get-font-size($_value);
+			$font-size: get-font-size($key);
 
-			@if type-of($_font-size) == 'map' {
-				$_font-size: get-font-size($_value, nth(map-keys($_font-size), 1));
+			@if type-of($font-size) == 'map' {
+
+				$font-size: get-font-size($key, nth(map-keys($font-size), 1));
+				line-height: calc(var(--line-height-#{$key}) / $font-size);
+
+			} @else {
+
+				line-height: calc(var(--line-height-#{$key}) / var(--font-size-#{$key}));
+
 			}
-
-			line-height: math.div($_line-height, $_font-size);
 
 		}
 

@@ -3,24 +3,12 @@
 ///
 /// @group Mixins
 /// @param {String} $key - Key defined in $font-size map
-/// @param {String} $breakpoint - If defined as a sub value, will only apply the specific breakpoint value
 ///
-@mixin font-size($_value, $_size: '') {
+@mixin font-size($key) {
 
-	@if type-of($_value) == string and index(map-keys($font-size), $_value) {
+	@if type-of($key) == string and index(map-keys($font-size), $key) {
 
-		$_font-size: get-font-size($_value, $_size);
-
-		@if type-of($_font-size) == 'map' {
-
-			$first: true;
-			@include responsive-property('font-size', $_font-size);
-
-		} @else {
-
-			font-size: #{$_font-size};
-
-		}
+		font-size: var(--font-size-#{$key});
 
 	}
 
