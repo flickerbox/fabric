@@ -8,28 +8,7 @@
 
 	@if type-of($key) == string and index(map-keys($line-height), $key) {
 
-		$line-height: get-line-height($key);
-
-		@if type-of($line-height) == 'map' {
-
-			line-height: var(--line-height-#{$key});
-
-		} @else {
-
-			$font-size: get-font-size($key);
-
-			@if type-of($font-size) == 'map' {
-
-				$font-size: get-font-size($key, nth(map-keys($font-size), 1));
-				line-height: calc(var(--line-height-#{$key}) / $font-size);
-
-			} @else {
-
-				line-height: calc(var(--line-height-#{$key}) / var(--font-size-#{$key}));
-
-			}
-
-		}
+		line-height: var(--line-height-#{$key});
 
 	}
 

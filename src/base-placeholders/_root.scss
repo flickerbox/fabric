@@ -1,4 +1,5 @@
 @use 'sass:list';
+@use 'sass:math';
 
 /// @group Fabric Base Placeholders
 /// @access public
@@ -58,7 +59,17 @@
 	}
 
 	@each $name, $value in $line-height {
-		@include responsive-property('--line-height-#{$name}', $value);
+		@if type-of($value) == 'map' {
+			@include responsive-property('--line-height-#{$name}', $value);
+		} @else {
+			$font-size: get-font-size($name);
+
+			@if type-of($font-size) == 'map' {
+				$font-size: get-font-size($name, nth(map-keys($font-size), 1));
+			}
+
+			--line-height-#{$name}: #{math.div(remove-unit($value), remove-unit($font-size))};
+		}
 	}
 
 	@each $name, $value in $grid-gaps {
