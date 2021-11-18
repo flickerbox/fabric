@@ -9,8 +9,8 @@
 		--breakpoint-#{$name}: #{$breakpoint};
 	}
 
-	--layout-padding: _($layout-padding);
-	--layout-width: _($layout-width);
+	--layout-padding: #{_($layout-padding)};
+	--layout-width: #{_($layout-width)};
 
 	@each $name, $shadows in $drop-shadows-elevations {
 		$alpha: $drop-shadows-alpha;
