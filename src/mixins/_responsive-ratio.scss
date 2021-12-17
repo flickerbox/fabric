@@ -1,4 +1,5 @@
 @use 'sass:math';
+@use '../placeholders/ratio';
 
 //---------------------------------------------------------------
 // Sets responsive ratio on an object
@@ -10,7 +11,7 @@
 
 	@if type-of($ratios) == 'map' {
 
-		@extend %ResponsiveRatio;
+		@extend %ratio;
 
 		@each $breakpoint, $ratio in $ratios {
 
@@ -43,7 +44,7 @@
 
 	} @else {
 
-		@extend %ResponsiveRatio;
+		@extend %ratio;
 
 		$width: number(nth(explode($ratios, 'x'), 1));
 		$height: number(nth(explode($ratios, 'x'), 2));
