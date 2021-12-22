@@ -6,6 +6,10 @@
 	@extend %d-flex !optional;
 }
 
+.d-grid {
+	@extend %d-grid !optional;
+}
+
 .d-inline {
 	@extend %d-inline !optional;
 }
@@ -22,6 +26,10 @@
 
 		.d-flex--#{camelize($breakpoint)} {
 			@extend %d-flex--#{camelize($breakpoint)} !optional;
+		}
+
+		.d-grid--#{camelize($breakpoint)} {
+			@extend %d-grid--#{camelize($breakpoint)} !optional;
 		}
 
 		.d-inline--#{camelize($breakpoint)} {

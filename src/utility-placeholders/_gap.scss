@@ -1,0 +1,15 @@
+@each $name in map-keys($grid-gaps) {
+	.gap-#{camelize($name)} {
+		gap: var(--grid-gap-#{name}) !important;
+	}
+}
+
+@each $breakpoint in map-keys($breakpoints) {
+	@each $name in map-keys($grid-gaps) {
+		@include media('<#{$breakpoint}') {
+			.gap-#{camelize($name)}--#{camelize($breakpoint)} {
+				gap: var(--grid-gap-#{name}) !important;
+			}
+		}
+	}
+}

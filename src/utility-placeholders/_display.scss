@@ -6,6 +6,11 @@
 	display: flex !important;
 }
 
+%d-grid {
+	display: grid !important;
+	gap: var(--grid-gap);
+}
+
 %d-inline {
 	display: inline !important;
 }
@@ -22,6 +27,11 @@
 
 		%d-flex--#{camelize($breakpoint)} {
 			display: flex !important;
+		}
+
+		%d-grid--#{camelize($breakpoint)} {
+			display: grid !important;
+			gap: var(--grid-gap);
 		}
 
 		%d-inline--#{camelize($breakpoint)} {
