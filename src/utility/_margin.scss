@@ -12,53 +12,53 @@
 
 [class^="ml-"],
 [class*=" ml-"] {
-	margin-bottom: var(--ml) !important;
+	margin-left: var(--ml) !important;
 }
 
 [class^="-ml-"],
 [class*=" -ml-"] {
-	margin-bottom: calc(var(--ml) * -1) !important;
+	margin-left: calc(var(--ml) * -1) !important;
 }
 
 [class^="mr-"],
 [class*=" mr-"] {
-	margin-bottom: var(--mr) !important;
+	margin-right: var(--mr) !important;
 }
 
 [class^="-mr-"],
 [class*=" -mr-"] {
-	margin-bottom: calc(var(--mr) * -1) !important;
+	margin-right: calc(var(--mr) * -1) !important;
 }
 
 [class^="mt-"],
 [class*=" mt-"] {
-	margin-bottom: var(--mt) !important;
+	margin-top: var(--mt) !important;
 }
 
 [class^="-mt-"],
 [class*=" -mt-"] {
-	margin-bottom: calc(var(--mt) * -1) !important;
+	margin-top: calc(var(--mt) * -1) !important;
 }
 
 @each $key, $value in $spacing {
 	.mb-#{camelize($key)},
 	.-mb-#{camelize($key)} {
-		--mb: #{_($value)};
+		@include responsive-property("--mb", $value);
 	}
 
 	.ml-#{camelize($key)},
 	.-ml-#{camelize($key)} {
-		--ml: #{_($value)};
+		@include responsive-property("--ml", $value);
 	}
 
 	.mr-#{camelize($key)},
 	.-mr-#{camelize($key)} {
-		--mr: #{_($value)};
+		@include responsive-property("--mr", $value);
 	}
 
 	.mt-#{camelize($key)},
 	.-mt-#{camelize($key)} {
-		--mt: #{_($value)};
+		@include responsive-property("--mt", $value);
 	}
 }
 
