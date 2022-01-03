@@ -7,17 +7,17 @@
 
 [class^="pl-"],
 [class*=" pl-"] {
-	padding-bottom: var(--pl) !important;
+	padding-left: var(--pl) !important;
 }
 
 [class^="pr-"],
 [class*=" pr-"] {
-	padding-bottom: var(--pr) !important;
+	padding-right: var(--pr) !important;
 }
 
 [class^="pt-"],
 [class*=" pt-"] {
-	padding-bottom: var(--pt) !important;
+	padding-top: var(--pt) !important;
 }
 
 @each $key, $value in $spacing {
