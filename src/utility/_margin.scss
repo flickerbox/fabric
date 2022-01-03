@@ -1,3 +1,5 @@
+@use "sass:map";
+
 [class^="mb-"],
 [class*=" mb-"] {
 	margin-bottom: var(--mb) !important;
@@ -91,22 +93,38 @@
 		@each $key, $value in $spacing {
 			.mb-#{camelize($key)}--#{camelize($breakpoint)},
 			.-mb-#{camelize($key)}--#{camelize($breakpoint)} {
-				--mb: #{_($value)};
+				@if type-of($value) == "map" {
+					@include responsive-property("--mb", nth(map.values($value), 1));
+				} @else {
+					--mb: #{_($value)};
+				}
 			}
 
 			.ml-#{camelize($key)}--#{camelize($breakpoint)},
 			.-ml-#{camelize($key)}--#{camelize($breakpoint)} {
-				--ml: #{_($value)};
+				@if type-of($value) == "map" {
+					@include responsive-property("--ml", nth(map.values($value), 1));
+				} @else {
+					--ml: #{_($value)};
+				}
 			}
 
 			.mr-#{camelize($key)}--#{camelize($breakpoint)},
 			.-mr-#{camelize($key)}--#{camelize($breakpoint)} {
-				--mr: #{_($value)};
+				@if type-of($value) == "map" {
+					@include responsive-property("--mr", nth(map.values($value), 1));
+				} @else {
+					--mr: #{_($value)};
+				}
 			}
 
 			.mt-#{camelize($key)}--#{camelize($breakpoint)},
 			.-mt-#{camelize($key)}--#{camelize($breakpoint)} {
-				--mt: #{_($value)};
+				@if type-of($value) == "map" {
+					@include responsive-property("--mt", nth(map.values($value), 1));
+				} @else {
+					--mt: #{_($value)};
+				}
 			}
 		}
 
