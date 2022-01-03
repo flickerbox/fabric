@@ -1,37 +1,111 @@
+[class^="pb-"],
+[class*=" pb-"] {
+	margin-bottom: var(--pb) !important;
+}
+
+[class^="pl-"],
+[class*=" pl-"] {
+	margin-bottom: var(--pl) !important;
+}
+
+[class^="pr-"],
+[class*=" pr-"] {
+	margin-bottom: var(--pr) !important;
+}
+
+[class^="pt-"],
+[class*=" pt-"] {
+	margin-bottom: var(--pt) !important;
+}
+
 @each $key, $value in $spacing {
 	.pb-#{camelize($key)} {
-		@extend %pb-#{camelize($key)} !optional;
+		--pb: #{_($value)};
 	}
 
 	.pl-#{camelize($key)} {
-		@extend %pl-#{camelize($key)} !optional;
+		--pl: #{_($value)};
 	}
 
 	.pr-#{camelize($key)} {
-		@extend %pr-#{camelize($key)} !optional;
+		--pr: #{_($value)};
 	}
 
 	.pt-#{camelize($key)} {
-		@extend %pt-#{camelize($key)} !optional;
+		--pt: #{_($value)};
 	}
 }
 
+.pb-auto {
+	--pb: auto;
+}
+
+.pl-auto {
+	--pl: auto;
+}
+
+.pr-auto {
+	--pr: auto;
+}
+
+.pt-auto {
+	--pt: auto;
+}
+
+.mx-auto {
+	--pl: auto;
+	--pr: auto;
+}
+
+.my-auto {
+	--pb: auto;
+	--pt: auto;
+}
+
 @each $breakpoint in map-keys($breakpoints) {
-	@each $key, $value in $spacing {
-		.pb-#{camelize($key)}--#{camelize($breakpoint)} {
-			@extend %pb-#{camelize($key)}--#{camelize($breakpoint)} !optional;
+	@include media('<#{$breakpoint}') {
+		@each $key, $value in $spacing {
+			.pb-#{camelize($key)}--#{camelize($breakpoint)} {
+				--pb: #{_($value)};
+			}
+
+			.pl-#{camelize($key)}--#{camelize($breakpoint)} {
+				--pl: #{_($value)};
+			}
+
+			.pr-#{camelize($key)}--#{camelize($breakpoint)} {
+				--pr: #{_($value)};
+			}
+
+			.pt-#{camelize($key)}--#{camelize($breakpoint)} {
+				--pt: #{_($value)};
+			}
 		}
 
-		.pl-#{camelize($key)}--#{camelize($breakpoint)} {
-			@extend %pl-#{camelize($key)}--#{camelize($breakpoint)} !optional;
+		.pb-auto--#{camelize($breakpoint)} {
+			--pb: auto;
 		}
 
-		.pr-#{camelize($key)}--#{camelize($breakpoint)} {
-			@extend %pr-#{camelize($key)}--#{camelize($breakpoint)} !optional;
+		.pl-auto--#{camelize($breakpoint)} {
+			--pl: auto;
 		}
 
-		.pt-#{camelize($key)}--#{camelize($breakpoint)} {
-			@extend %pt-#{camelize($key)}--#{camelize($breakpoint)} !optional;
+		.pr-auto--#{camelize($breakpoint)} {
+			--pr: auto;
+		}
+
+		.pt-auto--#{camelize($breakpoint)} {
+			--pt: auto;
+		}
+
+		.mx-auto--#{camelize($breakpoint)} {
+			--pl: auto;
+			--pr: auto;
+		}
+
+		.my-auto--#{camelize($breakpoint)} {
+			--pb: auto;
+			--pt: auto;
 		}
 	}
 }
