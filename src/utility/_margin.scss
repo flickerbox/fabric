@@ -3,9 +3,19 @@
 	margin-bottom: var(--mb) !important;
 }
 
+[class^="-mb-"],
+[class*=" -mb-"] {
+	margin-bottom: calc(var(--mb) * -1) !important;
+}
+
 [class^="ml-"],
 [class*=" ml-"] {
 	margin-bottom: var(--ml) !important;
+}
+
+[class^="-ml-"],
+[class*=" -ml-"] {
+	margin-bottom: calc(var(--ml) * -1) !important;
 }
 
 [class^="mr-"],
@@ -13,25 +23,39 @@
 	margin-bottom: var(--mr) !important;
 }
 
+[class^="-mr-"],
+[class*=" -mr-"] {
+	margin-bottom: calc(var(--mr) * -1) !important;
+}
+
 [class^="mt-"],
 [class*=" mt-"] {
 	margin-bottom: var(--mt) !important;
 }
 
+[class^="-mt-"],
+[class*=" -mt-"] {
+	margin-bottom: calc(var(--mt) * -1) !important;
+}
+
 @each $key, $value in $spacing {
-	.mb-#{camelize($key)} {
+	.mb-#{camelize($key)},
+	.-mb-#{camelize($key)} {
 		--mb: #{_($value)};
 	}
 
-	.ml-#{camelize($key)} {
+	.ml-#{camelize($key)},
+	.-ml-#{camelize($key)} {
 		--ml: #{_($value)};
 	}
 
-	.mr-#{camelize($key)} {
+	.mr-#{camelize($key)},
+	.-mr-#{camelize($key)} {
 		--mr: #{_($value)};
 	}
 
-	.mt-#{camelize($key)} {
+	.mt-#{camelize($key)},
+	.-mt-#{camelize($key)} {
 		--mt: #{_($value)};
 	}
 }
@@ -65,19 +89,23 @@
 @each $breakpoint in map-keys($breakpoints) {
 	@include media('<#{$breakpoint}') {
 		@each $key, $value in $spacing {
-			.mb-#{camelize($key)}--#{camelize($breakpoint)} {
+			.mb-#{camelize($key)}--#{camelize($breakpoint)},
+			.-mb-#{camelize($key)}--#{camelize($breakpoint)} {
 				--mb: #{_($value)};
 			}
 
-			.ml-#{camelize($key)}--#{camelize($breakpoint)} {
+			.ml-#{camelize($key)}--#{camelize($breakpoint)},
+			.-ml-#{camelize($key)}--#{camelize($breakpoint)} {
 				--ml: #{_($value)};
 			}
 
-			.mr-#{camelize($key)}--#{camelize($breakpoint)} {
+			.mr-#{camelize($key)}--#{camelize($breakpoint)},
+			.-mr-#{camelize($key)}--#{camelize($breakpoint)} {
 				--mr: #{_($value)};
 			}
 
-			.mt-#{camelize($key)}--#{camelize($breakpoint)} {
+			.mt-#{camelize($key)}--#{camelize($breakpoint)},
+			.-mt-#{camelize($key)}--#{camelize($breakpoint)} {
 				--mt: #{_($value)};
 			}
 		}
