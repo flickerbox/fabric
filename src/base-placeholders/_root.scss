@@ -34,13 +34,13 @@
 				$first: false;
 			}
 
-			--box-shadow-#{$name}-#{$color}: #{$box-shadow};
+			--box-shadow-#{$name}-#{"" + $color}: #{$box-shadow};
 		}
 	}
 
 	@each $name, $hex in $colors {
-		--color-#{$name}: #{$hex};
-		--color-#{$name}-rgb: #{red($hex)}, #{green($hex)}, #{blue($hex)};
+		--color-#{"" + $name}: #{$hex};
+		--color-#{"" + $name}-rgb: #{red($hex)}, #{green($hex)}, #{blue($hex)};
 	}
 
 	--font-family: #{$font-family};
