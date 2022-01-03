@@ -2,22 +2,22 @@
 
 [class^="pb-"],
 [class*=" pb-"] {
-	margin-bottom: var(--pb) !important;
+	padding-bottom: var(--pb) !important;
 }
 
 [class^="pl-"],
 [class*=" pl-"] {
-	margin-bottom: var(--pl) !important;
+	padding-bottom: var(--pl) !important;
 }
 
 [class^="pr-"],
 [class*=" pr-"] {
-	margin-bottom: var(--pr) !important;
+	padding-bottom: var(--pr) !important;
 }
 
 [class^="pt-"],
 [class*=" pt-"] {
-	margin-bottom: var(--pt) !important;
+	padding-bottom: var(--pt) !important;
 }
 
 @each $key, $value in $spacing {
