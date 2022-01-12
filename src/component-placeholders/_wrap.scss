@@ -1,21 +1,10 @@
 %Wrap {
-	@include responsive-property('max-width', $layout-width);
-	@include responsive-property('padding-left', $layout-padding);
-	@include responsive-property('padding-right', $layout-padding);
-	@include responsive-property('width', $layout-padding, 'calc(100% - (%s * 2))');
 	box-sizing: content-box;
 	margin-left: auto;
 	margin-right: auto;
+	padding-left: var(--layout-padding);
+	padding-right: var(--layout-padding);
+	max-width: var(--layout-width);
 	position: relative;
-}
-
-@each $name, $width in $wrap-width {
-
-	%Wrap--#{camelize($name)} {
-		@include responsive-property('max-width', $width);
-		@include responsive-property('padding-left', map-get($wrap-padding, $name));
-		@include responsive-property('padding-right', map-get($wrap-padding, $name));
-		@include responsive-property('width', map-get($wrap-padding, $name), 'calc(100% - (%s * 2))');
-	}
-
+	width: calc(100% - (var(--layout-padding) * 2));
 }

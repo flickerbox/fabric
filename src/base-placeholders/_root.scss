@@ -9,8 +9,13 @@
 		--breakpoint-#{$name}: #{$breakpoint};
 	}
 
-	--layout-padding: #{_($layout-padding)};
-	--layout-width: #{_($layout-width)};
+	@include responsive-property('--layout-padding', $layout-padding);
+	@include responsive-property('--layout-width', $layout-width);
+
+	@each $name, $width in $wrap-width {
+		@include responsive-property('--wrap-padding-#{$name}', map-get($wrap-padding, $name));
+		@include responsive-property('--wrap-width-#{$name}', $width);
+	}
 
 	@each $name, $shadows in $drop-shadows-elevations {
 		$alpha: $drop-shadows-alpha;

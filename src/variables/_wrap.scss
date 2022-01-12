@@ -9,15 +9,15 @@
 /// @name wrap-padding
 $wrap-padding: (
 
-	'narrow': $layout-padding,
-	'no-padding': $layout-padding
+	'narrow': var(--layout-padding)
+	'no-padding': 0
 
 )                                                             !default;
 
 /// @name wrap-width
 $wrap-width: (
 
-	'narrow': $layout-width * math.div(2, 3),
-	'no-padding': $layout-width
+	'narrow': calc(var(--layout-width) * 2 / 3),
+	'no-padding': var(--layout-width)
 
 )                                                             !default;
