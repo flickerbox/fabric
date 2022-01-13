@@ -25,9 +25,12 @@
 %Grid-item {
 	--grid-item-width: 1;
 	box-sizing: border-box;
-	flex-shrink: 0;
 	position: relative;
-	width: calc((100% * (var(--grid-item-width) / var(--grid-columns))) - ((var(--grid-item-width) / (var(--grid-columns) - 1)) * var(--grid-gap)));
+	flex-shrink: 0;
+	width: calc(
+		(var(--grid-item-width) * ((100% / var(--grid-columns)) - ((var(--grid-columns) - 1) / var(--grid-columns) * var(--grid-gap)))) +
+		((var(--grid-item-width) - 1) * var(--grid-gap))
+	);
 
 	@for $i from $grid-columns through 1 {
 		&.is-#{$i} {
