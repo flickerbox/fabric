@@ -89,14 +89,14 @@
 
 			@if $i == 1 {
 				@each $gap in map-keys($grid-gaps) {
-					&.has-#{camelize($key)}Gaps {
+					&.has-#{camelize($gap)}Gaps {
 						--grid-gap: var(--grid-gap-#{$gap});
 					}
 				}
 			} @else {
 				@include media('<#{$_breakpoint}') {
 					@each $gap in map-keys($grid-gaps) {
-						&.has-#{camelize($key)}Gaps--#{camelize($_breakpoint)} {
+						&.has-#{camelize($gap)}Gaps--#{camelize($_breakpoint)} {
 							--grid-gap: var(--grid-gap-#{$gap});
 						}
 					}
