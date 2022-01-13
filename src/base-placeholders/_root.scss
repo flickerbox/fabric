@@ -87,15 +87,8 @@
 		@include responsive-property('--gap-#{$name}', $value);
 	}
 
-	$excluded-spacing: (
-		'0',
-		'none',
-	);
-
 	@each $name, $value in $spacing {
-		@if not list.index($excluded-spacing, $name) {
-			@include responsive-property('--spacing-#{$name}', $value);
-		}
+		@include responsive-property('--spacing-#{$name}', $value);
 	}
 
 	@for $i from 1 through $layout-spacing-max-units {
