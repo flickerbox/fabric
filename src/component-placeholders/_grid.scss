@@ -23,14 +23,15 @@
 }
 
 %Grid-item {
+	--grid-item-width: 1;
 	box-sizing: border-box;
 	flex-shrink: 0;
 	position: relative;
-	width: calc(100% / var(--grid-columns));
+	width: calc((100% * (var(--grid-item-width) / var(--grid-columns))) - ((var(--grid-item-width) / (var(--grid-columns) - 1)) * var(--grid-gap)));
 
 	@for $i from $grid-columns through 1 {
 		&.is-#{$i} {
-			width: calc(100% * (#{$i} / var(--grid-columns)));
+			--grid-item-width: #{$i};
 		}
 	}
 }
