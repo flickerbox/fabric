@@ -1,0 +1,17 @@
+@use 'sass:string';
+
+//---------------------------------------------------------------
+// Is a hex value
+//---------------------------------------------------------------
+
+@function is-hex($color) {
+
+	$color: unquote(string($color));
+
+	@if string.length($color) == 4 or string.length($color) == 7 and string.index($color, "#") == 1 {
+		@return true;
+	}
+
+	@return false;
+
+}
