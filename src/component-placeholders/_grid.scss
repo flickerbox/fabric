@@ -60,14 +60,14 @@
 			@if $i == 1 {
 				@for $_columns from $grid-columns through 1 {
 					&#{$_grid-class}.with-#{$_columns} {
-						--grid-columns: #{$columns};
+						--grid-columns: #{$_columns};
 					}
 				}
 			} @else {
 				@include media('<#{$_breakpoint}') {
 					@for $_columns from $grid-columns through 1 {
 						&#{$_grid-class}.with-#{$_columns}--#{camelize($_breakpoint)} {
-							--grid-columns: #{$columns};
+							--grid-columns: #{$_columns};
 						}
 					}
 				}
