@@ -1,0 +1,33 @@
+@use 'sass:list';
+@use 'sass:map';
+
+$excluded-font-weights: (
+	'base',
+	'button',
+	'h1',
+	'h2',
+	'h3',
+	'h4',
+	'h5',
+	'h6',
+);
+
+@each $font-weight in map.keys($font-weight) {
+	@if not list.index($excluded-font-weights, $font-weight) {
+		.weight-#{camelize($font-weight)} {
+			@include font-weight($font-weight);
+		}
+	}
+}
+
+@each $breakpoint in map.keys($breakpoints) {
+	@include media('<#{$breakpoint}') {
+		@each $font-weight in map.keys($font-weight) {
+			@if not list.index($excluded-font-weights, $font-weight) {
+				.weight-#{camelize($font-weight)}--#{camelize($breakpoint)} {
+					@include font-weight($font-weight);
+				}
+			}
+		}
+	}
+}
