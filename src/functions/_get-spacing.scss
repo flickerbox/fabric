@@ -21,7 +21,11 @@
 		}
 
 		@if type-of($value) == 'string' and index(map-keys($spacing), $value) {
-			$value: var(--spacing-#{$value});
+			@if map-get($spacing, $value) == 0 {
+				$value: 0;
+			} @else {
+				$value: var(--spacing-#{$value});
+			}
 		} @else if is-x-unit($value) {
 			$x-value: str-slice($value, 1, -2);
 
