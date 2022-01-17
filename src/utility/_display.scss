@@ -1,43 +1,47 @@
+@use 'sass:map';
+
 .d-block {
-	@extend %d-block !optional;
+	display: block !important;
 }
 
 .d-flex {
-	@extend %d-flex !optional;
+	display: flex !important;
 }
 
 .d-grid {
-	@extend %d-grid !optional;
+	display: grid !important;
+	gap: var(--grid-gap);
 }
 
 .d-inline {
-	@extend %d-inline !optional;
+	display: inline !important;
 }
 
 .d-none {
-	@extend %d-none !optional;
+	display: none !important;
 }
 
-@each $breakpoint in map-keys($breakpoints) {
+@each $breakpoint in map.keys($breakpoints) {
 	@include media('<#{$breakpoint}') {
 		.d-block--#{camelize($breakpoint)} {
-			@extend %d-block--#{camelize($breakpoint)} !optional;
+			display: block !important;
 		}
 
 		.d-flex--#{camelize($breakpoint)} {
-			@extend %d-flex--#{camelize($breakpoint)} !optional;
+			display: flex !important;
 		}
 
 		.d-grid--#{camelize($breakpoint)} {
-			@extend %d-grid--#{camelize($breakpoint)} !optional;
+			display: grid !important;
+			gap: var(--grid-gap);
 		}
 
 		.d-inline--#{camelize($breakpoint)} {
-			@extend %d-inline--#{camelize($breakpoint)} !optional;
+			display: inline !important;
 		}
 
 		.d-none--#{camelize($breakpoint)} {
-			@extend %d-none--#{camelize($breakpoint)} !optional;
+			display: none !important;
 		}
 	}
 }

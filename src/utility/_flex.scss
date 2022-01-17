@@ -1,57 +1,61 @@
+@use 'sass:map';
+
 .flex-column {
-	@extend %flex-column !optional;
+	flex-direction: column;
 }
 
 .flex-row {
-	@extend %flex-row !optional;
+	flex-direction: row;
 }
 
-@each $breakpoint in map-keys($breakpoints) {
-	.flex-column--#{camelize($breakpoint)} {
-		@extend %flex-column--#{camelize($breakpoint)} !optional;
+.flex-start,
+.align-top {
+	align-items: flex-start;
+}
+
+.flex-center,
+.align-middle {
+	align-items: center;
+}
+
+.flex-end,
+.align-bottom {
+	align-items: flex-end;
+}
+
+.flex-stretch,
+.align-stretch {
+	align-items: stretch;
+}
+
+@each $breakpoint in map.keys($breakpoints) {
+	@include media('<#{$breakpoint}') {
+		.flex-column--#{camelize($breakpoint)} {
+			flex-direction: column;
+		}
+
+		.flex-row--#{camelize($breakpoint)} {
+			flex-direction: row;
+		}
+
+		.flex-start--#{camelize($breakpoint)},
+		.align-top--#{camelize($breakpoint)} {
+			align-items: flex-start;
+		}
+
+		.flex-center--#{camelize($breakpoint)},
+		.align-middle--#{camelize($breakpoint)} {
+			align-items: center;
+		}
+
+		.flex-end--#{camelize($breakpoint)},
+		.align-bottom--#{camelize($breakpoint)} {
+			align-items: flex-end;
+		}
+
+		.flex-stretch--#{camelize($breakpoint)},
+		.align-stretch--#{camelize($breakpoint)} {
+			align-items: stretch;
+		}
 	}
-
-	.flex-row--#{camelize($breakpoint)} {
-		@extend %flex-row--#{camelize($breakpoint)} !optional;
-	}
-}
-
-.flex-center {
-	@extend %flex-center !optional;
-}
-
-.flex-start {
-	@extend %flex-start !optional;
-}
-
-.flex-end {
-	@extend %flex-end !optional;
-}
-
-.flex-stretch {
-	@extend %flex-stretch !optional;
-}
-
-.justify-center {
-	@extend %justify-center !optional;
-}
-
-.justify-start {
-	@extend %justify-start !optional;
-}
-
-.justify-end {
-	@extend %justify-end !optional;
-}
-
-.justify-around {
-	@extend %justify-around !optional;
-}
-
-.justify-between {
-	@extend %justify-between !optional;
-}
-
-.justify-evenly {
-	@extend %justify-evenly !optional;
 }

@@ -1,0 +1,57 @@
+@use 'sass:map';
+
+.justify-left,
+.justify-start {
+	justify-content: flex-start;
+}
+
+.justify-center {
+	justify-content: center;
+}
+
+.justify-end,
+.justify-right {
+	justify-content: flex-end;
+}
+
+.justify-around {
+	justify-content: space-around;
+}
+
+.justify-between {
+	justify-content: space-between;
+}
+
+.justify-evenly {
+	justify-content: space-evenly;
+}
+
+@each $breakpoint in map.keys($breakpoints) {
+	@include media('<#{$breakpoint}') {
+		.justify-left--#{camelize($breakpoint)},
+		.justify-start--#{camelize($breakpoint)} {
+			justify-content: flex-start;
+		}
+
+		.justify-center--#{camelize($breakpoint)} {
+			justify-content: center;
+		}
+
+		.justify-end--#{camelize($breakpoint)},
+		.justify-right--#{camelize($breakpoint)} {
+			justify-content: flex-end;
+		}
+
+		.justify-around--#{camelize($breakpoint)} {
+			justify-content: space-around;
+		}
+
+		.justify-between--#{camelize($breakpoint)} {
+			justify-content: space-between;
+		}
+
+		.justify-evenly--#{camelize($breakpoint)} {
+			justify-content: space-evenly;
+		}
+	}
+}
