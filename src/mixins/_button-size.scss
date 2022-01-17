@@ -11,13 +11,13 @@
 ///
 @mixin button-size($_height, $_padding: $buttons-padding, $_border-width: $buttons-border-width, $_radius: $buttons-radius) {
   @include padding(0 $_padding);
-  border-width: _($_border-width);
-  height: _($_height);
-  line-height: _($_height) - (_($_border-width) * 2);
+  border-width: x-to-px($_border-width);
+  height: x-to-px($_height);
+  line-height: x-to-px($_height) - (x-to-px($_border-width) * 2);
 
   @if $_radius == 'rounded' {
-	  border-radius: _(math.div($_height, 2));
+	  border-radius: x-to-px(math.div($_height, 2));
   } @else {
-	  border-radius: _($_radius);
+	  border-radius: x-to-px($_radius);
   }
 }

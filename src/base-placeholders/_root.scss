@@ -92,7 +92,7 @@
 	}
 
 	@for $i from 1 through $layout-spacing-max-units {
-		@include responsive-property('--#{$i}x', _(#{$i}x));
+		@include responsive-property('--#{$i}x', x-to-px(#{$i}x));
 	}
 
 	@include responsive-property('--grid-gap', get-grid-gap(normal));

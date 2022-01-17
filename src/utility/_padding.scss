@@ -71,7 +71,7 @@
 				@if type-of($value) == "map" {
 					@include responsive-property("--pb", nth(map.values($value), 1));
 				} @else {
-					--pb: #{_($value)};
+					--pb: #{x-to-px($value)};
 				}
 
 			}
@@ -80,7 +80,7 @@
 				@if type-of($value) == "map" {
 					@include responsive-property("--pl", nth(map.values($value), 1));
 				} @else {
-					--pl: #{_($value)};
+					--pl: #{x-to-px($value)};
 				}
 			}
 
@@ -88,7 +88,7 @@
 				@if type-of($value) == "map" {
 					@include responsive-property("--pr", nth(map.values($value), 1));
 				} @else {
-					--pr: #{_($value)};
+					--pr: #{x-to-px($value)};
 				}
 			}
 
@@ -96,7 +96,7 @@
 				@if type-of($value) == "map" {
 					@include responsive-property("--pt", nth(map.values($value), 1));
 				} @else {
-					--pt: #{_($value)};
+					--pt: #{x-to-px($value)};
 				}
 			}
 		}
