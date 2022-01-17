@@ -40,6 +40,30 @@
 	margin-top: calc(var(--mt) * -1) !important;
 }
 
+[class^="mx-"],
+[class*=" mx-"] {
+	margin-left: var(--ml) !important;
+	margin-right: var(--mr) !important;
+}
+
+[class^="-mx-"],
+[class*=" -mx-"] {
+	margin-left: calc(var(--ml) * -1) !important;
+	margin-right: calc(var(--mr) * -1) !important;
+}
+
+[class^="my-"],
+[class*=" my-"] {
+	margin-bottom: var(--mb) !important;
+	margin-top: var(--mt) !important;
+}
+
+[class^="-my-"],
+[class*=" -my-"] {
+	margin-bottom: calc(var(--mb) * -1) !important;
+	margin-top: calc(var(--mt) * -1) !important;
+}
+
 @each $key, $value in $spacing {
 	.mb-#{camelize($key)},
 	.-mb-#{camelize($key)} {
