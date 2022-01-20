@@ -19,7 +19,11 @@
 
 	@if type-of($_color) == 'string' and index(map-keys($colors), $_color) {
 
-		@if $colors-use-variables == true and $_return-hex == false {
+		@if $_return-hex == true {
+
+			$_color: map-get($colors, $_color);
+
+		} @else {
 
 			@if $_alpha < 1 {
 				$_color: var(--color-#{$_color}-rgb);
@@ -27,8 +31,6 @@
 				$_color: var(--color-#{$_color});
 			}
 
-		} @else {
-			$_color: map-get($colors, $_color);
 		}
 
 	}
