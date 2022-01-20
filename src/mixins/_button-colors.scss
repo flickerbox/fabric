@@ -7,7 +7,12 @@
 /// @param {String} $text-color - Text color applied to the button; defaults to $buttons-text-color
 ///
 @mixin button-colors($background-color: $buttons-background-color, $border-color: $buttons-border-color, $text-color: $buttons-text-color) {
-	background: var(--color-#{$background-color});
-	border-color: var(--color-#{$border-color});
-	color: var(--color-#{$text-color});
+
+	--button-background-color: #{get-color($background-color)};
+	--button-border-color: #{get-color($border-color)};
+	--button-color: #{get-color($color)};
+	background: var(--button-background-color);
+	border-color: var(--button-border-color);
+	color: var(--button-color);
+
 }
