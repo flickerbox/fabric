@@ -1,5 +1,5 @@
 ///
-/// Sets the color for a button
+/// Sets the hover color for a button
 ///
 /// @group Mixins
 /// @param {String} $background-color - Background color applied to the button; defaults to $buttons-background-color
@@ -8,8 +8,8 @@
 ///
 @mixin button-colors($background-color: $buttons-background-color, $border-color: $buttons-border-color, $text-color: $buttons-text-color) {
 
-	--button-background-color: #{get-color($background-color)};
-	--button-border-color: #{get-color($border-color)};
-	--button-color: #{get-color($color)};
+	--button-hover-background-color: #{get-color($background-color)};
+	--button-hover-border-color: #{get-color($border-color)};
+	--button-hover-color: #{get-color($color)};
 
 }

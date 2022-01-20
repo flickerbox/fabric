@@ -4,7 +4,7 @@
 @use 'sass:string';
 
 ///
-/// Sets font size variables based on the global font size map
+/// Sets css variables for font size based on the global font size map
 ///
 @mixin font-size-variables($font-size, $breakpoints) {
 

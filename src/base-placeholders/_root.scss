@@ -2,6 +2,7 @@
 @use 'sass:map';
 @use 'sass:math';
 
+@import '../mixins/button-variables';
 @import '../mixins/font-size-variables';
 
 /// @group Fabric Base Placeholders
@@ -45,6 +46,8 @@
 			--box-shadow-#{$name}-#{"" + $color}: #{$box-shadow};
 		}
 	}
+
+	@include button-variables;
 
 	@each $name, $hex in $colors {
 		--color-#{"" + $name}: #{$hex};

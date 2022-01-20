@@ -1,0 +1,22 @@
+///
+/// Sets css variables for buttons based on the global button variables
+///
+@mixin button-variables {
+
+	@if $buttons-radius == 'rounded' {
+		border-radius: calc(var(--button-height) / 2);
+	} @else {
+		@include responsive-property('--button-border-radius', $buttons-radius);
+	}
+	@include responsive-property('--button-border-width', $buttons-border-width);
+	@include responsive-property('--button-height', $buttons-height);
+	@include responsive-property('--button-padding', $buttons-padding, '0 %s');
+	--button-background-color: #{get-color($buttons-background-color)};
+	--button-border-color: #{get-color($buttons-border-color)};
+	--button-border-style: solid;
+	--button-color: #{get-color($buttons-text-color)};
+	--button-hover-background-color: #{get-color($buttons-hover-background-color)};
+	--button-hover-border-color: #{get-color($buttons-hover-border-color)};
+	--button-hover-color: #{get-color($buttons-hover-text-color)};
+
+}
