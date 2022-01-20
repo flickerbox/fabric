@@ -1,25 +1,27 @@
 .text-center {
-	@extend %text-center !optional;
+	text-align: center;
 }
 
 .text-left {
-	@extend %text-left !optional;
+	text-align: left;
 }
 
 .text-right {
-	@extend %text-right !optional;
+	text-align: right;
 }
 
 @each $breakpoint in map-keys($breakpoints) {
-	.text-center--#{camelize($breakpoint)} {
-		@extend %text-center--#{camelize($breakpoint)} !optional;
-	}
+	@include media('<#{$breakpoint}') {
+		.text-center--#{camelize($breakpoint)} {
+			text-align: center;
+		}
 
-	.text-left--#{camelize($breakpoint)} {
-		@extend %text-left--#{camelize($breakpoint)} !optional;
-	}
+		.text-left--#{camelize($breakpoint)} {
+			text-align: left;
+		}
 
-	.text-right--#{camelize($breakpoint)} {
-		@extend %text-right--#{camelize($breakpoint)} !optional;
+		.text-right--#{camelize($breakpoint)} {
+			text-align: right;
+		}
 	}
 }
