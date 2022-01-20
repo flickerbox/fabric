@@ -6,20 +6,13 @@
 ////
 
 /// @name font-family
-$font-family:             Helvetica, Arial, sans-serif         !default;
-
-/// @name font-family
-$font-family--secondary:  $font-family                         !default;
-
-/// @name font-family--monospace
-$font-family--monospace:  monospace                            !default;
-
-/// @name font-family--sans-serif
-$font-family--sans-serif: Helvetica, Arial, sans-serif         !default;
-
-/// @name font-family--serif
-$font-family--serif:      serif                                !default;
-
+$font-family: (
+	'default': Helvetica, Arial, sans-serif,
+	'secondary': var(--font-family-default),
+	'sans-serif': var(--font-family-default),
+	'serif': serif,
+	'monospace': monospace
+)                                                             !default;
 
 /// @name font-size
 $font-size: (

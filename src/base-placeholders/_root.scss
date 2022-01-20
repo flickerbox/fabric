@@ -48,11 +48,12 @@
 		--color-#{"" + $name}-rgb: #{red($hex)}, #{green($hex)}, #{blue($hex)};
 	}
 
-	--font-family: #{$font-family};
-	--font-family-secondary: #{$font-family--secondary};
-	--font-family-monospace: #{$font-family--monospace};
-	--font-family-sans-serif: #{$font-family--sans-serif};
-	--font-family-serif: #{$font-family--serif};
+	@each $name, $value in $font-family {
+		@if $name == 'default' {
+			--font-family: #{$value};
+		}
+		--font-family-#{$name}: #{$value};
+	}
 
 	@each $name, $value in $font-size {
 		@include responsive-property('--font-size-#{$name}', $value);
