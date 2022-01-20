@@ -1,0 +1,41 @@
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:math';
+@use 'sass:string';
+
+///
+/// Sets font size variables based on the global font size map
+///
+@mixin font-size-variables($font-size, $breakpoints) {
+
+	@each $name, $value in $font-size {
+
+		$clamp-breakpoint-px: null;
+
+		@if type-of($value) == 'map' and length($value) == 2 {
+
+			$clamp-breakpoint: list.nth(map.keys($value), 1);
+
+			@if str-index($clamp-breakpoint, '<') != null {
+				$clamp-breakpoint: string.slice($clamp-breakpoint, 2);
+			}
+
+			$clamp-breakpoint-px: map-get($breakpoints, $clamp-breakpoint);
+
+		}
+
+		@if $clamp-breakpoint-px != null {
+
+			$clamp-max: list.nth(map.values($value), 1);
+			$clamp-min: list.nth(map.values($value), 2);
+			--font-size-#{$name}: clamp(#{$clamp-min}, #{100vw * math.div($clamp-max, $clamp-breakpoint-px)}, #{$clamp-max});
+
+		} @else {
+
+			@include responsive-property('--font-size-#{$name}', $value);
+
+		}
+
+	}
+
+}

@@ -1,5 +1,8 @@
 @use 'sass:list';
+@use 'sass:map';
 @use 'sass:math';
+
+@import '../mixins/font-size-variables';
 
 /// @group Fabric Base Placeholders
 /// @access public
@@ -55,9 +58,7 @@
 		--font-family-#{$name}: #{$value};
 	}
 
-	@each $name, $value in $font-size {
-		@include responsive-property('--font-size-#{$name}', $value);
-	}
+	@include font-size-variables($font-size, $breakpoints);
 
 	@each $name, $value in $font-weight {
 		@include responsive-property('--font-weight-#{$name}', $value);

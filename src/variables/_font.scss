@@ -25,6 +25,8 @@ $font-size: (
 	'h1':   48px
 )                                                             !default;
 
+$font-size-use-clamp: true                                    !default;
+
 /// @name font-weight
 $font-weight: (
 	'base': 400,
