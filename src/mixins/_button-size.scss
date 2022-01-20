@@ -10,14 +10,14 @@
 /// @param {String} $radius - Border radius applied to the button using either a unit value or the string "rounded"
 ///
 @mixin button-size($_height, $_padding: $buttons-padding, $_border-width: $buttons-border-width, $_radius: $buttons-radius) {
-  @include padding(0 $_padding);
-  border-width: x-to-px($_border-width);
-  height: x-to-px($_height);
-  line-height: x-to-px($_height) - (x-to-px($_border-width) * 2);
+	@include responsive-property('height', $_height);
+	@include responsive-property('line-height', $_height, 'calc(%s - #{x-to-px($_border-width) * 2})');
+	@include responsive-property('padding', $_padding, '0 %s');
+	border-width: x-to-px($_border-width);
 
-  @if $_radius == 'rounded' {
-	  border-radius: x-to-px(math.div($_height, 2));
-  } @else {
-	  border-radius: x-to-px($_radius);
-  }
+	@if $_radius == 'rounded' {
+		border-radius: x-to-px(math.div($_height, 2));
+	} @else {
+		border-radius: x-to-px($_radius);
+	}
 }
