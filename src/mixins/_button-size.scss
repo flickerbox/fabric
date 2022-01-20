@@ -7,17 +7,23 @@
 /// @param {String} $height - Height applied to the button
 /// @param {String} $padding - Horizontal padding applied to the button
 /// @param {String} $border-width - Border width applied to the button
-/// @param {String} $radius - Border radius applied to the button using either a unit value or the string "rounded"
+/// @param {String} $border-radius - Border radius applied to the button using either a unit value or the string "rounded"
 ///
-@mixin button-size($_height, $_padding: $buttons-padding, $_border-width: $buttons-border-width, $_radius: $buttons-radius) {
-	@include responsive-property('height', $_height);
-	@include responsive-property('line-height', $_height, 'calc(%s - #{x-to-px($_border-width) * 2})');
-	@include responsive-property('padding', $_padding, '0 %s');
-	border-width: x-to-px($_border-width);
+@mixin button-size($height, $padding: $buttons-padding, $border-width: $buttons-border-width, $border-radius: $buttons-radius) {
 
-	@if $_radius == 'rounded' {
-		border-radius: x-to-px(math.div($_height, 2));
+	@if $border-radius == 'rounded' {
+		border-radius: calc(var(--button-height) / 2);
 	} @else {
-		border-radius: x-to-px($_radius);
+		@include responsive-property('--button-border-radius', $border-radius);
 	}
+
+	@include responsive-property('--button-border-width', $border-width);
+	@include responsive-property('--button-height', $height);
+	@include responsive-property('--button-padding', $padding, '0 %s');
+	border-radius: var(--button-border-radius);
+	border-width: var(--button-border-width);
+	height: var(--button-height);
+	line-height: calc(var(--button-height) - (var(--button-border-width) * 2));
+	padding: var(--button-padding);
+
 }
