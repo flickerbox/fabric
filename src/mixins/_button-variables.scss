@@ -4,7 +4,7 @@
 @mixin button-variables {
 
 	@if $buttons-radius == 'rounded' {
-		border-radius: calc(var(--button-height) / 2);
+		--button-border-radius: calc(var(--button-height) / 2);
 	} @else {
 		@include responsive-property('--button-border-radius', $buttons-radius);
 	}
