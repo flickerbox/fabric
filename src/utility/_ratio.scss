@@ -1,5 +1,5 @@
 @each $ratio in $ratios {
-	[ratio='#{$ratio}'] {
+	.ratio-#{$ratio} {
 		@include responsive-ratio($ratio);
 	}
 }

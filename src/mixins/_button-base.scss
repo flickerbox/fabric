@@ -1,0 +1,33 @@
+///
+/// Sets the base styles for buttons
+///
+@mixin button-base {
+	@include transition(normal background, normal border, normal color);
+	background: var(--button-background-color);
+	border-color: var(--button-border-color);
+	border-radius: var(--button-border-radius);
+	border-style: var(--button-border-style);
+	border-width: var(--button-border-width);
+	color: var(--button-color);
+	cursor: pointer;
+	display: inline-flex;
+	height: var(--button-height);
+	line-height: calc(var(--button-height) - (var(--button-border-width) * 2));
+	justify-content: center;
+	padding: var(--button-padding);
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	white-space: nowrap;
+
+	&:hover {
+		background: var(--button-hover-background-color);
+		border-color: var(--button-hover-border-color);
+		color: var(--button-hover-color);
+		text-decoration: none;
+	}
+
+	&:focus {
+		outline: none;
+	}
+}

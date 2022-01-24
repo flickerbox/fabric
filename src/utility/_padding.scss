@@ -1,37 +1,130 @@
+@use "sass:map";
+
+[class^="pb-"],
+[class*=" pb-"] {
+	padding-bottom: var(--pb) !important;
+}
+
+[class^="pl-"],
+[class*=" pl-"] {
+	padding-left: var(--pl) !important;
+}
+
+[class^="pr-"],
+[class*=" pr-"] {
+	padding-right: var(--pr) !important;
+}
+
+[class^="pt-"],
+[class*=" pt-"] {
+	padding-top: var(--pt) !important;
+}
+
 @each $key, $value in $spacing {
 	.pb-#{camelize($key)} {
-		@extend %pb-#{camelize($key)} !optional;
+		@include responsive-property("--pb", $value);
 	}
 
 	.pl-#{camelize($key)} {
-		@extend %pl-#{camelize($key)} !optional;
+		@include responsive-property("--pl", $value);
 	}
 
 	.pr-#{camelize($key)} {
-		@extend %pr-#{camelize($key)} !optional;
+		@include responsive-property("--pr", $value);
 	}
 
 	.pt-#{camelize($key)} {
-		@extend %pt-#{camelize($key)} !optional;
+		@include responsive-property("--pt", $value);
 	}
 }
 
+.pb-auto {
+	--pb: auto;
+}
+
+.pl-auto {
+	--pl: auto;
+}
+
+.pr-auto {
+	--pr: auto;
+}
+
+.pt-auto {
+	--pt: auto;
+}
+
+.mx-auto {
+	--pl: auto;
+	--pr: auto;
+}
+
+.my-auto {
+	--pb: auto;
+	--pt: auto;
+}
+
 @each $breakpoint in map-keys($breakpoints) {
-	@each $key, $value in $spacing {
-		.pb-#{camelize($key)}--#{camelize($breakpoint)} {
-			@extend %pb-#{camelize($key)}--#{camelize($breakpoint)} !optional;
+	@include media("<#{$breakpoint}") {
+		@each $key, $value in $spacing {
+			.pb-#{camelize($key)}--#{camelize($breakpoint)} {
+				@if type-of($value) == "map" {
+					@include responsive-property("--pb", nth(map.values($value), 1));
+				} @else {
+					--pb: #{x-to-px($value)};
+				}
+
+			}
+
+			.pl-#{camelize($key)}--#{camelize($breakpoint)} {
+				@if type-of($value) == "map" {
+					@include responsive-property("--pl", nth(map.values($value), 1));
+				} @else {
+					--pl: #{x-to-px($value)};
+				}
+			}
+
+			.pr-#{camelize($key)}--#{camelize($breakpoint)} {
+				@if type-of($value) == "map" {
+					@include responsive-property("--pr", nth(map.values($value), 1));
+				} @else {
+					--pr: #{x-to-px($value)};
+				}
+			}
+
+			.pt-#{camelize($key)}--#{camelize($breakpoint)} {
+				@if type-of($value) == "map" {
+					@include responsive-property("--pt", nth(map.values($value), 1));
+				} @else {
+					--pt: #{x-to-px($value)};
+				}
+			}
 		}
 
-		.pl-#{camelize($key)}--#{camelize($breakpoint)} {
-			@extend %pl-#{camelize($key)}--#{camelize($breakpoint)} !optional;
+		.pb-auto--#{camelize($breakpoint)} {
+			--pb: auto;
 		}
 
-		.pr-#{camelize($key)}--#{camelize($breakpoint)} {
-			@extend %pr-#{camelize($key)}--#{camelize($breakpoint)} !optional;
+		.pl-auto--#{camelize($breakpoint)} {
+			--pl: auto;
 		}
 
-		.pt-#{camelize($key)}--#{camelize($breakpoint)} {
-			@extend %pt-#{camelize($key)}--#{camelize($breakpoint)} !optional;
+		.pr-auto--#{camelize($breakpoint)} {
+			--pr: auto;
+		}
+
+		.pt-auto--#{camelize($breakpoint)} {
+			--pt: auto;
+		}
+
+		.mx-auto--#{camelize($breakpoint)} {
+			--pl: auto;
+			--pr: auto;
+		}
+
+		.my-auto--#{camelize($breakpoint)} {
+			--pb: auto;
+			--pt: auto;
 		}
 	}
 }

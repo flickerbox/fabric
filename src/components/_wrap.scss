@@ -13,7 +13,10 @@
 
 	.Wrap--#{camelize($name)} {
 		@extend %Wrap !optional;
-		@extend %Wrap--#{camelize($name)} !optional;
+		max-width: var(--wrap-width-#{$name});
+		padding-left: var(--wrap-padding-#{$name});
+		padding-right: var(--wrap-padding-#{$name});
+		width: calc(100% - (var(--wrap-padding-#{$name}) * 2));
 	}
 
 }

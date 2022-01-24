@@ -1,85 +1,181 @@
+@use "sass:map";
+
+[class^="mb-"],
+[class*=" mb-"] {
+	margin-bottom: var(--mb) !important;
+}
+
+[class^="-mb-"],
+[class*=" -mb-"] {
+	margin-bottom: calc(var(--mb) * -1) !important;
+}
+
+[class^="ml-"],
+[class*=" ml-"] {
+	margin-left: var(--ml) !important;
+}
+
+[class^="-ml-"],
+[class*=" -ml-"] {
+	margin-left: calc(var(--ml) * -1) !important;
+}
+
+[class^="mr-"],
+[class*=" mr-"] {
+	margin-right: var(--mr) !important;
+}
+
+[class^="-mr-"],
+[class*=" -mr-"] {
+	margin-right: calc(var(--mr) * -1) !important;
+}
+
+[class^="mt-"],
+[class*=" mt-"] {
+	margin-top: var(--mt) !important;
+}
+
+[class^="-mt-"],
+[class*=" -mt-"] {
+	margin-top: calc(var(--mt) * -1) !important;
+}
+
+[class^="mx-"],
+[class*=" mx-"] {
+	margin-left: var(--ml) !important;
+	margin-right: var(--mr) !important;
+}
+
+[class^="-mx-"],
+[class*=" -mx-"] {
+	margin-left: calc(var(--ml) * -1) !important;
+	margin-right: calc(var(--mr) * -1) !important;
+}
+
+[class^="my-"],
+[class*=" my-"] {
+	margin-bottom: var(--mb) !important;
+	margin-top: var(--mt) !important;
+}
+
+[class^="-my-"],
+[class*=" -my-"] {
+	margin-bottom: calc(var(--mb) * -1) !important;
+	margin-top: calc(var(--mt) * -1) !important;
+}
+
 @each $key, $value in $spacing {
-	.mb-#{camelize($key)} {
-		@extend %mb-#{camelize($key)} !optional;
+	.mb-#{camelize($key)},
+	.-mb-#{camelize($key)} {
+		@include responsive-property("--mb", $value);
 	}
 
-	.ml-#{camelize($key)} {
-		@extend %ml-#{camelize($key)} !optional;
+	.ml-#{camelize($key)},
+	.-ml-#{camelize($key)} {
+		@include responsive-property("--ml", $value);
 	}
 
-	.mr-#{camelize($key)} {
-		@extend %mr-#{camelize($key)} !optional;
+	.mr-#{camelize($key)},
+	.-mr-#{camelize($key)} {
+		@include responsive-property("--mr", $value);
 	}
 
-	.mt-#{camelize($key)} {
-		@extend %mt-#{camelize($key)} !optional;
+	.mt-#{camelize($key)},
+	.-mt-#{camelize($key)} {
+		@include responsive-property("--mt", $value);
 	}
 }
 
 .mb-auto {
-	@extend %mb-auto !optional;
+	--mb: auto;
 }
 
 .ml-auto {
-	@extend %ml-auto !optional;
+	--ml: auto;
 }
 
 .mr-auto {
-	@extend %mr-auto !optional;
+	--mr: auto;
 }
 
 .mt-auto {
-	@extend %mt-auto !optional;
+	--mt: auto;
 }
 
 .mx-auto {
-	@extend %mx-auto !optional;
+	--ml: auto;
+	--mr: auto;
 }
 
 .my-auto {
-	@extend %my-auto !optional;
+	--mb: auto;
+	--mt: auto;
 }
 
 @each $breakpoint in map-keys($breakpoints) {
-	@each $key, $value in $spacing {
-		.mb-#{camelize($key)}--#{camelize($breakpoint)} {
-			@extend %mb-#{camelize($key)}--#{camelize($breakpoint)} !optional;
+	@include media('<#{$breakpoint}') {
+		@each $key, $value in $spacing {
+			.mb-#{camelize($key)}--#{camelize($breakpoint)},
+			.-mb-#{camelize($key)}--#{camelize($breakpoint)} {
+				@if type-of($value) == "map" {
+					@include responsive-property("--mb", nth(map.values($value), 1));
+				} @else {
+					--mb: #{x-to-px($value)};
+				}
+			}
+
+			.ml-#{camelize($key)}--#{camelize($breakpoint)},
+			.-ml-#{camelize($key)}--#{camelize($breakpoint)} {
+				@if type-of($value) == "map" {
+					@include responsive-property("--ml", nth(map.values($value), 1));
+				} @else {
+					--ml: #{x-to-px($value)};
+				}
+			}
+
+			.mr-#{camelize($key)}--#{camelize($breakpoint)},
+			.-mr-#{camelize($key)}--#{camelize($breakpoint)} {
+				@if type-of($value) == "map" {
+					@include responsive-property("--mr", nth(map.values($value), 1));
+				} @else {
+					--mr: #{x-to-px($value)};
+				}
+			}
+
+			.mt-#{camelize($key)}--#{camelize($breakpoint)},
+			.-mt-#{camelize($key)}--#{camelize($breakpoint)} {
+				@if type-of($value) == "map" {
+					@include responsive-property("--mt", nth(map.values($value), 1));
+				} @else {
+					--mt: #{x-to-px($value)};
+				}
+			}
 		}
 
-		.ml-#{camelize($key)}--#{camelize($breakpoint)} {
-			@extend %ml-#{camelize($key)}--#{camelize($breakpoint)} !optional;
+		.mb-auto--#{camelize($breakpoint)} {
+			--mb: auto;
 		}
 
-		.mr-#{camelize($key)}--#{camelize($breakpoint)} {
-			@extend %mr-#{camelize($key)}--#{camelize($breakpoint)} !optional;
+		.ml-auto--#{camelize($breakpoint)} {
+			--ml: auto;
 		}
 
-		.mt-#{camelize($key)}--#{camelize($breakpoint)} {
-			@extend %mt-#{camelize($key)}--#{camelize($breakpoint)} !optional;
+		.mr-auto--#{camelize($breakpoint)} {
+			--mr: auto;
 		}
-	}
 
-	.mb-auto--#{camelize($breakpoint)} {
-		@extend %mb-auto--#{camelize($breakpoint)} !optional;
-	}
+		.mt-auto--#{camelize($breakpoint)} {
+			--mt: auto;
+		}
 
-	.ml-auto--#{camelize($breakpoint)} {
-		@extend %ml-auto--#{camelize($breakpoint)} !optional;
-	}
+		.mx-auto--#{camelize($breakpoint)} {
+			--ml: auto;
+			--mr: auto;
+		}
 
-	.mr-auto--#{camelize($breakpoint)} {
-		@extend %mr-auto--#{camelize($breakpoint)} !optional;
-	}
-
-	.mt-auto--#{camelize($breakpoint)} {
-		@extend %mt-auto--#{camelize($breakpoint)} !optional;
-	}
-
-	.mx-auto--#{camelize($breakpoint)} {
-		@extend %mx-auto--#{camelize($breakpoint)} !optional;
-	}
-
-	.my-auto--#{camelize($breakpoint)} {
-		@extend %my-auto--#{camelize($breakpoint)} !optional;
+		.my-auto--#{camelize($breakpoint)} {
+			--mb: auto;
+			--mt: auto;
+		}
 	}
 }

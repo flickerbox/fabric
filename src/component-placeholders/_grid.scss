@@ -14,27 +14,35 @@
 }
 
 %Grid-wrap {
-	$grid-gap: get-grid-gap('normal');
+	--grid-columns: #{$grid-columns};
 	box-sizing: border-box;
 	display: flex;
+	gap: var(--grid-gap);
 	flex-wrap: wrap;
-	margin: 0 math.div(-$grid-gap, 2) (-$grid-gap);
-	width: calc(100% + #{$grid-gap});
+	width: 100%;
 }
 
 %Grid-item {
-	$grid-gap: get-grid-gap('normal');
+	--grid-item-width: 1;
 	box-sizing: border-box;
-	flex-shrink: 0;
-	padding: 0 math.div($grid-gap, 2) ($grid-gap);
 	position: relative;
-	width: math.div(100%, $grid-columns);
+	flex-shrink: 0;
+	width: calc(
+		(var(--grid-item-width) * ((100% / var(--grid-columns)) - ((var(--grid-columns) - 1) / var(--grid-columns) * var(--grid-gap)))) +
+		((var(--grid-item-width) - 1) * var(--grid-gap))
+	);
+
+	@for $i from $grid-columns through 1 {
+		&.is-#{$i} {
+			--grid-item-width: #{$i};
+		}
+	}
 }
 
 %Grid-columns {
 	@for $i from $grid-columns through 1 {
-		&.with-#{$i} > div {
-			width: math.div(100%, $i);
+		&.with-#{$i} {
+			--grid-columns: #{$i};
 		}
 	}
 
@@ -55,36 +63,15 @@
 
 			@if $i == 1 {
 				@for $_columns from $grid-columns through 1 {
-					@for $j from 1 through $_columns {
-						$_grid-item-class: '> .is-#{$j}';
-
-						@if $j == 1 {
-							$_grid-item-class: '> div, #{$_grid-item-class}';
-						}
-
-						&#{$_grid-class}.with-#{$_columns} #{$_grid-item-class} {
-							width: 100% * math.div($j, $_columns);
-						}
+					&#{$_grid-class}.with-#{$_columns} {
+						--grid-columns: #{$_columns};
 					}
 				}
 			} @else {
 				@include media('<#{$_breakpoint}') {
 					@for $_columns from $grid-columns through 1 {
-						@for $j from 1 through $_columns {
-
-							@if $j == 1 {
-
-								&#{$_grid-class}.with-#{$_columns}--#{camelize($_breakpoint)} > div {
-									width: 100% * math.div($j, $_columns);
-								}
-
-							}
-							&#{$_grid-class}.with-#{$_columns} > .is-#{$j}--#{camelize($_breakpoint)},
-							&#{$_grid-class}.with-#{$_columns}--#{camelize($_breakpoint)} > .is-#{$j},
-							&#{$_grid-class}.with-#{$_columns}--#{camelize($_breakpoint)} > .is-#{$j}--#{camelize($_breakpoint)} {
-								width: 100% * math.div($j, $_columns);
-							}
-
+						&#{$_grid-class}.with-#{$_columns}--#{camelize($_breakpoint)} {
+							--grid-columns: #{$_columns};
 						}
 					}
 				}
@@ -96,44 +83,25 @@
 %Grid-gaps {
 	@each $_grid-breakpoint in map-keys($grid-breakpoints) {
 		$_breakpoints: map-get($grid-breakpoints, $_grid-breakpoint);
-		$_grid-class: '.has-#{camelize($_grid-breakpoint)}Breakpoints';
 
 		@if length($_breakpoints) > 1 {
 			$_breakpoints: list-reverse($_breakpoints);
-		}
-
-		@if $_grid-breakpoint == 'normal' {
-			$_grid-class: '';
 		}
 
 		@for $i from 1 through length($_breakpoints) {
 			$_breakpoint: nth($_breakpoints, $i);
 
 			@if $i == 1 {
-				@each $key in map-keys($grid-gaps) {
-					$_gap: get-grid-gap($key);
-
-					&.has-#{camelize($key)}Gaps {
-						margin: 0 math.div(-$_gap, 2) (-$_gap);
-						width: calc(100% + #{$_gap});
-
-						> div {
-							padding: 0 math.div($_gap, 2) ($_gap);
-						}
+				@each $gap in map-keys($grid-gaps) {
+					&.has-#{camelize($gap)}Gaps {
+						--grid-gap: var(--grid-gap-#{$gap});
 					}
 				}
 			} @else {
 				@include media('<#{$_breakpoint}') {
-					@each $key in map-keys($grid-gaps) {
-						$_gap: get-grid-gap($key);
-
-						&.has-#{camelize($key)}Gaps--#{camelize($_breakpoint)} {
-							margin: 0 math.div(-$_gap, 2) (-$_gap);
-							width: calc(100% + #{$_gap});
-
-							> div {
-								padding: 0 math.div($_gap, 2) ($_gap);
-							}
+					@each $gap in map-keys($grid-gaps) {
+						&.has-#{camelize($gap)}Gaps--#{camelize($_breakpoint)} {
+							--grid-gap: var(--grid-gap-#{$gap});
 						}
 					}
 				}

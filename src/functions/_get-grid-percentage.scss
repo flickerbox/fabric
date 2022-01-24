@@ -10,11 +10,11 @@
 	$_offset: get-grid-gap($_grid-gap) * (1 - $_percentage);
 
 	@if remove-unit($_add) != 0 and str-slice(string($_columns), 0, 1) == '-' {
-		@return calc(#{$_offset} - #{100% * $_percentage} + #{_($_add)});
+		@return calc(#{$_offset} - #{100% * $_percentage} + #{x-to-px($_add)});
 	} @else if str-slice(string($_columns), 0, 1) == '-' {
 		@return calc(#{$_offset} - #{100% * $_percentage});
 	} @else if remove-unit($_add) != 0 {
-		@return calc(#{100% * $_percentage} - #{$_offset} + #{_($_add)});
+		@return calc(#{100% * $_percentage} - #{$_offset} + #{x-to-px($_add)});
 	} @else {
 		@return calc(#{100% * $_percentage} - #{$_offset});
 	}

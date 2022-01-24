@@ -1,5 +1,9 @@
 @use 'sass:list';
+@use 'sass:map';
 @use 'sass:math';
+
+@import '../mixins/button-variables';
+@import '../mixins/font-size-variables';
 
 /// @group Fabric Base Placeholders
 /// @access public
@@ -9,8 +13,13 @@
 		--breakpoint-#{$name}: #{$breakpoint};
 	}
 
-	--layout-padding: #{_($layout-padding)};
-	--layout-width: #{_($layout-width)};
+	@include responsive-property('--layout-padding', $layout-padding);
+	@include responsive-property('--layout-width', $layout-width);
+
+	@each $name, $width in $wrap-width {
+		@include responsive-property('--wrap-padding-#{$name}', map-get($wrap-padding, $name));
+		@include responsive-property('--wrap-width-#{$name}', $width);
+	}
 
 	@each $name, $shadows in $drop-shadows-elevations {
 		$alpha: $drop-shadows-alpha;
@@ -34,24 +43,25 @@
 				$first: false;
 			}
 
-			--box-shadow-#{$name}-#{$color}: #{$box-shadow};
+			--box-shadow-#{$name}-#{"" + $color}: #{$box-shadow};
 		}
 	}
 
+	@include button-variables;
+
 	@each $name, $hex in $colors {
-		--color-#{$name}: #{$hex};
-		--color-#{$name}-rgb: #{red($hex)}, #{green($hex)}, #{blue($hex)};
+		--color-#{"" + $name}: #{$hex};
+		--color-#{"" + $name}-rgb: #{red($hex)}, #{green($hex)}, #{blue($hex)};
 	}
 
-	--font-family: #{$font-family};
-	--font-family-secondary: #{$font-family--secondary};
-	--font-family-monospace: #{$font-family--monospace};
-	--font-family-sans-serif: #{$font-family--sans-serif};
-	--font-family-serif: #{$font-family--serif};
-
-	@each $name, $value in $font-size {
-		@include responsive-property('--font-size-#{$name}', $value);
+	@each $name, $value in $font-family {
+		@if $name == 'default' {
+			--font-family: #{$value};
+		}
+		--font-family-#{$name}: #{$value};
 	}
+
+	@include font-size-variables($font-size, $breakpoints);
 
 	@each $name, $value in $font-weight {
 		@include responsive-property('--font-weight-#{$name}', $value);
@@ -82,18 +92,17 @@
 		@include responsive-property('--gap-#{$name}', $value);
 	}
 
-	$excluded-spacing: (
-		'0',
-		'none',
-	);
-
 	@each $name, $value in $spacing {
-		@if not list.index($excluded-spacing, $name) {
-			@include responsive-property('--spacing-#{$name}', $value);
-		}
+		@include responsive-property('--spacing-#{$name}', $value);
 	}
 
 	@for $i from 1 through $layout-spacing-max-units {
-		@include responsive-property('--#{$i}x', _(#{$i}x));
+		@include responsive-property('--#{$i}x', x-to-px(#{$i}x));
+	}
+
+	@include responsive-property('--grid-gap', get-grid-gap(normal));
+
+	@each $name, $value in $grid-gaps {
+		@include responsive-property('--grid-gap-#{$name}', $value);
 	}
 }

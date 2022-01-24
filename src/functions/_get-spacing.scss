@@ -21,24 +21,30 @@
 		}
 
 		@if type-of($value) == 'string' and index(map-keys($spacing), $value) {
-			$value: map-get($spacing, $value);
+			@if map-get($spacing, $value) == 0 {
+				$value: 0;
+			} @else {
+				$value: var(--spacing-#{$value});
+			}
+		} @else if is-x-unit($value) {
+			$x-value: str-slice($value, 1, -2);
+
+			@if number($x-value) <= number($layout-spacing-max-units) {
+				$value: var(--#{$value});
+			} @else {
+				$value: px-to-x($value);
+			}
 		}
 
 		@if $negative {
-			$value: to-negative($value);
-		}
-
-		$px-value: x-to-px($value);
-
-		@if $px-value != false {
-			$value: $px-value;
+			$value: calc(#{$value} * -1);
 		}
 
 		@if $value != null {
 			@if ($value == 'auto') {
 				$list: append($list, auto);
 			} @else {
-				$list: append($list, number($value));
+				$list: append($list, $value);
 			}
 		}
 

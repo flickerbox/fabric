@@ -6,8 +6,10 @@
 /// @param {String} $border-color - Border color applied to the button; defaults to $buttons-border-color
 /// @param {String} $text-color - Text color applied to the button; defaults to $buttons-text-color
 ///
-@mixin button-colors($_background: $buttons-background-color, $_border: $buttons-border-color, $_text: $buttons-text-color) {
-	@include color($_text);
-	background: get-color($_background);
-	border-color: get-color($_border);
+@mixin button-colors($background-color: $buttons-background-color, $border-color: $buttons-border-color, $text-color: $buttons-text-color) {
+
+	--button-background-color: #{get-color($background-color)};
+	--button-border-color: #{get-color($border-color)};
+	--button-color: #{get-color($text-color)};
+
 }

@@ -1,0 +1,31 @@
+@each $name in map-keys($grid-gaps) {
+	.gap-#{camelize($name)} {
+		gap: var(--grid-gap-#{$name}) !important;
+	}
+
+	.columnGap-#{camelize($name)} {
+		column-gap: var(--grid-gap-#{$name}) !important;
+	}
+
+	.rowGap-#{camelize($name)} {
+		row-gap: var(--grid-gap-#{$name}) !important;
+	}
+}
+
+@each $breakpoint in map-keys($breakpoints) {
+	@each $name in map-keys($grid-gaps) {
+		@include media('<#{$breakpoint}') {
+			.gap-#{camelize($name)}--#{camelize($breakpoint)} {
+				gap: var(--grid-gap-#{$name}) !important;
+			}
+
+			.columnGap-#{camelize($name)}--#{camelize($breakpoint)} {
+				column-gap: var(--grid-gap-#{$name}) !important;
+			}
+
+			.rowGap-#{camelize($name)}--#{camelize($breakpoint)} {
+				row-gap: var(--grid-gap-#{$name}) !important;
+			}
+		}
+	}
+}

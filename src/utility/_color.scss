@@ -4,12 +4,17 @@
 /// @require {function} camelize
 ////
 
-@each $name, $hex in $colors {
+@each $name, $color in $colors {
 
 	/// @name .color-
-	.color-#{to-lower-case(str-slice(#{$hex}, 2))},
 	.color-#{camelize($name)} {
-		@extend %color-#{camelize($name)} !optional;
+		color: var(--color-#{$name});
+	}
+
+	@if is-hex($color) {
+		.color-#{to-lower-case(str-slice(#{$color}, 2))} {
+			color: var(--color-#{$name});
+		}
 	}
 
 }

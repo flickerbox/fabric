@@ -15,7 +15,7 @@
 
 	@if type-of($_value) == 'string' and index(map-keys($grid-gaps), $_value) {
 
-		@return _(map-get($grid-gaps, $_value));
+		@return x-to-px(map-get($grid-gaps, $_value));
 
 	} @else {
 
