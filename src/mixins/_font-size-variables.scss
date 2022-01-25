@@ -24,7 +24,7 @@
 
 		}
 
-		@if $clamp-breakpoint-px != null {
+		@if $clamp-breakpoint-px != null and $font-size-use-clamp == true {
 
 			$clamp-max: list.nth(map.values($value), 1);
 			$clamp-min: list.nth(map.values($value), 2);
