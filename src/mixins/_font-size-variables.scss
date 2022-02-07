@@ -10,25 +10,32 @@
 
 	@each $name, $value in $font-size {
 
-		$clamp-breakpoint-px: null;
+		$clamp-breakpoint-px-max: null;
+		$clamp-breakpoint-px-min: null;
 
 		@if type-of($value) == 'map' and length($value) == 2 {
 
-			$clamp-breakpoint: list.nth(map.keys($value), 1);
+			$clamp-breakpoint-max: list.nth(map.keys($value), 1);
+			$clamp-breakpoint-min: list.nth(map.keys($value), 2);
 
-			@if str-index($clamp-breakpoint, '<') != null {
-				$clamp-breakpoint: string.slice($clamp-breakpoint, 2);
+			@if str-index($clamp-breakpoint-max, '<') != null {
+				$clamp-breakpoint-max: string.slice($clamp-breakpoint-max, 2);
 			}
 
-			$clamp-breakpoint-px: map-get($breakpoints, $clamp-breakpoint);
+			@if str-index($clamp-breakpoint-min, '<') != null {
+				$clamp-breakpoint-min: string.slice($clamp-breakpoint-min, 2);
+			}
+
+			$clamp-breakpoint-px-max: map-get($breakpoints, $clamp-breakpoint-max);
+			$clamp-breakpoint-px-min: map-get($breakpoints, $clamp-breakpoint-min);
 
 		}
 
-		@if $clamp-breakpoint-px != null {
+		@if $clamp-breakpoint-px-min != null and $clamp-breakpoint-px-max != null and $font-size-use-clamp == true {
 
 			$clamp-max: list.nth(map.values($value), 1);
 			$clamp-min: list.nth(map.values($value), 2);
-			--font-size-#{$name}: clamp(#{$clamp-min}, #{100vw * math.div($clamp-max, $clamp-breakpoint-px)}, #{$clamp-max});
+			--font-size-#{$name}: clamp(#{$clamp-min}, calc(#{$clamp-min} + (#{remove-unit($clamp-max - $clamp-min)} * ((100vw - #{$clamp-breakpoint-px-min}) / #{remove-unit($clamp-breakpoint-px-max - $clamp-breakpoint-px-min)}))), #{$clamp-max});
 
 		} @else {
 
