@@ -1,3 +1,4 @@
+@use 'sass:map';
 @use 'sass:math';
 
 /// @group Fabric Component Placeholders
@@ -35,6 +36,26 @@
 	@for $i from $grid-columns through 1 {
 		&.is-#{$i} {
 			--grid-item-width: #{$i};
+		}
+	}
+
+	$_grid-breakpoints: map.get($grid-breakpoints, 'normal');
+
+	@if $_grid-breakpoints {
+		@if length($_grid-breakpoints) > 1 {
+			$_grid-breakpoints: list-reverse($_grid-breakpoints);
+		}
+
+		@for $i from 2 through length($_grid-breakpoints) {
+			$_grid-breakpoint: nth($_grid-breakpoints, $i);
+
+			@include media('<#{$_grid-breakpoint}') {
+				@for $i from $grid-columns through 1 {
+					&.is-#{$i}--#{camelize($_grid-breakpoint)} {
+						--grid-item-width: #{$i};
+					}
+				}
+			}
 		}
 	}
 }
