@@ -8,7 +8,7 @@
 /// @name font-family
 $font-family: (
 	'default': (Helvetica, Arial, sans-serif),
-	'secondary': var(--font-family-default),
+	'heading': var(--font-family-default),
 	'sans-serif': var(--font-family-default),
 	'serif': serif,
 	'monospace': monospace
