@@ -1,9 +1,13 @@
-@each $ratio in $ratios {
-	.ratio-#{$ratio} {
-		@include responsive-ratio($ratio);
-	}
-
-	.ratio-#{$ratio}--vw {
-		@include responsive-ratio($ratio, 'vw');
+@each $unit, $unit-ratios in $ratios {
+	@each $ratio in $unit-ratios {
+		@if ($unit == '%') {
+			.ratio-#{$ratio} {
+				@include responsive-ratio($ratio);
+			}
+		} @else {
+			.ratio-#{$ratio}--#{$unit} {
+				@include responsive-ratio($ratio, $unit);
+			}
+		}
 	}
 }
