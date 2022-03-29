@@ -12,11 +12,10 @@
 	$width: number(nth(explode($ratios, 'x'), 1));
 	$height: number(nth(explode($ratios, 'x'), 2));
 
-	@if ($unit != '%') {
-		width: add-unit(100, $unit);
-	}
+	--ratio-height: #{$height};
+	--ratio-width: #{$width};
 
-	&:before {
-		padding-bottom: add-unit(100, $unit) * math.div($height, $width);
+	@if ($unit != '%') {
+		--width: #{add-unit($width, $unit)};
 	}
 }

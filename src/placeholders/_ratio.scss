@@ -1,13 +1,16 @@
 %ratio {
+	--ratio-height: 1;
+	--ratio-width: 1;
+	--width: 100%;
 	display: block;
 	font-size: 0;
 	position: relative;
-	width: 100%;
+	width: var(--width);
 
 	&:before {
 		content: '';
 		display: block;
-		padding-bottom: 100%;
+		padding-bottom: calc(var(--width) * (var(--ratio-height) / var(--ratio-width)));
 		width: 100%;
 	}
 
