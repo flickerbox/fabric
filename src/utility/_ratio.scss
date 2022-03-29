@@ -5,7 +5,7 @@
 				@include responsive-ratio($ratio);
 			}
 		} @else {
-			.ratio-#{$ratio}--#{$unit} {
+			.ratio-#{$ratio}#{$unit} {
 				@include responsive-ratio($ratio, $unit);
 			}
 		}
