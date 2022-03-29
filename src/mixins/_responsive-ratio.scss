@@ -5,54 +5,18 @@
 // Sets responsive ratio on an object
 //---------------------------------------------------------------
 
-@mixin responsive-ratio($ratios) {
+@mixin responsive-ratio($ratios, $unit: '%') {
 
-	$first: true;
+	@extend %ratio;
 
-	@if type-of($ratios) == 'map' {
+	$width: number(nth(explode($ratios, 'x'), 1));
+	$height: number(nth(explode($ratios, 'x'), 2));
 
-		@extend %ratio;
-
-		@each $breakpoint, $ratio in $ratios {
-
-			$width: number(nth(explode($ratio, 'x'), 1));
-			$height: number(nth(explode($ratio, 'x'), 2));
-
-			@if $first {
-
-				$first: false;
-
-				&:before {
-					padding-bottom: 100% * math.div($height, $width);
-				}
-
-			} @else {
-
-				@if str-index($breakpoint, '<') == null {
-					$breakpoint: '<#{$breakpoint}';
-				}
-
-				@include media('#{$breakpoint}') {
-					&:before {
-						padding-bottom: 100% * math.div($height, $width);
-					}
-				}
-
-			}
-
-		}
-
-	} @else {
-
-		@extend %ratio;
-
-		$width: number(nth(explode($ratios, 'x'), 1));
-		$height: number(nth(explode($ratios, 'x'), 2));
-
-		&:before {
-			padding-bottom: 100% * math.div($height, $width);
-		}
-
+	@if ($unit != '%') {
+		width: add-unit(100, $unit);
 	}
 
+	&:before {
+		padding-bottom: add-unit(100, $unit) * math.div($height, $width);
+	}
 }

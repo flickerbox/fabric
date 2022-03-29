@@ -2,4 +2,8 @@
 	.ratio-#{$ratio} {
 		@include responsive-ratio($ratio);
 	}
+
+	.ratio-#{$ratio}--vw {
+		@include responsive-ratio($ratio, 'vw');
+	}
 }
