@@ -21,6 +21,13 @@
 		@include responsive-property('--wrap-width-#{$name}', $width);
 	}
 
+	@each $name, $value in $border-radius {
+		@if $name == 'normal' {
+			@include responsive-property('--border-radius', $value);
+		}
+		@include responsive-property('--border-radius-#{$name}', $value);
+	}
+
 	@each $name, $shadows in $drop-shadows-elevations {
 		$alpha: $drop-shadows-alpha;
 
