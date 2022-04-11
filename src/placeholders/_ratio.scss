@@ -4,6 +4,7 @@
 	--width: 100%;
 	display: block;
 	font-size: 0;
+	overflow: hidden;
 	position: relative;
 	width: var(--width);
 
@@ -14,15 +15,12 @@
 		width: 100%;
 	}
 
-	> :only-child {
+	> * {
 		display: block;
-		font-size: 1rem;
 		height: 100%;
-		left: 50%;
-		overflow: hidden;
+		left: 0;
 		position: absolute;
-		top: 50%;
-		transform: translate(-50%, -50%);
+		top: 0;
 		width: 100%;
 	}
 }
