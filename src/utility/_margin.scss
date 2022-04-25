@@ -42,26 +42,26 @@
 
 [class^="mx-"],
 [class*=" mx-"] {
-	margin-left: var(--ml) !important;
-	margin-right: var(--mr) !important;
+	margin-left: var(--mx) !important;
+	margin-right: var(--mx) !important;
 }
 
 [class^="-mx-"],
 [class*=" -mx-"] {
-	margin-left: calc(var(--ml) * -1) !important;
-	margin-right: calc(var(--mr) * -1) !important;
+	margin-left: calc(var(--mx) * -1) !important;
+	margin-right: calc(var(--mx) * -1) !important;
 }
 
 [class^="my-"],
 [class*=" my-"] {
-	margin-bottom: var(--mb) !important;
-	margin-top: var(--mt) !important;
+	margin-bottom: var(--my) !important;
+	margin-top: var(--my) !important;
 }
 
 [class^="-my-"],
 [class*=" -my-"] {
-	margin-bottom: calc(var(--mb) * -1) !important;
-	margin-top: calc(var(--mt) * -1) !important;
+	margin-bottom: calc(var(--my) * -1) !important;
+	margin-top: calc(var(--my) * -1) !important;
 }
 
 @each $key, $value in $spacing {
@@ -84,6 +84,16 @@
 	.-mt-#{camelize($key)} {
 		@include responsive-property("--mt", $value);
 	}
+
+	.mx-#{camelize($key)},
+	.-mx-#{camelize($key)} {
+		@include responsive-property("--mx", $value);
+	}
+
+	.my-#{camelize($key)},
+	.-my-#{camelize($key)} {
+		@include responsive-property("--my", $value);
+	}
 }
 
 .mb-auto {
@@ -103,13 +113,11 @@
 }
 
 .mx-auto {
-	--ml: auto;
-	--mr: auto;
+	--mx: auto;
 }
 
 .my-auto {
-	--mb: auto;
-	--mt: auto;
+	--my: auto;
 }
 
 @each $breakpoint in map-keys($breakpoints) {
@@ -150,6 +158,24 @@
 					--mt: #{x-to-px($value)};
 				}
 			}
+
+			.mx-#{camelize($key)}--#{camelize($breakpoint)},
+			.-mx-#{camelize($key)}--#{camelize($breakpoint)} {
+				@if type-of($value) == "map" {
+					@include responsive-property("--mx", nth(map.values($value), 1));
+				} @else {
+					--mx: #{x-to-px($value)};
+				}
+			}
+
+			.my-#{camelize($key)}--#{camelize($breakpoint)},
+			.-my-#{camelize($key)}--#{camelize($breakpoint)} {
+				@if type-of($value) == "map" {
+					@include responsive-property("--my", nth(map.values($value), 1));
+				} @else {
+					--my: #{x-to-px($value)};
+				}
+			}
 		}
 
 		.mb-auto--#{camelize($breakpoint)} {
@@ -169,13 +195,11 @@
 		}
 
 		.mx-auto--#{camelize($breakpoint)} {
-			--ml: auto;
-			--mr: auto;
+			--mx: auto;
 		}
 
 		.my-auto--#{camelize($breakpoint)} {
-			--mb: auto;
-			--mt: auto;
+			--my: auto;
 		}
 	}
 }
