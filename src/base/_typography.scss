@@ -1,4 +1,10 @@
-* {
+html,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	font-size: var(--font-size);
 	font-weight: var(--font-weight);
 	font-variation-settings: 'wght' var(--font-weight);
@@ -7,7 +13,13 @@
 }
 
 html {
-	@extend %html !optional;
+	@include color(default);
+	@include font(base);
+	font-family: var(--font-family);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
 }
 
 body {

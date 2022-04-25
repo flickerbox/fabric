@@ -2,5 +2,5 @@
 /// @access public
 
 %strong {
-	font-weight: bold;
+	@include font-weight(bold);
 }
