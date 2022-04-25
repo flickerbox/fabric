@@ -7,9 +7,7 @@
 @mixin text-transform($key) {
 
 	@if type-of($key) == string and index(map-keys($text-transform), $key) {
-
-		text-transform: var(--text-transform-#{$key});
-
+		--text-transform: var(--text-transform-#{$key});
 	}
 
 }

@@ -1,8 +1,9 @@
 * {
-	font-size: var(--font-size);
-	font-weight: var(--font-weight);
-	font-variation-settings: 'wght' var(--font-weight);
-	line-height: var(--line-height);
+	font-size: var(--font-size, 16px);
+	font-weight: var(--font-weight, 400);
+	font-variation-settings: 'wght' var(--font-weight, 400);
+	line-height: var(--line-height, 1.5);
+	text-transform: var(--text-transform, none);
 }
 
 html {
