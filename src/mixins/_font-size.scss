@@ -7,9 +7,7 @@
 @mixin font-size($key) {
 
 	@if type-of($key) == string and index(map-keys($font-size), $key) {
-
-		font-size: var(--font-size-#{$key});
-
+		--font-size: var(--font-size-#{$key});
 	}
 
 }

@@ -7,9 +7,7 @@
 @mixin line-height($key) {
 
 	@if type-of($key) == string and index(map-keys($line-height), $key) {
-
-		line-height: var(--line-height-#{$key});
-
+		--line-height: var(--line-height-#{$key});
 	}
 
 }

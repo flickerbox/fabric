@@ -7,10 +7,7 @@
 @mixin font-weight($key) {
 
 	@if type-of($key) == string and index(map-keys($font-weight), $key) {
-
-		font-variation-settings: 'wght' var(--font-weight-#{$key});
-		font-weight: var(--font-weight-#{$key});
-
+		--font-weight: var(--font-weight-#{$key});
 	}
 
 }
