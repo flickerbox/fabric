@@ -22,10 +22,6 @@ html {
 	-webkit-text-size-adjust: 100%;
 }
 
-body {
-	@extend %body !optional;
-}
-
 h1,
 .h1 {
 	@extend %h !optional;
