@@ -103,6 +103,10 @@ code {
 	@extend %code !optional;
 }
 
+pre code {
+	display: block;
+}
+
 blockquote {
 	@extend %blockquote !optional;
 }
