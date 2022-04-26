@@ -26,37 +26,43 @@ html {
 }
 
 h1,
-.h1 {
+.h1,
+%h1 {
 	@extend %h;
 	@include font(h1);
 }
 
 h2,
-.h2 {
+.h2,
+%h2 {
 	@extend %h;
 	@include font(h2);
 }
 
 h3,
-.h3 {
+.h3,
+%h3 {
 	@extend %h;
 	@include font(h3);
 }
 
 h4,
-.h4 {
+.h4,
+%h4 {
 	@extend %h;
 	@include font(h4);
 }
 
 h5,
-.h5 {
+.h5,
+%h5 {
 	@extend %h;
 	@include font(h5);
 }
 
 h6,
-.h6 {
+.h6,
+%h6 {
 	@extend %h;
 	@include font(h6);
 }
