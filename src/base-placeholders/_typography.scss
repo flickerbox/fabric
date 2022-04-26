@@ -1,0 +1,60 @@
+%html {
+	@include color(default);
+	@include font(base, true);
+	font-family: var(--font-family);
+	font-size: var(--font-size);
+	font-weight: var(--font-weight);
+	font-variation-settings: 'wght' var(--font-weight);
+	letter-spacing: var(--letter-spacing);
+	line-height: var(--line-height);
+	text-transform: var(--text-transform);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+%h {
+	@include margin(0 0 3x);
+	font-family: var(--font-family-heading);
+
+	a,
+	a:active,
+	a:hover {
+		color: inherit;
+	}
+}
+
+%h1 {
+	@extend %h;
+	@include font(h1);
+}
+
+%h2 {
+	@extend %h;
+	@include font(h2);
+}
+
+%h3 {
+	@extend %h;
+	@include font(h3);
+}
+
+%h4 {
+	@extend %h;
+	@include font(h4);
+}
+
+%h5 {
+	@extend %h;
+	@include font(h5);
+}
+
+%h6 {
+	@extend %h;
+	@include font(h6);
+}
+
+%p {
+	@include margin(0 0 3x);
+}
