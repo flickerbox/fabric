@@ -5,12 +5,18 @@
 // Sets responsive ratio on an object
 //---------------------------------------------------------------
 
-@mixin responsive-ratio($ratios, $unit: '%') {
+@mixin responsive-ratio($ratios: '1x1', $unit: '%') {
 
 	@extend %ratio;
 
-	$width: number(nth(explode($ratios, 'x'), 1));
-	$height: number(nth(explode($ratios, 'x'), 2));
+	@if ($ratios) {
+		$ratios: explode($ratios, 'x');
+	} @else {
+		$ratios: 1 1;
+	}
+
+	$width: number(nth($ratios, 1));
+	$height: number(nth($ratios, 2));
 
 	--ratio-height: #{$height};
 	--ratio-width: #{$width};
