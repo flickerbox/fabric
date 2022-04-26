@@ -11,6 +11,7 @@
 			--font-weight: var(--font-weight-#{$key});
 		} @else {
 			font-weight: var(--font-weight-#{$key});
+			font-variation-settings: 'wght' var(--font-weight-#{$key});
 		}
 	}
 
