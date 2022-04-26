@@ -1,4 +1,5 @@
-html {
+html,
+%html {
 	@include color(default);
 	@include font(base, true);
 	font-family: var(--font-family);
