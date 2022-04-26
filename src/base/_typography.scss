@@ -4,7 +4,9 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+p,
+div {
 	font-size: var(--font-size);
 	font-weight: var(--font-weight);
 	font-variation-settings: 'wght' var(--font-weight);
@@ -15,7 +17,7 @@ h6 {
 
 html {
 	@include color(default);
-	@include font(base);
+	@include font(base, true);
 	font-family: var(--font-family);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;

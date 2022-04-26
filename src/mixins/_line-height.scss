@@ -4,10 +4,14 @@
 /// @group Mixins
 /// @param {String} $key - Key defined in $line-height map
 ///
-@mixin line-height($key) {
+@mixin line-height($key, $reset-variables: false) {
 
 	@if type-of($key) == string and index(map-keys($line-height), $key) {
-		--line-height: var(--line-height-#{$key});
+		@if $reset-variables == true {
+			--line-height: var(--line-height-#{$key});
+		} @else {
+			line-height: var(--line-height-#{$key});
+		}
 	}
 
 }

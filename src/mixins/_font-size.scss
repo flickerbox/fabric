@@ -4,10 +4,14 @@
 /// @group Mixins
 /// @param {String} $key - Key defined in $font-size map
 ///
-@mixin font-size($key) {
+@mixin font-size($key, $reset-variables: false) {
 
 	@if type-of($key) == string and index(map-keys($font-size), $key) {
-		--font-size: var(--font-size-#{$key});
+		@if $reset-variables == true {
+			--font-size: var(--font-size-#{$key});
+		} @else {
+			font-size: var(--font-size-#{$key});
+		}
 	}
 
 }
