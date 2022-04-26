@@ -9,8 +9,8 @@
 
 	@extend %ratio;
 
-	@if ($ratios) {
-		$ratios: explode($ratios, 'x');
+	@if $ratios {
+		$ratios: explode(string($ratios), 'x');
 	} @else {
 		$ratios: 1 1;
 	}
@@ -21,7 +21,7 @@
 	--ratio-height: #{$height};
 	--ratio-width: #{$width};
 
-	@if ($unit != '%') {
+	@if $unit != '%' {
 		--width: #{add-unit($width, $unit)};
 	}
 }
