@@ -27,13 +27,13 @@ $excluded-font-sizes: (
 }
 
 @each $font-family in map.keys($font-family) {
-	@if $name == 'default' {
+	@if $font-family == 'default' {
 		.font-#{camelize($font-family)} {
 			font-family: var(--font-family);
 		}
 	} @else {
 		.font-#{camelize($font-family)} {
-			font-family: var(--font-family-#{$name});
+			font-family: var(--font-family-#{$font-family});
 		}
 	}
 }
