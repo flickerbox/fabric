@@ -63,6 +63,10 @@
 			--color-#{"" + $name}-rgb: #{red($hex)}, #{green($hex)}, #{blue($hex)};
 		}
 
+		@each $name, $gradient in $gradients {
+			--gradient-#{"" + $name}: #{$gradient};
+		}
+
 		@each $name, $value in $font-family {
 			@if $name == 'default' {
 				--font-family: #{$value};
