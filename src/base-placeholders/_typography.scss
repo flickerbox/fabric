@@ -16,7 +16,13 @@
 
 %h {
 	@include margin(0 0 3x);
-	font-family: var(--font-family-heading);
+	font-family: var(--font-family-heading, var(--font-family));
+	font-size: var(--font-size);
+	font-weight: var(--font-weight);
+	font-variation-settings: 'wght' var(--font-weight);
+	letter-spacing: var(--letter-spacing);
+	line-height: var(--line-height);
+	text-transform: var(--text-transform);
 
 	a,
 	a:active,
