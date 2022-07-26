@@ -27,32 +27,32 @@
 
 %h1 {
 	@extend %h;
-	@include font(h1);
+	@include font(h1, true);
 }
 
 %h2 {
 	@extend %h;
-	@include font(h2);
+	@include font(h2, true);
 }
 
 %h3 {
 	@extend %h;
-	@include font(h3);
+	@include font(h3, true);
 }
 
 %h4 {
 	@extend %h;
-	@include font(h4);
+	@include font(h4, true);
 }
 
 %h5 {
 	@extend %h;
-	@include font(h5);
+	@include font(h5, true);
 }
 
 %h6 {
 	@extend %h;
-	@include font(h6);
+	@include font(h6, true);
 }
 
 %p {
