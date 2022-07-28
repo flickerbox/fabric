@@ -10,6 +10,12 @@ $excluded-font-sizes: (
 	@if not list.index($excluded-font-sizes, $font-size) {
 		.font-#{camelize($font-size)} {
 			@include font($font-size, true);
+			font-size: var(--font-size);
+			font-weight: var(--font-weight);
+			font-variation-settings: 'wght' var(--font-weight);
+			letter-spacing: var(--letter-spacing);
+			line-height: var(--line-height);
+			text-transform: var(--text-transform);
 		}
 	}
 }
@@ -20,6 +26,12 @@ $excluded-font-sizes: (
 			@if not list.index($excluded-font-sizes, $font-size) {
 				.font-#{camelize($font-size)}--#{camelize($breakpoint)} {
 					@include font($font-size, true);
+					font-size: var(--font-size);
+					font-weight: var(--font-weight);
+					font-variation-settings: 'wght' var(--font-weight);
+					letter-spacing: var(--letter-spacing);
+					line-height: var(--line-height);
+					text-transform: var(--text-transform);
 				}
 			}
 		}
