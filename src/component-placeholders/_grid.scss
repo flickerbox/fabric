@@ -32,9 +32,31 @@
 		((var(--grid-item-width) - 1) * var(--grid-gap))
 	);
 
-	@for $i from $grid-columns through 1 {
-		&.is-#{$i} {
-			--grid-item-width: #{$i};
+	@each $_grid-breakpoint in map-keys($grid-breakpoints) {
+		$_breakpoints: map-get($grid-breakpoints, $_grid-breakpoint);
+
+		@if length($_breakpoints) > 1 {
+			$_breakpoints: list-reverse($_breakpoints);
+		}
+
+		@for $i from 1 through length($_breakpoints) {
+			$_breakpoint: nth($_breakpoints, $i);
+
+			@if $i == 1 {
+				@for $j from $grid-columns through 1 {
+					&.is-#{$j} {
+						--grid-item-width: #{$j};
+					}
+				}
+			} @else {
+				@include media('<#{$_breakpoint}') {
+					@for $j from $grid-columns through 1 {
+						&.is-#{$j}--#{camelize($_breakpoint)} {
+							--grid-item-width: #{$j};
+						}
+					}
+				}
+			}
 		}
 	}
 }

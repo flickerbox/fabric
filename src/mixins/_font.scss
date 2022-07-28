@@ -4,12 +4,12 @@
 /// @group Mixins
 /// @param {String} $key - Key defined in font property maps
 ///
-@mixin font($key) {
+@mixin font($key, $reset-variables: false) {
 
-	@include font-size($key);
-	@include font-weight($key);
-	@include letter-spacing($key);
-	@include line-height($key);
-	@include text-transform($key);
+	@include font-size($key, $reset-variables);
+	@include font-weight($key, $reset-variables);
+	@include letter-spacing($key, $reset-variables);
+	@include line-height($key, $reset-variables);
+	@include text-transform($key, $reset-variables);
 
 }

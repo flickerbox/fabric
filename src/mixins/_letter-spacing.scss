@@ -4,12 +4,14 @@
 /// @group Mixins
 /// @param {String} $key - Key defined in $letter-spacing map
 ///
-@mixin letter-spacing($key) {
+@mixin letter-spacing($key, $reset-variables: false) {
 
 	@if type-of($key) == string and index(map-keys($letter-spacing), $key) {
-
-		letter-spacing: var(--letter-spacing-#{$key});
-
+		@if $reset-variables == true {
+			--letter-spacing: var(--letter-spacing-#{$key});
+		} @else {
+			letter-spacing: var(--letter-spacing-#{$key});
+		}
 	}
 
 }

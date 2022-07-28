@@ -4,13 +4,15 @@
 /// @group Mixins
 /// @param {String} $key - Key defined in $font-weight map
 ///
-@mixin font-weight($key) {
+@mixin font-weight($key, $reset-variables: false) {
 
 	@if type-of($key) == string and index(map-keys($font-weight), $key) {
-
-		font-variation-settings: 'wght' var(--font-weight-#{$key});
-		font-weight: var(--font-weight-#{$key});
-
+		@if $reset-variables == true {
+			--font-weight: var(--font-weight-#{$key});
+		} @else {
+			font-weight: var(--font-weight-#{$key});
+			font-variation-settings: 'wght' var(--font-weight-#{$key});
+		}
 	}
 
 }

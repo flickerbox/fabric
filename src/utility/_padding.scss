@@ -20,6 +20,18 @@
 	padding-top: var(--pt) !important;
 }
 
+[class^="px-"],
+[class*=" px-"] {
+	padding-left: var(--px) !important;
+	padding-right: var(--px) !important;
+}
+
+[class^="py-"],
+[class*=" py-"] {
+	padding-bottom: var(--py) !important;
+	padding-top: var(--py) !important;
+}
+
 @each $key, $value in $spacing {
 	.pb-#{camelize($key)} {
 		@include responsive-property("--pb", $value);
@@ -36,32 +48,14 @@
 	.pt-#{camelize($key)} {
 		@include responsive-property("--pt", $value);
 	}
-}
 
-.pb-auto {
-	--pb: auto;
-}
+	.px-#{camelize($key)} {
+		@include responsive-property("--px", $value);
+	}
 
-.pl-auto {
-	--pl: auto;
-}
-
-.pr-auto {
-	--pr: auto;
-}
-
-.pt-auto {
-	--pt: auto;
-}
-
-.mx-auto {
-	--pl: auto;
-	--pr: auto;
-}
-
-.my-auto {
-	--pb: auto;
-	--pt: auto;
+	.py-#{camelize($key)} {
+		@include responsive-property("--py", $value);
+	}
 }
 
 @each $breakpoint in map-keys($breakpoints) {
@@ -99,32 +93,22 @@
 					--pt: #{x-to-px($value)};
 				}
 			}
-		}
 
-		.pb-auto--#{camelize($breakpoint)} {
-			--pb: auto;
-		}
+			.px-#{camelize($key)}--#{camelize($breakpoint)} {
+				@if type-of($value) == "map" {
+					@include responsive-property("--px", nth(map.values($value), 1));
+				} @else {
+					--px: #{x-to-px($value)};
+				}
+			}
 
-		.pl-auto--#{camelize($breakpoint)} {
-			--pl: auto;
-		}
-
-		.pr-auto--#{camelize($breakpoint)} {
-			--pr: auto;
-		}
-
-		.pt-auto--#{camelize($breakpoint)} {
-			--pt: auto;
-		}
-
-		.mx-auto--#{camelize($breakpoint)} {
-			--pl: auto;
-			--pr: auto;
-		}
-
-		.my-auto--#{camelize($breakpoint)} {
-			--pb: auto;
-			--pt: auto;
+			.py-#{camelize($key)}--#{camelize($breakpoint)} {
+				@if type-of($value) == "map" {
+					@include responsive-property("--py", nth(map.values($value), 1));
+				} @else {
+					--py: #{x-to-px($value)};
+				}
+			}
 		}
 	}
 }

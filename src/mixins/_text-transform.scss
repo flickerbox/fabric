@@ -4,12 +4,14 @@
 /// @group Mixins
 /// @param {String} $key - Key defined in $text-transform map
 ///
-@mixin text-transform($key) {
+@mixin text-transform($key, $reset-variables: false) {
 
 	@if type-of($key) == string and index(map-keys($text-transform), $key) {
-
-		text-transform: var(--text-transform-#{$key});
-
+		@if $reset-variables == true {
+			--text-transform: var(--text-transform-#{$key});
+		} @else {
+			text-transform: var(--text-transform-#{$key});
+		}
 	}
 
 }

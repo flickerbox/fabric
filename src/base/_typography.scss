@@ -1,49 +1,39 @@
 html {
-	@extend %html !optional;
-}
-
-body {
-	@extend %body !optional;
+	@extend %html;
 }
 
 h1,
 .h1 {
-	@extend %h !optional;
-	@extend %h1 !optional;
+	@extend %h1;
 }
 
 h2,
 .h2 {
-	@extend %h !optional;
-	@extend %h2 !optional;
+	@extend %h2;
 }
 
 h3,
 .h3 {
-	@extend %h !optional;
-	@extend %h3 !optional;
+	@extend %h3;
 }
 
 h4,
 .h4 {
-	@extend %h !optional;
-	@extend %h4 !optional;
+	@extend %h4;
 }
 
 h5,
 .h5 {
-	@extend %h !optional;
-	@extend %h5 !optional;
+	@extend %h5;
 }
 
 h6,
 .h6 {
-	@extend %h !optional;
-	@extend %h6 !optional;
+	@extend %h6;
 }
 
 p {
-	@extend %p !optional;
+	@extend %p;
 }
 
 ul,
@@ -53,41 +43,45 @@ table,
 address,
 form,
 pre {
-	@extend %margins !optional;
+	@extend %margins;
 }
 
 ol {
-	@extend %ol !optional;
+	@extend %ol;
 }
 
 ul {
-	@extend %ul !optional;
+	@extend %ul;
 }
 
 a {
-	@extend %a !optional;
+	@extend %a;
 }
 
 article {
-	@extend %article !optional;
+	@extend %article;
 }
 
 strong {
-	@extend %strong !optional;
-}
-
-pre {
-	@extend %pre !optional;
+	@extend %strong;
 }
 
 code {
-	@extend %code !optional;
+	@extend %code;
+}
+
+pre {
+	@extend %pre;
+
+	code {
+		display: block;
+	}
 }
 
 blockquote {
-	@extend %blockquote !optional;
+	@extend %blockquote;
 }
 
 img {
-	@extend %img !optional;
+	@extend %img;
 }

@@ -1,0 +1,25 @@
+@use 'sass:map';
+
+.grid-column {
+	grid-auto-columns: 1fr;
+	grid-auto-flow: column;
+}
+
+.grid-row {
+	grid-auto-columns: initial;
+	grid-auto-flow: row;
+}
+
+@each $breakpoint in map.keys($breakpoints) {
+	@include media('<#{$breakpoint}') {
+		.grid-column--#{camelize($breakpoint)} {
+			grid-auto-columns: 1fr;
+			grid-auto-flow: column;
+		}
+
+		.grid-row--#{camelize($breakpoint)} {
+			grid-auto-columns: initial;
+			grid-auto-flow: row;
+		}
+	}
+}

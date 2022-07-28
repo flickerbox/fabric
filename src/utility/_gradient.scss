@@ -1,0 +1,14 @@
+////
+/// @group Fabric Utility
+/// @access public
+/// @require {function} pascalize
+////
+
+@each $name, $gradient in $gradients {
+
+	/// @name .color-
+	.bg-gradient#{pascalize($name)} {
+		background: var(--gradient-#{$name});
+	}
+
+}

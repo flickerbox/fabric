@@ -9,7 +9,7 @@ $excluded-font-sizes: (
 @each $font-size in map.keys($font-size) {
 	@if not list.index($excluded-font-sizes, $font-size) {
 		.font-#{camelize($font-size)} {
-			@include font($font-size);
+			@include font($font-size, true);
 		}
 	}
 }
@@ -19,9 +19,21 @@ $excluded-font-sizes: (
 		@each $font-size in map.keys($font-size) {
 			@if not list.index($excluded-font-sizes, $font-size) {
 				.font-#{camelize($font-size)}--#{camelize($breakpoint)} {
-					@include font($font-size);
+					@include font($font-size, true);
 				}
 			}
+		}
+	}
+}
+
+@each $font-family in map.keys($font-family) {
+	@if $font-family == 'default' {
+		.font-#{camelize($font-family)} {
+			font-family: var(--font-family);
+		}
+	} @else {
+		.font-#{camelize($font-family)} {
+			font-family: var(--font-family-#{$font-family});
 		}
 	}
 }

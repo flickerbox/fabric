@@ -1,0 +1,123 @@
+/// @group Fabric Base Placeholders
+/// @access public
+
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:math';
+
+@import '../mixins/button-variables';
+@import '../mixins/font-size-variables';
+
+@at-root {
+	:root {
+
+		@each $name, $breakpoint in $breakpoints {
+			--breakpoint-#{$name}: #{$breakpoint};
+		}
+
+		@include responsive-property('--layout-padding', $layout-padding);
+		@include responsive-property('--layout-width', $layout-width);
+
+		@each $name, $width in $wrap-width {
+			@include responsive-property('--wrap-padding-#{$name}', map-get($wrap-padding, $name));
+			@include responsive-property('--wrap-width-#{$name}', $width);
+		}
+
+		@each $name, $value in $border-radius {
+			@if $name == 'normal' {
+				@include responsive-property('--border-radius', $value);
+			}
+			@include responsive-property('--border-radius-#{$name}', $value);
+		}
+
+		@each $name, $shadows in $drop-shadows-elevations {
+			$alpha: $drop-shadows-alpha;
+
+			@if type-of($alpha) == 'map' {
+				$alpha: #{map-get($alpha, $name)};
+			}
+
+			$first: true;
+
+			@each $color in $drop-shadows-color {
+				$box-shadow: ();
+				$rgba-color: rgba(var(--color-#{$color}-rgb), $alpha);
+
+				@each $shadow in $shadows {
+					$box-shadow: append($box-shadow, unquote('#{$rgba-color} #{$shadow}'), 'comma');
+				}
+
+				@if $first {
+					--box-shadow-#{$name}: #{$box-shadow};
+					$first: false;
+				}
+
+				--box-shadow-#{$name}-#{"" + $color}: #{$box-shadow};
+			}
+		}
+
+		@include button-variables;
+
+		@each $name, $hex in $colors {
+			--color-#{"" + $name}: #{$hex};
+			--color-#{"" + $name}-rgb: #{red($hex)}, #{green($hex)}, #{blue($hex)};
+		}
+
+		@each $name, $gradient in $gradients {
+			--gradient-#{"" + $name}: #{$gradient};
+		}
+
+		@each $name, $value in $font-family {
+			@if $name == 'default' {
+				--font-family: #{$value};
+			}
+			--font-family-#{$name}: #{$value};
+		}
+
+		@include font-size-variables($font-size, $breakpoints);
+
+		@each $name, $value in $font-weight {
+			@include responsive-property('--font-weight-#{$name}', $value);
+		}
+
+		@each $name, $value in $letter-spacing {
+			@include responsive-property('--letter-spacing-#{$name}', $value);
+		}
+
+		@each $name, $value in $line-height {
+			@if type-of($value) == 'map' {
+				@include responsive-property('--line-height-#{$name}', $value);
+			} @else {
+				$font-size: get-font-size($name);
+
+				@if type-of($font-size) == 'map' {
+					$font-size: get-font-size($name, nth(map-keys($font-size), 1));
+				}
+
+				--line-height-#{$name}: #{math.div(remove-unit($value), remove-unit($font-size))};
+			}
+		}
+
+		@each $name, $value in $grid-gaps {
+			@if $name == 'normal' {
+				@include responsive-property('--gap', $value);
+			}
+			@include responsive-property('--gap-#{$name}', $value);
+		}
+
+		@each $name, $value in $spacing {
+			@include responsive-property('--spacing-#{$name}', $value);
+		}
+
+		@for $i from 1 through $layout-spacing-max-units {
+			@include responsive-property('--#{$i}x', x-to-px(#{$i}x));
+		}
+
+		@include responsive-property('--grid-gap', get-grid-gap(normal));
+
+		@each $name, $value in $grid-gaps {
+			@include responsive-property('--grid-gap-#{$name}', $value);
+		}
+
+	}
+}
