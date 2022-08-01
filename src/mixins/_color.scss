@@ -7,6 +7,7 @@
 ///
 @mixin color($_color, $_alpha: 1) {
 
-	color: get-color($_color, $_alpha);
+	--color: get-color($_color, $_alpha);
+	color: var(--color);
 
 }
