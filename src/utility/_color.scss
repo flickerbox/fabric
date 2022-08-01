@@ -8,12 +8,14 @@
 
 	/// @name .color-
 	.color-#{camelize($name)} {
-		color: var(--color-#{$name});
+		--color: var(--color-#{$name});
+		color: var(--color);
 	}
 
 	@if is-hex($color) {
 		.color-#{to-lower-case(str-slice(#{$color}, 2))} {
-			color: var(--color-#{$name});
+			--color: var(--color-#{$name});
+			color: var(--color);
 		}
 	}
 
