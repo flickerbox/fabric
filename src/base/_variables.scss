@@ -94,7 +94,11 @@
 					$font-size: get-font-size($name, nth(map-keys($font-size), 1));
 				}
 
-				--line-height-#{$name}: #{math.div(remove-unit($value), remove-unit($font-size))};
+				@if get-unit($value) == get-unit($font-size) {
+					--line-height-#{$name}: #{math.div(remove-unit($value), remove-unit($font-size))};
+				} @else {
+					--line-height-#{$name}: #{$value};
+				}
 			}
 		}
 

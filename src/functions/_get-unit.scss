@@ -1,0 +1,24 @@
+@use 'sass:math';
+
+/// Returns the unit from the variable
+/// @name get-unit
+/// @group Fabric Functions
+/// @param {string} $_value [] - Value with unit
+/// @require {function} SassCore::str-length
+/// @require {function} SassCore::str-slice
+/// @require {function} string
+/// @require {function} is-number
+/// @require {function} number
+/// @return {number}
+
+@function get-unit($_value) {
+
+	$_unitless-value: remove-unit($_value);
+
+	@if ($_unitless-value != $_value) {
+		@return str-slice(string($_value), str-length(string($_unitless-value)));
+	}
+
+	@return $_value;
+
+}
