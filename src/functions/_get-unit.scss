@@ -16,7 +16,7 @@
 	$_unitless-value: remove-unit($_value);
 
 	@if ($_unitless-value != $_value) {
-		@return str-slice(string($_value), str-length(string($_unitless-value)));
+		@return str-slice(string($_value), str-length(string($_unitless-value) + 1));
 	}
 
 	@return $_value;
